@@ -252,4 +252,9 @@ void DRV_PLC_PHY_Tasks( SYS_MODULE_OBJ object )
 
 void DRV_PLC_PHY_EnableTX( const DRV_HANDLE handle, bool enable )
 {
+    if((handle != DRV_HANDLE_INVALID) && (handle == 0U))
+    {
+        /* Set Tx Enable pin */
+        gDrvPlcPhyObj.plcHal->setTxEnable(enable);
+    }
 }

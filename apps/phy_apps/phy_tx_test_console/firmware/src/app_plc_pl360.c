@@ -90,12 +90,12 @@ static CACHE_ALIGN uint8_t appPlcTxDataBuffer[CACHE_ALIGNED_SIZE_GET(APP_PLC_BUF
 // Section: Application Callback Functions
 // *****************************************************************************
 // *****************************************************************************
-void Timer1_Callback (uintptr_t context)
+void APP_PLC_Timer1_Callback (uintptr_t context)
 {
     appPlc.tmr1Expired = true;
 }
 
-void Timer2_Callback (uintptr_t context)
+void APP_PLC_Timer2_Callback (uintptr_t context)
 {
     appPlc.tmr2Expired = true;
 }
@@ -105,8 +105,8 @@ static void APP_PLC_ExceptionCb(DRV_PLC_PHY_EXCEPTION exceptionObj, uintptr_t co
     /* Avoid warning */
     (void)context;
 
-    /* Clear App flag */
-    appPlc.waitingTxCfm = false;
+    /* Update PLC TX Status */
+    appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
     /* Restore TX configuration */
     appPlc.state = APP_PLC_STATE_READ_CONFIG;
 }
@@ -116,8 +116,8 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
     /* Avoid warning */
     (void)context;
 
-    /* Update App flags */
-    appPlc.waitingTxCfm = false;
+    /* Update PLC TX Status */
+    appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
 
     /* Handle result of transmission : Show it through Console */
     switch(cfmObj->result)
@@ -159,9 +159,11 @@ static void APP_PLC_DataIndCb( DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t cont
 
     if (indObj->dataLength)
     {
+        /* Turn on indication LED and start timer to turn it off */
+        SYS_TIME_TimerDestroy(appPlc.tmr2Handle);
         USER_PLC_IND_LED_On();
         /* Start signal timer */
-        appPlc.tmr2Handle = SYS_TIME_CallbackRegisterMS(Timer2_Callback, 0, LED_PLC_RX_MSG_RATE_MS, SYS_TIME_SINGLE);
+        appPlc.tmr2Handle = SYS_TIME_CallbackRegisterMS(APP_PLC_Timer2_Callback, 0, LED_PLC_RX_MSG_RATE_MS, SYS_TIME_SINGLE);
     }
 }
 
@@ -177,9 +179,6 @@ void APP_PLC_PL360_Initialize ( void )
     /* IDLE state is used to signal when application is started */
     appPlc.state = APP_PLC_STATE_IDLE;
 
-    /* Init flags of PLC transmission */
-    appPlc.waitingTxCfm = false;
-
     /* Init PLC PIB buffer */
     appPlc.plcPIB.pData = appPlcPibDataBuffer;
 
@@ -194,6 +193,9 @@ void APP_PLC_PL360_Initialize ( void )
 
     /* Init signalling */
     appPlc.signalResetCounter = LED_RESET_BLINK_COUNTER;
+
+    /* Init PLC TX status */
+    appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
 
 }
 
@@ -237,7 +239,7 @@ void APP_PLC_PL360_Tasks ( void )
                 if (appPlc.tmr1Handle == SYS_TIME_HANDLE_INVALID)
                 {
                     /* Init Timer to handle blinking led */
-                    appPlc.tmr1Handle = SYS_TIME_CallbackRegisterMS(Timer1_Callback, 0, LED_RESET_BLINK_RATE_MS, SYS_TIME_PERIODIC);
+                    appPlc.tmr1Handle = SYS_TIME_CallbackRegisterMS(APP_PLC_Timer1_Callback, 0, LED_RESET_BLINK_RATE_MS, SYS_TIME_PERIODIC);
                 }
             }
             else
@@ -286,7 +288,6 @@ void APP_PLC_PL360_Tasks ( void )
                     appPlcTx.plcPhyTx.dataLength = 64;
                     appPlcTx.plcPhyTx.pTransmitData = appPlcTxDataBuffer;
                     
-
                     /* Clear Transmission flag */
                     appPlcTx.inTx = false;
                 }
@@ -341,9 +342,9 @@ void APP_PLC_PL360_Tasks ( void )
         case APP_PLC_STATE_INIT:
         {
             /* Open PLC driver */
-            appPlc.drvPl360Handle = DRV_PLC_PHY_Open(DRV_PLC_PHY_INDEX_0, NULL);
+            appPlc.drvPlcHandle = DRV_PLC_PHY_Open(DRV_PLC_PHY_INDEX_0, NULL);
 
-            if (appPlc.drvPl360Handle != DRV_HANDLE_INVALID)
+            if (appPlc.drvPlcHandle != DRV_HANDLE_INVALID)
             {
                 appPlc.state = APP_PLC_STATE_OPEN;
             }
@@ -363,21 +364,21 @@ void APP_PLC_PL360_Tasks ( void )
                 uint32_t version;
 
                 /* Configure PLC callbacks */
-                DRV_PLC_PHY_ExceptionCallbackRegister(appPlc.drvPl360Handle, APP_PLC_ExceptionCb, DRV_PLC_PHY_INDEX_0);
-                DRV_PLC_PHY_TxCfmCallbackRegister(appPlc.drvPl360Handle, APP_PLC_DataCfmCb, DRV_PLC_PHY_INDEX_0);
-                DRV_PLC_PHY_DataIndCallbackRegister(appPlc.drvPl360Handle, APP_PLC_DataIndCb, DRV_PLC_PHY_INDEX_0);
+                DRV_PLC_PHY_ExceptionCallbackRegister(appPlc.drvPlcHandle, APP_PLC_ExceptionCb, DRV_PLC_PHY_INDEX_0);
+                DRV_PLC_PHY_TxCfmCallbackRegister(appPlc.drvPlcHandle, APP_PLC_DataCfmCb, DRV_PLC_PHY_INDEX_0);
+                DRV_PLC_PHY_DataIndCallbackRegister(appPlc.drvPlcHandle, APP_PLC_DataIndCb, DRV_PLC_PHY_INDEX_0);
 
                 /* Apply PLC coupling configuration */
-                SRV_PCOUP_Set_Config(appPlc.drvPl360Handle, SRV_PLC_PCOUP_MAIN_BRANCH);
+                SRV_PCOUP_Set_Config(appPlc.drvPlcHandle, SRV_PLC_PCOUP_MAIN_BRANCH);
 
                 /* Init Timer to handle blinking led */
-                appPlc.tmr1Handle = SYS_TIME_CallbackRegisterMS(Timer1_Callback, 0, LED_BLINK_RATE_MS, SYS_TIME_PERIODIC);
+                appPlc.tmr1Handle = SYS_TIME_CallbackRegisterMS(APP_PLC_Timer1_Callback, 0, LED_BLINK_RATE_MS, SYS_TIME_PERIODIC);
 
                 /* Get PLC PHY version */
                 pibObj.id = PLC_ID_VERSION_NUM;
                 pibObj.length = 4;
                 pibObj.pData = (uint8_t *)&version;
-                DRV_PLC_PHY_PIBGet(appPlc.drvPl360Handle, &pibObj);
+                DRV_PLC_PHY_PIBGet(appPlc.drvPlcHandle, &pibObj);
 
                 if (version == appPlcTx.plcPhyVersion)
                 {
@@ -419,12 +420,12 @@ void APP_PLC_PL360_Tasks ( void )
                 pibObj.id = PLC_ID_CFG_AUTODETECT_IMPEDANCE;
                 pibObj.length = 1;
                 pibObj.pData = (uint8_t *)&appPlcTx.txAuto;
-                DRV_PLC_PHY_PIBSet(appPlc.drvPl360Handle, &pibObj);
+                DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
                 /* Set Impedance Mode */
                 pibObj.id = PLC_ID_CFG_IMPEDANCE;
                 pibObj.length = 1;
                 pibObj.pData = (uint8_t *)&appPlcTx.txImpedance;
-                DRV_PLC_PHY_PIBSet(appPlc.drvPl360Handle, &pibObj);
+                DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
 
                 /* Set Transmission Mode */
                 appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE;
@@ -437,11 +438,11 @@ void APP_PLC_PL360_Tasks ( void )
             }
             else
             {
-                if (!appPlc.waitingTxCfm)
+                if (appPlc.plcTxState == APP_PLC_TX_STATE_IDLE)
                 {
-                    appPlc.waitingTxCfm = true;
+                    appPlc.plcTxState = APP_PLC_TX_STATE_WAIT_TX_CFM;
                     /* Send PLC message */
-                    DRV_PLC_PHY_TxRequest(appPlc.drvPl360Handle, &appPlcTx.plcPhyTx);
+                    DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
                 }
             }
 
@@ -457,11 +458,11 @@ void APP_PLC_PL360_Tasks ( void )
             appPlc.state = APP_PLC_STATE_WRITE_CONFIG;
 
             /* Cancel last transmission */
-            if (appPlc.waitingTxCfm)
+            if (appPlc.plcTxState == APP_PLC_TX_STATE_WAIT_TX_CFM)
             {
                 /* Send PLC Cancel message */
                 appPlcTx.plcPhyTx.mode = TX_MODE_CANCEL | TX_MODE_RELATIVE;
-                DRV_PLC_PHY_TxRequest(appPlc.drvPl360Handle, &appPlcTx.plcPhyTx);
+                DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
             }
             break;
         }

@@ -90,6 +90,78 @@
 #define PIO_PORT_MAX    4U
 
 
+/*** Macros for PLC_STBY pin ***/
+#define PLC_STBY_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<0U))
+#define PLC_STBY_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<0U))
+#define PLC_STBY_Toggle()            do {\
+                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<0U); \
+                                            PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<0U);\
+                                        } while (0)
+#define PLC_STBY_OutputEnable()      do {\
+                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<0U); \
+                                            PIOA_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        }while(0)
+#define PLC_STBY_InputEnable()       do { \
+                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<0U); \
+                                            PIOA_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        } while (0)
+#define PLC_STBY_Get()               ((PIOA_REGS->PIO_PDSR >> 0U) & 0x1U)
+#define PLC_STBY_PIN                  PIO_PIN_PA0
+
+/*** Macros for PLC_TXEN pin ***/
+#define PLC_TXEN_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<1U))
+#define PLC_TXEN_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<1U))
+#define PLC_TXEN_Toggle()            do {\
+                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<1U); \
+                                            PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<1U);\
+                                        } while (0)
+#define PLC_TXEN_OutputEnable()      do {\
+                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<1U); \
+                                            PIOA_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        }while(0)
+#define PLC_TXEN_InputEnable()       do { \
+                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<1U); \
+                                            PIOA_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        } while (0)
+#define PLC_TXEN_Get()               ((PIOA_REGS->PIO_PDSR >> 1U) & 0x1U)
+#define PLC_TXEN_PIN                  PIO_PIN_PA1
+
+/*** Macros for PLC_NRST pin ***/
+#define PLC_NRST_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<15U))
+#define PLC_NRST_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<15U))
+#define PLC_NRST_Toggle()            do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
+                                            PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<15U);\
+                                        } while (0)
+#define PLC_NRST_OutputEnable()      do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
+                                            PIOD_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        }while(0)
+#define PLC_NRST_InputEnable()       do { \
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
+                                            PIOD_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        } while (0)
+#define PLC_NRST_Get()               ((PIOD_REGS->PIO_PDSR >> 15U) & 0x1U)
+#define PLC_NRST_PIN                  PIO_PIN_PD15
+
+/*** Macros for PLC_LDO_EN pin ***/
+#define PLC_LDO_EN_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<19U))
+#define PLC_LDO_EN_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<19U))
+#define PLC_LDO_EN_Toggle()            do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<19U); \
+                                            PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<19U);\
+                                        } while (0)
+#define PLC_LDO_EN_OutputEnable()      do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<19U); \
+                                            PIOD_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        }while(0)
+#define PLC_LDO_EN_InputEnable()       do { \
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<19U); \
+                                            PIOD_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        } while (0)
+#define PLC_LDO_EN_Get()               ((PIOD_REGS->PIO_PDSR >> 19U) & 0x1U)
+#define PLC_LDO_EN_PIN                  PIO_PIN_PD19
+
 /*** Macros for PLC_EXT_INT pin ***/
 #define PLC_EXT_INT_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<2U))
 #define PLC_EXT_INT_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<2U))
@@ -110,41 +182,23 @@
 #define PLC_EXT_INT_InterruptEnable()   (PIOA_REGS->PIO_IER = (1<<2))
 #define PLC_EXT_INT_InterruptDisable()  (PIOA_REGS->PIO_IDR = (1<<2))
 
-/*** Macros for PLC_NRST pin ***/
-#define PLC_NRST_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<3U))
-#define PLC_NRST_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<3U))
-#define PLC_NRST_Toggle()            do {\
-                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<3U); \
-                                            PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<3U);\
+/*** Macros for PLC_THMON pin ***/
+#define PLC_THMON_Set()               (PIOB_REGS->PIO_SODR = ((uint32_t)1U<<15U))
+#define PLC_THMON_Clear()             (PIOB_REGS->PIO_CODR = ((uint32_t)1U<<15U))
+#define PLC_THMON_Toggle()            do {\
+                                            PIOB_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
+                                            PIOB_REGS->PIO_ODSR ^= ((uint32_t)1U<<15U);\
                                         } while (0)
-#define PLC_NRST_OutputEnable()      do {\
-                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<3U); \
-                                            PIOA_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+#define PLC_THMON_OutputEnable()      do {\
+                                            PIOB_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
+                                            PIOB_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
                                         }while(0)
-#define PLC_NRST_InputEnable()       do { \
-                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<3U); \
-                                            PIOA_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+#define PLC_THMON_InputEnable()       do { \
+                                            PIOB_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
+                                            PIOB_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
                                         } while (0)
-#define PLC_NRST_Get()               ((PIOA_REGS->PIO_PDSR >> 3U) & 0x1U)
-#define PLC_NRST_PIN                  PIO_PIN_PA3
-
-/*** Macros for PLC_LDO_EN pin ***/
-#define PLC_LDO_EN_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<28U))
-#define PLC_LDO_EN_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<28U))
-#define PLC_LDO_EN_Toggle()            do {\
-                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<28U); \
-                                            PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<28U);\
-                                        } while (0)
-#define PLC_LDO_EN_OutputEnable()      do {\
-                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<28U); \
-                                            PIOA_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
-                                        }while(0)
-#define PLC_LDO_EN_InputEnable()       do { \
-                                            PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<28U); \
-                                            PIOA_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
-                                        } while (0)
-#define PLC_LDO_EN_Get()               ((PIOA_REGS->PIO_PDSR >> 28U) & 0x1U)
-#define PLC_LDO_EN_PIN                  PIO_PIN_PA28
+#define PLC_THMON_Get()               ((PIOB_REGS->PIO_PDSR >> 15U) & 0x1U)
+#define PLC_THMON_PIN                  PIO_PIN_PB15
 // *****************************************************************************
 /* PIO Ports
 

@@ -89,8 +89,8 @@ DRV_MEMORY_Tasks(sysObj.drvMemory0);
     
 
     /* Maintain the application's state machine. */
-        /* Call Application task APP_PLC_PL360. */
-    APP_PLC_PL360_Tasks();
+        /* Call Application task APP_PLC_PL460. */
+    APP_PLC_PL460_Tasks();
 
     /* Call Application task APP_CONSOLE. */
     APP_CONSOLE_Tasks();

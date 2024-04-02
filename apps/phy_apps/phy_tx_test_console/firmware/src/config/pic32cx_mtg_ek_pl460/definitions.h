@@ -56,20 +56,22 @@
 #include "peripheral/cmcc/plib_cmcc.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/supc/plib_supc.h"
-#include "driver/memory/drv_memory.h"
 #include "bsp/bsp.h"
+#include "driver/memory/drv_memory.h"
+#include "peripheral/adc/plib_adc.h"
 #include "peripheral/flexcom/spi/master/plib_flexcom5_spi_master.h"
 #include "peripheral/tc/plib_tc0.h"
-#include "driver/sst26/drv_sst26.h"
 #include "peripheral/flexcom/usart/plib_flexcom0_usart.h"
+#include "driver/sst26/drv_sst26.h"
 #include "peripheral/sefc/plib_sefc0.h"
 #include "peripheral/sefc/plib_sefc1.h"
-#include "system/time/sys_time.h"
 #include "driver/plc/phy/drv_plc_phy_definitions.h"
 #include "driver/plc/phy/drv_plc_phy.h"
 #include "driver/plc/phy/drv_plc_phy_comm.h"
+#include "system/time/sys_time.h"
 #include "peripheral/qspi/plib_qspi.h"
 #include "peripheral/trng/plib_trng.h"
+#include "service/pvddmon/srv_pvddmon.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
 #include "system/int/sys_int.h"
@@ -77,7 +79,7 @@
 #include "system/cache/sys_cache.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
-#include "app_plc_pl360.h"
+#include "app_plc_pl460.h"
 #include "app_console.h"
 #include "app_nvm.h"
 
@@ -211,9 +213,9 @@ Remarks:
 typedef struct
 {
     SYS_MODULE_OBJ  drvSST26;
-    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ drvPlcPhy;
+    SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  drvMemory0;
     SYS_MODULE_OBJ  sysConsole0;
 

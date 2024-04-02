@@ -132,6 +132,32 @@ void DRV_PLC_HAL_Reset(void)
     DRV_PLC_HAL_Delay(1000);
 }
 
+bool DRV_PLC_HAL_GetThermalMonitor(void)
+{
+    if (SYS_PORT_PinRead(sPlcPlib->thMonPin))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+void DRV_PLC_HAL_SetTxEnable(bool enable)
+{
+    if (enable)
+    {
+        /* Set TX Enable Pin */
+        SYS_PORT_PinSet(sPlcPlib->txEnablePin);
+    }
+    else
+    {
+        /* Clear TX Enable Pin */
+        SYS_PORT_PinClear(sPlcPlib->txEnablePin);
+    }
+}
+
 void DRV_PLC_HAL_Delay(uint32_t delayUs)
 {
     SYS_TIME_HANDLE tmrHandle = SYS_TIME_HANDLE_INVALID;

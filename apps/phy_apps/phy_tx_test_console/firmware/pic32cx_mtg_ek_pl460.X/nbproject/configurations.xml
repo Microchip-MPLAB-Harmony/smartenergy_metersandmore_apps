@@ -44,6 +44,10 @@
             <itemPath>../src/config/pic32cx_mtg_ek_pl460/osal/osal_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="adc" displayName="adc" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/adc/plib_adc_common.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/adc/plib_adc.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
@@ -97,6 +101,9 @@
           <logicalFolder name="service" displayName="service" projectFiles="true">
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pcoup/srv_pcoup.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="pvddmon" displayName="pvddmon" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pvddmon/srv_pvddmon.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="system" displayName="system" projectFiles="true">
@@ -256,9 +263,9 @@
           <itemPath>../src/packs/PIC32CX2051MTG128_DFP/pic32cx2051mtg128.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/app_plc_pl360.h</itemPath>
       <itemPath>../src/app_console.h</itemPath>
       <itemPath>../src/app_nvm.h</itemPath>
+      <itemPath>../src/app_plc_pl460.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -309,6 +316,9 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="adc" displayName="adc" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/adc/plib_adc.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
@@ -358,6 +368,9 @@
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pcoup/srv_pcoup.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="pvddmon" displayName="pvddmon" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pvddmon/srv_pvddmon.c</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/pic32cx_mtg_ek_pl460/stdio/xc32_monitor.c</itemPath>
@@ -387,9 +400,9 @@
       </logicalFolder>
       <itemPath>../src/config/pic32cx_mtg_ek_pl460/pin_configurations.csv</itemPath>
       <itemPath>../src/main.c</itemPath>
-      <itemPath>../src/app_plc_pl360.c</itemPath>
       <itemPath>../src/app_console.c</itemPath>
       <itemPath>../src/app_nvm.c</itemPath>
+      <itemPath>../src/app_plc_pl460.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

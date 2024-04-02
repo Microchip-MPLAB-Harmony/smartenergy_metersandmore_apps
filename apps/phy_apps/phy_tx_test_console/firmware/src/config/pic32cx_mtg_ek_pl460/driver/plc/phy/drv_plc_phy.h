@@ -935,8 +935,6 @@ void DRV_PLC_PHY_Tasks( SYS_MODULE_OBJ object );
     If there is any transmission on going, it will be cancelled and notified
     through the TX confirmation callback.
 
-    For PL360 this function does nothing.
-
   Precondition:
     DRV_PLC_PHY_Open must have been called to obtain a valid opened device
     handle.

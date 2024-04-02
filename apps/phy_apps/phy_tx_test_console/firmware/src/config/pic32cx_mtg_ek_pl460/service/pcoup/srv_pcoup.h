@@ -78,13 +78,13 @@ Microchip or any third party.
 #define SRV_PCOUP_RMS_VLOW_TBL                   {6356, 4706, 3317, 2308, 1602, 1112, 778, 546}
 #define SRV_PCOUP_THRS_HIGH_TBL                  {0, 0, 0, 0, 0, 0, 0, 0, 1685, 1173, 828, 589, 419, 298, 212, 151}
 #define SRV_PCOUP_THRS_VLOW_TBL                  {0, 0, 0, 0, 0, 0, 0, 0, 8988, 6370, 4466, 3119, 2171, 1512, 1061, 752}
-#define SRV_PCOUP_DACC_TBL                       {0x0UL, 0x2120UL, 0x73fUL, 0x3f3fUL, 0x333UL, 0x0UL, \
-                                                 0xffff00ffUL, 0x17171717UL, 0x2020UL, 0x44UL, 0xfd20004UL, 0x355UL, \
-                                                 0xf000000UL, 0x1020f0UL, 0x355UL, 0xf000000UL, 0x1020ffUL}
+#define SRV_PCOUP_DACC_TBL                       {0x0UL, 0x21200000UL, 0x73f0000UL, 0x3f3f0000UL, 0xcccUL, 0x0UL, \
+                                                 0xffff00ffUL, 0x17171717UL, 0x20200000UL, 0x4400UL, 0xfd20004UL, 0x3aaUL, \
+                                                 0xf0000000UL, 0x1020f0UL, 0x3aaUL, 0xf0000000UL, 0x1020ffUL}
 #define SRV_PCOUP_GAIN_HIGH_TBL                  {32, 32, 32}
 #define SRV_PCOUP_GAIN_VLOW_TBL                  {16, 16, 16}
 #define SRV_PCOUP_NUM_TX_LEVELS                  8
-#define SRV_PCOUP_LINE_DRV_CONF                  0
+#define SRV_PCOUP_LINE_DRV_CONF                  8
 
 // *****************************************************************************
 // *****************************************************************************

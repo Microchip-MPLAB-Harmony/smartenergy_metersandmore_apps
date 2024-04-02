@@ -28,7 +28,7 @@ Microchip or any third party.
     Microchip Technology Inc.
 
   File Name:
-    app_plc_pl360.h
+    app_plc_pl460.h
 
   Summary:
     This header file provides prototypes and definitions for the application.
@@ -36,13 +36,13 @@ Microchip or any third party.
   Description:
     This header file provides function prototypes and data type definitions for
     the application.  Some of these are required by the system (such as the
-    "APP_PLC_PL360_Initialize" and "APP_PLC_PL360_Tasks" prototypes) and some of them are only used
+    "APP_PLC_PL460_Initialize" and "APP_PLC_PL460_Tasks" prototypes) and some of them are only used
     internally by the application (such as the "APP_PLC_STATES" definition).  Both
     are defined here for convenience.
 *******************************************************************************/
 
-#ifndef _APP_PLC_PL360_H
-#define _APP_PLC_PL360_H
+#ifndef _APP_PLC_PL460_H
+#define _APP_PLC_PL460_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -60,7 +60,7 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
-
+    
 // *****************************************************************************
 // *****************************************************************************
 // Section: Type Definitions
@@ -103,6 +103,23 @@ typedef enum
 
 } APP_PLC_STATES;
 
+/* PLC Transmission Status
+
+  Summary:
+    PLC Transmission states enumeration
+
+  Description:
+    This structure holds the PLC transmission's status.
+ */
+
+typedef enum
+{
+    APP_PLC_TX_STATE_IDLE=0,
+    APP_PLC_TX_STATE_WAIT_TX_CFM,
+    APP_PLC_TX_STATE_WAIT_TX_CANCEL
+
+} APP_PLC_TX_STATE;
+
 // *****************************************************************************
 /* Application Data
 
@@ -128,9 +145,7 @@ typedef struct
 
     APP_PLC_STATES state;
 
-    DRV_HANDLE drvPl360Handle;
-
-    bool waitingTxCfm;
+    DRV_HANDLE drvPlcHandle;
 
     bool couplingConfig;
 
@@ -139,6 +154,10 @@ typedef struct
     DRV_PLC_PHY_PIB_OBJ plcPIB;
 
     uint8_t signalResetCounter;
+
+    bool pvddMonTxEnable;
+
+    APP_PLC_TX_STATE plcTxState;
 
 } APP_PLC_DATA;
 
@@ -173,7 +192,7 @@ extern APP_PLC_DATA_TX appPlcTx;
 
 /*******************************************************************************
   Function:
-    void APP_PLC_PL360_Initialize ( void )
+    void APP_PLC_PL460_Initialize ( void )
 
   Summary:
      MPLAB Harmony application initialization routine.
@@ -181,7 +200,7 @@ extern APP_PLC_DATA_TX appPlcTx;
   Description:
     This function initializes the Harmony application.  It places the
     application in its initial state and prepares it to run so that its
-    APP_PLC_PL360_Tasks function can be called.
+    APP_PLC_PL460_Tasks function can be called.
 
   Precondition:
     All other system initialization routines should be called before calling
@@ -195,19 +214,19 @@ extern APP_PLC_DATA_TX appPlcTx;
 
   Example:
     <code>
-    APP_PLC_PL360_Initialize();
+    APP_PLC_PL460_Initialize();
     </code>
 
   Remarks:
     This routine must be called from the SYS_Initialize function.
 */
 
-void APP_PLC_PL360_Initialize ( void );
+void APP_PLC_PL460_Initialize ( void );
 
 
 /*******************************************************************************
   Function:
-    void APP_PLC_PL360_Tasks ( void )
+    void APP_PLC_PL460_Tasks ( void )
 
   Summary:
     MPLAB Harmony Demo application tasks function
@@ -228,18 +247,18 @@ void APP_PLC_PL360_Initialize ( void );
 
   Example:
     <code>
-    APP_PLC_PL360_Tasks();
+    APP_PLC_PL460_Tasks();
     </code>
 
   Remarks:
     This routine must be called from SYS_Tasks() routine.
  */
 
-void APP_PLC_PL360_Tasks( void );
+void APP_PLC_PL460_Tasks( void );
 
 
 
-#endif /* _APP_PLC_PL360_H */
+#endif /* _APP_PLC_PL460_H */
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
