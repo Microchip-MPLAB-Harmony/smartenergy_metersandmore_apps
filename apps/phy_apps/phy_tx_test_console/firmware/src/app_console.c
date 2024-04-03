@@ -104,6 +104,9 @@ static void APP_CONSOLE_PLCDataIndicationCallback(DRV_PLC_PHY_RECEPTION_OBJ *ind
     }
     *pBuffer = '\0';
     APP_CONSOLE_Print("\r\n0x%s\r\n", pSnifferBuffer);
+    APP_CONSOLE_Print("  Len:%d RSSI:%d dBuV LQI:%d SNR_H:%d dB SNR_P:%d dB NB:%d Duration:%d us\r\n", 
+            indObj->dataLength, indObj->rssi, indObj->lqi, indObj->snrHeader, 
+            indObj->snrPayload, indObj->nbRx, indObj->frameDuration);
 }
 
 // *****************************************************************************
