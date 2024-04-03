@@ -171,6 +171,12 @@ static void APP_PLC_DataIndCb( DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t cont
         USER_PLC_IND_LED_On();
         /* Start signal timer */
         appPlc.tmr2Handle = SYS_TIME_CallbackRegisterMS(APP_PLC_Timer2_Callback, 0, LED_PLC_RX_MSG_RATE_MS, SYS_TIME_SINGLE);
+        
+        /* Launch Data Indication callback */
+        if (appPlc.dataIndCallback)
+        {
+            appPlc.dataIndCallback(indObj, 0);
+        }
     }
 }
 
@@ -227,6 +233,9 @@ void APP_PLC_PL460_Initialize ( void )
 
     /* Init PLC TX status */
     appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
+    
+    /* Init Data Indication Callback */
+    appPlc.dataIndCallback = NULL;
 
 }
 
@@ -530,6 +539,10 @@ void APP_PLC_PL460_Tasks ( void )
     }
 }
 
+void APP_PLC_DataIndCallbackRegister( const DRV_PLC_PHY_DATA_IND_CALLBACK callback )
+{
+    appPlc.dataIndCallback = callback;
+}
 
 /*******************************************************************************
  End of File

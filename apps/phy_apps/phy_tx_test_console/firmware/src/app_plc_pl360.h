@@ -156,6 +156,8 @@ typedef struct
     uint8_t signalResetCounter;
 
     APP_PLC_TX_STATE plcTxState;
+    
+    DRV_PLC_PHY_DATA_IND_CALLBACK dataIndCallback;
 
 } APP_PLC_DATA;
 
@@ -254,7 +256,34 @@ void APP_PLC_PL360_Initialize ( void );
 
 void APP_PLC_PL360_Tasks( void );
 
+/*******************************************************************************
+  Function:
+    void APP_PLC_DataIndCallbackRegister( const DRV_PLC_PHY_DATA_IND_CALLBACK callback )
 
+  Summary:
+    Register a PLC data indication event handling function.
+
+  Description:
+    Allows a client to set a PLC data indication event handling function
+    to call back when a PLC data has been received.
+
+  Precondition:
+    The system and application initialization should be called before calling this.
+
+  Parameters:
+    Pointer to a function to be called from the PLC Driver Reception Event handler.
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+    APP_PLC_DataIndCallbackRegister(APP_CONSOLE_PLCDataIndicationCallback);
+    </code>
+    
+ */
+
+void APP_PLC_DataIndCallbackRegister( const DRV_PLC_PHY_DATA_IND_CALLBACK callback );
 
 #endif /* _APP_PLC_PL360_H */
 

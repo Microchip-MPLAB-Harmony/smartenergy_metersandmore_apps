@@ -83,11 +83,28 @@ CACHE_ALIGN APP_CONSOLE_DATA appConsole;
 static CACHE_ALIGN char pTransmitBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
 static CACHE_ALIGN char pReceivedBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
 
+static CACHE_ALIGN char pSnifferBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
 // *****************************************************************************
 // *****************************************************************************
+static void APP_CONSOLE_PLCDataIndicationCallback(DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t context)
+{
+    char *pBuffer = pSnifferBuffer;
+    uint8_t *pData = indObj->pReceivedData;
+    uint16_t index;
+    
+    for(index = 0; index < indObj->dataLength; index++)
+    {
+        sprintf(pBuffer, "%02X", *pData);
+        pData++;
+        pBuffer += 2;
+    }
+    *pBuffer = '\0';
+    APP_CONSOLE_Print("\r\n0x%s\r\n", pSnifferBuffer);
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -478,21 +495,28 @@ void APP_CONSOLE_Tasks ( void )
                         APP_CONSOLE_ReadRestart(2);
                         break;
 
-                    case '2':
+                    case '1':
                         APP_CONSOLE_Print("\r\nEnter transmission period in us. (max. 10 digits and value min 2100 us): ");
                         appConsole.state = APP_CONSOLE_STATE_SET_TIME_PERIOD;
                         APP_CONSOLE_ReadRestart(10);
                         break;
 
-                    case '3':
+                    case '2':
                         APP_CONSOLE_Print("\r\nEnter length of data to transmit in bytes (max. 512 bytes): ");
                         appConsole.state = APP_CONSOLE_STATE_SET_DATA_LEN;
                         APP_CONSOLE_ReadRestart(3);
                         break;
 
-                    case '5':
+                    case '3':
                         APP_CONSOLE_Print(MENU_BRANCH_MODE);
                         appConsole.state = APP_CONSOLE_STATE_SET_BRANCH_MODE;
+                        APP_CONSOLE_ReadRestart(1);
+                        break;
+
+                    case '4':
+                        APP_CONSOLE_Print("\r\nSet PHY PLC Sniffer mode, type 'x' to cancel.\r\n");
+                        APP_PLC_DataIndCallbackRegister(APP_CONSOLE_PLCDataIndicationCallback);
+                        appConsole.state = APP_CONSOLE_STATE_SNIFFER_MODE;
                         APP_CONSOLE_ReadRestart(1);
                         break;
 
@@ -634,6 +658,29 @@ void APP_CONSOLE_Tasks ( void )
                 {
                     /* Try it again */
                     APP_CONSOLE_Print("\r\nERROR: Branch Mode not permitted. Try again : ");
+                    APP_CONSOLE_ReadRestart(1);
+                }
+            }
+            break;
+        }
+
+        case APP_CONSOLE_STATE_SNIFFER_MODE:
+        {
+            if (appConsole.numCharToReceive == 0)
+            {
+                if ((appConsole.pReceivedChar[0] == 'x') || (appConsole.pReceivedChar[0] == 'X'))
+                {
+                    APP_CONSOLE_Print("\r\nCancel PLC PHY Sniffer mode\r\n");
+                    APP_PLC_DataIndCallbackRegister(NULL);
+                    appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+                }
+                else
+                {
+                    if (appConsole.echoEnable) 
+                    {
+                        // Delete the last received character
+                        SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b");
+                    }
                     APP_CONSOLE_ReadRestart(1);
                 }
             }

@@ -92,6 +92,7 @@ typedef enum
     APP_CONSOLE_STATE_SET_DATA_LEN,
     APP_CONSOLE_STATE_SET_DATA,
     APP_CONSOLE_STATE_SET_BRANCH_MODE,
+    APP_CONSOLE_STATE_SNIFFER_MODE,
     APP_CONSOLE_STATE_VIEW_CONFIG,
     APP_CONSOLE_STATE_TX,
     APP_CONSOLE_STATE_ERROR,
@@ -157,6 +158,7 @@ extern APP_CONSOLE_DATA appConsole;
 	"1: Select Time period between messages to transmit(us.)\n\r" \
 	"2: Select Data to transmit\n\r" \
 	"3: Select Branch Mode\n\r" \
+	"4: Enable PHY PLC Sniffer mode\n\r" \
 	"v: View TX configuration values\n\r" \
 	"e: Execute transmission application\n\r" \
 	"c: Enable/Disable ECHO console\n\r" \
