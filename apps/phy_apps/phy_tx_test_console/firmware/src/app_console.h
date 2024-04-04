@@ -93,11 +93,37 @@ typedef enum
     APP_CONSOLE_STATE_SET_DATA,
     APP_CONSOLE_STATE_SET_BRANCH_MODE,
     APP_CONSOLE_STATE_SNIFFER_MODE,
+    APP_CONSOLE_STATE_PLC_CALIBRATION_RMSMAX,
+    APP_CONSOLE_STATE_PLC_CALIBRATION_THRESHOLD,
     APP_CONSOLE_STATE_VIEW_CONFIG,
     APP_CONSOLE_STATE_TX,
     APP_CONSOLE_STATE_ERROR,
 
 } APP_CONSOLE_STATES;
+
+// *****************************************************************************
+/* PHY Calibration states
+
+  Summary:
+    PLC PHY Calibration states enumeration
+
+  Description:
+    This enumeration defines the states of the PHY calibration process.
+*/
+
+typedef enum
+{
+    /* Application's state machine's initial state. */
+    APP_CONSOLE_CALIB_IDLE=0,
+    APP_CONSOLE_CALIB_RMSMAX_HI,
+    APP_CONSOLE_CALIB_RMSMAX_HI_WAITING,
+    APP_CONSOLE_CALIB_RMSMAX_LO,
+    APP_CONSOLE_CALIB_RMSMAX_LO_WAITING,
+    APP_CONSOLE_CALIB_THRESHOLD_HI,
+    APP_CONSOLE_CALIB_THRESHOLD_HI_WAITING,
+    APP_CONSOLE_CALIB_THRESHOLD_LO,
+    APP_CONSOLE_CALIB_THRESHOLD_LO_WAITING,
+} APP_CONSOLE_CALIB_STATES;
 
 // *****************************************************************************
 /* Application Data
@@ -130,7 +156,14 @@ typedef struct
     uint8_t numCharToReceive;
 
     bool echoEnable;
-
+    
+    APP_CONSOLE_CALIB_STATES calibState;
+    
+    uint32_t *maxRmsValuesHi;
+    uint32_t *maxRmsValuesVlo;
+    uint32_t *thresholdValuesHi;
+    uint32_t *thresholdValuesVlo;    
+    
 } APP_CONSOLE_DATA;
 
 extern APP_CONSOLE_DATA appConsole;
@@ -159,6 +192,8 @@ extern APP_CONSOLE_DATA appConsole;
 	"2: Select Data to transmit\n\r" \
 	"3: Select Branch Mode\n\r" \
 	"4: Enable PHY PLC Sniffer mode\n\r" \
+	"5: Phy Calibration. Get RMS Max values\n\r" \
+	"6: Phy Calibration. Get Threshold values\n\r" \
 	"v: View TX configuration values\n\r" \
 	"e: Execute transmission application\n\r" \
 	"c: Enable/Disable ECHO console\n\r" \

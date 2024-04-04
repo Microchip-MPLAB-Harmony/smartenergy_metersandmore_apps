@@ -85,6 +85,11 @@ CACHE_ALIGN APP_PLC_DATA_TX appPlcTx;
 static CACHE_ALIGN uint8_t appPlcPibDataBuffer[CACHE_ALIGNED_SIZE_GET(APP_PLC_PIB_BUFFER_SIZE)];
 static CACHE_ALIGN uint8_t appPlcTxDataBuffer[CACHE_ALIGNED_SIZE_GET(APP_PLC_BUFFER_SIZE)];
 
+static const char appPlcCalibrationData[] = "Microchip, Enabling Unlimited Possibilities";
+static APP_PLC_CALIBRATION_DATA appPlcCalibration;
+
+#define DIV_ROUND(a, b)      (((a) + ((b) >> 1)) / (b))
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
@@ -115,47 +120,100 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
 {
     /* Avoid warning */
     (void)context;
-
-    /* Update PLC TX Status */
-    appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
-
-    /* Handle result of transmission : Show it through Console */
-    switch(cfmObj->result)
+    
+    /* Update calibration variables */
+    if (appPlc.state == APP_PLC_STATE_TX_CALIBRATION)
     {
-        case DRV_PLC_PHY_TX_RESULT_PROCESS:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_PROCESS\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_SUCCESS:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_SUCCESS\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_INV_LENGTH:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_INV_LENGTH\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_BUSY_CH:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_BUSY_CH\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_BUSY_TX:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_BUSY_TX\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_BUSY_RX:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_BUSY_RX\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_TIMEOUT:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_TIMEOUT\r\n");
-            break;
-        case DRV_PLC_PHY_TX_CANCELLED:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_CANCELLED\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_120:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_120\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_110:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_110\r\n");
-            break;
-        case DRV_PLC_PHY_TX_RESULT_NO_TX:
-            APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_NO_TX. Press 'x' and review PVDD source.\r\n");
-            appPlc.state = APP_PLC_STATE_STOP_TX;
-            break;
+        uint8_t levelIndex;
+        
+        levelIndex = SRV_PCOUP_NUM_TX_LEVELS - appPlcCalibration.txLevels;
+        
+        if (appPlcCalibration.rmsmaxCalibration == true)
+        {
+            appPlcCalibration.pValues[levelIndex] += cfmObj->rmsCalc;
+        }
+        else
+        {
+            DRV_PLC_PHY_PIB_OBJ pibObj;
+            
+            uint32_t correctedRmsCalc;
+    
+            /* Get Corrected RMS CALC */
+            pibObj.id = PLC_ID_CORRECTED_RMS_CALC;
+            pibObj.length = 4;
+            pibObj.pData = (uint8_t *)&correctedRmsCalc;
+            DRV_PLC_PHY_PIBGet(appPlc.drvPlcHandle, &pibObj);
+    
+            appPlcCalibration.pValues[levelIndex] += correctedRmsCalc;
+        }
+        
+        appPlcCalibration.frameCounter++;
+        
+        if (appPlcCalibration.framesPerIteration == 0)
+        {
+            uint32_t rmsMean;
+            rmsMean = DIV_ROUND(appPlcCalibration.pValues[levelIndex], appPlcCalibration.frameCounter);
+            appPlcCalibration.pValues[levelIndex] = rmsMean;
+        }
+        
+        if (cfmObj->result == DRV_PLC_PHY_TX_RESULT_SUCCESS)
+        {
+            APP_CONSOLE_Print(".");
+            if (appPlcCalibration.frameCounter % 50 == 0)
+            {
+                APP_CONSOLE_Print("\r\n");
+            }
+        }
+        else
+        {
+            APP_CONSOLE_Print("x");
+        }
+
+        appPlcCalibration.txConfirm = true;
+    }
+    else
+    {
+        /* Update PLC TX Status */
+        appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
+
+        /* Handle result of transmission : Show it through Console */
+        switch(cfmObj->result)
+        {
+            case DRV_PLC_PHY_TX_RESULT_PROCESS:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_PROCESS\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_SUCCESS:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_SUCCESS\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_INV_LENGTH:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_INV_LENGTH\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_BUSY_CH:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_BUSY_CH\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_BUSY_TX:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_BUSY_TX\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_BUSY_RX:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_BUSY_RX\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_TIMEOUT:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_TIMEOUT\r\n");
+                break;
+            case DRV_PLC_PHY_TX_CANCELLED:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_CANCELLED\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_120:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_120\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_110:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_110\r\n");
+                break;
+            case DRV_PLC_PHY_TX_RESULT_NO_TX:
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_NO_TX. Press 'x' and review PVDD source.\r\n");
+                appPlc.state = APP_PLC_STATE_STOP_TX;
+                break;
+        }
     }
 }
 
@@ -236,7 +294,7 @@ void APP_PLC_PL460_Initialize ( void )
     
     /* Init Data Indication Callback */
     appPlc.dataIndCallback = NULL;
-
+    
 }
 
 /******************************************************************************
@@ -311,16 +369,14 @@ void APP_PLC_PL460_Tasks ( void )
             if (appNvm.state == APP_NVM_STATE_CMD_WAIT)
             {
                 uint8_t* pData;
+                uint16_t length;
                 uint8_t dataValue;
-                uint8_t length;
                 
                 if (appPlcTx.configKey != APP_PLC_CONFIG_KEY)
                 {
                     /* Set configuration by default */
                     appPlcTx.configKey = APP_PLC_CONFIG_KEY;
                     appPlcTx.plcPhyVersion = 0;
-                    appPlcTx.txImpedance = HI_STATE;
-                    appPlcTx.txAuto = 0;
                     appPlcTx.plcPhyTx.timeIni = 1000000;
                     appPlcTx.plcPhyTx.attenuation = 0;
                     appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE;
@@ -328,12 +384,16 @@ void APP_PLC_PL460_Tasks ( void )
                     appPlcTx.plcPhyTx.dataLength = 64;
                     appPlcTx.plcPhyTx.pTransmitData = appPlcTxDataBuffer;
                     
+                    appPlcTx.txAuto = 0;
+                    appPlcTx.txImpedance = HI_STATE;
+                    
                     /* Clear Transmission flag */
                     appPlcTx.inTx = false;
                 }
                 
-                /* Set Fixed data */
+                /* Initialize data buffer data */
                 dataValue = 0x30;
+                length = APP_PLC_BUFFER_SIZE;
                 pData = appPlcTxDataBuffer;
                 while(length--)
                 {
@@ -410,7 +470,10 @@ void APP_PLC_PL460_Tasks ( void )
 
                 /* Apply PLC coupling configuration */
                 SRV_PCOUP_Set_Config(appPlc.drvPlcHandle, SRV_PLC_PCOUP_MAIN_BRANCH);
-
+                
+                /* Apply TX configuration */
+                APP_PLC_SetImpedanceState(appPlcTx.txAuto, appPlcTx.txImpedance);
+				
 #ifndef APP_PLC_DISABLE_PVDDMON
                 /* Disable TX Enable at the beginning */
                 DRV_PLC_PHY_EnableTX(appPlc.drvPlcHandle, false);
@@ -466,20 +529,6 @@ void APP_PLC_PL460_Tasks ( void )
         {
             if (!appPlcTx.inTx)
             {
-                DRV_PLC_PHY_PIB_OBJ pibObj;
-
-                /* Apply TX configuration */
-                /* Set Autodetect Mode */
-                pibObj.id = PLC_ID_CFG_AUTODETECT_IMPEDANCE;
-                pibObj.length = 1;
-                pibObj.pData = (uint8_t *)&appPlcTx.txAuto;
-                DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
-                /* Set Impedance Mode */
-                pibObj.id = PLC_ID_CFG_IMPEDANCE;
-                pibObj.length = 1;
-                pibObj.pData = (uint8_t *)&appPlcTx.txImpedance;
-                DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
-
                 /* Set Transmission Mode */
                 appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE;
 
@@ -531,6 +580,38 @@ void APP_PLC_PL460_Tasks ( void )
             break;
         }
 
+        case APP_PLC_STATE_TX_CALIBRATION:
+        {
+            if (appPlcCalibration.txConfirm)
+            {
+                if (appPlcCalibration.framesPerIteration > 0)
+                {
+                    appPlcCalibration.txConfirm = false;
+                    appPlcCalibration.framesPerIteration--;
+                    DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
+                }
+                else
+                {
+                    appPlcCalibration.txLevels--;
+                    if (appPlcCalibration.txLevels > 0)
+                    {
+                        appPlcCalibration.framesPerIteration = APP_PLC_CALIBRATE_FRAMES_ITERATION;
+                    }
+                    else
+                    {
+                        /* Calibration completed */
+                        appPlcCalibration.valuesAreReady = true;
+                        /* Restore Phy Tx configuration */
+                        memcpy(&appPlcTx.plcPhyTx, &appPlcCalibration.plcPhyTxBackup, sizeof(appPlcTx.plcPhyTx));
+                        APP_PLC_SetImpedanceState(appPlcTx.txAuto, appPlcTx.txImpedance);
+                        
+                        appPlc.state = APP_PLC_STATE_WAITING;
+                    }
+                }
+            }
+            break;
+        }
+
         /* The default state should never be executed. */
         default:
         {
@@ -542,6 +623,106 @@ void APP_PLC_PL460_Tasks ( void )
 void APP_PLC_DataIndCallbackRegister( const DRV_PLC_PHY_DATA_IND_CALLBACK callback )
 {
     appPlc.dataIndCallback = callback;
+}
+
+void APP_PLC_SetImpedanceState(bool txAuto, uint8_t impedance)
+{
+    DRV_PLC_PHY_PIB_OBJ pibObj;
+    
+    appPlcTx.txAuto = (uint8_t)txAuto;
+    appPlcTx.txImpedance = impedance;
+    
+    /* Set Autodetect Mode */
+    pibObj.id = PLC_ID_CFG_AUTODETECT_IMPEDANCE;
+    pibObj.length = 1;
+    pibObj.pData = (uint8_t *)&appPlcTx.txAuto;
+    DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
+
+    /* Set Impedance Mode */
+    pibObj.id = PLC_ID_CFG_IMPEDANCE;
+    pibObj.length = 1;
+    pibObj.pData = (uint8_t *)&appPlcTx.txImpedance;
+    DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
+}
+
+void APP_PLC_GetCalibrationValues(uint8_t type, uint8_t impedance)
+{
+    DRV_PLC_PHY_PIB_OBJ pibObj;
+    uint8_t value;
+    
+    /* Disable Autodetect Mode */
+    pibObj.id = PLC_ID_CFG_AUTODETECT_IMPEDANCE;
+    pibObj.length = 1;
+    value = 0;
+    pibObj.pData = (uint8_t *)&value;
+    DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
+
+    /* Set Impedance Mode */
+    pibObj.id = PLC_ID_CFG_IMPEDANCE;
+    pibObj.length = 1;
+    pibObj.pData = (uint8_t *)&impedance;
+    DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
+    
+    /* Store Phy Tx current configuration */
+    memcpy(&appPlcCalibration.plcPhyTxBackup, &appPlcTx.plcPhyTx, sizeof(appPlcTx.plcPhyTx));
+    
+    /* Apply new TX configuration for calibration */
+    appPlcTx.plcPhyTx.timeIni = 0;
+    appPlcTx.plcPhyTx.attenuation = 0;
+    appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE;
+    appPlcTx.plcPhyTx.nbFrame = 0;
+    appPlcTx.plcPhyTx.dataLength = sizeof(appPlcCalibrationData);
+    appPlcTx.plcPhyTx.pTransmitData = (uint8_t *)appPlcCalibrationData;
+    
+    /* Set Calibration configuration */
+    appPlcCalibration.valuesAreReady = false;
+    appPlcCalibration.txConfirm = true;
+    appPlcCalibration.txLevels = SRV_PCOUP_NUM_TX_LEVELS;
+    appPlcCalibration.framesPerIteration = APP_PLC_CALIBRATE_FRAMES_ITERATION;
+    if (impedance == HI_STATE)
+    {
+        if (type == APP_PLC_CALIBRATE_RMSMAX)
+        {
+            appPlcCalibration.pValues = appPlcCalibration.rmsMaxValuesHi;
+            appPlcCalibration.rmsmaxCalibration = true;
+        }
+        else
+        {
+            appPlcCalibration.pValues = appPlcCalibration.thresholdValuesHi;
+            appPlcCalibration.rmsmaxCalibration = false;
+        }
+    }
+    else
+    {
+        if (type == APP_PLC_CALIBRATE_RMSMAX)
+        {
+            appPlcCalibration.pValues = appPlcCalibration.rmsMaxValuesVlo;
+            appPlcCalibration.rmsmaxCalibration = true;
+        }
+        else
+        {
+            appPlcCalibration.pValues = appPlcCalibration.thresholdValuesVlo;
+            appPlcCalibration.rmsmaxCalibration = false;
+        }
+    }
+    
+    memset(appPlcCalibration.pValues, 0, sizeof(appPlcCalibration.rmsMaxValuesHi));
+    appPlcCalibration.frameCounter = 0;
+                
+    /* Start TX for calibration */
+    appPlc.state = APP_PLC_STATE_TX_CALIBRATION;
+    
+}
+
+bool APP_PLC_CalibrationValuesAreReady(uint32_t **pValues)
+{
+    if (appPlcCalibration.valuesAreReady)
+    {
+        *pValues = appPlcCalibration.pValues;
+        return true;
+    }
+    
+    return false;
 }
 
 /*******************************************************************************

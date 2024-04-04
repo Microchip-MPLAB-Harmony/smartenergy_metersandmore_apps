@@ -82,7 +82,6 @@ CACHE_ALIGN APP_CONSOLE_DATA appConsole;
 
 static CACHE_ALIGN char pTransmitBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
 static CACHE_ALIGN char pReceivedBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
-
 static CACHE_ALIGN char pSnifferBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
 
 // *****************************************************************************
@@ -322,18 +321,15 @@ static bool APP_CONSOLE_SetBranchMode(char *mode)
     switch (*mode)
     {
         case '0':
-            appPlcTx.txAuto = 1;
-            appPlcTx.txImpedance = HI_STATE;
+            APP_PLC_SetImpedanceState(1, HI_STATE);
             break;
 
         case '1':
-            appPlcTx.txAuto = 0;
-            appPlcTx.txImpedance = HI_STATE;
+            APP_PLC_SetImpedanceState(0, HI_STATE);
             break;
 
         case '2':
-            appPlcTx.txAuto = 0;
-            appPlcTx.txImpedance = VLO_STATE;
+            APP_PLC_SetImpedanceState(0, VLO_STATE);
             break;
 
         default:
@@ -388,6 +384,235 @@ static void APP_CONSOLE_ShowConfiguration(void)
     }
 }
 
+static void APP_CONSOLE_CalibrationRMSTask(void)
+{
+    switch ( appConsole.calibState )
+    {
+        /* Calibration state machine */
+        case APP_CONSOLE_CALIB_IDLE:
+        {
+            APP_CONSOLE_Print("\r\nGet RMS MAX. Connect DUT against CISPR LISN (50ohm), type 's' to start or 'x' to cancel \r\n");
+            appConsole.calibState = APP_CONSOLE_CALIB_RMSMAX_HI;
+            APP_CONSOLE_ReadRestart(1);
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_RMSMAX_HI:
+        {
+            if (appConsole.numCharToReceive == 0)
+            {
+                if ((appConsole.pReceivedChar[0] == 's') || (appConsole.pReceivedChar[0] == 'S'))
+                {
+                    APP_CONSOLE_Print("\r\nGetting values...\r\n");
+                    /* Launch MaxRMS process for High State impedance */
+                    APP_PLC_GetCalibrationValues(APP_PLC_CALIBRATE_RMSMAX, HI_STATE);
+                    
+                    appConsole.calibState = APP_CONSOLE_CALIB_RMSMAX_HI_WAITING;
+                }
+                else if ((appConsole.pReceivedChar[0] == 'x') || (appConsole.pReceivedChar[0] == 'X'))
+                {
+                    APP_CONSOLE_Print("\r\nCancel PHY calibration\r\n");
+                    appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+                    appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+                }
+                else
+                {
+                    if (appConsole.echoEnable) 
+                    {
+                        // Delete the last received character
+                        SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b");
+                    }
+                    APP_CONSOLE_ReadRestart(1);
+                }
+            }
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_RMSMAX_HI_WAITING:
+        {
+            if (APP_PLC_CalibrationValuesAreReady((void *)&appConsole.maxRmsValuesHi))
+            {
+                APP_CONSOLE_Print("\r\nGet RMS MAX. Connect DUT against 2ohm-LISN, type 's' to start or 'x' to cancel \r\n");
+                appConsole.calibState = APP_CONSOLE_CALIB_RMSMAX_LO;
+                APP_CONSOLE_ReadRestart(1);
+            }
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_RMSMAX_LO:
+        {
+            if (appConsole.numCharToReceive == 0)
+            {
+                if ((appConsole.pReceivedChar[0] == 's') || (appConsole.pReceivedChar[0] == 'S'))
+                {
+                    APP_CONSOLE_Print("\r\nGetting values...\r\n");
+                    /* Launch MaxRMS process for Very low State impedance */
+                    APP_PLC_GetCalibrationValues(APP_PLC_CALIBRATE_RMSMAX, VLO_STATE);
+                    
+                    appConsole.calibState = APP_CONSOLE_CALIB_RMSMAX_LO_WAITING;
+                }
+                else if ((appConsole.pReceivedChar[0] == 'x') || (appConsole.pReceivedChar[0] == 'X'))
+                {
+                    APP_CONSOLE_Print("\r\nCancel PHY calibration\r\n");
+                    appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+                    appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+                }
+                else
+                {
+                    if (appConsole.echoEnable) 
+                    {
+                        // Delete the last received character
+                        SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b");
+                    }
+                    APP_CONSOLE_ReadRestart(1);
+                }
+            }
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_RMSMAX_LO_WAITING:
+        {
+            if (APP_PLC_CalibrationValuesAreReady((void *)&appConsole.maxRmsValuesVlo))
+            {
+                // Show Calibration values
+                uint8_t index;
+                
+                APP_CONSOLE_Print("\r\nEnd Phy calibration\r\n");
+                APP_CONSOLE_Print("\r\nRMS MAX values for high impedance:");
+                for (index = 0; index < SRV_PCOUP_NUM_TX_LEVELS; index++)
+                {
+                    APP_CONSOLE_Print(" 0x%04X,", appConsole.maxRmsValuesHi[index]);
+                }
+                SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b");
+                
+                APP_CONSOLE_Print("\r\nRMS MAX values for vlow impedance:");
+                for (index = 0; index < SRV_PCOUP_NUM_TX_LEVELS; index++)
+                {
+                    APP_CONSOLE_Print(" 0x%04X,", appConsole.maxRmsValuesVlo[index]);
+                }
+                SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b\r\n\r\n");
+                
+                // Go back normal state
+                appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+                appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+            }
+            break;
+        }
+        
+        default:
+        {
+            SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "Error in Calibration process.");
+            // Go back normal state
+            appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+            appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+            break;
+        }
+    }
+}
+
+static void APP_CONSOLE_CalibrationThresholdTask(void)
+{
+    switch ( appConsole.calibState )
+    {
+        /* Calibration state machine */
+        case APP_CONSOLE_CALIB_IDLE:
+        {
+            APP_CONSOLE_Print("\r\nGet Thresholds. Connect DUT against 2ohm-LISN, type 's' to start or 'x' to cancel \r\n");
+            appConsole.calibState = APP_CONSOLE_CALIB_THRESHOLD_HI;
+            APP_CONSOLE_ReadRestart(1);
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_THRESHOLD_HI:
+        {
+            if (appConsole.numCharToReceive == 0)
+            {
+                if ((appConsole.pReceivedChar[0] == 's') || (appConsole.pReceivedChar[0] == 'S'))
+                {
+                    APP_CONSOLE_Print("\r\nGetting values...\r\n");
+                    /* Launch Threshold process for High State impedance */
+                    APP_PLC_GetCalibrationValues(APP_PLC_CALIBRATE_THRESHOLD, HI_STATE);
+                    
+                    appConsole.calibState = APP_CONSOLE_CALIB_THRESHOLD_HI_WAITING;
+                }
+                else if ((appConsole.pReceivedChar[0] == 'x') || (appConsole.pReceivedChar[0] == 'X'))
+                {
+                    APP_CONSOLE_Print("\r\nCancel PHY calibration\r\n");
+                    appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+                    appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+                }
+                else
+                {
+                    if (appConsole.echoEnable) 
+                    {
+                        // Delete the last received character
+                        SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b");
+                    }
+                    APP_CONSOLE_ReadRestart(1);
+                }
+            }
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_THRESHOLD_HI_WAITING:
+        {
+            if (APP_PLC_CalibrationValuesAreReady((void *)&appConsole.thresholdValuesHi))
+            {
+                appConsole.calibState = APP_CONSOLE_CALIB_THRESHOLD_LO;
+            }
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_THRESHOLD_LO:
+        {
+            /* Launch Threshold process for High State impedance */
+            APP_PLC_GetCalibrationValues(APP_PLC_CALIBRATE_THRESHOLD, VLO_STATE);
+
+            appConsole.calibState = APP_CONSOLE_CALIB_THRESHOLD_LO_WAITING;
+            break;
+        }
+        
+        case APP_CONSOLE_CALIB_THRESHOLD_LO_WAITING:
+        {
+            if (APP_PLC_CalibrationValuesAreReady((void *)&appConsole.thresholdValuesVlo))
+            {
+                
+                // Show Calibration values
+                uint8_t index;
+                
+                APP_CONSOLE_Print("\r\nEnd Phy calibration\r\n");
+                APP_CONSOLE_Print("\r\nThreshold values for high impedance:");
+                for (index = 0; index < SRV_PCOUP_NUM_TX_LEVELS; index++)
+                {
+                    APP_CONSOLE_Print(" 0x%04X,", appConsole.thresholdValuesHi[index]);
+                }
+                SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b");
+                
+                APP_CONSOLE_Print("\r\nThreshold values for vlow impedance:");
+                for (index = 0; index < SRV_PCOUP_NUM_TX_LEVELS; index++)
+                {
+                    APP_CONSOLE_Print(" 0x%04X,", appConsole.thresholdValuesVlo[index]);
+                }
+                SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "\b \b\r\n\r\n");
+                
+                // Go back normal state
+                appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+                appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+            }
+            break;
+        }
+        
+        default:
+        {
+            SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "Error in Calibration process.");
+            // Go back normal state
+            appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
+            appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
+            break;
+        }
+    }
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -422,6 +647,9 @@ void APP_CONSOLE_Initialize ( void )
 
     /* Set ECHO ON by default */
     appConsole.echoEnable = true;
+    
+    /* Set Calibration State */
+    appConsole.calibState = APP_CONSOLE_CALIB_IDLE;
 
 }
 
@@ -521,6 +749,16 @@ void APP_CONSOLE_Tasks ( void )
                         APP_PLC_DataIndCallbackRegister(APP_CONSOLE_PLCDataIndicationCallback);
                         appConsole.state = APP_CONSOLE_STATE_SNIFFER_MODE;
                         APP_CONSOLE_ReadRestart(1);
+                        break;
+
+                    case '5':
+                        APP_CONSOLE_Print("\r\nStarting PHY Calibration process...\r\n");
+                        appConsole.state = APP_CONSOLE_STATE_PLC_CALIBRATION_RMSMAX;
+                        break;
+
+                    case '6':
+                        APP_CONSOLE_Print("\r\nStarting PHY Calibration process...\r\n");
+                        appConsole.state = APP_CONSOLE_STATE_PLC_CALIBRATION_THRESHOLD;
                         break;
 
                     case 'v':
@@ -687,6 +925,18 @@ void APP_CONSOLE_Tasks ( void )
                     APP_CONSOLE_ReadRestart(1);
                 }
             }
+            break;
+        }
+
+        case APP_CONSOLE_STATE_PLC_CALIBRATION_RMSMAX:
+        {
+            APP_CONSOLE_CalibrationRMSTask();
+            break;
+        }
+
+        case APP_CONSOLE_STATE_PLC_CALIBRATION_THRESHOLD:
+        {
+            APP_CONSOLE_CalibrationThresholdTask();
             break;
         }
 

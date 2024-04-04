@@ -74,6 +74,10 @@ extern "C" {
 
 #define APP_PLC_BUFFER_SIZE                       512
 #define APP_PLC_PIB_BUFFER_SIZE                   256
+    
+#define APP_PLC_CALIBRATE_RMSMAX                  0
+#define APP_PLC_CALIBRATE_THRESHOLD               1    
+#define APP_PLC_CALIBRATE_FRAMES_ITERATION        20
 
 // *****************************************************************************
 /* Application states
@@ -99,6 +103,7 @@ typedef enum
     APP_PLC_STATE_WAITING,
     APP_PLC_STATE_TX,
     APP_PLC_STATE_STOP_TX,
+    APP_PLC_STATE_TX_CALIBRATION,
     APP_PLC_STATE_ERROR,
 
 } APP_PLC_STATES;
@@ -173,13 +178,41 @@ typedef struct
 
 	uint32_t txEndTime;
 
-	uint8_t txAuto;
+	bool txAuto;
 
 	uint8_t txImpedance;
 
     bool inTx;
 
 } APP_PLC_DATA_TX;
+
+typedef struct
+{
+    uint32_t *pValues;
+    
+    uint16_t frameCounter;
+    
+    DRV_PLC_PHY_TRANSMISSION_OBJ plcPhyTxBackup;
+    
+    uint32_t rmsMaxValuesHi[SRV_PCOUP_NUM_TX_LEVELS];
+    
+    uint32_t rmsMaxValuesVlo[SRV_PCOUP_NUM_TX_LEVELS];
+    
+    uint32_t thresholdValuesHi[SRV_PCOUP_NUM_TX_LEVELS];
+    
+    uint32_t thresholdValuesVlo[SRV_PCOUP_NUM_TX_LEVELS];
+    
+    uint16_t framesPerIteration;
+    
+    uint8_t txLevels;
+    
+    bool rmsmaxCalibration;
+    
+    bool txConfirm;
+ 
+    bool valuesAreReady;
+    
+} APP_PLC_CALIBRATION_DATA;   
 
 extern APP_PLC_DATA appPlc;
 extern APP_PLC_DATA_TX appPlcTx;
@@ -286,6 +319,11 @@ void APP_PLC_PL460_Tasks( void );
  */
 
 void APP_PLC_DataIndCallbackRegister( const DRV_PLC_PHY_DATA_IND_CALLBACK callback );
+
+void APP_PLC_SetImpedanceState(bool txAuto, uint8_t impedance);
+
+void APP_PLC_GetCalibrationValues(uint8_t type, uint8_t impedance);
+bool APP_PLC_CalibrationValuesAreReady(uint32_t **pValues);
 
 #endif /* _APP_PLC_PL460_H */
 
