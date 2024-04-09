@@ -93,7 +93,8 @@ typedef enum
     APP_CONSOLE_STATE_SET_DATA,
     APP_CONSOLE_STATE_SET_BRANCH_MODE,
     APP_CONSOLE_STATE_SNIFFER_MODE,
-    APP_CONSOLE_STATE_PLC_CALIBRATION_RMSMAX,
+    APP_CONSOLE_STATE_PLC_CALIBRATION_RMSMAX_HI,
+    APP_CONSOLE_STATE_PLC_CALIBRATION_RMSMAX_VLO,
     APP_CONSOLE_STATE_PLC_CALIBRATION_THRESHOLD,
     APP_CONSOLE_STATE_VIEW_CONFIG,
     APP_CONSOLE_STATE_TX,
@@ -115,10 +116,8 @@ typedef enum
 {
     /* Application's state machine's initial state. */
     APP_CONSOLE_CALIB_IDLE=0,
-    APP_CONSOLE_CALIB_RMSMAX_HI,
-    APP_CONSOLE_CALIB_RMSMAX_HI_WAITING,
-    APP_CONSOLE_CALIB_RMSMAX_LO,
-    APP_CONSOLE_CALIB_RMSMAX_LO_WAITING,
+    APP_CONSOLE_CALIB_RMSMAX,
+    APP_CONSOLE_CALIB_RMSMAX_WAITING,
     APP_CONSOLE_CALIB_THRESHOLD_HI,
     APP_CONSOLE_CALIB_THRESHOLD_HI_WAITING,
     APP_CONSOLE_CALIB_THRESHOLD_LO,
@@ -194,8 +193,9 @@ extern APP_CONSOLE_DATA appConsole;
 	"2: Select Data to transmit\n\r" \
 	"3: Select Branch Mode\n\r" \
 	"4: Enable PHY PLC Sniffer mode\n\r" \
-	"5: Phy Calibration. Get RMS Max values\n\r" \
-	"6: Phy Calibration. Get Threshold values\n\r" \
+	"5: Phy Tx Calibration. Get Target RMS values for High Impedance\n\r" \
+	"6: Phy Tx Calibration. Get Target RMS values for Low Impedance\n\r" \
+	"7: Phy Tx Calibration. Get Threshold values\n\r" \
 	"v: View TX configuration values\n\r" \
 	"e: Execute transmission application\n\r" \
 	"c: Enable/Disable ECHO console\n\r" \

@@ -78,6 +78,8 @@ extern "C" {
 #define APP_PLC_CALIBRATE_RMSMAX                  0
 #define APP_PLC_CALIBRATE_THRESHOLD               1    
 #define APP_PLC_CALIBRATE_FRAMES_ITERATION        20
+#define APP_PLC_CALIBRATE_THRESHOLD_HI_PERC       85
+#define APP_PLC_CALIBRATE_THRESHOLD_VLO_PERC      95
 
 // *****************************************************************************
 /* Application states
@@ -178,11 +180,11 @@ typedef struct
 
     DRV_PLC_PHY_TRANSMISSION_OBJ plcPhyTx;
 
-	uint32_t txEndTime;
+    uint32_t timeBetweenFrames;
 
-	bool txAuto;
+    bool txAuto;
 
-	uint8_t txImpedance;
+    uint8_t txImpedance;
 
     bool inTx;
     
@@ -207,8 +209,8 @@ typedef struct
     uint32_t thresholdValuesVlo[SRV_PCOUP_NUM_TX_LEVELS];
     
     uint16_t framesPerIteration;
-    
-    uint8_t txLevels;
+
+    uint8_t impedanceCalibration;
     
     bool rmsmaxCalibration;
     

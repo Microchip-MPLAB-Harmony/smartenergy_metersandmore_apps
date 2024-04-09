@@ -140,13 +140,9 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
     /* Update calibration variables */
     if (appPlc.state == APP_PLC_STATE_TX_CALIBRATION)
     {
-        uint8_t levelIndex;
-        
-        levelIndex = SRV_PCOUP_NUM_TX_LEVELS - appPlcCalibration.txLevels;
-        
         if (appPlcCalibration.rmsmaxCalibration == true)
         {
-            appPlcCalibration.pValues[levelIndex] += cfmObj->rmsCalc;
+            appPlcCalibration.pValues[appPlcTx.plcPhyTx.attenuation] += cfmObj->rmsCalc;
         }
         else
         {
@@ -160,7 +156,7 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
             pibObj.pData = (uint8_t *)&correctedRmsCalc;
             DRV_PLC_PHY_PIBGet(appPlc.drvPlcHandle, &pibObj);
     
-            appPlcCalibration.pValues[levelIndex] += correctedRmsCalc;
+            appPlcCalibration.pValues[appPlcTx.plcPhyTx.attenuation] += correctedRmsCalc;
         }
         
         appPlcCalibration.frameCounter++;
@@ -168,8 +164,22 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
         if (appPlcCalibration.framesPerIteration == 0)
         {
             uint32_t rmsMean;
-            rmsMean = DIV_ROUND(appPlcCalibration.pValues[levelIndex], appPlcCalibration.frameCounter);
-            appPlcCalibration.pValues[levelIndex] = rmsMean;
+            rmsMean = DIV_ROUND(appPlcCalibration.pValues[appPlcTx.plcPhyTx.attenuation], APP_PLC_CALIBRATE_FRAMES_ITERATION);
+
+            if (appPlcCalibration.rmsmaxCalibration == false)
+            {
+                /* Apply percentage depending on impedance mode */
+                if (appPlcCalibration.impedanceCalibration == HI_STATE)
+                {
+                    rmsMean = DIV_ROUND(rmsMean * APP_PLC_CALIBRATE_THRESHOLD_HI_PERC, 100);
+                }
+                else
+                {
+                    rmsMean = DIV_ROUND(rmsMean * APP_PLC_CALIBRATE_THRESHOLD_VLO_PERC, 100);
+                }
+            }
+
+            appPlcCalibration.pValues[appPlcTx.plcPhyTx.attenuation] = rmsMean;
         }
         
         if (cfmObj->result == DRV_PLC_PHY_TX_RESULT_SUCCESS)
@@ -192,6 +202,9 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
         /* Update PLC TX Status */
         appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
 
+        appPlcTx.plcPhyTx.timeIni = cfmObj->timeEnd + appPlcTx.timeBetweenFrames;
+        appPlcTx.plcPhyTx.mode = TX_MODE_ABSOLUTE;
+
         /* Handle result of transmission : Show it through Console */
         switch(cfmObj->result)
         {
@@ -201,7 +214,7 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
             case DRV_PLC_PHY_TX_RESULT_SUCCESS:
                 /* Show TX message through Serial Console */
                 APP_PLC_PrintTxMessage();
-                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_SUCCESS\r\n");
+                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_SUCCESS RMS_CALC %u\r\n", cfmObj->rmsCalc);
                 break;
             case DRV_PLC_PHY_TX_RESULT_INV_LENGTH:
                 APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_INV_LENGTH\r\n");
@@ -366,7 +379,7 @@ void APP_PLC_PL360_Tasks ( void )
                     /* Set configuration by default */
                     appPlcTx.configKey = APP_PLC_CONFIG_KEY;
                     appPlcTx.plcPhyVersion = 0;
-                    appPlcTx.plcPhyTx.timeIni = 1000000;
+                    appPlcTx.plcPhyTx.timeIni = 0;
                     appPlcTx.plcPhyTx.attenuation = 0;
                     appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE;
                     appPlcTx.plcPhyTx.nbFrame = 0;
@@ -375,6 +388,7 @@ void APP_PLC_PL360_Tasks ( void )
                     
                     appPlcTx.txAuto = 0;
                     appPlcTx.txImpedance = HI_STATE;
+                    appPlcTx.timeBetweenFrames = 1000000;
                     
                     /* Clear Transmission flag */
                     appPlcTx.inTx = false;
@@ -507,6 +521,7 @@ void APP_PLC_PL360_Tasks ( void )
             {
                 /* Set Transmission Mode */
                 appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE;
+                appPlcTx.plcPhyTx.timeIni = 0;
 
                 /* Set Transmission flag */
                 appPlcTx.inTx = true;
@@ -538,7 +553,7 @@ void APP_PLC_PL360_Tasks ( void )
             if (appPlc.plcTxState == APP_PLC_TX_STATE_WAIT_TX_CFM)
             {
                 /* Send PLC Cancel message */
-                appPlcTx.plcPhyTx.mode = TX_MODE_CANCEL | TX_MODE_RELATIVE;
+                appPlcTx.plcPhyTx.mode = TX_MODE_CANCEL;
                 DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
             }
             break;
@@ -556,8 +571,8 @@ void APP_PLC_PL360_Tasks ( void )
                 }
                 else
                 {
-                    appPlcCalibration.txLevels--;
-                    if (appPlcCalibration.txLevels > 0)
+                    appPlcTx.plcPhyTx.attenuation++;
+                    if (appPlcTx.plcPhyTx.attenuation < SRV_PCOUP_NUM_TX_LEVELS)
                     {
                         appPlcCalibration.framesPerIteration = APP_PLC_CALIBRATE_FRAMES_ITERATION;
                     }
@@ -568,8 +583,44 @@ void APP_PLC_PL360_Tasks ( void )
                         /* Restore Phy Tx configuration */
                         memcpy(&appPlcTx.plcPhyTx, &appPlcCalibration.plcPhyTxBackup, sizeof(appPlcTx.plcPhyTx));
                         APP_PLC_SetImpedanceState(appPlcTx.txAuto, appPlcTx.txImpedance);
-                        
+
                         appPlc.state = APP_PLC_STATE_WAITING;
+
+                        /* Apply calibrated values */
+                        DRV_PLC_PHY_PIB_OBJ pibObj;
+
+                        if (appPlcCalibration.rmsmaxCalibration == true)
+                        {
+                            pibObj.length = 8 << 2;
+                            pibObj.pData = (uint8_t *)appPlcCalibration.pValues;
+                            if (appPlcCalibration.impedanceCalibration == HI_STATE)
+                            {
+                                pibObj.id = PLC_ID_MAX_RMS_TABLE_HI;
+                            }
+                            else
+                            {
+                                pibObj.id = PLC_ID_MAX_RMS_TABLE_VLO;
+                            }
+                        }
+                        else
+                        {
+                            uint32_t thresholds[16];
+
+                            pibObj.length = 8 << 3;
+                            pibObj.pData = (uint8_t *)thresholds;
+                            memset(thresholds, 0, sizeof(thresholds));
+                            memcpy(&thresholds[8], appPlcCalibration.pValues, SRV_PCOUP_NUM_TX_LEVELS << 2);
+                            if (appPlcCalibration.impedanceCalibration == HI_STATE)
+                            {
+                                pibObj.id = PLC_ID_THRESHOLDS_TABLE_HI;
+                            }
+                            else
+                            {
+                                pibObj.id = PLC_ID_THRESHOLDS_TABLE_VLO;
+                            }
+                        }
+
+                        DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
                     }
                 }
             }
@@ -614,10 +665,18 @@ void APP_PLC_GetCalibrationValues(uint8_t type, uint8_t impedance)
     DRV_PLC_PHY_PIB_OBJ pibObj;
     uint8_t value;
     
-    /* Disable Autodetect Mode */
+    /* Configure Autodetect Mode depending on calibration type */
+    if (type == APP_PLC_CALIBRATE_RMSMAX)
+    {
+        value = 0;
+    }
+    else
+    {
+        value = 1;
+    }
+
     pibObj.id = PLC_ID_CFG_AUTODETECT_IMPEDANCE;
     pibObj.length = 1;
-    value = 0;
     pibObj.pData = (uint8_t *)&value;
     DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
 
@@ -641,33 +700,43 @@ void APP_PLC_GetCalibrationValues(uint8_t type, uint8_t impedance)
     /* Set Calibration configuration */
     appPlcCalibration.valuesAreReady = false;
     appPlcCalibration.txConfirm = true;
-    appPlcCalibration.txLevels = SRV_PCOUP_NUM_TX_LEVELS;
     appPlcCalibration.framesPerIteration = APP_PLC_CALIBRATE_FRAMES_ITERATION;
-    if (impedance == HI_STATE)
+    appPlcCalibration.impedanceCalibration = impedance;
+
+    if (type == APP_PLC_CALIBRATE_RMSMAX)
     {
-        if (type == APP_PLC_CALIBRATE_RMSMAX)
+        appPlcCalibration.rmsmaxCalibration = true;
+        if (impedance == HI_STATE)
         {
             appPlcCalibration.pValues = appPlcCalibration.rmsMaxValuesHi;
-            appPlcCalibration.rmsmaxCalibration = true;
         }
         else
         {
-            appPlcCalibration.pValues = appPlcCalibration.thresholdValuesHi;
-            appPlcCalibration.rmsmaxCalibration = false;
+            appPlcCalibration.pValues = appPlcCalibration.rmsMaxValuesVlo;
         }
     }
     else
     {
-        if (type == APP_PLC_CALIBRATE_RMSMAX)
+        uint32_t thresholds[16];
+
+        appPlcCalibration.rmsmaxCalibration = false;
+        if (impedance == HI_STATE)
         {
-            appPlcCalibration.pValues = appPlcCalibration.rmsMaxValuesVlo;
-            appPlcCalibration.rmsmaxCalibration = true;
+            appPlcCalibration.pValues = appPlcCalibration.thresholdValuesHi;
+            pibObj.id = PLC_ID_THRESHOLDS_TABLE_HI;
+            memset(thresholds, 0, sizeof(thresholds));
         }
         else
         {
             appPlcCalibration.pValues = appPlcCalibration.thresholdValuesVlo;
-            appPlcCalibration.rmsmaxCalibration = false;
+            pibObj.id = PLC_ID_THRESHOLDS_TABLE_VLO;
+            memset(thresholds, 0xFF, sizeof(thresholds));
         }
+
+        /* Disable thresholds */
+        pibObj.length = sizeof(thresholds);
+        pibObj.pData = (uint8_t *)&thresholds;
+        DRV_PLC_PHY_PIBSet(appPlc.drvPlcHandle, &pibObj);
     }
     
     memset(appPlcCalibration.pValues, 0, sizeof(appPlcCalibration.rmsMaxValuesHi));
