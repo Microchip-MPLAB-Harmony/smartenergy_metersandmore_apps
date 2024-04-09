@@ -164,6 +164,8 @@ typedef struct
     uint32_t *thresholdValuesHi;
     uint32_t *thresholdValuesVlo;    
     
+    uint32_t rxNumSequence;
+    
 } APP_CONSOLE_DATA;
 
 extern APP_CONSOLE_DATA appConsole;

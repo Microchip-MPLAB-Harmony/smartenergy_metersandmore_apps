@@ -79,8 +79,8 @@ extern DRV_PLC_PHY_INIT drvPlcPhyInitData;
     Application strings and buffers are be defined outside this structure.
 */
 
-CACHE_ALIGN APP_PLC_DATA appPlc;
-CACHE_ALIGN APP_PLC_DATA_TX appPlcTx;
+APP_PLC_DATA appPlc;
+APP_PLC_DATA_TX appPlcTx;
 
 static CACHE_ALIGN uint8_t appPlcPibDataBuffer[CACHE_ALIGNED_SIZE_GET(APP_PLC_PIB_BUFFER_SIZE)];
 static CACHE_ALIGN uint8_t appPlcTxDataBuffer[CACHE_ALIGNED_SIZE_GET(APP_PLC_BUFFER_SIZE)];
@@ -114,6 +114,22 @@ static void APP_PLC_ExceptionCb(DRV_PLC_PHY_EXCEPTION exceptionObj, uintptr_t co
     appPlc.plcTxState = APP_PLC_TX_STATE_IDLE;
     /* Restore TX configuration */
     appPlc.state = APP_PLC_STATE_READ_CONFIG;
+}
+
+static void APP_PLC_PrintTxMessage(void)
+{
+    char *pBuffer = (char *)appPlcPibDataBuffer; // Use PIB Data buffer to minimize the static memory in use
+    uint8_t *pData = appPlcTx.plcPhyTx.pTransmitData;
+    uint16_t index;
+    
+    for(index = 0; index < appPlcTx.plcPhyTx.dataLength; index++)
+    {
+        sprintf(pBuffer, "%02X", *pData);
+        pData++;
+        pBuffer += 2;
+    }
+    *pBuffer = '\0';
+    APP_CONSOLE_Print("\r\n%06d: 0x%s\r\n", appPlcTx.txNumSequence, appPlcPibDataBuffer);
 }
 
 static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_t context )
@@ -183,6 +199,8 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
                 APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_PROCESS\r\n");
                 break;
             case DRV_PLC_PHY_TX_RESULT_SUCCESS:
+                /* Show TX message through Serial Console */
+                APP_PLC_PrintTxMessage();
                 APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_SUCCESS\r\n");
                 break;
             case DRV_PLC_PHY_TX_RESULT_INV_LENGTH:
@@ -201,7 +219,7 @@ static void APP_PLC_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_
                 APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_TIMEOUT\r\n");
                 break;
             case DRV_PLC_PHY_TX_CANCELLED:
-                APP_CONSOLE_Print("...DRV_PLC_PHY_TX_CANCELLED\r\n");
+                APP_CONSOLE_Print("\r\n...DRV_PLC_PHY_TX_CANCELLED\r\n");
                 break;
             case DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_120:
                 APP_CONSOLE_Print("...DRV_PLC_PHY_TX_RESULT_HIGH_TEMP_120\r\n");
@@ -242,6 +260,11 @@ static void APP_PLC_DataIndCb( DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t cont
 static void APP_PLC_PVDDMonitorCb( SRV_PVDDMON_CMP_MODE cmpMode, uintptr_t context )
 {
     (void)context;
+    
+    if (!appPlc.pvddMonInitialized)
+    {
+        appPlc.pvddMonInitialized = true;
+    }
 
     if (cmpMode == SRV_PVDDMON_CMP_MODE_OUT)
     {
@@ -477,6 +500,7 @@ void APP_PLC_PL460_Tasks ( void )
 #ifndef APP_PLC_DISABLE_PVDDMON
                 /* Disable TX Enable at the beginning */
                 DRV_PLC_PHY_EnableTX(appPlc.drvPlcHandle, false);
+                appPlc.pvddMonInitialized = false;
                 appPlc.pvddMonTxEnable = false;
                 /* Enable PLC PVDD Monitor Service */
                 SRV_PVDDMON_CallbackRegister(APP_PLC_PVDDMonitorCb, 0);
@@ -542,20 +566,26 @@ void APP_PLC_PL460_Tasks ( void )
             {
                 if (appPlc.plcTxState == APP_PLC_TX_STATE_IDLE)
                 {
-                    if (appPlc.pvddMonTxEnable)
+                    if (appPlc.pvddMonInitialized)
                     {
-                        appPlc.plcTxState = APP_PLC_TX_STATE_WAIT_TX_CFM;
-                        /* Send PLC message */
-                        DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
-                    }
-                    else
-                    {
-                        DRV_PLC_PHY_TRANSMISSION_CFM_OBJ cfmData;
+                        if (appPlc.pvddMonTxEnable)
+                        {
+                            /* Update the sequence number */
+                            appPlcTx.txNumSequence++;
 
-                        cfmData.timeEnd = 0;
-                        cfmData.rmsCalc = 0;
-                        cfmData.result = DRV_PLC_PHY_TX_RESULT_NO_TX;
-                        APP_PLC_DataCfmCb(&cfmData, 0);
+                            appPlc.plcTxState = APP_PLC_TX_STATE_WAIT_TX_CFM;
+                            /* Send PLC message */
+                            DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
+                        }
+                        else
+                        {
+                            DRV_PLC_PHY_TRANSMISSION_CFM_OBJ cfmData;
+
+                            cfmData.timeEnd = 0;
+                            cfmData.rmsCalc = 0;
+                            cfmData.result = DRV_PLC_PHY_TX_RESULT_NO_TX;
+                            APP_PLC_DataCfmCb(&cfmData, 0);
+                        }
                     }
                 }
             }
@@ -723,6 +753,12 @@ bool APP_PLC_CalibrationValuesAreReady(uint32_t **pValues)
     }
     
     return false;
+}
+
+void APP_PLC_StartTramission(void)
+{
+    appPlcTx.txNumSequence = 0;
+    appPlc.state = APP_PLC_STATE_TX;
 }
 
 /*******************************************************************************

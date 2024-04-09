@@ -181,6 +181,8 @@ typedef struct
 	uint8_t txImpedance;
 
     bool inTx;
+    
+    uint32_t txNumSequence;
 
 } APP_PLC_DATA_TX;
 
@@ -322,6 +324,7 @@ void APP_PLC_SetImpedanceState(bool txAuto, uint8_t impedance);
 
 void APP_PLC_GetCalibrationValues(uint8_t type, uint8_t impedance);
 bool APP_PLC_CalibrationValuesAreReady(uint32_t **pValues);
+void APP_PLC_StartTramission(void);
 
 #endif /* _APP_PLC_PL360_H */
 

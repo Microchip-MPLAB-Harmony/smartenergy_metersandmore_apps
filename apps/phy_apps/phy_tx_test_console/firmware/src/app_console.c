@@ -95,6 +95,8 @@ static void APP_CONSOLE_PLCDataIndicationCallback(DRV_PLC_PHY_RECEPTION_OBJ *ind
     uint8_t *pData = indObj->pReceivedData;
     uint16_t index;
     
+    appConsole.rxNumSequence++;
+    
     for(index = 0; index < indObj->dataLength; index++)
     {
         sprintf(pBuffer, "%02X", *pData);
@@ -102,7 +104,7 @@ static void APP_CONSOLE_PLCDataIndicationCallback(DRV_PLC_PHY_RECEPTION_OBJ *ind
         pBuffer += 2;
     }
     *pBuffer = '\0';
-    APP_CONSOLE_Print("\r\n0x%s\r\n", pSnifferBuffer);
+    APP_CONSOLE_Print("\r\n%06d: 0x%s\r\n", appConsole.rxNumSequence, pSnifferBuffer);
     APP_CONSOLE_Print("  Len:%d RSSI:%d dBuV LQI:%d SNR_H:%d dB SNR_P:%d dB NB:%d Duration:%d us\r\n", 
             indObj->dataLength, indObj->rssi, indObj->lqi, indObj->snrHeader, 
             indObj->snrPayload, indObj->nbRx, indObj->frameDuration);
@@ -277,7 +279,9 @@ static bool APP_CONSOLE_SetDataMode(char *mode)
 
     length = appPlcTx.plcPhyTx.dataLength;
     pData = appPlcTx.plcPhyTx.pTransmitData;
-
+    *pData++ = (uint8_t)0x55;
+    length--;
+    
     switch (*mode)
     {
         case '0':
@@ -374,13 +378,13 @@ static void APP_CONSOLE_ShowConfiguration(void)
     APP_CONSOLE_Print("-I- Time Period: %u\n\r", (unsigned int)appPlcTx.plcPhyTx.timeIni);
     APP_CONSOLE_Print("-I- Data Len: %u\n\r", (unsigned int)appPlcTx.plcPhyTx.dataLength);
 
-    if (appPlcTx.plcPhyTx.pTransmitData[0] == 0x30)
+    if (appPlcTx.plcPhyTx.pTransmitData[0] == 0x55)
     {
-        APP_CONSOLE_Print("-I- Fixed Data\r\n");
+        APP_CONSOLE_Print("-I- Random Data\r\n");
     }
     else
     {
-        APP_CONSOLE_Print("-I- Random Data\r\n");
+        APP_CONSOLE_Print("-I- Fixed Data\r\n");
     }
 }
 
@@ -748,6 +752,7 @@ void APP_CONSOLE_Tasks ( void )
                         APP_CONSOLE_Print("\r\nSet PHY PLC Sniffer mode, type 'x' to cancel.\r\n");
                         APP_PLC_DataIndCallbackRegister(APP_CONSOLE_PLCDataIndicationCallback);
                         appConsole.state = APP_CONSOLE_STATE_SNIFFER_MODE;
+                        appConsole.rxNumSequence = 0;
                         APP_CONSOLE_ReadRestart(1);
                         break;
 
@@ -769,7 +774,7 @@ void APP_CONSOLE_Tasks ( void )
                     case 'e':
                     case 'E':
                         APP_CONSOLE_Print("\r\nStart transmission, type 'x' to cancel.\r\n");
-                        appPlc.state = APP_PLC_STATE_TX;
+                        APP_PLC_StartTramission();
                         appConsole.state = APP_CONSOLE_STATE_TX;
                         APP_CONSOLE_ReadRestart(1);
                         break;
