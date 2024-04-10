@@ -74,15 +74,15 @@ Microchip or any third party.
 #define SRV_PCOUP_DEFAULT_BRANCH                 SRV_PLC_PCOUP_MAIN_BRANCH
 
 /* PLC PHY Coupling parameters for Main branch */
-#define SRV_PCOUP_RMS_HIGH_TBL                   {1991, 1381, 976, 695, 495, 351, 250, 179}
-#define SRV_PCOUP_RMS_VLOW_TBL                   {6356, 4706, 3317, 2308, 1602, 1112, 778, 546}
-#define SRV_PCOUP_THRS_HIGH_TBL                  {0, 0, 0, 0, 0, 0, 0, 0, 1685, 1173, 828, 589, 419, 298, 212, 151}
-#define SRV_PCOUP_THRS_VLOW_TBL                  {0, 0, 0, 0, 0, 0, 0, 0, 8988, 6370, 4466, 3119, 2171, 1512, 1061, 752}
+#define SRV_PCOUP_RMS_HIGH_TBL                   {324, 293, 267, 242, 218, 194, 172, 153}
+#define SRV_PCOUP_RMS_VLOW_TBL                   {2432, 2172, 1932, 1714, 1515, 1342, 1189, 1052}
+#define SRV_PCOUP_THRS_HIGH_TBL                  {0, 0, 0, 0, 0, 0, 0, 0, 274, 247, 225, 205, 184, 164, 146, 130}
+#define SRV_PCOUP_THRS_VLOW_TBL                  {0, 0, 0, 0, 0, 0, 0, 0, 5579, 4972, 4414, 3920, 3477, 3079, 2738, 2433}
 #define SRV_PCOUP_DACC_TBL                       {0x0UL, 0x2120UL, 0x73fUL, 0x3f3fUL, 0x333UL, 0x0UL, \
-                                                 0xffff00ffUL, 0x17171717UL, 0x2020UL, 0x44UL, 0xfd20004UL, 0x355UL, \
+                                                 0xffff00ffUL, 0x17171717UL, 0x2020UL, 0x44UL, 0xfd20001UL, 0x355UL, \
                                                  0xf000000UL, 0x1020f0UL, 0x355UL, 0xf000000UL, 0x1020ffUL}
-#define SRV_PCOUP_GAIN_HIGH_TBL                  {32, 32, 32}
-#define SRV_PCOUP_GAIN_VLOW_TBL                  {16, 16, 16}
+#define SRV_PCOUP_GAIN_HIGH_TBL                  {25, 12, 50}
+#define SRV_PCOUP_GAIN_VLOW_TBL                  {228, 114, 256}
 #define SRV_PCOUP_NUM_TX_LEVELS                  8
 #define SRV_PCOUP_LINE_DRV_CONF                  0
 

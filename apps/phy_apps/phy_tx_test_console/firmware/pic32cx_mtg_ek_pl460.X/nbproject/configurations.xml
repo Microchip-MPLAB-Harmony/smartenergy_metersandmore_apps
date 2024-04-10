@@ -271,7 +271,7 @@
                    displayName="Important Files"
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
-      <itemPath>g3_phy_tx_test_console_pic32cx_mtg_ek_pl460.mc3</itemPath>
+      <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl460.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
