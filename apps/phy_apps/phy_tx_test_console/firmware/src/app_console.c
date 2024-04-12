@@ -262,7 +262,7 @@ static bool APP_CONSOLE_SetDataLength(char *pDataLength, size_t length)
         }
     }
 
-    if (result & (dataLength < APP_PLC_BUFFER_SIZE))
+    if (result & (dataLength <= APP_PLC_BUFFER_SIZE))
     {
         appPlcTx.plcPhyTx.dataLength = dataLength;
     }
@@ -274,27 +274,30 @@ static bool APP_CONSOLE_SetDataMode(char *mode)
 {
     size_t length;
     uint8_t* pData;
-    uint32_t dataValue;
+    uint8_t numBytesRnd;
+    uint32_t dataValue = 0;
     bool result = true;
 
     length = appPlcTx.plcPhyTx.dataLength;
     pData = appPlcTx.plcPhyTx.pTransmitData;
-    *pData++ = (uint8_t)0x55;
-    length--;
-    
+
     switch (*mode)
     {
         case '0':
             /* Random mode */
-            length >>= 2;
-            length++;
+            *pData++ = (uint8_t)0x55;
+            length--;
+            numBytesRnd = 0;
             while(length--)
             {
-                dataValue = TRNG_ReadData();
+                if ((numBytesRnd % 4) == 0)
+                {
+                    dataValue = TRNG_ReadData();
+                }
+
                 *pData++ = (uint8_t)dataValue;
-                *pData++ = (uint8_t)(dataValue >> 8);
-                *pData++ = (uint8_t)(dataValue >> 16);
-                *pData++ = (uint8_t)(dataValue >> 24);
+                dataValue >>= 8;
+                numBytesRnd++;
             }
             break;
 
@@ -765,7 +768,7 @@ void APP_CONSOLE_Tasks ( void )
                         break;
 
                     case '2':
-                        APP_CONSOLE_Print("\r\nEnter length of data to transmit in bytes (max. 512 bytes): ");
+                        APP_CONSOLE_Print("\r\nEnter length of data to transmit in bytes (max. 256 bytes): ");
                         appConsole.state = APP_CONSOLE_STATE_SET_DATA_LEN;
                         APP_CONSOLE_ReadRestart(3);
                         break;

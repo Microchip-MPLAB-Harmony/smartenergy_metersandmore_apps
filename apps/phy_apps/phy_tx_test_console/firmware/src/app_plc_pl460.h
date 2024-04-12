@@ -72,8 +72,8 @@ extern "C" {
 #define LED_BLINK_RATE_MS                         500
 #define LED_PLC_RX_MSG_RATE_MS                    50
 
-#define APP_PLC_BUFFER_SIZE                       512
-#define APP_PLC_PIB_BUFFER_SIZE                   256
+#define APP_PLC_BUFFER_SIZE                       256
+#define APP_PLC_PIB_BUFFER_SIZE                   ((APP_PLC_BUFFER_SIZE << 1) + 1)
     
 #define APP_PLC_CALIBRATE_RMSMAX                  0
 #define APP_PLC_CALIBRATE_THRESHOLD               1    
