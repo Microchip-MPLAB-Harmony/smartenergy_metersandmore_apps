@@ -12049,7 +12049,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="BoardSelect"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
   &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;BoardSelect&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;PIC32CXMTC_DB&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/le_gfx_slcdc&gt;
 &lt;/le_gfx_slcdc&gt;
 </value>
@@ -23313,7 +23315,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtc_db_pl460\definitions.h</file>
-         <hash>c1607eb716a3efbbbb6e73b6c2ca651f1559fa75f70dd5520eea577524a9f9b4</hash>
+         <hash>08dc9f48f0062632027be75736de85f859a2ef5d3afb7d9658b441d2cb6f4b5b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtc_db_pl460\device.h</file>
@@ -23433,7 +23435,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtc_db_pl460\gfx\driver\controller\slcdc\cl010_segmap.h</file>
-         <hash>dd65858e15d02ead2dd482373a0cd15e548bcfc58ffa55c5659d473ed338d3c3</hash>
+         <hash>1f6f14e872f3a4f2f3c94c26ea55cef6c02a24bdd17c091ef8edf04d3060847a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtc_db_pl460\gfx\driver\controller\slcdc\cl010_slcdc.c</file>
