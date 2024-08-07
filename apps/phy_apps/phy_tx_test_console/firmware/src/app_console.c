@@ -104,10 +104,10 @@ static void APP_CONSOLE_PLCDataIndicationCallback(DRV_PLC_PHY_RECEPTION_OBJ *ind
         pBuffer += 2;
     }
     *pBuffer = '\0';
-    APP_CONSOLE_Print("\r\n%06d: 0x%s\r\n", appConsole.rxNumSequence, pSnifferBuffer);
-    APP_CONSOLE_Print("  Len:%d RSSI:%d dBuV LQI:%d SNR_H:%d dB SNR_P:%d dB NB:%d Duration:%d us\r\n", 
-            indObj->dataLength, indObj->rssi, indObj->lqi, indObj->snrHeader, 
-            indObj->snrPayload, indObj->nbRx, indObj->frameDuration);
+    APP_CONSOLE_Print("\r\n%06u: 0x%s\r\n", appConsole.rxNumSequence, pSnifferBuffer);
+    APP_CONSOLE_Print("  Len:%hu RSSI:%hhu dBuV LQI:%hhu (%2.2f dB) SNR_H:%2.2f dB SNR_P:%2.2f dB NB:%d Duration:%d us\r\n",
+            indObj->dataLength, indObj->rssi, indObj->lqi, (indObj->lqi / 4.0f) - 10.0f,
+            indObj->snrHeader / 4.0f, indObj->snrPayload / 4.0f, indObj->nbRx, indObj->frameDuration);
 }
 
 // *****************************************************************************
