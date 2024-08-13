@@ -164,6 +164,7 @@ typedef struct
     uint32_t *thresholdValuesVlo;    
     
     uint32_t rxNumSequence;
+    uint32_t rxTimeEndPrev;
     
 } APP_CONSOLE_DATA;
 

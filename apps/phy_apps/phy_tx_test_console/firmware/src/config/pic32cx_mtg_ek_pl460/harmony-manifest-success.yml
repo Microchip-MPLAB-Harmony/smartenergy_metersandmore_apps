@@ -4,7 +4,7 @@
 
 
 project: phy_tx_test_console
-creation_date: 2024-08-07T11:55:42.312+02:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2024-08-20T10:40:53.524+02:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
@@ -17,7 +17,7 @@ modules:
     - {name: "csp", version: "master"}
     - {name: "core", version: "master"}
     - {name: "CMSIS_5", version: "5.9.0"}
-    - {name: "smartenergy", version: "SMS-4015-m-m-plc-driver-fix-order-of-rx-parameters"}
+    - {name: "smartenergy", version: "SMS-4016-meters-more-phy-reduce-convolutional-encoder-and-interleaver-padding"}
     - {name: "bsp", version: "master"}
 
 packs:

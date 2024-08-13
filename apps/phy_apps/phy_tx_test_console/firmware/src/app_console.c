@@ -82,7 +82,6 @@ CACHE_ALIGN APP_CONSOLE_DATA appConsole;
 
 static CACHE_ALIGN char pTransmitBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
 static CACHE_ALIGN char pReceivedBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
-static CACHE_ALIGN char pSnifferBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE)];
 
 // *****************************************************************************
 // *****************************************************************************
@@ -91,23 +90,25 @@ static CACHE_ALIGN char pSnifferBuffer[CACHE_ALIGNED_SIZE_GET(SERIAL_BUFFER_SIZE
 // *****************************************************************************
 static void APP_CONSOLE_PLCDataIndicationCallback(DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t context)
 {
-    char *pBuffer = pSnifferBuffer;
     uint8_t *pData = indObj->pReceivedData;
     uint16_t index;
     
     appConsole.rxNumSequence++;
+
+    APP_CONSOLE_Print("\r\n%06u: 0x", appConsole.rxNumSequence);
     
     for(index = 0; index < indObj->dataLength; index++)
     {
-        sprintf(pBuffer, "%02X", *pData);
+        APP_CONSOLE_Print("%02X", *pData);
         pData++;
-        pBuffer += 2;
     }
-    *pBuffer = '\0';
-    APP_CONSOLE_Print("\r\n%06u: 0x%s\r\n", appConsole.rxNumSequence, pSnifferBuffer);
-    APP_CONSOLE_Print("  Len:%hu RSSI:%hhu dBuV LQI:%hhu (%2.2f dB) SNR_H:%2.2f dB SNR_P:%2.2f dB NB:%d Duration:%d us\r\n",
-            indObj->dataLength, indObj->rssi, indObj->lqi, (indObj->lqi / 4.0f) - 10.0f,
-            indObj->snrHeader / 4.0f, indObj->snrPayload / 4.0f, indObj->nbRx, indObj->frameDuration);
+
+    APP_CONSOLE_Print("\r\n  Len:%hu CRC_Ok:%hhu RSSI:%hhu dBuV LQI:%hhu (%2.2f dB) SNR_H:%2.2f dB SNR_P:%2.2f dB NBrx:%hhu Duration:%u us Delta:%d us\r\n",
+            indObj->dataLength, indObj->crcOk, indObj->rssi, indObj->lqi, (indObj->lqi / 4.0f) - 10.0f, indObj->snrHeader / 4.0f,
+                      indObj->snrPayload / 4.0f, indObj->nbRx, indObj->frameDuration, (int32_t)(indObj->timeEnd - indObj->frameDuration) - (int32_t)appConsole.rxTimeEndPrev);
+
+    /* Update Rx Time End to calculate delta in next reception */
+    appConsole.rxTimeEndPrev = indObj->timeEnd;
 }
 
 // *****************************************************************************
