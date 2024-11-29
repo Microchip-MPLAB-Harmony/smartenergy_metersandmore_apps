@@ -86,11 +86,11 @@ typedef struct
     /* The application's current state */
     MODEM_APP_STATES state;
     
-    DLL_DATA_REQUEST_PARAMS drParams;
+    AL_DATA_REQUEST_PARAMS_HI drParams;
 
     MMHI_HANDLE mmhiHandle;
     SYS_TIME_HANDLE tmrHandle;
-    DLL_IB_VALUE dllIb;
+    AL_IB_VALUE alIb;
     uint8_t dsap;
     uint8_t reqId;
     uint8_t txLen;

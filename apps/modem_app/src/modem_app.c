@@ -76,8 +76,7 @@ static void lMODEM_APP_TimerCallback ( uintptr_t context )
 static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId, 
     uint8_t* lsdu, uint8_t lsduLen )
 {
-    DLL_DATA_REQUEST_PARAMS *drParams;
-    ROUTING_ENTRY addr = {0};
+    AL_DATA_REQUEST_PARAMS_HI *drParams;
     uint8_t *pData = lsdu;
     uint8_t lt;
     
@@ -92,24 +91,20 @@ static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId,
         memcpy(modemAppMacDataTxBuffer, lsdu, lsduLen);
 
         drParams->dsap = dsap;
-        drParams->ecc = DLL_ECC_DISABLED;
-        drParams->lsdu = modemAppMacDataTxBuffer;
-        drParams->serviceClass = SERVICE_CLASS_RA;
-        drParams->dstAddress = addr;   // ?????
-        drParams->maxResponseLen = 128;   // ?????
-        drParams->timeSlotNum = 8;   // ?????
-        drParams->lsduLen = lt;
+        drParams->reqID = reqId;
+        drParams->payload = modemAppMacDataTxBuffer;
+        drParams->payloadLen = (uint16_t)lt;
         
         modem_appData.state = MODEM_APP_STATE_TX_FRAME;
     }
 }
 
-static void lMODEM_APP_DLL_DataConfirm_callback(DLL_DATA_CONFIRM_PARAMS *cfmParams)
+static void lMODEM_APP_AL_DataConfirm_callback(AL_DATA_CONFIRM_PARAMS *cfmParams)
 {
     uint8_t command;
     uint8_t value = 0;
     
-    if (cfmParams->txStatus == DLL_TX_STATUS_SUCCESS)
+    if (cfmParams->txStatus == AL_TX_STATUS_SUCCESS)
     {
         command = modem_appData.master == true? MMHI_CMD_MASTER_DATA_CFM : MMHI_CMD_SLAVE_DATA_CFM;
     }
@@ -121,14 +116,14 @@ static void lMODEM_APP_DLL_DataConfirm_callback(DLL_DATA_CONFIRM_PARAMS *cfmPara
     MMHI_SendCommandFrame(command, &value, 1);
     
     SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0, 
-            "DLL_DATA_CONFIRM: Result=%hhu DSAP=%hhu, ECC=%hhu, DestAddr=0x %02X%02X%02X%02X%02X%02X\r\n", 
+            "AL_DATA_CONFIRM: Result=%hhu DSAP=%hhu, ECC=%hhu, DestAddr=0x %02X%02X%02X%02X%02X%02X\r\n", 
             cfmParams->txStatus, cfmParams->dsap, cfmParams->ecc,
             cfmParams->dstAddress.address[0], cfmParams->dstAddress.address[1], 
             cfmParams->dstAddress.address[2], cfmParams->dstAddress.address[3], 
             cfmParams->dstAddress.address[4], cfmParams->dstAddress.address[5]);
 }
 
-static void lMODEM_APP_DLL_DataIndication_callback(DLL_DATA_IND_PARAMS *indParams)
+static void lMODEM_APP_AL_DataIndication_callback(AL_DATA_IND_PARAMS *indParams)
 {
     uint8_t *pData;
     MMHI_COMMAND command;
@@ -152,17 +147,17 @@ static void lMODEM_APP_DLL_DataIndication_callback(DLL_DATA_IND_PARAMS *indParam
     MMHI_SendCommandFrame(command, modemAppMacDataRxBuffer, pData - modemAppMacDataRxBuffer);
     
     SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0, 
-            "DLL_DATA_INDICATION: DSAP=%hhu, ECC=%hhu, SrcAddr=0x %02X%02X%02X%02X%02X%02X, LSDU=0x", 
+            "AL_DATA_INDICATION: DSAP=%hhu, ECC=%hhu, SrcAddr=0x %02X%02X%02X%02X%02X%02X, LSDU=0x", 
             indParams->dsap, indParams->ecc,
             indParams->srcAddress.address[0], indParams->srcAddress.address[1], 
             indParams->srcAddress.address[2], indParams->srcAddress.address[3], 
             indParams->srcAddress.address[4], indParams->srcAddress.address[5]);
 }
 
-static void lMODEM_APP_DLL_EventIndication_callback(DLL_EVENT_IND_PARAMS *indParams)
+static void lMODEM_APP_AL_EventIndication_callback(AL_EVENT_IND_PARAMS *indParams)
 {
     SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0, 
-            "DLL_EVENT_INDICATION: Id=%hhu, Value=0x", indParams->eventId);
+            "AL_EVENT_INDICATION: Id=%hhu, Value=0x", indParams->eventId);
 
     for (uint8_t i = 0; i < indParams->eventValue.length; i++)
     {
@@ -233,15 +228,15 @@ void MODEM_APP_Tasks ( void )
             {
                 MMHI_MacDataCallbackRegister(lMODEM_APP_MacDataReqCallback);
                 
-                DLL_DataIndicationCallbackRegister(lMODEM_APP_DLL_DataIndication_callback);
-                DLL_DataConfirmCallbackRegister(lMODEM_APP_DLL_DataConfirm_callback);
-                DLL_EventIndicationCallbackRegister(lMODEM_APP_DLL_EventIndication_callback);
+                AL_DataIndicationCallbackRegister(lMODEM_APP_AL_DataIndication_callback);
+                AL_DataConfirmCallbackRegister(lMODEM_APP_AL_DataConfirm_callback);
+                AL_EventIndicationCallbackRegister(lMODEM_APP_AL_EventIndication_callback);
 
                 SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "Modem App initialized\r\n");
                 
-                modem_appData.dllIb.length = 6;
-                memcpy(modem_appData.dllIb.value, modemAppMacAddress.value, 6);
-                DLL_SetRequest(MAC_ACA_ADDRESS_IB, 0, &modem_appData.dllIb);
+                modem_appData.alIb.length = 6;
+                memcpy(modem_appData.alIb.value, modemAppMacAddress.value, 6);
+                AL_SetRequest(AL_MAC_ACA_ADDRESS_IB, 0, &modem_appData.alIb);
                 
                 modem_appData.state = MODEM_APP_STATE_WAIT_DLL_READY;
             }
@@ -250,7 +245,7 @@ void MODEM_APP_Tasks ( void )
 
         case MODEM_APP_STATE_WAIT_DLL_READY:
         {
-            if (DLL_GetStatus() == DLL_STATUS_READY)
+            if (AL_GetStatus() == SYS_STATUS_READY)
             {
                 modem_appData.state = MODEM_APP_STATE_WAITING;
             }
@@ -265,7 +260,7 @@ void MODEM_APP_Tasks ( void )
 
         case MODEM_APP_STATE_TX_FRAME:
         {
-            DLL_DataRequest(&modem_appData.drParams);
+            AL_DataRequestHI(&modem_appData.drParams);
             modem_appData.state = MODEM_APP_STATE_WAITING;
             break;
         }

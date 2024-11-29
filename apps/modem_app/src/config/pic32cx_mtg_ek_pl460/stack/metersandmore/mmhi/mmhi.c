@@ -111,7 +111,6 @@ static void lMMHI_TackTimerCallback ( uintptr_t context )
 
 static void lMMHI_TsrTimerCallback ( uintptr_t context )
 {
-    BSP_MIKROBUS_1_INT_Off();
     mmhiData.tsrTimer = SYS_TIME_HANDLE_INVALID;
     /* Finish reception state */
     lMMHI_ClearReceptionState();
@@ -484,9 +483,6 @@ static bool lMMHI_ProcessRcvFrame(void)
             {
                 SYS_TIME_TimerDestroy(mmhiData.tackTimer);
             }
-
-            /* Start timer to finish reception state */
-            BSP_MIKROBUS_1_INT_On();
             
             if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
             {
@@ -509,7 +505,6 @@ static bool lMMHI_ProcessRcvFrame(void)
             }
     
             /* Start timer to finish reception state */
-            BSP_MIKROBUS_1_INT_On();
             if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
             {
                 SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
@@ -583,6 +578,10 @@ static MMHI_RESULT lMMHI_CheckRcvFrame(void)
             // TBD
         }
         else if (pRcvFrameData->commandCode == MMHI_CMD_PLC_PHY_DATA_REQ)
+        {
+            // TBD  
+        }
+        else if (pRcvFrameData->commandCode == MMHI_CMD_HI_PING_REQ)
         {
             // TBD  
         }

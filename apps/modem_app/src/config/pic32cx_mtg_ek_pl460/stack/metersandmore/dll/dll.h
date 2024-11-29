@@ -101,26 +101,6 @@ typedef enum
     DLL_ERROR
 } DLL_RESULT;
 
-
-// *****************************************************************************
-/* DLL module Status
-
-  Summary:
-    Defines the status of the DLL module.
-
-  Description:
-    This enumeration defines the status of the DLL module:
-        - DLL_STATUS_UNINITIALIZED: DLL module has not been initialized.
-        - DLL_STATUS_READY: DLL module is ready to be used.
-  Remarks:
-    None.
-*/
-typedef enum
-{
-    DLL_STATUS_UNINITIALIZED = SYS_STATUS_UNINITIALIZED,
-    DLL_STATUS_READY = SYS_STATUS_READY,
-} DLL_STATUS;
-
 // *****************************************************************************
 /* DSAP definition
 
@@ -130,7 +110,7 @@ typedef enum
    Description:
     This enumeration identifies the possible DSAP values
     0 - Application Frame
-    1 - Network Management
+    2 - Network Management
 
    Remarks:
     None.
@@ -148,9 +128,14 @@ typedef enum
     ECC (Encryption Coding Control) values for Meters And More DLL layer.
 
    Description:
-    This enumeration identifies the possible ECC values
-    The only value defined is:
-    - Disabled
+    This enumeration identifies the possible ECC values (SSAP in older spec
+    versions).
+    The following values are defined:
+    0 - Disabled
+    1 - AES-CTR Encryption with READ key
+    2 - AES-ECB Encryption with READ key
+    5 - AES-CTR Encryption with WRITE key
+    6 - AES-ECB Encryption with WRITE key
     (Other values are reserved).
 
    Remarks:
@@ -158,7 +143,11 @@ typedef enum
 */
 typedef enum
 {
-    DLL_ECC_DISABLED = 0x00,
+  DLL_ECC_DISABLED = 0x00,
+  DLL_ECC_AES_CTR_READ_KEY = 0x01,
+  DLL_ECC_AES_ECB_READ_KEY = 0x02,
+  DLL_ECC_AES_CTR_WRITE_KEY = 0x05,
+  DLL_ECC_AES_ECB_WRITE_KEY = 0x06,
 } DLL_ECC;
 
 // *****************************************************************************
@@ -393,6 +382,8 @@ typedef struct
   uint8_t *lsdu;
   /* Length of the data */
   uint16_t lsduLen;
+  /* Poll Flag from LLC */
+  bool pollFlag;
 } DLL_DATA_IND_PARAMS;
 
 // *****************************************************************************
@@ -506,7 +497,7 @@ typedef void ( *DLL_DATA_IND_CALLBACK )( DLL_DATA_IND_PARAMS *indParams );
 /* Meters And More DLL module Data Confirm Function Pointer
 
   Summary:
-    Pointer to a Meters And More DLL module Data Confirmn Function Pointer.
+    Pointer to a Meters And More DLL module Data Confirm Function Pointer.
 
   Description:
     This data type defines the required function signature for the Meters And More DLL
@@ -869,13 +860,13 @@ uint32_t DLL_GetTxTimeout(void);
 
 // *****************************************************************************
 /* Function:
-    DLL_STATUS DLL_GetStatus(void);
+    SYS_STATUS DLL_GetStatus(void);
 
   Summary:
     Gets the status of the DLL module.
 
   Description:
-    This function allows to retieve DLL module status.
+    This function allows to retrieve DLL module status.
     It must be used to ensure the module is Ready before start using it.
 
   Precondition:
@@ -886,14 +877,15 @@ uint32_t DLL_GetTxTimeout(void);
 
   Returns:
     Returns the status of the Meters And Mores DLL module.
-    - DLL_STATUS_UNINITIALIZED: DLL module has not been initialized.
-    - DLL_STATUS_READY: DLL module is ready to be used.
+    - SYS_STATUS_UNINITIALIZED: DLL module has not been initialized.
+    - SYS_STATUS_BUSY: DLL module is busy in the process of initialization.
+    - SYS_STATUS_READY: DLL module is ready to be used.
 
   Example:
     <code>
     case APP_DLL_STATE_START:
     {
-        if (DLL_GetStatus() == DLL_STATUS_READY)
+        if (DLL_GetStatus() == SYS_STATUS_READY)
         {
             app_DLLData.state = APP_DLL_STATE_RUNNING;
         }
@@ -905,11 +897,11 @@ uint32_t DLL_GetTxTimeout(void);
   Remarks:
     None.
 */
-DLL_STATUS DLL_GetStatus(void);
+SYS_STATUS DLL_GetStatus(void);
 
 // *****************************************************************************
 /* Function:
-    SYS_MODULE_OBJ DLL_Tasks (
+    void DLL_Tasks (
         SYS_MODULE_OBJ object
     );
 
