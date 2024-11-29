@@ -89,8 +89,11 @@ void SYS_Tasks ( void )
     MMHI_Tasks(sysObj.metersandmoreHostInterface);
     
 
-    /* Maintain Meters And More LLC */
-    DLL_Tasks(sysObj.metersandmore);
+    /* Maintain Meters And More DLL */
+    DLL_Tasks(sysObj.metersandmoreDll);
+
+    /* Maintain Meters And More AL */
+    AL_Tasks(sysObj.metersandmoreAl);
 
 
 

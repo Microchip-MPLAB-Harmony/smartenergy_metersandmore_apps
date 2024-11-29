@@ -124,16 +124,6 @@
                                     PIOD_REGS->PIO_ODSR ^= (1<<19);\
                                 } while (0)
 
-/*** OUTPUT PIO Macros for MIKROBUS_1_INT ***/
-#define BSP_MIKROBUS_1_INT_PIN        PIO_PIN_PC7
-#define BSP_MIKROBUS_1_INT_Get()      ((PIOC_REGS->PIO_PDSR >> 7) & 0x1)
-#define BSP_MIKROBUS_1_INT_On()       (PIOC_REGS->PIO_SODR = (1UL<<7))
-#define BSP_MIKROBUS_1_INT_Off()      (PIOC_REGS->PIO_CODR = (1UL<<7))
-#define BSP_MIKROBUS_1_INT_Toggle()   do {\
-                                    PIOC_REGS->PIO_MSKR = (1<<7); \
-                                    PIOC_REGS->PIO_ODSR ^= (1<<7);\
-                                } while (0)
-
 
 /*** INPUT PIO Macros for PL460_EXTINT ***/
 #define BSP_PL460_EXTINT_PIN                    PIO_PIN_PA2

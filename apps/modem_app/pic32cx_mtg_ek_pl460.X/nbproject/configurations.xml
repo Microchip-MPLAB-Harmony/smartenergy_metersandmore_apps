@@ -22,14 +22,11 @@
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Mac_Cipher.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Aead_Cipher.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Kas.h</itemPath>
-              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Common_WolfcryptWrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Aead_WolfcryptWrapper.h</itemPath>
-              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Rng_WolfcryptWrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_DigSign_WolfcryptWrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Sym_Config.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Mac_Config.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Kas_Config.h</itemPath>
-              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Rng.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Mac_WolfcryptWrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Aead_Config.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_DigSign.h</itemPath>
@@ -37,7 +34,12 @@
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_DigSign_Config.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Sym_Cipher.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Hash_WolfcryptWrapper.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_RNG_WolfcryptWrapper.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_RNG.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Rng.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Common_WolfcryptWrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Rng_Config.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/MCHP_Crypto_Rng_WolfcryptWrapper.h</itemPath>
             </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/config.h</itemPath>
@@ -136,6 +138,10 @@
             <logicalFolder name="metersandmore"
                            displayName="metersandmore"
                            projectFiles="true">
+              <logicalFolder name="al" displayName="al" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/al/al.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/al/al_local.h</itemPath>
+              </logicalFolder>
               <logicalFolder name="dll" displayName="dll" projectFiles="true">
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/dll/dll.h</itemPath>
               </logicalFolder>
@@ -451,12 +457,9 @@
                            projectFiles="true">
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Mac_WolfCryptWrapper.c</itemPath>
-                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Common_WolfcryptWrapper.c</itemPath>
-                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Rng_WolfcryptWrapper.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Hash_WolfcryptWrapper.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_DigSign.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Aead_Cipher.c</itemPath>
-                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Rng.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Mac_Cipher.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Kas_WolfcryptWrapper.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_DigSign_WolfcryptWrapper.c</itemPath>
@@ -465,6 +468,11 @@
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Kas.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Hash.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Aead_WolfCryptWrapper.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_RNG_WolfcryptWrapper.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_RNG.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Rng_WolfcryptWrapper.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Common_WolfcryptWrapper.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/MCHP_Crypto_Rng.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -549,6 +557,9 @@
             <logicalFolder name="metersandmore"
                            displayName="metersandmore"
                            projectFiles="true">
+              <logicalFolder name="al" displayName="al" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/al/al.c</itemPath>
+              </logicalFolder>
               <logicalFolder name="mmhi" displayName="mmhi" projectFiles="true">
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/mmhi/mmhi_mib.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/mmhi/mmhi.c</itemPath>
@@ -606,7 +617,6 @@
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/sp_armthumb.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/sm4.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/md5.c</itemPath>
-              <itemPath>../src/third_party/wolfssl/wolfcrypt/src/wc_lms_impl.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/error.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/wc_pkcs11.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/md4.c</itemPath>
@@ -691,6 +701,7 @@
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/camellia.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/ge_low_mem.c</itemPath>
               <itemPath>../src/third_party/wolfssl/wolfcrypt/src/sp_sm2_x86_64.c</itemPath>
+              <itemPath>../src/third_party/wolfssl/wolfcrypt/src/wc_lms_impl.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="wolfssl" displayName="wolfssl" projectFiles="true">
@@ -720,7 +731,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>jlink</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.35</languageToolchainVersion>
+        <languageToolchainVersion>4.45</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -758,13 +769,14 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/pic32cx_mtg_ek_pl460;../src/config/pic32cx_mtg_ek_pl460/crypto/drivers;../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/PIC32CX2051MTG128_DFP;../src/third_party/wolfcrypt;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl/wolfcrypt"/>
+                  value="../src;../src/config/pic32cx_mtg_ek_pl460;../src/config/pic32cx_mtg_ek_pl460/crypto/drivers;../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/PIC32CX2051MTG128_DFP;../src/third_party/wolfcrypt;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl/wolfcrypt;..\src\config\pic32cx_mtg_ek_pl460"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -788,6 +800,7 @@
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
       <C32-AS>
+        <property key="appendMe" value=""/>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
@@ -816,6 +829,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -855,6 +869,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -883,6 +898,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
+        <property key="appendMe" value=""/>
         <property key="common-include-directories" value=""/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>

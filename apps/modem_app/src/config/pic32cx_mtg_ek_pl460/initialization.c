@@ -239,14 +239,28 @@ static const MMHI_INIT mmhiInit =
 
 // </editor-fold>
 
-/* Meters And More Initialization Data */
+/* Meters And More DLL Initialization Data */
 static DLL_INIT dllInitData = {
 
-    /* ADP task rate in milliseconds */
+    /* DLL task rate in milliseconds */
     .taskRateMs = MM_STACK_TASK_RATE_MS ,
 
     /* Is master node (false in slave node) */
-        .isMaster = false
+    .isMaster = false
+
+};
+
+/* Meters And More AL Initialization Data */
+static AL_INIT alInitData = {
+
+    /* App Layer task rate in milliseconds */
+    .taskRateMs = MM_STACK_TASK_RATE_MS ,
+
+    /* Is master node (false in slave node) */
+    .isMaster = false,
+
+    /* Initial value of AL_TX_RETRY_LIMIT */
+    .txRetryLimit = MM_AL_RETRIES_LIMIT
 
 };
 
@@ -394,10 +408,11 @@ void SYS_Initialize ( void* data )
     /* Initialize MM Host Interface Instance */
     sysObj.metersandmoreHostInterface = MMHI_Initialize((const SYS_MODULE_INDEX)MMHI_INDEX, (SYS_MODULE_INIT *)&mmhiInit);
     
-    /* Initialize G3 ADP Instance */
-    sysObj.metersandmore = DLL_Initialize((const SYS_MODULE_INDEX)0U, (SYS_MODULE_INIT *)&dllInitData);
+    /* Initialize Meters And More DLL Instance */
+    sysObj.metersandmoreDll = DLL_Initialize((const SYS_MODULE_INDEX)0U, (SYS_MODULE_INIT *)&dllInitData);
 
-
+    /* Initialize Meters And More AL Instance */
+    sysObj.metersandmoreAl = AL_Initialize((const SYS_MODULE_INDEX)0U, (SYS_MODULE_INIT *)&alInitData);
 
 
     /* MISRAC 2012 deviation block end */

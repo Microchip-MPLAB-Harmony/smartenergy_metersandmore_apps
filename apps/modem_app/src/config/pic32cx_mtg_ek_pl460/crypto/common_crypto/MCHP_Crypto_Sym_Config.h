@@ -87,7 +87,9 @@ extern "C" {
 // *****************************************************************************
 //MCHP Configurations Macros
 //***Symmetric Algorithm Macros****
-#undef CRYPTO_SYM_AES_ENABLE         //No AES algorithm is selected in MCC GUI
+#define CRYPTO_SYM_AES_ENABLE         //any AES algorithm is selected in MCC GUI
+#define CRYPTO_SYM_WC_ALGO_EN         //Any symmetric algorithm selected to use Wolfcrypt
+#define CRYPTO_SYM_WC_AES_EN          //AES algorithm selected to use Wolfcrypt 
 
 //#define CRYPTO_SYM_CAMELLIA_ENABLE      //Camellia algorithm is selected in MCC GUI
 //#define CRYPTO_SYM_TDES_ENABLE          //3DES/TDES algorithm option is selected in MCC GUI
@@ -97,6 +99,7 @@ extern "C" {
     
 //*****SYM OPERATION MODE ENABLE MACROS************
 //AES Algorithms Operational Mode Macros
+#define CRYPTO_SYM_AESECB_EN            //ECB mode is selected under AES algorithm in MCC-GUI
 
 
     
@@ -104,6 +107,7 @@ extern "C" {
 
 
 
+#define CRYPTO_SYM_AESCTR_EN            //CTR mode is selected under AES algorithm in MCC-GUI 
 
 
 

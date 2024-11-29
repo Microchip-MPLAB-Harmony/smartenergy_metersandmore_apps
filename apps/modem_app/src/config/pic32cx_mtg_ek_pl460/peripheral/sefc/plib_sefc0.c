@@ -164,7 +164,23 @@ bool SEFC0_SectorErase( uint32_t address )
     page_number = (uint16_t)((address - SEFC0_PanelBaseAddr) / IFLASH0_PAGE_SIZE);
 
     /* Issue the FLASH erase operation */
-    SEFC0_REGS->SEFC_EEFC_FCR = (SEFC_EEFC_FCR_FCMD_ES | SEFC_EEFC_FCR_FARG((uint32_t)page_number | 0x2U) | SEFC_EEFC_FCR_FKEY_PASSWD);
+    SEFC0_REGS->SEFC_EEFC_FCR = (SEFC_EEFC_FCR_FCMD_ES | SEFC_EEFC_FCR_FARG((uint32_t)page_number) | SEFC_EEFC_FCR_FKEY_PASSWD);
+
+    sefc_status = 0;
+
+
+    return true;
+}
+
+bool SEFC0_PageErase( uint32_t address )
+{
+    uint16_t page_number;
+
+    /* Calculate the Page number to be passed for FARG register */
+    page_number = (uint16_t)((address - SEFC0_PanelBaseAddr) / IFLASH0_PAGE_SIZE);
+
+    /* Issue the FLASH erase operation */
+    SEFC0_REGS->SEFC_EEFC_FCR = (SEFC_EEFC_FCR_FCMD_EPA | SEFC_EEFC_FCR_FARG((uint32_t)page_number | 0x2U) | SEFC_EEFC_FCR_FKEY_PASSWD);
 
     sefc_status = 0;
 

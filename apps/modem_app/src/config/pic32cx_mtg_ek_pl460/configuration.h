@@ -146,9 +146,10 @@ extern "C" {
 #define MMHI_EXT_INT_RTS_SRC           PIOB_IRQn
 
 
-/* G3 stack task rate in milliseconds */
+/* Meters And More stack task rate in milliseconds */
 #define MM_STACK_TASK_RATE_MS            5U
-
+/* Meters And More AL retry limit */
+#define MM_AL_RETRIES_LIMIT            2U
 
 
 

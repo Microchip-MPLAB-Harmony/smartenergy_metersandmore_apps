@@ -291,24 +291,6 @@
 #define MIKROBUS_2_INT_PIN                  PIO_PIN_PB25
 #define MIKROBUS_2_INT_InterruptEnable()   (PIOB_REGS->PIO_IER = (1<<25))
 #define MIKROBUS_2_INT_InterruptDisable()  (PIOB_REGS->PIO_IDR = (1<<25))
-
-/*** Macros for MIKROBUS_1_INT pin ***/
-#define MIKROBUS_1_INT_Set()               (PIOC_REGS->PIO_SODR = ((uint32_t)1U<<7U))
-#define MIKROBUS_1_INT_Clear()             (PIOC_REGS->PIO_CODR = ((uint32_t)1U<<7U))
-#define MIKROBUS_1_INT_Toggle()            do {\
-                                            PIOC_REGS->PIO_MSKR = ((uint32_t)1U<<7U); \
-                                            PIOC_REGS->PIO_ODSR ^= ((uint32_t)1U<<7U);\
-                                        } while (0)
-#define MIKROBUS_1_INT_OutputEnable()      do {\
-                                            PIOC_REGS->PIO_MSKR = ((uint32_t)1U<<7U); \
-                                            PIOC_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
-                                        }while(0)
-#define MIKROBUS_1_INT_InputEnable()       do { \
-                                            PIOC_REGS->PIO_MSKR = ((uint32_t)1U<<7U); \
-                                            PIOC_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
-                                        } while (0)
-#define MIKROBUS_1_INT_Get()               ((PIOC_REGS->PIO_PDSR >> 7U) & 0x1U)
-#define MIKROBUS_1_INT_PIN                  PIO_PIN_PC7
 // *****************************************************************************
 /* PIO Ports
 

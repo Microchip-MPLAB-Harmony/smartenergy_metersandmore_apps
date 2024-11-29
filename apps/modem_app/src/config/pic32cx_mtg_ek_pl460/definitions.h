@@ -79,14 +79,15 @@
 #include "service/pcrc/srv_pcrc.h"
 #include "peripheral/sefc/plib_sefc0.h"
 #include "peripheral/sefc/plib_sefc1.h"
-#include "stack/metersandmore/pal/pal.h"
 #include "service/pvddmon/srv_pvddmon.h"
+#include "stack/metersandmore/pal/pal.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
 //KEEP THIS - Not used for now
 //#include "wolfssl/wolfcrypt/port/pic32/crypt_wolfcryptcb.h"
 //#include "crypto/crypto.h"
 #include "stack/metersandmore/dll/dll.h"
+#include "stack/metersandmore/al/al.h"
 #include "modem_app.h"
 
 
@@ -225,7 +226,8 @@ typedef struct
 
     SYS_MODULE_OBJ  sysConsole0;
 
-    SYS_MODULE_OBJ metersandmore;
+    SYS_MODULE_OBJ metersandmoreDll;
+    SYS_MODULE_OBJ metersandmoreAl;
 
 
 } SYSTEM_OBJECTS;

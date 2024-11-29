@@ -68,6 +68,8 @@ bool SEFC0_Read( uint32_t *data, uint32_t length, uint32_t address );
 
 bool SEFC0_SectorErase( uint32_t address );
 
+bool SEFC0_PageErase( uint32_t address );
+
 bool SEFC0_PageBufferWrite( uint32_t *data, const uint32_t address);
 
 bool SEFC0_PageBufferCommit( const uint32_t address);

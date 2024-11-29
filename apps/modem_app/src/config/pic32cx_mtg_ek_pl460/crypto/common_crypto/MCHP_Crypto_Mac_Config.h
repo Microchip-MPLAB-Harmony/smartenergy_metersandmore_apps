@@ -56,6 +56,7 @@
 //*****OPERATION MODE ENABLE MACROS************
 
 //AES Algorithm Operational Mode Macros
+#define CRYPTO_MAC_AESCMAC_EN
 
 //****WolfcryptWrapper Algorithm Macros*************
 #define CRYPTO_MAC_WC_ALGO_EN
