@@ -5,7 +5,7 @@
     Microchip Technology Inc.
 
   File Name:
-    MCHP_Crypto_Kas_WolfcryptWrapper.h
+    crypto_mac_wc_wrapper.h
 
   Summary:
     This header file provides prototypes and definitions for the application.
@@ -18,23 +18,23 @@
     are defined here for convenience.
 *******************************************************************************/
 
-#ifndef MCHP_CRYPTO_KAS_WOLFCRYPTWRAPPER_H
-#define MCHP_CRYPTO_KAS_WOLFCRYPTWRAPPER_H
+#ifndef CRYPTO_MAC_WC_WRAPPER_H
+#define CRYPTO_MAC_WC_WRAPPER_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-#include "crypto/common_crypto/MCHP_Crypto_Common.h"
-#include "crypto/common_crypto/MCHP_Crypto_Kas_Config.h"
+
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Type Definitions
 // *****************************************************************************
-#ifdef CRYPTO_KAS_WC_ECDH_EN
-crypto_Kas_Status_E Crypto_Kas_Wc_Ecdh_SharedSecret(uint8_t *ptr_wcPrivKey, uint32_t wcPrivKeyLen, uint8_t *ptr_wcPubKey, uint32_t wcPubKeyLen, uint8_t *ptr_wcSharedSecret,
-                                                    uint32_t wcSharedSecretLen, crypto_EccCurveType_E wcEccCurveType_en);
-#endif /* #ifdef CRYPTO_KAS_WC_ECDH_EN */
-
-#endif /* MCHP_CRYPTO_KAS_WOLFCRYPTWRAPPER_H */
+crypto_Mac_Status_E Crypto_Mac_Wc_AesCmac_Init(void *ptr_aesCmacCtx, uint8_t *ptr_key, uint32_t keySize);
+crypto_Mac_Status_E Crypto_Mac_Wc_AesCmac_Cipher(void *ptr_aesCmacCtx, uint8_t *ptr_inputData, uint32_t dataLen);
+crypto_Mac_Status_E Crypto_Mac_Wc_AesCmac_Final(void *ptr_aesCmacCtx, uint8_t *ptr_outMac, uint32_t macLen);
+crypto_Mac_Status_E Crypto_Mac_Wc_AesCmac_Direct(uint8_t *ptr_inputData, uint32_t inuptLen, uint8_t *ptr_outMac, uint32_t macLen, uint8_t *ptr_key, uint32_t keyLen);
+        
+#endif //CRYPTO_MAC_WC_WRAPPER_H

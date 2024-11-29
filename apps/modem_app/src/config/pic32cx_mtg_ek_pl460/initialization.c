@@ -390,10 +390,6 @@ void SYS_Initialize ( void* data )
     /* Initialize PVDD Monitor Service */
     SRV_PVDDMON_Initialize();
 
-    /* Crypto Callback initialize */
-    //CRYPT_WCCB_Initialize();
-
-
     /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
     H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
         

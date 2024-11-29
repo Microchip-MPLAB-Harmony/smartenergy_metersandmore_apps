@@ -4,8 +4,8 @@
 #include "stack/metersandmore/dll/dll.h"
 #include "al_local.h"
 #include "service/pcrc/srv_pcrc.h"
-#include "crypto/common_crypto/MCHP_Crypto_Mac_Cipher.h"
-#include "crypto/common_crypto/MCHP_Crypto_Sym_Cipher.h"
+#include "crypto/common_crypto/crypto_mac_cipher.h"
+#include "crypto/common_crypto/crypto_sym_cipher.h"
 
 // *****************************************************************************
 // *****************************************************************************

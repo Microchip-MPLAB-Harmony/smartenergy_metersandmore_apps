@@ -5,7 +5,7 @@
     Microchip Technology Inc.
 
   File Name:
-    MCHP_Crypto_Common.h
+    crypto_common.h
 
   Summary:
     This header file provides prototypes and definitions for the application.
@@ -18,8 +18,8 @@
     are defined here for convenience.
 *******************************************************************************/
 
-#ifndef MCHP_CRYPTO_COMMON_H
-#define MCHP_CRYPTO_COMMON_H
+#ifndef CRYPTO_COMMON_H
+#define CRYPTO_COMMON_H
 
 
 // *****************************************************************************
@@ -31,8 +31,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "crypto_config.h"
-#include "wolfssl/wolfcrypt/ecc.h"
+#include "crypto/wolfcrypt/wolfcrypt_config.h"
 //******************************************************************************
 #define CRYPTO_ECC_MAX_KEY_LENGTH (66) //Max size of Private key; Public Key will be double of it for ECC
 
@@ -69,42 +68,5 @@ typedef enum
     CRYPTO_CIOP_MAX,            //Max. to check Enum value range
 }crypto_CipherOper_E;
 
-
-/* Curve Types */
-typedef enum 
-{
-    CRYPTO_ECC_CURVE_INVALID = 0,
-
-    /* Prime Curves */
-    
-    //Weierstrass Curves
-    CRYPTO_ECC_CURVE_P192 = 1,        
-    CRYPTO_ECC_CURVE_SECP192R1 = 1, //also called as NIST P-192 or prime192v1 
-    
-    CRYPTO_ECC_CURVE_P224 = 2,
-    CRYPTO_ECC_CURVE_SECP224R1 = 2,
-     
-    CRYPTO_ECC_CURVE_P256 = 3,        
-    CRYPTO_ECC_CURVE_SECP256R1 = 3, //also called as NIST P-256 or prime256v1
-
-    CRYPTO_ECC_CURVE_P384 = 4,
-    CRYPTO_ECC_CURVE_SECP384R1 = 4, //also called as NIST P-384
-            
-    CRYPTO_ECC_CURVE_P521 = 5,
-    CRYPTO_ECC_CURVE_SECP521R1 = 5,        
-
-    /* Koblitz */
-    CRYPTO_ECC_CURVE_SECP256K1 = 6,
-            
-    /* Brainpool Curves */
-    CRYPTO_ECC_CURVE_BRAINPOOLP256R1 = 7,
-    CRYPTO_ECC_CURVE_BRAINPOOLP384R1 = 8,
-            
-    /* Twisted Edwards Curves */
-
-    CRYPTO_ECC_CURVE_MAX
-}crypto_EccCurveType_E;
-
-
 // *****************************************************************************
-#endif //MCHP_CRYPTO_COMMON_H
+#endif //CRYPTO_COMMON_H

@@ -2,7 +2,7 @@
   Secure Project System Configuration Header
 
   File Name:
-    configuration.h
+    wolfcrypt_config.h
 
   Summary:
     Build-time configuration header for the TrustZone secure system defined by 
@@ -44,8 +44,8 @@ ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ----------------------------------------------------------------------------*/
 
-#ifndef MCHP_CONFIG_TZ_H
-#define MCHP_CONFIG_TZ_H
+#ifndef WOLFCRYPT_CONFIG_H
+#define WOLFCRYPT_CONFIG_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -67,29 +67,11 @@ extern "C" {
 /*** Crypto Library Configuration ***/
 
 //Crypto V4 Common Crypto API - WolfCrypt Library Support
-#define CRYPTO_V4_API
 #define CRYPTO_WOLFCRYPT_SUPPORT_ENABLE
 
 //JK
 #define CRYPTO_DIGISIGN_ALGO_EN
 #define CRYPTO_KAS_ALGO_EN    
-
-/*** Hardware Driver Configuration ***/
-//Crypto Processor Hardware Available
-//--Crypto HW Driver may not be available
-#define HAVE_MCHP_CRYPTO_ECC_HW_CPKCC
-#define HAVE_MCHP_CRYPTO_TRNG_HW_6334
-#define HAVE_MCHP_CRYPTO_AEAD_HW_6149
-#define HAVE_MCHP_CRYPTO_AES_HW_6149
-#define HAVE_MCHP_CRYPTO_RSA_HW_CPKCC
-#define HAVE_MCHP_CRYPTO_SHA_HW_6156
-
-    // TODO:  HW Driver Implementation
-    //        --For now only Mistral drivers assumed to be implemented
-    //        --Other HW Drivers selections will generated warnings
-
-    //
-
 
 /*** wolfCrypt Library Configuration ***/
 //configuration.h included in config.h and user_settings.h allowing these
@@ -166,6 +148,7 @@ extern "C" {
 #define WOLFSSL_AES_XTS
 #define HAVE_AESCCM
 #define WOLFSSL_CMAC
+#define WOLFSSL_DES_ECB
 #define HAVE_CAMELLIA
 #define HAVE_IDEA
 #define HAVE_HC128
@@ -211,8 +194,11 @@ extern "C" {
 #define WOLFSSL_AES_EAX 
 #define WOLFSSL_AESGCM_STREAM
 //*********************************************************
+int Crypto_Rng_Wc_Prng_EntropySource(void); //User-modifiable entropy for PRNG 
+int Crypto_Rng_Wc_Prng_Srand(uint8_t* output, unsigned int sz);
 
 //*********************************************************
+#define CUSTOM_RAND_GENERATE_SEED Crypto_Rng_Wc_Prng_Srand
 //#define WC_NO_RNG //when using RNG
 //#define WC_NO_HASHDRBG
 //#define HAVE_ECC_ENCRYPT
@@ -229,7 +215,7 @@ extern "C" {
 #endif
 //DOM-IGNORE-END
 
-#endif // CONFIGURATION_H
+#endif // WOLFCRYPT_CONFIG_H
 /*******************************************************************************
  End of File
 */
