@@ -77,15 +77,10 @@ static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId,
     uint8_t* lsdu, uint8_t lsduLen )
 {
     AL_DATA_REQUEST_PARAMS_HI *drParams;
-    uint8_t *pData = lsdu;
-    uint8_t lt;
     
     modem_appData.reqId = reqId;
     drParams = &modem_appData.drParams;
-    
-    /* TBD: Parse the LSDU from MMHC */
-    lt = *pData++;
-    
+
     if (lsduLen < MAX_LENGTH_432_DATA)
     {
         memcpy(modemAppMacDataTxBuffer, lsdu, lsduLen);
@@ -93,7 +88,7 @@ static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId,
         drParams->dsap = dsap;
         drParams->reqID = reqId;
         drParams->payload = modemAppMacDataTxBuffer;
-        drParams->payloadLen = (uint16_t)lt;
+        drParams->payloadLen = (uint16_t)lsduLen;
         
         modem_appData.state = MODEM_APP_STATE_TX_FRAME;
     }
