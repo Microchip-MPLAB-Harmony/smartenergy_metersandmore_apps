@@ -117,8 +117,6 @@ typedef struct
 
     bool pvddMonTxEnable;
 
-    bool mmhiTxRequest;
-
 } PAL_DATA;
 
 #endif // #ifndef PAL_LOCAL_H

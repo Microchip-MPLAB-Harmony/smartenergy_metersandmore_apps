@@ -81,14 +81,37 @@
 /* pull up resistors are configured by default */
 void _on_reset(void)
 {
-    PMC_REGS->PMC_PCR = PMC_PCR_CMD_Msk | PMC_PCR_EN_Msk | PMC_PCR_PID(ID_PIOA);
-    while((PMC_REGS->PMC_CSR0 & PMC_CSR0_PID17_Msk) == 0U)
-    {
-        /* Wait for clock to be initialized */
-    }
-    /* Disable STBY Pin */
-    SYS_PORT_PinOutputEnable(SYS_PORT_PIN_PA0);
-    SYS_PORT_PinClear(SYS_PORT_PIN_PA0);
+   /* Enable co-processor bus clock  */
+   PMC_REGS->PMC_SCER = (PMC_SCER_CPKEY_PASSWD | PMC_SCER_CPBMCK_Msk);
+   /* Coprocessor Peripheral Enable */
+   RSTC_REGS->RSTC_MR |= (RSTC_MR_KEY_PASSWD | RSTC_MR_CPEREN_Msk);
+   /* Program PMC_CPU_CKR.CPPRES and wait for PMC_SR.CPMCKRDY to be set   */
+   uint32_t reg = (PMC_REGS->PMC_CPU_CKR & ~PMC_CPU_CKR_CPPRES_Msk);
+   reg |= PMC_CPU_CKR_CPPRES_CLK_2;
+   PMC_REGS->PMC_CPU_CKR = reg;
+   PMC_REGS->PMC_PCR = PMC_PCR_CMD_Msk | PMC_PCR_EN_Msk | PMC_PCR_PID(ID_PIOA);
+   while((PMC_REGS->PMC_CSR0 & PMC_CSR0_PID17_Msk) == 0U)
+   {
+       /* Wait for clock to be initialized */
+   }
+   /* Disable STBY Pin */
+   SYS_PORT_PinOutputEnable(SYS_PORT_PIN_PA0);
+   SYS_PORT_PinClear(SYS_PORT_PIN_PA0);
+   while ((PMC_REGS->PMC_SR & PMC_SR_CPMCKRDY_Msk) != PMC_SR_CPMCKRDY_Msk)
+   {
+       /* Wait for status CPMCKRDY */
+   }
+   PMC_REGS->PMC_PCR = PMC_PCR_CMD_Msk | PMC_PCR_EN_Msk | PMC_PCR_PID(ID_PIOD);
+   while((PMC_REGS->PMC_CSR2 & PMC_CSR2_PID85_Msk) == 0U)
+   {
+       /* Wait for clock to be initialized */
+   }
+   /* Enable Reset Pin */
+   SYS_PORT_PinOutputEnable(DRV_PLC_RESET_PIN);
+   SYS_PORT_PinClear(DRV_PLC_RESET_PIN);
+   /* Enable LDO Pin */
+   SYS_PORT_PinOutputEnable(DRV_PLC_LDO_EN_PIN);
+   SYS_PORT_PinSet(DRV_PLC_LDO_EN_PIN);
 }
 
 /* MISRA C-2012 deviation block end */

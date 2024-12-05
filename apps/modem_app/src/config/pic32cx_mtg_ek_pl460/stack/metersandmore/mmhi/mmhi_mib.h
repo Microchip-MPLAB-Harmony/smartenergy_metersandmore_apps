@@ -68,11 +68,11 @@
 #define MMHI_MIB_FW_VERSION_MAJOR     _UINT8_(0x01U)
 #define MMHI_MIB_FW_VERSION_MINOR     _UINT8_(0x00U)
 
-#define MMHI_MIB_TIME_TEL             _UINT16_(0x0000U)
-#define MMHI_MIB_TIME_DELAY           _UINT16_(0x0000U)
-#define MMHI_MIB_TIME_ICDELAY         _UINT16_(0x0000U)
-#define MMHI_MIB_TIME_TC              _UINT16_(0x0000U)
-#define MMHI_MIB_TIME_TCT             _UINT8_(0x00U)
+#define MMHI_MIB_TIME_TEL             _UINT16_(20U)
+#define MMHI_MIB_TIME_DELAY           _UINT16_(1000U)
+#define MMHI_MIB_TIME_ICDELAY         _UINT16_(0U)
+#define MMHI_MIB_TIME_TC              _UINT16_(250U)
+#define MMHI_MIB_TIME_TCT             _UINT8_(0xFFU)
 
 /* Status Message: Status Mask field description */
 #define MMHI_STATUS_MASK_MAC_CFG_MIB_Pos                           _UINT16_(3U)
@@ -143,7 +143,7 @@ typedef enum
     RX MAC modes
 
   Description:
-    Identifies the mode of the MAC reception 
+    Identifies the mode of the MAC reception
 */
 typedef enum
 {
@@ -159,7 +159,7 @@ typedef enum
     TX MAC modes
 
   Description:
-    Identifies the mode of the MAC transmission 
+    Identifies the mode of the MAC transmission
 */
 typedef enum
 {
@@ -234,7 +234,7 @@ typedef struct
 
   Summary:
     Defines the data provided by the manufacturer
-    
+
   Remarks:
     None.
 */
@@ -252,7 +252,7 @@ typedef struct
 
   Summary:
     Defines the meter addressing parameters
-    
+
   Remarks:
     None.
 */
@@ -274,22 +274,22 @@ typedef struct
 
   Summary:
     Defines the meter timeouts
-    
+
   Remarks:
     None.
 */
 typedef struct
 {
     /* Elaboration time */
-    uint16_t tel;  
+    uint16_t tel;
     /* Added Delay */
-    uint16_t delay;  
+    uint16_t delay;
     /* Added Delay for IC */
     uint16_t icDelay;
     /* Time slot, Default 250 ms */
-    uint16_t tc;  
+    uint16_t tc;
     /* silencing level of the node */
-    uint8_t tct;  
+    uint8_t tct;
 
 } MMHI_MIB_TIMING_PARAMETERS;
 
@@ -298,7 +298,7 @@ typedef struct
 
   Summary:
     Defines the MIB data
-    
+
   Remarks:
     None.
 */

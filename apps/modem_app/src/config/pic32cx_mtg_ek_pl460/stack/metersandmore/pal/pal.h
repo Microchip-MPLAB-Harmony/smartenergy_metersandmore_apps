@@ -610,33 +610,6 @@ PAL_RESULT PAL_SetPhyPib(DRV_PLC_PHY_PIB_OBJ *pibObj);
 */
 void PAL_Tasks(void);
 
-// *****************************************************************************
-/* Function:
-    void PAL_MMHI_TxRequest(uint8_t *pData, uint16_t length)
-
-  Summary:
-    Allows the MM Host Interface to transmit PHY data through PLC device.
-
-  Description:
-    This routine sends a new data message through PLC using the PAL module.
-
-  Precondition:
-    None.
-
-  Parameters:
-    pData -        Pointer to the data to transmit.
-
-    length -       Length of the data to transmit in bytes.
-
-  Returns:
-    None.
-
-  Remarks:
-    This function is only used internally from MMHI module. Don't be used by an 
-    external application.
-*/
-void PAL_MMHI_TxRequest(uint8_t *pData, uint16_t length);
-
 #endif // #ifndef PAL_H
 /*******************************************************************************
  End of File
