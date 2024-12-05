@@ -196,7 +196,7 @@ static void lAPP_AL_EventIndicationCallback(AL_EVENT_IND_PARAMS *indParams)
 // *****************************************************************************
 
 #ifdef CONFIG_ACA_AUTO_PIC32CXMT
-static void lAPP_STORAGE_GetACA(uint8_t* aca)
+static void lAPP_GetACA(uint8_t* aca)
 {
     uint8_t uniqueId[16];
 
@@ -292,7 +292,7 @@ void APP_Tasks ( void )
 #ifdef CONFIG_ACA_FIXED
             memcpy(appData.alIB.value, acaFixed, MAC_ADDRESS_SIZE);
 #elif defined(CONFIG_ACA_AUTO_PIC32CXMT)
-            lAPP_STORAGE_GetACA(appData.alIB.value);
+            lAPP_GetACA(appData.alIB.value);
 #endif
             AL_SetRequest(AL_MAC_ACA_ADDRESS_IB, 0, &appData.alIB);
 

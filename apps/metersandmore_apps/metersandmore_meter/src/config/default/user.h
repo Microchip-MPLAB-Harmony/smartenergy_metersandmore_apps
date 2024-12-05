@@ -47,10 +47,10 @@ extern "C" {
 #define CLEAR_WATCHDOG()         DWDT_WDT0_Clear()
 
 /* Use this macro to configure MAC address (ACA) automatically from UniqueID */
-//#define CONFIG_ACA_AUTO_PIC32CXMT
+#define CONFIG_ACA_AUTO_PIC32CXMT
 
 /* Use this macro to set a fixed MAC address (ACA) */
-#define CONFIG_ACA_FIXED         {0x8B, 0x78, 0x00, 0x2E, 0x04, 0x42}
+//#define CONFIG_ACA_FIXED         {0x8B, 0x78, 0x00, 0x2E, 0x04, 0x42}
 //#define CONFIG_ACA_FIXED       {0x16, 0x7A, 0x00, 0x2E, 0x04, 0x42}
 //#define CONFIG_ACA_FIXED       {0x89, 0x5D, 0x00, 0x14, 0x02, 0x86}
 
