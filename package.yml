@@ -12,4 +12,4 @@ package:
       version: "dev"
     - name: "shd"
       type: "package"
-      version: "dev"
+      version: "v01.00.00-rc.1"
