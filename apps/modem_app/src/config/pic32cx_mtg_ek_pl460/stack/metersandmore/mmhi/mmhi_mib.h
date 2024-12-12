@@ -63,7 +63,7 @@
 #endif
 // DOM-IGNORE-END
 
-#define MMHI_MIB_MAX_LENGTH_DATA      22
+#define MMHI_MIB_MAX_LENGTH_DATA      32
 
 #define MMHI_MIB_FW_VERSION_MAJOR     _UINT8_(0x01U)
 #define MMHI_MIB_FW_VERSION_MINOR     _UINT8_(0x00U)
@@ -95,6 +95,21 @@
 #define MMHI_STATUS_MASK_SCA_MIB(value)                            (MMHI_STATUS_MASK_SCA_MIB_Msk & (_UINT16_(value) << MMHI_STATUS_MASK_SCA_MIB_Pos))
 #define   MMHI_STATUS_MASK_SCA_MIB_CONFIGURED_Val                  _UINT16_(0x0U)
 #define   MMHI_STATUS_MASK_SCA_MIB_DEFAULT_Val                     _UINT16_(0x1U)
+#define MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Pos                   _UINT16_(8U)
+#define MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Msk                   (_UINT16_(0x1U) << MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Pos)
+#define MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB(value)                (MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Msk & (_UINT16_(value) << MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Pos))
+#define   MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_CONFIGURED_Val      _UINT16_(0x0U)
+#define   MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_DEFAULT_Val         _UINT16_(0x1U)
+#define MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Pos                    _UINT16_(9U)
+#define MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Msk                    (_UINT16_(0x1U) << MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Pos)
+#define MMHI_STATUS_MASK_SECURITY_FLAGS_MIB(value)                 (MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Msk & (_UINT16_(value) << MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Pos))
+#define   MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_CONFIGURED_Val       _UINT16_(0x0U)
+#define   MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_DEFAULT_Val          _UINT16_(0x1U)
+#define MMHI_STATUS_MASK_LMON_MIB_Pos                              _UINT16_(10U)
+#define MMHI_STATUS_MASK_LMON_MIB_Msk                              (_UINT16_(0x1U) << MMHI_STATUS_MASK_LMON_MIB_Pos)
+#define MMHI_STATUS_MASK_LMON_MIB(value)                           (MMHI_STATUS_MASK_LMON_MIB_Msk & (_UINT16_(value) << MMHI_STATUS_MASK_LMON_MIB_Pos))
+#define   MMHI_STATUS_MASK_LMON_MIB_CONFIGURED_Val                 _UINT16_(0x0U)
+#define   MMHI_STATUS_MASK_LMON_MIB_DEFAULT_Val                    _UINT16_(0x1U)
 #define MMHI_STATUS_MASK_TIMING_PARAMS_MIB_Pos                     _UINT16_(12U)
 #define MMHI_STATUS_MASK_TIMING_PARAMS_MIB_Msk                     (_UINT16_(0x1U) << MMHI_STATUS_MASK_TIMING_PARAMS_MIB_Pos)
 #define MMHI_STATUS_MASK_TIMING_PARAMS_MIB(value)                  (MMHI_STATUS_MASK_TIMING_PARAMS_MIB_Msk & (_UINT16_(value) << MMHI_STATUS_MASK_TIMING_PARAMS_MIB_Pos))
@@ -133,6 +148,9 @@ typedef enum
     MIB_MIB_ID_FW_RELEASE = 4,
     MIB_MIB_ID_MANUF_DATA = 6,
     MIB_MIB_ID_LOGICAL_ADDRESS = 7,
+    MIB_MIB_ID_ENCRYPTION_KEYS = 8,
+    MIB_MIB_ID_SECURITY_FLAGS = 9,
+    MIB_MIB_ID_LMON = 10,
     MIB_MIB_ID_TIMING = 12,
 } MMHI_MIB_INDEX;
 
@@ -294,6 +312,56 @@ typedef struct
 } MMHI_MIB_TIMING_PARAMETERS;
 
 // *****************************************************************************
+/* Meters And More Encryption Keys MIB
+
+  Summary:
+    Defines the Write and Read Keys for encryption
+
+  Remarks:
+    None.
+*/
+typedef struct
+{
+    /* Write Key */
+    uint8_t keyW[16];
+    /* Read Key */
+    uint8_t keyR[16];
+
+} MMHI_MIB_ENCRYPTION_KEYS;
+
+// *****************************************************************************
+/* Meters And More Security Flags MIB
+
+  Summary:
+    Defines the flags to enable/disable security options
+
+  Remarks:
+    None.
+*/
+typedef struct
+{
+    /* Flags */
+    uint8_t flags;
+
+} MMHI_MIB_SECURITY_FLAGS;
+
+// *****************************************************************************
+/* Meters And More LMON MIB
+
+  Summary:
+    Sets the LMON to use in Slave Node
+
+  Remarks:
+    None.
+*/
+typedef struct
+{
+    /* LMON */
+    uint8_t lmon[8];
+
+} MMHI_MIB_LMON;
+
+// *****************************************************************************
 /* Meters And More Management Information Base (MIB) data
 
   Summary:
@@ -308,6 +376,9 @@ typedef struct
     MMHI_MIB_FW_VERSION fwVersion;
     MMHI_MIB_MANUFACTURER_DATA manufacturer;
     MMHI_MIB_LOGICAL_ADDRESS address;
+    MMHI_MIB_ENCRYPTION_KEYS securityKeys;
+    MMHI_MIB_SECURITY_FLAGS securityFlags;
+    MMHI_MIB_LMON securityLmon;
     MMHI_MIB_TIMING_PARAMETERS timing;
 
 } MMHI_MIB_DB;

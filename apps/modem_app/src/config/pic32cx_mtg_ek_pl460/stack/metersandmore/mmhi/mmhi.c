@@ -83,7 +83,7 @@ static MMHI_DATA mmhiData = {0};
 static uint8_t mmhiTxBuffer[MMHI_FRAME_MAX_LENGTH];
 static uint8_t mmhiRxBuffer[MMHI_FRAME_MAX_LENGTH];
 
-static uint8_t mmhiDsapByProtocol[] = {0, 0, 2, 0, 3, 0, 1};
+static uint8_t mmhiDsapByProtocol[] = {0x00, 0x00, 0x02, 0xFF, 0x03, 0xFF, 0x01, 0xFF};
 
 static void lMMHI_ClearReceptionState(void);
 
@@ -389,17 +389,29 @@ static bool lMMHI_ProcessRcvCommand(void)
         uint8_t *pData = pRcvFrameData->pPayload;
         uint8_t protocol;
         uint8_t reqId;
+        uint8_t dsap;
+        uint8_t wpvError = 0x03; /* WPV Error Code */
 
         protocol = *pData++;
         reqId = *pData++;
+        dsap = mmhiDsapByProtocol[(protocol & 0x07)];
 
-        if (mmhiData.macDataCallback != NULL)
+        if (dsap <= 0x02)
         {
-            mmhiData.macDataCallback(mmhiDsapByProtocol[protocol], reqId, pData,
-                    pRcvFrameData->length - 1);
-        }
+            if (mmhiData.macDataCallback != NULL)
+            {
+                mmhiData.macDataCallback(dsap, reqId, pData,
+                        pRcvFrameData->length - 1);
+            }
 
-        SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- SLAVE_DATA_REQ\r\n");
+            SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- SLAVE_DATA_REQ\r\n");
+        }
+        else
+        {
+            /* Invalid protocol. Generate negative Confirm */
+            SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- Wrong SLAVE_DATA_REQ. Send Negative Confirm\r\n");
+            MMHI_SendCommandFrame(MMHI_CMD_SLAVE_DATA_NCFM, &wpvError, 1);
+        }
 
     }
     else if (pRcvFrameData->commandCode == MMHI_CMD_MASTER_DATA_REQ)
@@ -407,17 +419,29 @@ static bool lMMHI_ProcessRcvCommand(void)
         uint8_t *pData = pRcvFrameData->pPayload;
         uint8_t protocol;
         uint8_t reqId;
+        uint8_t dsap;
+        uint8_t wpvError = 0x03; /* WPV Error Code */
 
         protocol = *pData++;
         reqId = *pData++;
+        dsap = mmhiDsapByProtocol[(protocol & 0x07)];
 
-        if (mmhiData.macDataCallback != NULL)
+        if (dsap <= 0x02)
         {
-            mmhiData.macDataCallback(mmhiDsapByProtocol[protocol], reqId, pData,
-                    pRcvFrameData->length - 1);
-        }
+            if (mmhiData.macDataCallback != NULL)
+            {
+                mmhiData.macDataCallback(dsap, reqId, pData,
+                        pRcvFrameData->length - 1);
+            }
 
-        SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- MASTER_DATA_REQ\r\n");
+            SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- MASTER_DATA_REQ\r\n");
+        }
+        else
+        {
+            /* Invalid protocol. Generate negative Confirm */
+            SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- Wrong MASTER_DATA_REQ. Send Negative Confirm\r\n");
+            MMHI_SendCommandFrame(MMHI_CMD_MASTER_DATA_NCFM, &wpvError, 1);
+        }
 
     }
     else if (pRcvFrameData->commandCode == MMHI_CMD_HI_PING_REQ)

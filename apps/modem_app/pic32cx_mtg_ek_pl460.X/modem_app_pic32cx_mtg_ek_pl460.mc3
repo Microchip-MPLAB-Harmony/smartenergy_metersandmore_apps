@@ -1071,34 +1071,34 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;625&quot; canvasWidth=&quot;684&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;614&quot; canvasWidth=&quot;715&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
     &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;0&quot; y=&quot;72&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;adc&quot; x=&quot;535&quot; y=&quot;346&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;adc&quot; x=&quot;318&quot; y=&quot;170&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;cmsis&quot; x=&quot;183&quot; y=&quot;7&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;core&quot; x=&quot;31&quot; y=&quot;39&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;dfp&quot; x=&quot;0&quot; y=&quot;6&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;drvPlcPhy&quot; x=&quot;681&quot; y=&quot;439&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;flexcom0&quot; x=&quot;457&quot; y=&quot;274&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;flexcom5&quot; x=&quot;536&quot; y=&quot;510&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;flexcom7&quot; x=&quot;5&quot; y=&quot;513&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;drvPlcPhy&quot; x=&quot;182&quot; y=&quot;434&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;flexcom0&quot; x=&quot;237&quot; y=&quot;352&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;flexcom5&quot; x=&quot;20&quot; y=&quot;502&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;flexcom7&quot; x=&quot;350&quot; y=&quot;502&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;lib_crypto&quot; x=&quot;327&quot; y=&quot;96&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;528&quot; y=&quot;96&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;497&quot; y=&quot;96&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;mainBoard_PIC32CXMTG_EK&quot; x=&quot;156&quot; y=&quot;35&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;mmHi&quot; x=&quot;141&quot; y=&quot;444&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;mmPal&quot; x=&quot;239&quot; y=&quot;267&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;mmStack&quot; x=&quot;13&quot; y=&quot;247&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;mmHi&quot; x=&quot;499&quot; y=&quot;458&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;mmPal&quot; x=&quot;531&quot; y=&quot;248&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;mmStack&quot; x=&quot;16&quot; y=&quot;253&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sefc0&quot; x=&quot;301&quot; y=&quot;8&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sefc1&quot; x=&quot;432&quot; y=&quot;9&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;srvRandom&quot; x=&quot;355&quot; y=&quot;479&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;srv_pcoup&quot; x=&quot;533&quot; y=&quot;433&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;srv_pcrc&quot; x=&quot;13&quot; y=&quot;439&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;srv_pvddmon&quot; x=&quot;672&quot; y=&quot;350&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;sys_console&quot; x=&quot;590&quot; y=&quot;183&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;srvRandom&quot; x=&quot;230&quot; y=&quot;253&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;srv_pcoup&quot; x=&quot;19&quot; y=&quot;420&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;srv_pcrc&quot; x=&quot;533&quot; y=&quot;371&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;srv_pvddmon&quot; x=&quot;482&quot; y=&quot;170&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;sys_console&quot; x=&quot;387&quot; y=&quot;288&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;sys_time&quot; x=&quot;165&quot; y=&quot;125&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;tc0&quot; x=&quot;6&quot; y=&quot;171&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;24&quot; id=&quot;trng&quot; x=&quot;167&quot; y=&quot;81&quot;/&gt;
@@ -8268,9 +8268,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mmHi" name="MMHI_MANUF_COMMANDS"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
   &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_MANUF_COMMANDS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/mmHi&gt;
 &lt;/mmHi&gt;
 </value>
@@ -9601,7 +9599,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
-         <hash>aa3c4fbd7e3f9225d4c49f2f1ce80688409bac7826015047bdc35c626a7cc4ca</hash>
+         <hash>1a2aa0a88e5589d29ef210b98488f6c5be20396c86ac673b6f4db969ac81b169</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
@@ -9889,7 +9887,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.c</file>
-         <hash>09127157037f0929ccb1ea91dae0bc3a65157a5e85c952bea020d71b495c9b89</hash>
+         <hash>955dbee97ebd3196d75a13c51917730602c130be3e9a76e3e6b54617372aabb0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.h</file>
@@ -9909,7 +9907,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi.c</file>
-         <hash>bd0e73af3a3ee306ebb563c42f54f75f522a9b00be22f51fe8bbf59222052a39</hash>
+         <hash>d2306e70fa11ecdcac1c54bc6472f713514916a091a07823693d0b27a4cdb470</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi.h</file>
@@ -9925,11 +9923,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi_mib.c</file>
-         <hash>1f80d72904545df5253128df0763d2e69602870928aaa1166a126aa1667c1b98</hash>
+         <hash>08f365f60d41347eb6a0af1c755276d4199ff2431382eaf05ee683160c079c11</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi_mib.h</file>
-         <hash>bce60f718fbfa20bf28efea81d11226a566031aa19b46a494de605dbf8e11201</hash>
+         <hash>2bee6966a5cfb0feff35339aeb09f235d0ffdc610046f23227006582e98d4f67</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\pal\pal.c</file>

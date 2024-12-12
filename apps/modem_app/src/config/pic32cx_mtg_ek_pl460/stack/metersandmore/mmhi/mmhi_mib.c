@@ -76,6 +76,9 @@ static MMHI_MIB_DB mmhiMibDefaultData = {
     {0xAAA5, 0, 0, 0, 0, MMHI_MIB_FW_VERSION_MAJOR, MMHI_MIB_FW_VERSION_MINOR},
     {{0}, {{0}}},
     {{0}, 0, 0, 3},
+    {{0}, {0}},
+    {0},
+    {{0}},
     {MMHI_MIB_TIME_TEL, MMHI_MIB_TIME_DELAY, MMHI_MIB_TIME_ICDELAY, MMHI_MIB_TIME_TC, MMHI_MIB_TIME_TCT}
 };
 static uint16_t mmhiMibStatus;
@@ -92,6 +95,55 @@ static MMHI_MIB_WRITE_IND_CALLBACK mmhiMibCallback;
 static void lMMHI_MIB_GetDefault(MMHI_MIB_DB *mibData)
 {
     memcpy(mibData, &mmhiMibDefaultData, sizeof(MMHI_MIB_DB));
+}
+
+static MMHI_RESULT setEncryptionKeys(uint8_t *paramsBuf)
+{
+    MMHI_RESULT result = MMHI_ERROR;
+    uint8_t *writeKey;
+    uint8_t *readKey;
+    AL_RESULT alResult;
+    AL_IB_VALUE alValue;
+
+    /* Set pointers */
+    writeKey = paramsBuf;
+    readKey = (paramsBuf + 16);
+
+    /* Set IBs */
+    alValue.length = AL_KEY_LENGTH;
+    (void)memcpy(alValue.value, writeKey, AL_KEY_LENGTH);
+    alResult = AL_SetRequest(AL_AUTH_WRITE_KEY_K1_IB, 0, (const AL_IB_VALUE *)&alValue);
+    if (alResult == AL_SUCCESS)
+    {
+        (void)memcpy(alValue.value, readKey, AL_KEY_LENGTH);
+        alResult = AL_SetRequest(AL_AUTH_READ_KEY_K2_IB, 0, (const AL_IB_VALUE *)&alValue);
+        if (alResult == AL_SUCCESS)
+        {
+            result = MMHI_SUCCESS;
+        }
+    }
+
+    /* Return global resut of parameters set */
+    return result;
+}
+
+static MMHI_RESULT setLmon(uint8_t *paramsBuf)
+{
+    MMHI_RESULT result = MMHI_ERROR;
+    AL_RESULT alResult;
+    AL_IB_VALUE alValue;
+
+    /* Set IB */
+    alValue.length = AL_LMON_LENGTH;
+    (void)memcpy(alValue.value, paramsBuf, AL_LMON_LENGTH);
+    alResult = AL_SetRequest(AL_AUTH_LMON_IB, 0, (const AL_IB_VALUE *)&alValue);
+    if (alResult == AL_SUCCESS)
+    {
+        result = MMHI_SUCCESS;
+    }
+
+    /* Return global resut of parameters set */
+    return result;
 }
 
 static MMHI_RESULT setTimingParams(uint8_t *paramsBuf)
@@ -199,11 +251,22 @@ MMHI_RESULT MMHI_MIB_Get(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData)
             (void)memcpy(pData->dataValue, &mmhiMibData.address, pData->dataLength);
             break;
 
+        case MIB_MIB_ID_SECURITY_FLAGS:
+            pData->dataLength = sizeof(MMHI_MIB_SECURITY_FLAGS);
+            (void)memcpy(pData->dataValue, &mmhiMibData.securityFlags, pData->dataLength);
+            break;
+
+        case MIB_MIB_ID_LMON:
+            pData->dataLength = sizeof(MMHI_MIB_LMON);
+            (void)memcpy(pData->dataValue, &mmhiMibData.securityLmon, pData->dataLength);
+            break;
+
         case MIB_MIB_ID_TIMING:
             pData->dataLength = sizeof(MMHI_MIB_TIMING_PARAMETERS);
             (void)memcpy(pData->dataValue, &mmhiMibData.timing, pData->dataLength);
             break;
 
+        case MIB_MIB_ID_ENCRYPTION_KEYS: /* Write Only */
         default:
             result = MMHI_ERROR_WPV;
 
@@ -335,6 +398,109 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                     {
                         /* Update Write Indication flag */
                         mmhiMibWriteIndex = MIB_MIB_ID_LOGICAL_ADDRESS;
+                    }
+                }
+                else
+                {
+                    result = MMHI_ERROR_BUSY;
+                }
+            }
+            else
+            {
+                result = MMHI_ERROR_WPL;
+            }
+            break;
+        }
+
+        case MIB_MIB_ID_ENCRYPTION_KEYS:
+        {
+            if (reqLength == sizeof(MMHI_MIB_ENCRYPTION_KEYS))
+            {
+                /* Set value on lower layers */
+                /* If set correct on lower layer, set on HI */
+                if (setEncryptionKeys(pData->dataValue) == MMHI_SUCCESS)
+                {
+                    (void)memcpy(&mmhiMibData.securityKeys, pData->dataValue, reqLength);
+                    if (memcmp(&mmhiMibData.securityKeys, &mmhiMibDefaultData.securityKeys,
+                            sizeof(MMHI_MIB_ENCRYPTION_KEYS)) == 0)
+                    {
+                        mmhiMibStatus |= MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Msk;
+                    }
+                    else
+                    {
+                        mmhiMibStatus &= ~MMHI_STATUS_MASK_ENCRYPTION_KEYS_MIB_Msk;
+                    }
+
+                    if (indEnable == true)
+                    {
+                        /* Update Write Indication flag */
+                        mmhiMibWriteIndex = MIB_MIB_ID_ENCRYPTION_KEYS;
+                    }
+                }
+                else
+                {
+                    result = MMHI_ERROR_BUSY;
+                }
+            }
+            else
+            {
+                result = MMHI_ERROR_WPL;
+            }
+            break;
+        }
+
+        case MIB_MIB_ID_SECURITY_FLAGS:
+        {
+            if (reqLength == sizeof(MMHI_MIB_SECURITY_FLAGS))
+            {
+                /* Set value */
+                (void)memcpy(&mmhiMibData.securityFlags, pData->dataValue, reqLength);
+                if (memcmp(&mmhiMibData.securityFlags, &mmhiMibDefaultData.securityFlags,
+                        sizeof(MMHI_MIB_SECURITY_FLAGS)) == 0)
+                {
+                    mmhiMibStatus |= MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Msk;
+                }
+                else
+                {
+                    mmhiMibStatus &= ~MMHI_STATUS_MASK_SECURITY_FLAGS_MIB_Msk;
+                }
+
+                if (indEnable == true)
+                {
+                    /* Update Write Indication flag */
+                    mmhiMibWriteIndex = MIB_MIB_ID_SECURITY_FLAGS;
+                }
+            }
+            else
+            {
+                result = MMHI_ERROR_WPL;
+            }
+            break;
+        }
+
+        case MIB_MIB_ID_LMON:
+        {
+            if (reqLength == sizeof(MMHI_MIB_LMON))
+            {
+                /* Set value on lower layers */
+                /* If set correct on lower layer, set on HI */
+                if (setLmon(pData->dataValue) == MMHI_SUCCESS)
+                {
+                    (void)memcpy(&mmhiMibData.securityLmon, pData->dataValue, reqLength);
+                    if (memcmp(&mmhiMibData.securityLmon, &mmhiMibDefaultData.securityLmon,
+                            sizeof(MMHI_MIB_LMON)) == 0)
+                    {
+                        mmhiMibStatus |= MMHI_STATUS_MASK_LMON_MIB_Msk;
+                    }
+                    else
+                    {
+                        mmhiMibStatus &= ~MMHI_STATUS_MASK_LMON_MIB_Msk;
+                    }
+
+                    if (indEnable == true)
+                    {
+                        /* Update Write Indication flag */
+                        mmhiMibWriteIndex = MIB_MIB_ID_LMON;
                     }
                 }
                 else
