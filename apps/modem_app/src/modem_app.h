@@ -40,12 +40,15 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
-    
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************
+
+/* Define Modem App to act as Master Node or not (Slave) */
+//#define MASTER_NODE
 
 // *****************************************************************************
 /* Application states
@@ -61,7 +64,7 @@ extern "C" {
 typedef enum
 {
     MODEM_APP_STATE_INIT=0,
-    MODEM_APP_STATE_WAIT_DLL_READY,
+    MODEM_APP_STATE_WAIT_AL_READY,
     MODEM_APP_STATE_TX_FRAME,
     MODEM_APP_STATE_WAITING,
 
@@ -85,7 +88,7 @@ typedef struct
 {
     /* The application's current state */
     MODEM_APP_STATES state;
-    
+
     AL_DATA_REQUEST_PARAMS_HI drParams;
 
     MMHI_HANDLE mmhiHandle;
@@ -93,9 +96,9 @@ typedef struct
     AL_IB_VALUE alIb;
     uint8_t dsap;
     uint8_t reqId;
+    uint8_t indId;
     uint8_t txLen;
     bool master;
-    
 
 } MODEM_APP_DATA;
 

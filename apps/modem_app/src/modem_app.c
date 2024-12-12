@@ -73,11 +73,33 @@ static void lMODEM_APP_TimerCallback ( uintptr_t context )
     BSP_LED0_Toggle();
 }
 
-static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId, 
+static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId,
     uint8_t* lsdu, uint8_t lsduLen )
 {
     AL_DATA_REQUEST_PARAMS_HI *drParams;
+    uint8_t wpvError = 0x03; /* WPV Error Code */
     
+    /* In Slave, request ID has to match previous indication ID */
+    if (modem_appData.master == false)
+    {
+        if (reqId != modem_appData.indId)
+        {
+            MMHI_SendCommandFrame(MMHI_CMD_SLAVE_DATA_NCFM, &wpvError, 1);
+            /* Exit function without sending data */
+            return;
+        }
+    }
+    else
+    {
+        /* In Master, request ID cannot be '0' */
+        if (reqId == 0)
+        {
+            MMHI_SendCommandFrame(MMHI_CMD_MASTER_DATA_NCFM, &wpvError, 1);
+            /* Exit function without sending data */
+            return;
+        }
+    }
+
     modem_appData.reqId = reqId;
     drParams = &modem_appData.drParams;
 
@@ -89,7 +111,7 @@ static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId,
         drParams->reqID = reqId;
         drParams->payload = modemAppMacDataTxBuffer;
         drParams->payloadLen = (uint16_t)lsduLen;
-        
+
         modem_appData.state = MODEM_APP_STATE_TX_FRAME;
     }
 }
@@ -98,7 +120,7 @@ static void lMODEM_APP_AL_DataConfirm_callback(AL_DATA_CONFIRM_PARAMS *cfmParams
 {
     uint8_t command;
     uint8_t value = 0;
-    
+
     if (cfmParams->txStatus == AL_TX_STATUS_SUCCESS)
     {
         command = modem_appData.master == true? MMHI_CMD_MASTER_DATA_CFM : MMHI_CMD_SLAVE_DATA_CFM;
@@ -107,14 +129,14 @@ static void lMODEM_APP_AL_DataConfirm_callback(AL_DATA_CONFIRM_PARAMS *cfmParams
     {
         command = modem_appData.master == true? MMHI_CMD_MASTER_DATA_NCFM : MMHI_CMD_SLAVE_DATA_NCFM;
     }
-    
+
     MMHI_SendCommandFrame(command, &value, 1);
-    
-    SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0, 
-            "AL_DATA_CONFIRM: Result=%hhu DSAP=%hhu, ECC=%hhu, DestAddr=0x %02X%02X%02X%02X%02X%02X\r\n", 
+
+    SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0,
+            "AL_DATA_CONFIRM: Result=%hhu DSAP=%hhu, ECC=%hhu, DestAddr=0x %02X%02X%02X%02X%02X%02X\r\n",
             cfmParams->txStatus, cfmParams->dsap, cfmParams->ecc,
-            cfmParams->dstAddress.address[0], cfmParams->dstAddress.address[1], 
-            cfmParams->dstAddress.address[2], cfmParams->dstAddress.address[3], 
+            cfmParams->dstAddress.address[0], cfmParams->dstAddress.address[1],
+            cfmParams->dstAddress.address[2], cfmParams->dstAddress.address[3],
             cfmParams->dstAddress.address[4], cfmParams->dstAddress.address[5]);
 }
 
@@ -122,7 +144,7 @@ static void lMODEM_APP_AL_DataIndication_callback(AL_DATA_IND_PARAMS *indParams)
 {
     uint8_t *pData;
     MMHI_COMMAND command;
-    
+
     if (modem_appData.master == true)
     {
         command = MMHI_CMD_MASTER_DATA_IND;
@@ -132,26 +154,54 @@ static void lMODEM_APP_AL_DataIndication_callback(AL_DATA_IND_PARAMS *indParams)
         command = MMHI_CMD_SLAVE_DATA_IND;
     }
     
+    /* Increase indication ID */
+    modem_appData.indId++;
+    /* Ensure it is not '0' */
+    if (modem_appData.indId == 0)
+    {
+        modem_appData.indId++;
+    }
+
     pData = modemAppMacDataRxBuffer;
-    *pData++ = modem_appData.drParams.dsap;
-    *pData++ = modem_appData.reqId;
-    
-    /* TBD: Serialize the LSDU to send to MMHC */
-    
-    
+    if (indParams->dsap == DLL_DSAP_APPLICATION_FRAME)
+    {
+        if (modem_appData.master == true)
+        {
+            *pData++ = 1;
+        }
+        else
+        {
+            *pData++ = 0;
+        }
+    }
+    else
+    {
+        *pData++ = 2;
+    }
+    *pData++ = modem_appData.indId;
+    *pData++ = indParams->attr;
+    (void) memcpy(pData, indParams->apdu, indParams->apduLen);
+    pData += indParams->apduLen;
+    /* If Authenticated NACK is received, include LMON in data buffer */
+    if (indParams->attr == AL_MSG_NACK_A_NODE_AUTH)
+    {
+        (void) memcpy(pData, &indParams->lmon, AL_LMON_LENGTH);
+        pData += AL_LMON_LENGTH;
+    }
+
     MMHI_SendCommandFrame(command, modemAppMacDataRxBuffer, pData - modemAppMacDataRxBuffer);
-    
-    SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0, 
-            "AL_DATA_INDICATION: DSAP=%hhu, ECC=%hhu, SrcAddr=0x %02X%02X%02X%02X%02X%02X, LSDU=0x", 
+
+    SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0,
+            "AL_DATA_INDICATION: DSAP=%hhu, ECC=%hhu, SrcAddr=0x %02X%02X%02X%02X%02X%02X, LSDU=0x",
             indParams->dsap, indParams->ecc,
-            indParams->srcAddress.address[0], indParams->srcAddress.address[1], 
-            indParams->srcAddress.address[2], indParams->srcAddress.address[3], 
+            indParams->srcAddress.address[0], indParams->srcAddress.address[1],
+            indParams->srcAddress.address[2], indParams->srcAddress.address[3],
             indParams->srcAddress.address[4], indParams->srcAddress.address[5]);
 }
 
 static void lMODEM_APP_AL_EventIndication_callback(AL_EVENT_IND_PARAMS *indParams)
 {
-    SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0, 
+    SYS_CONSOLE_Print(SYS_CONSOLE_INDEX_0,
             "AL_EVENT_INDICATION: Id=%hhu, Value=0x", indParams->eventId);
 
     for (uint8_t i = 0; i < indParams->eventValue.length; i++)
@@ -189,12 +239,17 @@ static void lMODEM_APP_AL_EventIndication_callback(AL_EVENT_IND_PARAMS *indParam
 
 void MODEM_APP_Initialize ( void )
 {
+    /* Clear app data */
+    (void)memset(&modem_appData, 0, sizeof(modem_appData));
+    
     /* Place the App state machine in its initial state. */
     modem_appData.state = MODEM_APP_STATE_INIT;
-    
-    
+
+#ifdef MASTER_NODE
     modem_appData.master = true;
-    
+#else
+    modem_appData.master = false;
+#endif
 }
 
 
@@ -209,36 +264,36 @@ void MODEM_APP_Initialize ( void )
 void MODEM_APP_Tasks ( void )
 {
     USER_UPDATE_WDT();
-    
+
     /* Check the application's current state. */
     switch ( modem_appData.state )
     {
         /* Application's initial state. */
         case MODEM_APP_STATE_INIT:
         {
-            modem_appData.tmrHandle = SYS_TIME_CallbackRegisterMS(lMODEM_APP_TimerCallback, 
+            modem_appData.tmrHandle = SYS_TIME_CallbackRegisterMS(lMODEM_APP_TimerCallback,
                     0, MODEM_APP_LIVE_LED_TIME_MS, SYS_TIME_PERIODIC);
             modem_appData.mmhiHandle = MMHI_Open((SYS_MODULE_OBJ)MMHI_INDEX);
             if (modem_appData.mmhiHandle != MMHI_HANDLE_INVALID)
             {
                 MMHI_MacDataCallbackRegister(lMODEM_APP_MacDataReqCallback);
-                
+
                 AL_DataIndicationCallbackRegister(lMODEM_APP_AL_DataIndication_callback);
                 AL_DataConfirmCallbackRegister(lMODEM_APP_AL_DataConfirm_callback);
                 AL_EventIndicationCallbackRegister(lMODEM_APP_AL_EventIndication_callback);
 
                 SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "Modem App initialized\r\n");
-                
+
                 modem_appData.alIb.length = 6;
                 memcpy(modem_appData.alIb.value, modemAppMacAddress.value, 6);
                 AL_SetRequest(AL_MAC_ACA_ADDRESS_IB, 0, &modem_appData.alIb);
-                
-                modem_appData.state = MODEM_APP_STATE_WAIT_DLL_READY;
+
+                modem_appData.state = MODEM_APP_STATE_WAIT_AL_READY;
             }
             break;
         }
 
-        case MODEM_APP_STATE_WAIT_DLL_READY:
+        case MODEM_APP_STATE_WAIT_AL_READY:
         {
             if (AL_GetStatus() == SYS_STATUS_READY)
             {
@@ -249,7 +304,7 @@ void MODEM_APP_Tasks ( void )
 
         case MODEM_APP_STATE_WAITING:
         {
-
+            /* Wait for Host Interface Commands */
             break;
         }
 
