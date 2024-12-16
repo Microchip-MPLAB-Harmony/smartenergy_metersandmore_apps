@@ -74,20 +74,20 @@
 
 /*** LED Macros for LED_RED ***/
 #define LED_RED_Toggle() do { PIOD_REGS->PIO_MSKR = (1UL<<17); (PIOD_REGS->PIO_ODSR ^= (1UL<<17)); } while (0)
-#define LED_RED_Get() ((PIOD_REGS->PIO_PDSR >> 17) & 0x1)
+#define LED_RED_Get() ((PIOD_REGS->PIO_PDSR >> 17) & 0x1U)
 #define LED_RED_On() (PIOD_REGS->PIO_SODR = (1UL<<17))
 #define LED_RED_Off() (PIOD_REGS->PIO_CODR = (1UL<<17))
 /*** LED Macros for LED_IR ***/
 #define LED_IR_Toggle() do { PIOD_REGS->PIO_MSKR = (1UL<<18); (PIOD_REGS->PIO_ODSR ^= (1UL<<18)); } while (0)
-#define LED_IR_Get() ((PIOD_REGS->PIO_PDSR >> 18) & 0x1)
+#define LED_IR_Get() ((PIOD_REGS->PIO_PDSR >> 18) & 0x1U)
 #define LED_IR_On() (PIOD_REGS->PIO_SODR = (1UL<<18))
 #define LED_IR_Off() (PIOD_REGS->PIO_CODR = (1UL<<18))
 /*** SWITCH Macros for SWITCH_SCRUP ***/
-#define SWITCH_SCRUP_Get() ((PIOA_REGS->PIO_PDSR >> 14) & 0x1)
+#define SWITCH_SCRUP_Get() ((PIOA_REGS->PIO_PDSR >> 14) & 0x1U)
 #define SWITCH_SCRUP_STATE_PRESSED 0
 #define SWITCH_SCRUP_STATE_RELEASED 1
 /*** SWITCH Macros for SWITCH_SCRDOWN ***/
-#define SWITCH_SCRDOWN_Get() ((PIOA_REGS->PIO_PDSR >> 15) & 0x1)
+#define SWITCH_SCRDOWN_Get() ((PIOA_REGS->PIO_PDSR >> 15) & 0x1U)
 #define SWITCH_SCRDOWN_STATE_PRESSED 0
 #define SWITCH_SCRDOWN_STATE_RELEASED 1
 

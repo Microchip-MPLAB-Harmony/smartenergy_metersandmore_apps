@@ -1,4 +1,4 @@
-<config configName="pic32cx_mtsh_db_pl460" projectName="mm_phy_tx_test_console_pic32cx_mtsh_db_pl460" configVersion="1.1" device="PIC32CX2051MTSH128" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.7.0">
+<config configName="pic32cx_mtsh_db_pl460" projectName="mm_phy_tx_test_console_pic32cx_mtsh_db_pl460" configVersion="1.1" device="PIC32CX2051MTSH128" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.7.1">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -99,7 +99,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.5.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.5.4"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -7160,7 +7160,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
   &lt;drvPlcPhy dnOrder=&quot;0&quot;&gt;
     &lt;Attachments dnOrder=&quot;0&quot;&gt;
-      &lt;DirectDependency dnOrder=&quot;0&quot; id=&quot;drv_plc_phy_SPI_dependency&quot;&gt;
+      &lt;DirectDependency dnOrder=&quot;0&quot; id=&quot;drvPlcPhy_SPI_dependency&quot;&gt;
         &lt;Attributes dnOrder=&quot;0&quot;&gt;
           &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
             &lt;Value dnOrder=&quot;0&quot;&gt;flexcom1&lt;/Value&gt;
@@ -7315,24 +7315,6 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_MODE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
   &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_MODE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_PLC_BIN_ADDRESS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_PLC_BIN_ADDRESS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_PLC_BIN_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_PLC_BIN_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/drvPlcPhy&gt;
 &lt;/drvPlcPhy&gt;
@@ -9699,7 +9681,7 @@
             &lt;Value dnOrder=&quot;0&quot;&gt;drvPlcPhy&lt;/Value&gt;
           &lt;/String&gt;
           &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;drv_plc_phy_SPI_dependency&lt;/Value&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;drvPlcPhy_SPI_dependency&lt;/Value&gt;
           &lt;/String&gt;
         &lt;/Attributes&gt;
       &lt;/DirectCapability&gt;
@@ -22558,15 +22540,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\bsp\bsp.h</file>
-         <hash>559afebba24c844d7d95837ab4eb1af8ae4fbe38c6adb372080e2abfed54a13c</hash>
+         <hash>7b158fbfe62dd88288edcc39c1a296ca4fbd6458ad343bd96823717e8d3f5926</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\configuration.h</file>
-         <hash>c861c640e290d65e29c85d0a046d15f3003e154a4fcb561c9bea20066eed58f4</hash>
+         <hash>cba0c2e466b6cd92a977c37cdc1f4d17cb57b2d174ad9299756b5f0db4e754bf</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\definitions.h</file>
-         <hash>022ee8b1ea3590c1bb3528dc13312487db2e5db57628c4905eefb5850bc8bee8</hash>
+         <hash>04c63d5e078735c4170466bc4c9f36a693822e2192f824b1952adbe6ce786c1c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\device.h</file>
@@ -22598,7 +22580,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\memory\src\drv_memory.c</file>
-         <hash>746cad9836efd1e7f05d41b59e33a168d5613a7afbdd2e4e203f75f09fa1be23</hash>
+         <hash>0d57e91fff124eb1e4573bfd390d9974b55dd49d6afb04cfe8b61bd847389321</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\memory\src\drv_memory_local.h</file>
@@ -22614,7 +22596,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\common\drv_plc_hal.c</file>
-         <hash>54518f301480ddc836165b3be9d856547329f5670c7f14eac01ee018ccf9dae9</hash>
+         <hash>42a6425c512e20ff8512b92b2aec198dcb9885eb542181030295da56bcf9b8ae</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\common\drv_plc_hal.h</file>
@@ -22622,7 +22604,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\bin\PLC_PHY_MM.bin</file>
-         <hash>f63b0dfedf3a3f7946edf39e66956326519fc1aa2a6ba463cebc963455bc8da6</hash>
+         <hash>124a38cd58c22e3c9da27434165f0aad8c5bba324f86ca57c7dd636d14df84dc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\bin\plc_phy_bin.S</file>
@@ -22630,7 +22612,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy.c</file>
-         <hash>f33d2e0a6e002d22f3bd51b2df9454383f028369412e4cfed8c260ee280230ee</hash>
+         <hash>2aa6afae877b81bbef91850416d15e0448358f020dc80a80697a38e69625ff7e</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy.h</file>
@@ -22638,11 +22620,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy_comm.c</file>
-         <hash>ba19a11ab0286291bdf5ca17b8cca7634a0b99cee618c05b785781e754ff8257</hash>
+         <hash>772951b20c9050883b36ec920a5e076a9398d415afe323b676bccea25254a255</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy_comm.h</file>
-         <hash>8c70d267cb845bbd82591a3a5e9c48f813050b4b5d51bd33885695ce817dc329</hash>
+         <hash>034858d86b17a4e21e2209c44274cf3a295b665318e31d8df30099434777d6ae</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy_definitions.h</file>
@@ -22670,11 +22652,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\sst26\src\drv_sst26_local.h</file>
-         <hash>29c71a6ae051fcf47b8235ad561a592dbdc820cfa2831c0aac0371c39671ad3a</hash>
+         <hash>737fa7267c7b58062a645e38966a08998bc556605beb02de16c81391ee299d69</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\exceptions.c</file>
-         <hash>89852728a9a1cc4c9746839cc3caf5308b8698c0c30bf6bfbad0db9e552a387e</hash>
+         <hash>a565e8d25d218b3e1069267ae9cc317161d062683a27c64e3cb454757bb82fd9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\cl010.h</file>
@@ -22702,7 +22684,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\initialization.c</file>
-         <hash>81f1be6354fb9f1ca9c2a37338f329483e8d822da845b02c69f8902b091d8199</hash>
+         <hash>b7085c8a37d1cc67ffb5b7e771a689ac5679d82c989b1464470d3eb3d2dfbc3a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\interrupts.c</file>
@@ -22718,7 +22700,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\osal\osal.h</file>
-         <hash>8404fbe44807fa0484ffb38843a72cb9af8e31c9c30bd1b2594e609b8ea317d9</hash>
+         <hash>1cfe3b61d9693b2369922041eef33fe16b3c1ccd9c85d4ded808b805f90a869c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\osal\osal_definitions.h</file>
@@ -22726,7 +22708,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\osal\osal_impl_basic.h</file>
-         <hash>67ce72d34fd1e4dee0b6937fa026ab2c7bd285f82a24da09742c68333adaf0fc</hash>
+         <hash>65e68edbc0320d0407399f65e6d06ff7e6d3d7697231cf1fe0a1fdf1d65f0463</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\adc\plib_adc.c</file>
@@ -22742,7 +22724,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\clk\plib_clk.c</file>
-         <hash>1875da20d3d352e63d32fc822af302351d5406fdef3ad5df645ee07c5c0e8f8c</hash>
+         <hash>b26cc4132a68e9e159dcf865ecb14209236a70f9b74eb16da64fc4675ff4db60</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\clk\plib_clk.h</file>
@@ -22758,7 +22740,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\dwdt\plib_dwdt.c</file>
-         <hash>10c4c7f59704542e08cca4b7b9fedf9bbb463da403ae37df76d84e04e2f07e19</hash>
+         <hash>2c2ec87f538ea7e7d2e18ca2af1ee8a1268fe86ba5c2398e7a87a21d338aa29a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\dwdt\plib_dwdt.h</file>
@@ -22766,7 +22748,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\flexcom\spi\master\plib_flexcom1_spi_master.c</file>
-         <hash>67717b4dadccd6c3ff49130ed5a2709d7d4034f0103be804f3c2f810956d8d52</hash>
+         <hash>be4f79139e3c37c7c4c7625ca6a9304602123c4d9c849d25d5937db7c94b1989</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\flexcom\spi\master\plib_flexcom1_spi_master.h</file>
@@ -22786,15 +22768,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\flexcom\usart\plib_flexcom_usart_local.h</file>
-         <hash>d7d8e1bab1992fd5471cbee03dfbe206d761d9e622c721c08f3546ef7d335b64</hash>
+         <hash>44c68d2efb80f2837e7bbcb39073972a6672c61ea2daf8f63e8c7e7da6e1208c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\nvic\plib_nvic.c</file>
-         <hash>5da4d9fa8b4d2f06d32ac23b81bfffa82ad09d305c3aa846080952dc837310ac</hash>
+         <hash>e521e9b9fc6129245672529b412b4ffa5b3927ea11066d765f97175a8e6299e0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\nvic\plib_nvic.h</file>
-         <hash>81e813a093101d546799e00723cbf7245e2d18471fa51c8d130c5809cecca03e</hash>
+         <hash>9936ac782115af41003255283fa2f603f4ff2212d16275b7c80ea8d067a9e208</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\pio\plib_pio.c</file>
@@ -22806,7 +22788,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\qspi\plib_qspi.c</file>
-         <hash>f4cbcb733af64dd7090226c3e8532e7f9bf04a4219b75fa7797d13476bcc523c</hash>
+         <hash>bc9a018b47d174570dfc624ef2683a996ceb66116bd018e0c34d9f22371214ae</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\qspi\plib_qspi.h</file>
@@ -22826,27 +22808,31 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\sefc\plib_sefc0.c</file>
-         <hash>2666b2b03017cb9382e2f9224af9a1b1158b5a063163946a0ed60ee62701f571</hash>
+         <hash>617742bee46ba461c344e3ad0d2dad8d37fe615c771f0f4b991571360261d6a4</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\sefc\plib_sefc0.h</file>
-         <hash>35517063851978e25640dfaf6512a6af69907bec245ccd05698bf94afee49581</hash>
+         <hash>379944129ce0df4921995d2086d67f2876ff1def7933b4eca65e94f9164eca16</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\sefc\plib_sefc1.c</file>
-         <hash>10160ae893fdc4dbcf4b8f76752e74f6562a5845672a5a45cf940f65e15c46ca</hash>
+         <hash>c5864057d7dc145d784c2e0afbac3bdb66bba7f000f064903101ea84c5e827e4</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\sefc\plib_sefc1.h</file>
-         <hash>83b92e05b738cfeed963f18fe17bd28c298bc3092af00bb0448676aa58e8151c</hash>
+         <hash>3640ecd460bae3b8a39004c830dee3edff3a669498d6c2dc71dd08b5eccdb3d4</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\sefc\plib_sefc_common.c</file>
+         <hash>f7e1500368414009b16ba916e612ec780f90f7029ecd550dbae91b49c5b88626</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\sefc\plib_sefc_common.h</file>
-         <hash>3e24f63c9dcb1ed3c31964d7718ebdd4e4e012f6a8d1a99b59f1cce1d2158137</hash>
+         <hash>3baa7dbf8acb6264c697a73035c40a786d850be386c308da4aad0b4f32830bd7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\supc\plib_supc.c</file>
-         <hash>453c5a214ee4912d7a5236b717fd59b99fe414a522e33f81b44b1faa0bfe1e9d</hash>
+         <hash>bc251b42082d3a046d1b05b3c999d71d57768c208ff2f79f9f7c48a22e9ef4db</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\supc\plib_supc.h</file>
@@ -22866,11 +22852,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\trng\plib_trng.c</file>
-         <hash>e48700bc16af79a9b691fdb5e74c236e19458edb25fc4a80c7f689109b0ba807</hash>
+         <hash>8825f2faf2f20f1aa900ea63f490d735bcee1cd402c96ee259800d0200861ece</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\trng\plib_trng.h</file>
-         <hash>6c51ae3ca0b94df4a3848fa5080fad5502f807320e9db37fea87fa07fe441735</hash>
+         <hash>f32600bb96970ba2982b4fe27b19ef190b6df46044463a45a38d3ced146f60b2</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\pin_configurations.csv</file>
@@ -22938,7 +22924,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\system\debug\sys_debug.h</file>
-         <hash>9ee0362649aa389b355ecff1ce0e64d124f8f83eda7e40a0c5195ee099c1a0ff</hash>
+         <hash>4162d9e1fab93b8b33f6c8a24726f5dc287ea05c31e3ab984c3c920c725d0882</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\system\int\src\sys_int.c</file>
@@ -22954,7 +22940,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\system\ports\sys_ports.h</file>
-         <hash>73a53c684f6d8f825e50d6fd36ede7bc1caf621fe7a258d2974501f5164766b0</hash>
+         <hash>d02f8e61aca4d776d103656337f167050d0b8751eb65fcae72354e0410b4c502</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\system\ports\sys_ports_mapping.h</file>
