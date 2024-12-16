@@ -29537,508 +29537,508 @@
          <hash>8e35d8509552a4d1d6e6f123ad75694cf784a707f7dac592ed33b55121aa8e28</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\PIC32CX2051MTG128.ld</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\PIC32CX2051MTG128.ld</file>
          <hash>93183ab85bd1fb170f182051bee48e60493b7dcb3f7f3f75afbb55e3d2a0a12a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\bsp\bsp.c</file>
-         <hash>35e8e35f59eae3d2a9038b35de7678c97c23c9821f0fbdeab9a5ce4b30a56689</hash>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\bsp\bsp.c</file>
+         <hash/>
       </entry>
       <entry>
-         <file>..\src\config\default\bsp\bsp.h</file>
-         <hash>52bed4d270950cf0771c78c247dd43b4e913652e6d0cd569a37e8f3f97813915</hash>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\bsp\bsp.h</file>
+         <hash/>
       </entry>
       <entry>
-         <file>..\src\config\default\configuration.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\configuration.h</file>
          <hash>06d5dcf6171794990095989e16ef8a049b3fa6e9421cf4d9e7de237af829ae79</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\common_crypto\crypto_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\common_crypto\crypto_common.h</file>
          <hash>7e546042b673a902f890a382797efaee0ba1fcb7b47f4c3dac7c4b45a9a710b1</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\common_crypto\crypto_mac_cipher.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\common_crypto\crypto_mac_cipher.h</file>
          <hash>50dccf120f30bac38765eddd0190dd48cf0160246acf029339676e96ada38110</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\common_crypto\crypto_sym_cipher.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\common_crypto\crypto_sym_cipher.h</file>
          <hash>dcc125cc88fe5899ac7510e6fa4fdb740541559302366219f6e3c8869cfdd766</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\common_crypto\src\crypto_mac_cipher.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\common_crypto\src\crypto_mac_cipher.c</file>
          <hash>087d104f737697207dfdc37f22fe1ba4a8d3e94a1c01079fda63c3987a2a358a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\common_crypto\src\crypto_sym_cipher.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\common_crypto\src\crypto_sym_cipher.c</file>
          <hash>462c719f87ddc1feb6dd5d1bebc4ec829dab583dae3398cda4af15a87459fdf2</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\crypto_config.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\crypto_config.h</file>
          <hash>20aa84229b9697bc8f5100cdb96a2b73222682ca7827888ea11afe1733d92656</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\config.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\config.h</file>
          <hash>e2525147ac1de663a008fc1f1c2ccb4830db00e0697247427825ca4f3b5d6e35</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\crypto_common_wc_wrapper.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\crypto_common_wc_wrapper.h</file>
          <hash>2c79290b452eceb9400985005f6152d1aee02181401c0a8d8503597e0e54a693</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\crypto_mac_wc_wrapper.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\crypto_mac_wc_wrapper.h</file>
          <hash>5b7d2f2e9b79da67b04d1b59ac93a4e08ac87d7912e97538b89bf78b92614121</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\crypto_sym_wc_wrapper.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\crypto_sym_wc_wrapper.h</file>
          <hash>d7942eaebf7b72c5bb49cb504de2a518cafd5f1fb754fcfe20ab864e3d69f6af</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\src\crypto_common_wc_wrapper.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\src\crypto_common_wc_wrapper.c</file>
          <hash>c5fe661c9ae709d5d069faab8588be972b6296b925010f28e0fa2b4a2bb98c73</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\src\crypto_mac_wc_wrapper.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\src\crypto_mac_wc_wrapper.c</file>
          <hash>ad39acb4112ff5fde4bf0800a716ed5862dc69a6559e50cc49eecb1855585c92</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\src\crypto_sym_wc_wrapper.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\src\crypto_sym_wc_wrapper.c</file>
          <hash>266228a1392dde83d668e4368c1297a6df2df93084417f05b86361cde7e37fda</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\user_settings.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\user_settings.h</file>
          <hash>d4ae235efb05c7b2d21d7b9241024a74c13fe6bd18e12c74d68e54b26b1caeb4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\crypto\wolfcrypt\wolfcrypt_config.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\wolfcrypt_config.h</file>
          <hash>ee0712706d1d9203a21334680e076155fc8f2ad8a8c0ee07231295670f972e71</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\definitions.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
          <hash>768570caa19896a7b1503ad58fcf37855b375d24d9d5a061de9bdf9af138844c</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\device.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
          <hash>87a68b5aeeb7f565d3dccd9cdbcac703f9fd63f3ff1dec8839becbd4fc49a593</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\device_cache.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\device_cache.h</file>
          <hash>e2914501b361bbc93a56d6915b1bf4fac00277e61f31fdee87a587bc15dea5b6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\device_vectors.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\device_vectors.h</file>
          <hash>849a12d93315599b99b1537254878bdd21e7601e34c110f13eccf71e9a886c71</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\driver.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\driver.h</file>
          <hash>042fdd289460dbddb8e805850af7e3ac9aea95468e37414959781ebc5b2f454d</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\driver_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\driver_common.h</file>
          <hash>5217965f6720b4fdf717e99ce9df4f2c9fbd82bbbc9655847166d1eefa806fee</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\common\drv_plc_boot.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_boot.c</file>
          <hash>9e5ea32f9cbee2525b8e4a8650591c51b47fcbed749614b19a56cff55f65e030</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\common\drv_plc_boot.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_boot.h</file>
          <hash>4f91187cb22a27ddf0400d5b14f63c248a3b0327929268b67da78e884004df54</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\common\drv_plc_hal.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_hal.c</file>
          <hash>42a6425c512e20ff8512b92b2aec198dcb9885eb542181030295da56bcf9b8ae</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\common\drv_plc_hal.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_hal.h</file>
          <hash>5fe47c06a611b7adb7a8c612d865bb64702aaa4fd41588bcd406f6a3d0109eb6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\bin\PLC_PHY_MM.bin</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\bin\PLC_PHY_MM.bin</file>
          <hash>124a38cd58c22e3c9da27434165f0aad8c5bba324f86ca57c7dd636d14df84dc</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\bin\plc_phy_bin.S</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\bin\plc_phy_bin.S</file>
          <hash>0f2c103daa179a80fca4f64cfde6fc29fb736075797c581a3fe3c0ef4bb56809</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy.c</file>
          <hash>2aa6afae877b81bbef91850416d15e0448358f020dc80a80697a38e69625ff7e</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy.h</file>
          <hash>67c3a9b5d2675bbc96a4c7d62fda6adf02ca652817e181c4775fda7c750ec40d</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy_comm.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_comm.c</file>
          <hash>772951b20c9050883b36ec920a5e076a9398d415afe323b676bccea25254a255</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy_comm.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_comm.h</file>
          <hash>034858d86b17a4e21e2209c44274cf3a295b665318e31d8df30099434777d6ae</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy_definitions.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_definitions.h</file>
          <hash>97bc7e4ab4509638c4fdd93092a496b95d5fbebd1d47c8958d9fbd40578dc182</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_local.h</file>
          <hash>d2ec08f8d251cdd081cef7650f6311a405751cb56a835e0b6de212d09bad5a2b</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\driver\plc\phy\drv_plc_phy_local_comm.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_local_comm.h</file>
          <hash>266e78daa308cee0ba166565a7ddf6fdeb092af770c41c87541229f55eab212c</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\exceptions.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\exceptions.c</file>
          <hash>a565e8d25d218b3e1069267ae9cc317161d062683a27c64e3cb454757bb82fd9</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\initialization.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\initialization.c</file>
          <hash>39ade174613f31eb18b9d57eaac00ae3dd0c62ac7e6b307728cf300ff345a0ee</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\interrupts.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\interrupts.c</file>
          <hash>d8ce992caf5c1544863d6add38afaed17abaccd4e32ac6b6a597e35e974b76dd</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\interrupts.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\interrupts.h</file>
          <hash>16296a1d09269b199baffb67b930c0f173b88594ca93958d0bd5856a58d17e65</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\libc_syscalls.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\libc_syscalls.c</file>
          <hash>88bb2e34c939601b5b7ad076556e3ee0fcedf388436b8cddb6d6fd3e9d07472f</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\osal\osal.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\osal\osal.h</file>
          <hash>1cfe3b61d9693b2369922041eef33fe16b3c1ccd9c85d4ded808b805f90a869c</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\osal\osal_definitions.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\osal\osal_definitions.h</file>
          <hash>5f0a2513a093b6d228e2b50646b204923a82047335a47f3d35a2938309ab6f37</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\osal\osal_impl_basic.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\osal\osal_impl_basic.h</file>
          <hash>65e68edbc0320d0407399f65e6d06ff7e6d3d7697231cf1fe0a1fdf1d65f0463</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\adc\plib_adc.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\adc\plib_adc.c</file>
          <hash>bfe626a0fa0cc0c67b19c92ba9f0fcc83cbfdc75963d79ca77b738ea7846c35a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\adc\plib_adc.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\adc\plib_adc.h</file>
          <hash>d358ae5526754bdd902db07eeb1273ef11a84378c8d3dbe4b3cc760b8a82decb</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\adc\plib_adc_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\adc\plib_adc_common.h</file>
          <hash>069e4e32e014d150246b852afac02d8e8b82804e21aa6e40acf97639440bf9ef</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\clk\plib_clk.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\clk\plib_clk.c</file>
          <hash>af533ad663169c5a3ee2f505dafbe192906103fa1e7fae8d2b5225355e895182</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\clk\plib_clk.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\clk\plib_clk.h</file>
          <hash>99903c3cf46e556a7e043e24637531a739d5cc70bcd117bcc0ffec4ca05d92ea</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\cmcc\plib_cmcc.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\cmcc\plib_cmcc.c</file>
          <hash>ba0fcd94a826c11a458b5a75f6bb0286b80d201144e2263cd5d4c6284563d826</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\cmcc\plib_cmcc.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\cmcc\plib_cmcc.h</file>
          <hash>648ef8d199996bad027d6c64a669a9ee41c334029323d94e2e69dee56dcfa593</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\dwdt\plib_dwdt.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\dwdt\plib_dwdt.c</file>
          <hash>10c4c7f59704542e08cca4b7b9fedf9bbb463da403ae37df76d84e04e2f07e19</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\dwdt\plib_dwdt.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\dwdt\plib_dwdt.h</file>
          <hash>ac1567a50ab62f6d487d67b166905cf3769d68b2aca4583be9466fe4663ddc3b</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\flexcom\spi\master\plib_flexcom5_spi_master.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\flexcom\spi\master\plib_flexcom5_spi_master.c</file>
          <hash>0a6a70d52e57d35b791a0d8c876a599394fef096025240275b1300a1366a1707</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\flexcom\spi\master\plib_flexcom5_spi_master.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\flexcom\spi\master\plib_flexcom5_spi_master.h</file>
          <hash>fce26d66be49019455a6d9ade0c399733bc639c70be1b84ec043120a482ee7db</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\flexcom\spi\master\plib_flexcom_spi_master_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\flexcom\spi\master\plib_flexcom_spi_master_common.h</file>
          <hash>63ceffff0989c6eccda3056f38ddfb745dc7a3a65d96449912965a0f1078e61a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\flexcom\usart\plib_flexcom0_usart.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\flexcom\usart\plib_flexcom0_usart.c</file>
          <hash>7e21669847189b49e23ce51e57edddec7f7f5c12f1e2e94259a9a27a5aa8d2ad</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\flexcom\usart\plib_flexcom0_usart.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\flexcom\usart\plib_flexcom0_usart.h</file>
          <hash>1148edd0d109ee3bc66bf556ae3df0bf24c2846ad44b414aba619b0a861a7af8</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\flexcom\usart\plib_flexcom_usart_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\flexcom\usart\plib_flexcom_usart_local.h</file>
          <hash>44c68d2efb80f2837e7bbcb39073972a6672c61ea2daf8f63e8c7e7da6e1208c</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\nvic\plib_nvic.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\nvic\plib_nvic.c</file>
          <hash>db9760617dd04003d43f9cd5bf33478c5e71d090a3254cf425ba4f3538eb9699</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\nvic\plib_nvic.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\nvic\plib_nvic.h</file>
          <hash>9936ac782115af41003255283fa2f603f4ff2212d16275b7c80ea8d067a9e208</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\pio\plib_pio.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.c</file>
          <hash>53db9e270b2b619843591e7888c03f8ef43fa362cd724107d5098a35c2b9c9ae</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\pio\plib_pio.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.h</file>
          <hash>c233843008bd4a292a791f4a76165aabcb122599d973cc658de09bb4f2d7610b</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\rstc\plib_rstc.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\rstc\plib_rstc.c</file>
          <hash>6e115bb577927594772ed9dc212d4156e15c7aabad20ada70a9fdf3e2bdbf9b9</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\rstc\plib_rstc.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\rstc\plib_rstc.h</file>
          <hash>47ee882996e862b2f7738c8476bff17a836ab1287a473ce0a40b0496ab1b5953</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\sefc\plib_sefc0.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\sefc\plib_sefc0.c</file>
          <hash>617742bee46ba461c344e3ad0d2dad8d37fe615c771f0f4b991571360261d6a4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\sefc\plib_sefc0.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\sefc\plib_sefc0.h</file>
          <hash>379944129ce0df4921995d2086d67f2876ff1def7933b4eca65e94f9164eca16</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\sefc\plib_sefc1.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\sefc\plib_sefc1.c</file>
          <hash>c5864057d7dc145d784c2e0afbac3bdb66bba7f000f064903101ea84c5e827e4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\sefc\plib_sefc1.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\sefc\plib_sefc1.h</file>
          <hash>3640ecd460bae3b8a39004c830dee3edff3a669498d6c2dc71dd08b5eccdb3d4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\sefc\plib_sefc_common.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\sefc\plib_sefc_common.c</file>
          <hash>f7e1500368414009b16ba916e612ec780f90f7029ecd550dbae91b49c5b88626</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\sefc\plib_sefc_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\sefc\plib_sefc_common.h</file>
          <hash>3baa7dbf8acb6264c697a73035c40a786d850be386c308da4aad0b4f32830bd7</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\supc\plib_supc.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\supc\plib_supc.c</file>
          <hash>bc251b42082d3a046d1b05b3c999d71d57768c208ff2f79f9f7c48a22e9ef4db</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\supc\plib_supc.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\supc\plib_supc.h</file>
          <hash>69d1e7040ea51b94b62f40bf6432c66a608056de2adf4956bdc432355f019631</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\tc\plib_tc0.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\tc\plib_tc0.c</file>
          <hash>2e048e51e8f232c18be629afa5e1b195bd04e3caf826f9c0587a1b0766032913</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\tc\plib_tc0.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\tc\plib_tc0.h</file>
          <hash>79afe8007b0060db79e911ca3574ac588005761cabfd42c574d779bb71615a7d</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\tc\plib_tc_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\tc\plib_tc_common.h</file>
          <hash>aa07077b6355fa1dc9e938cb4def1c725bffddf452ffc55e4f982f83d3988a9e</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\trng\plib_trng.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\trng\plib_trng.c</file>
          <hash>8825f2faf2f20f1aa900ea63f490d735bcee1cd402c96ee259800d0200861ece</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\peripheral\trng\plib_trng.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\trng\plib_trng.h</file>
          <hash>f32600bb96970ba2982b4fe27b19ef190b6df46044463a45a38d3ced146f60b2</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\pin_configurations.csv</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\pin_configurations.csv</file>
          <hash>cd176a4f115613d9f526b5b75cdaa19bcbb387a27756e5c0078800c8580a85a6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\pcoup\srv_pcoup.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcoup\srv_pcoup.c</file>
          <hash>c5fdf15d1fa7f33ecae792e3b262ab2b3a7c96a6bf29838048d5088c1bbe96e4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\pcoup\srv_pcoup.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcoup\srv_pcoup.h</file>
          <hash>c50a0ba4a2f90f37b8d76c836ede6ba0dbc6879be6741ba42a7dc773c2059d1e</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\pcrc\srv_pcrc.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcrc\srv_pcrc.c</file>
          <hash>6d89823f9b820bfe2227f3c9cb21b5a4ea199c764f6d3eb95527bec7e401b971</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\pcrc\srv_pcrc.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcrc\srv_pcrc.h</file>
          <hash>f257598d31bd730b45f4679376a130000cb6ac18277e5c1575ea45876a3005d4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\pvddmon\srv_pvddmon.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\pvddmon\srv_pvddmon.c</file>
          <hash>c2b6d157223c8f581e1076f91e6fbdc99c7cd85e11c02cec716894c1234eec32</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\pvddmon\srv_pvddmon.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\pvddmon\srv_pvddmon.h</file>
          <hash>8f59e8f63fce90d5898a5a978df8d8c9a942158769145d3f2678a98a25aca394</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\random\srv_random.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\random\srv_random.c</file>
          <hash>3b9c2c67678d842013e990ca379c2dc50f132e5811765c995ab6ce4ad93b07d5</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\service\random\srv_random.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\random\srv_random.h</file>
          <hash>74409dadccb1a152f9717e596b31af36c8cac01d1a33a4a40a15c5fbdcd52a78</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\al\al.c</file>
-         <hash>cb134ddc4b26fa10ecb6b8d85b9122ee15674c35964ae83cd4369468c8a319af</hash>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.c</file>
+         <hash>876ece461e79a2b41dd4ef60eb39473ff2eeeb4a7f0802f411b82273222a7260</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\al\al.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.h</file>
          <hash>af4698a3f8502dd5a4155caeb8f46bc6ce384d6c250cccb997f024899c2977e0</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\al\al_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al_local.h</file>
          <hash>fa7f03b60d5d622bb30e94bb9e3e358745e7c16fa28e40ebb552480ae0ef238f</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\dll\dll.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\dll\dll.h</file>
          <hash>bcd8c5cdadbd8513f1d00313db92324b99ba441cc2ce6c056508d1b8467529c1</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
          <hash>276ac7b2f58a8b179a518c1fa26c4de97880cc3ce1ebce57b408065bb49be78e</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\pal\pal.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\pal\pal.c</file>
          <hash>09b4038667ee8bea8091ab111977f4483bf6fc7ac35d600c0e8752c1ca482327</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\pal\pal.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\pal\pal.h</file>
          <hash>75d6739f30c66bff3bde2b1937a5c2831529a5afec4fa4cad08f3507695b159c</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stack\metersandmore\pal\pal_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\pal\pal_local.h</file>
          <hash>84f0d17a57d2f8111d908a57bfc773c7435c572f5fb28178b9fa072cc103cd66</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\startup_xc32.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\startup_xc32.c</file>
          <hash>ef7f14c52d7d65f5b819942dab6f2ae93157d35a40ee248ea4b6e1b4cad4f51f</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\stdio\xc32_monitor.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\stdio\xc32_monitor.c</file>
          <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\sys_tasks.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\sys_tasks.h</file>
          <hash>21f254f497a18a024cd00128d06c4776c2643f867a460c1ba9880a7dd41a8d56</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\cache\sys_cache.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\cache\sys_cache.c</file>
          <hash>da28c09b0da0fdd6fb7064631c15c9197c78df33fcd17d742baef909830a320e</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\cache\sys_cache.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\cache\sys_cache.h</file>
          <hash>b4b3a4e7434759c9bbcd3c6a0ab97558eb2a007f083a4eb76dbedcb2e2c3d86b</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\console\src\sys_console.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\console\src\sys_console.c</file>
          <hash>622a27844a650b4fa265c7a4739ba3768a76e4148600be42e44eec2e0673d7c6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\console\src\sys_console_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\console\src\sys_console_local.h</file>
          <hash>024a0b50ea2fea72b964b8209fb256b5df6693badd320485821e7912c5eebb25</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\console\src\sys_console_uart.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\console\src\sys_console_uart.c</file>
          <hash>ff3d1854f469e4fc41d96adce6f7ec38afad5d1b076c295eb4777936777673d0</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\console\src\sys_console_uart.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\console\src\sys_console_uart.h</file>
          <hash>690c74d55c9204f3e3d621635257df1de1c89f097671a678c359f5e24461589a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\console\src\sys_console_uart_definitions.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\console\src\sys_console_uart_definitions.h</file>
          <hash>bf403c11673266a5a861fd99253c377030c1a7f9e912eef446101e416b4f8c9a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\console\sys_console.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\console\sys_console.h</file>
          <hash>cc82ba93f8d69bf31a9dfcfe1e425de3924bcf9e4e4b31f7efad9c2d062dcbf6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\debug\src\sys_debug.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\debug\src\sys_debug.c</file>
          <hash>474ee981d4285453a2ae9f1e4735c40129281931b89f579c3c413acdff1d8d26</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\debug\src\sys_debug_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\debug\src\sys_debug_local.h</file>
          <hash>d14855e54d4929ec6c9c3ea1e9de3fdc1711bb278fc27ab39079e9f16ecc87d5</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\debug\sys_debug.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\debug\sys_debug.h</file>
          <hash>4162d9e1fab93b8b33f6c8a24726f5dc287ea05c31e3ab984c3c920c725d0882</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\int\src\sys_int.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\int\src\sys_int.c</file>
          <hash>4281667cc2b84c9e4be1f0dfb3f7d42b77d36c5dcf6513d29ff40262f746cfc6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\int\sys_int.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\int\sys_int.h</file>
          <hash>dc104ae181fd5309e1bb42896246644fae95915a8e639b23ecfccc8840850274</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\int\sys_int_mapping.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\int\sys_int_mapping.h</file>
          <hash>5abf8528dabc1b17378f5d137870597037214fddf33880fa40e9263352da3008</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\ports\sys_ports.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\ports\sys_ports.h</file>
          <hash>b592317534ead0d9c9574470ee94a063de48e52a2bd3f311fcb137448b7b70ba</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\ports\sys_ports_mapping.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\ports\sys_ports_mapping.h</file>
          <hash>8b879741803b1927b0708cfc1cdd7ae6c08b0b4f06708429691d673990cf5920</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\system.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\system.h</file>
          <hash>2b75f8e370e5cb2c54f70da7351ee149f0d5a7673e700f39b373099716b31b55</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\system_common.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\system_common.h</file>
          <hash>c9f34bd226f8efab12f5766e77f8355996cd0430b50e0f6ee30258664c494984</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\system_module.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\system_module.h</file>
          <hash>96c74368801b0a7aaa25aec3ec2cb0d483250385f103ffc1ff64089b4ca2c6d9</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\time\src\sys_time.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\time\src\sys_time.c</file>
          <hash>fa2d85ab967b80157caf8483f6e28a23b12b548844a1d80f2fef760cd9b99271</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\time\src\sys_time_local.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\time\src\sys_time_local.h</file>
          <hash>df56f970664902417d798760e44978cf4b84c108cf0761647a383e91db76980c</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\time\sys_time.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\time\sys_time.h</file>
          <hash>6357468f7670698b16bfb6439d9919ed38eba99d4f03277a8b43ac34586fa1b3</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\system\time\sys_time_definitions.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\system\time\sys_time_definitions.h</file>
          <hash>46537746b1d12ece6b682c9be1c8f3f219663c638c21a51a973762b7b393afe6</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\tasks.c</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\tasks.c</file>
          <hash>204ad21d33cc868d7ad9bfe93f2ecd6c867ed13dac86838317f175ce1f74b29a</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\toolchain_specifics.h</file>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\toolchain_specifics.h</file>
          <hash>a4f1774c6f1f8c6cd522567536c9e9d75ca63259b868015ac9b0fb0aeeffe1f4</hash>
       </entry>
       <entry>
-         <file>..\src\config\default\user.h</file>
-         <hash>451e0878e9fcf6cf9fab046c1452ea662757988346c7f39e6bc98478ca25f995</hash>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\user.h</file>
+         <hash/>
       </entry>
       <entry>
          <file>..\src\main.c</file>
