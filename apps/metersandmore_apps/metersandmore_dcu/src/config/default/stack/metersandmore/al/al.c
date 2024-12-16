@@ -873,14 +873,7 @@ void AL_DataRequest( AL_DATA_REQUEST_PARAMS *reqParams )
 
                 /* Append DATE-TIME or LMON */
                 datetimeLmonBuff = &alDllTxBuf[lsduLen];
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 56);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 48);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 40);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 32);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 24);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 16);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 8);
-                *datetimeLmonBuff = (uint8_t) datetimeLmon;
+                (void) memcpy(datetimeLmonBuff, (uint8_t*)&datetimeLmon, AL_DATETIME_LENGTH);
                 lsduLen += AL_DATETIME_LENGTH;
                 apduLen += AL_DATETIME_LENGTH;
 

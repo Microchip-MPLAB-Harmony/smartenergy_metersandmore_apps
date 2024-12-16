@@ -136,8 +136,8 @@
 /*** INPUT PIO Macros for PL460_NTHW0 ***/
 #define BSP_PL460_NTHW0_PIN                    PIO_PIN_PB15
 #define BSP_PL460_NTHW0_Get()                  ((PIOB_REGS->PIO_PDSR >> 15) & 0x1)
-#define BSP_PL460_NTHW0_STATE_PRESSED          1
-#define BSP_PL460_NTHW0_STATE_RELEASED         0
+#define BSP_PL460_NTHW0_STATE_PRESSED          0
+#define BSP_PL460_NTHW0_STATE_RELEASED         1
 #define BSP_PL460_NTHW0_InterruptEnable()      (PIOB_REGS->PIO_IER = (1UL<<15))
 #define BSP_PL460_NTHW0_InterruptDisable()     (PIOB_REGS->PIO_IDR = (1UL<<15))
 

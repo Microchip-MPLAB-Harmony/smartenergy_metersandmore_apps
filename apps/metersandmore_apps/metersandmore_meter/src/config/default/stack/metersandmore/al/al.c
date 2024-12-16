@@ -873,14 +873,7 @@ void AL_DataRequest( AL_DATA_REQUEST_PARAMS *reqParams )
 
                 /* Append DATE-TIME or LMON */
                 datetimeLmonBuff = &alDllTxBuf[lsduLen];
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 56);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 48);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 40);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 32);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 24);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 16);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 8);
-                *datetimeLmonBuff = (uint8_t) datetimeLmon;
+                (void) memcpy(datetimeLmonBuff, (uint8_t*)&datetimeLmon, AL_DATETIME_LENGTH);
                 lsduLen += AL_DATETIME_LENGTH;
                 apduLen += AL_DATETIME_LENGTH;
 
@@ -1340,13 +1333,11 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
     drParams.dsap = (DLL_DSAP) reqParams->dsap;
     /* Set DATE-TIME to 0 */
     drParams.datetime = 0;
-    /* ToDo store Request ID if needed */
-    /* = reqParams->reqID; */
 
     if (alData.isMaster)
     {
-        /* ToDo fill lmon field */
-
+        /* Fill lmon field */
+        drParams.lmon = alData.lmon;
         /* LT field not used */
         pPayload++;
         /* Address field */
@@ -1390,6 +1381,16 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
         /* INF LSAP field */
         infLsap = *pPayload++;
         drParams.ecc = (DLL_ECC) (infLsap & 0x0FU);
+        if (drParams.ecc != DLL_ECC_DISABLED)
+        {
+            /* Set ACA Destination Address for authentiation (reverse Destination Address) */
+            alData.acaDestination.address[5] = drParams.dstAddress.macAddress[0].address[0];
+            alData.acaDestination.address[4] = drParams.dstAddress.macAddress[0].address[1];
+            alData.acaDestination.address[3] = drParams.dstAddress.macAddress[0].address[2];
+            alData.acaDestination.address[2] = drParams.dstAddress.macAddress[0].address[3];
+            alData.acaDestination.address[1] = drParams.dstAddress.macAddress[0].address[4];
+            alData.acaDestination.address[0] = drParams.dstAddress.macAddress[0].address[5];
+        }
         /* Extract Discipline from CTL field */
         discipline = ctl & 0xF0U;
         /* And from discipline, set pending tx parameters */

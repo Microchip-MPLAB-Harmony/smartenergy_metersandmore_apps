@@ -29894,7 +29894,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\stack\metersandmore\al\al.c</file>
-         <hash>09127157037f0929ccb1ea91dae0bc3a65157a5e85c952bea020d71b495c9b89</hash>
+         <hash>cb134ddc4b26fa10ecb6b8d85b9122ee15674c35964ae83cd4369468c8a319af</hash>
       </entry>
       <entry>
          <file>..\src\config\default\stack\metersandmore\al\al.h</file>
@@ -29910,7 +29910,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
-         <hash>7f15933632865156e41229a0327a3114c55aa030d0ef2f096b0c7ab36722dd07</hash>
+         <hash>276ac7b2f58a8b179a518c1fa26c4de97880cc3ce1ebce57b408065bb49be78e</hash>
       </entry>
       <entry>
          <file>..\src\config\default\stack\metersandmore\pal\pal.c</file>

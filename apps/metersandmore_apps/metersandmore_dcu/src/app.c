@@ -154,7 +154,8 @@ static void lAPP_AL_DataIndicationCallback(AL_DATA_IND_PARAMS *indParams)
                 if (indParams->apdu[0] == AL_NACK_AUTH_PAYLOAD)
                 {
                     /* LMON mismatch received */
-                    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "Received LMON mismatch. Use correct LMON received to send frame again\r\n");
+                    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "LMON mismatch. Use correct LMON received to send frame again\r\n");
+                    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "Received LMON 0x%llX\r\n", indParams->lmon);
                     /* Update LMON to received value */
                     appData.lmonTable[appData.numReadEncryptedSent] = indParams->lmon;
                     /* Set flag to send frame again */

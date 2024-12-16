@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>pic32cx_mtg_ek_pl460</name>
+            <name>dcu_app_pic32cx_mtg_ek_pl460</name>
             <creation-uuid>3cbb2983-7fd6-478c-914c-a67392b6fbb4</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
@@ -11,7 +11,7 @@
             <sourceRootList/>
             <confList>
                 <confElem>
-                    <name>default</name>
+                    <name>pic32cx_mtg_ek_pl460</name>
                     <type>2</type>
                 </confElem>
             </confList>

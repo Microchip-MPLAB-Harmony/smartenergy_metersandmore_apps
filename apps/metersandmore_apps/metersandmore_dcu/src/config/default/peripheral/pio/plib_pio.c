@@ -129,8 +129,8 @@ void PIO_Initialize ( void )
    PIOD_REGS->PIO_CFGR = (PIOD_REGS->PIO_CFGR & (PIO_CFGR_FUNC_Msk)) | 0x100U;
 
  /* Port D Latch configuration */
-   PIOD_REGS->PIO_SODR = 0x10008U;
-   PIOD_REGS->PIO_CODR = 0x98008U & ~0x10008U;
+   PIOD_REGS->PIO_SODR = 0x90008U;
+   PIOD_REGS->PIO_CODR = 0x98008U & ~0x90008U;
 
 
 
