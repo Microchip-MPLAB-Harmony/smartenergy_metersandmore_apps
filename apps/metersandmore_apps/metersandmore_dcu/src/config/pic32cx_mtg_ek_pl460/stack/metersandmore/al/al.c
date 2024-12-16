@@ -466,7 +466,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
                     if (false == alData.isMaster)
                     {
                         /* Meter: Update LMON with CMON (LMON + 1) */
-                        alData.lmon += 1U;
+                        alData.lmon += 1ULL;
                     }
                 }
             }

@@ -5,113 +5,115 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
+        <logicalFolder name="pic32cx_mtg_ek_pl460"
+                       displayName="pic32cx_mtg_ek_pl460"
+                       projectFiles="true">
           <logicalFolder name="bsp" displayName="bsp" projectFiles="true">
-            <itemPath>../src/config/default/bsp/bsp.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/bsp/bsp.h</itemPath>
           </logicalFolder>
           <logicalFolder name="crypto" displayName="crypto" projectFiles="true">
             <logicalFolder name="common_crypto"
                            displayName="common_crypto"
                            projectFiles="true">
-              <itemPath>../src/config/default/crypto/common_crypto/crypto_common.h</itemPath>
-              <itemPath>../src/config/default/crypto/common_crypto/crypto_sym_cipher.h</itemPath>
-              <itemPath>../src/config/default/crypto/common_crypto/crypto_mac_cipher.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/crypto_common.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/crypto_sym_cipher.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/crypto_mac_cipher.h</itemPath>
             </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
-              <itemPath>../src/config/default/crypto/wolfcrypt/user_settings.h</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/wolfcrypt_config.h</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/config.h</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/crypto_mac_wc_wrapper.h</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/crypto_common_wc_wrapper.h</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/crypto_sym_wc_wrapper.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/crypto_mac_wc_wrapper.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/user_settings.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/crypto_sym_wc_wrapper.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/crypto_common_wc_wrapper.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/config.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/wolfcrypt_config.h</itemPath>
             </logicalFolder>
-            <itemPath>../src/config/default/crypto/crypto_config.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/crypto_config.h</itemPath>
           </logicalFolder>
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
             <logicalFolder name="plc" displayName="plc" projectFiles="true">
               <logicalFolder name="common" displayName="common" projectFiles="true">
-                <itemPath>../src/config/default/driver/plc/common/drv_plc_boot.h</itemPath>
-                <itemPath>../src/config/default/driver/plc/common/drv_plc_hal.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/common/drv_plc_hal.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/common/drv_plc_boot.h</itemPath>
               </logicalFolder>
               <logicalFolder name="phy" displayName="phy" projectFiles="true">
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy_local_comm.h</itemPath>
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy_local.h</itemPath>
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy_definitions.h</itemPath>
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy.h</itemPath>
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy_comm.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy_local.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy_definitions.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy_comm.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy_local_comm.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <itemPath>../src/config/default/driver/driver.h</itemPath>
-            <itemPath>../src/config/default/driver/driver_common.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/driver.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="osal" displayName="osal" projectFiles="true">
-            <itemPath>../src/config/default/osal/osal.h</itemPath>
-            <itemPath>../src/config/default/osal/osal_definitions.h</itemPath>
-            <itemPath>../src/config/default/osal/osal_impl_basic.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/osal/osal_definitions.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/osal/osal_impl_basic.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/osal/osal.h</itemPath>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="adc" displayName="adc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/adc/plib_adc_common.h</itemPath>
-              <itemPath>../src/config/default/peripheral/adc/plib_adc.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/adc/plib_adc_common.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/adc/plib_adc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/clk/plib_clk.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
             <logicalFolder name="cmcc" displayName="cmcc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/cmcc/plib_cmcc.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/cmcc/plib_cmcc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="dwdt" displayName="dwdt" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/dwdt/plib_dwdt.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/dwdt/plib_dwdt.h</itemPath>
             </logicalFolder>
             <logicalFolder name="flexcom" displayName="flexcom" projectFiles="true">
               <logicalFolder name="spi" displayName="spi" projectFiles="true">
                 <logicalFolder name="master" displayName="master" projectFiles="true">
-                  <itemPath>../src/config/default/peripheral/flexcom/spi/master/plib_flexcom_spi_master_common.h</itemPath>
-                  <itemPath>../src/config/default/peripheral/flexcom/spi/master/plib_flexcom5_spi_master.h</itemPath>
+                  <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/flexcom/spi/master/plib_flexcom_spi_master_common.h</itemPath>
+                  <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/flexcom/spi/master/plib_flexcom5_spi_master.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="usart" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/default/peripheral/flexcom/usart/plib_flexcom_usart_local.h</itemPath>
-                <itemPath>../src/config/default/peripheral/flexcom/usart/plib_flexcom0_usart.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/flexcom/usart/plib_flexcom0_usart.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/flexcom/usart/plib_flexcom_usart_local.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="nvic" displayName="nvic" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/nvic/plib_nvic.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
             <logicalFolder name="pio" displayName="pio" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pio/plib_pio.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
             <logicalFolder name="rstc" displayName="rstc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/rstc/plib_rstc.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/rstc/plib_rstc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="sefc" displayName="sefc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/sefc/plib_sefc_common.h</itemPath>
-              <itemPath>../src/config/default/peripheral/sefc/plib_sefc0.h</itemPath>
-              <itemPath>../src/config/default/peripheral/sefc/plib_sefc1.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/sefc/plib_sefc0.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/sefc/plib_sefc_common.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/sefc/plib_sefc1.h</itemPath>
             </logicalFolder>
             <logicalFolder name="supc" displayName="supc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/supc/plib_supc.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/supc/plib_supc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="tc" displayName="tc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/tc/plib_tc0.h</itemPath>
-              <itemPath>../src/config/default/peripheral/tc/plib_tc_common.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/tc/plib_tc_common.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/tc/plib_tc0.h</itemPath>
             </logicalFolder>
             <logicalFolder name="trng" displayName="trng" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/trng/plib_trng.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/trng/plib_trng.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="service" displayName="service" projectFiles="true">
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
-              <itemPath>../src/config/default/service/pcoup/srv_pcoup.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pcoup/srv_pcoup.h</itemPath>
             </logicalFolder>
             <logicalFolder name="pcrc" displayName="pcrc" projectFiles="true">
-              <itemPath>../src/config/default/service/pcrc/srv_pcrc.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pcrc/srv_pcrc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="pvddmon" displayName="pvddmon" projectFiles="true">
-              <itemPath>../src/config/default/service/pvddmon/srv_pvddmon.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pvddmon/srv_pvddmon.h</itemPath>
             </logicalFolder>
             <logicalFolder name="random" displayName="random" projectFiles="true">
-              <itemPath>../src/config/default/service/random/srv_random.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/random/srv_random.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stack" displayName="stack" projectFiles="true">
@@ -119,58 +121,58 @@
                            displayName="metersandmore"
                            projectFiles="true">
               <logicalFolder name="al" displayName="al" projectFiles="true">
-                <itemPath>../src/config/default/stack/metersandmore/al/al.h</itemPath>
-                <itemPath>../src/config/default/stack/metersandmore/al/al_local.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/al/al_local.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/al/al.h</itemPath>
               </logicalFolder>
               <logicalFolder name="dll" displayName="dll" projectFiles="true">
-                <itemPath>../src/config/default/stack/metersandmore/dll/dll.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/dll/dll.h</itemPath>
               </logicalFolder>
               <logicalFolder name="pal" displayName="pal" projectFiles="true">
-                <itemPath>../src/config/default/stack/metersandmore/pal/pal_local.h</itemPath>
-                <itemPath>../src/config/default/stack/metersandmore/pal/pal.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/pal/pal.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/pal/pal_local.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="system" displayName="system" projectFiles="true">
             <logicalFolder name="cache" displayName="cache" projectFiles="true">
-              <itemPath>../src/config/default/system/cache/sys_cache.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
             <logicalFolder name="console" displayName="console" projectFiles="true">
-              <itemPath>../src/config/default/system/console/src/sys_console_uart_definitions.h</itemPath>
-              <itemPath>../src/config/default/system/console/src/sys_console_local.h</itemPath>
-              <itemPath>../src/config/default/system/console/src/sys_console_uart.h</itemPath>
-              <itemPath>../src/config/default/system/console/sys_console.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/console/src/sys_console_uart.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/console/sys_console.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/console/src/sys_console_uart_definitions.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/console/src/sys_console_local.h</itemPath>
             </logicalFolder>
             <logicalFolder name="debug" displayName="debug" projectFiles="true">
-              <itemPath>../src/config/default/system/debug/sys_debug.h</itemPath>
-              <itemPath>../src/config/default/system/debug/src/sys_debug_local.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/debug/sys_debug.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/debug/src/sys_debug_local.h</itemPath>
             </logicalFolder>
             <logicalFolder name="int" displayName="int" projectFiles="true">
-              <itemPath>../src/config/default/system/int/sys_int_mapping.h</itemPath>
-              <itemPath>../src/config/default/system/int/sys_int.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/int/sys_int.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="ports" displayName="ports" projectFiles="true">
-              <itemPath>../src/config/default/system/ports/sys_ports_mapping.h</itemPath>
-              <itemPath>../src/config/default/system/ports/sys_ports.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/ports/sys_ports.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="time" displayName="time" projectFiles="true">
-              <itemPath>../src/config/default/system/time/sys_time.h</itemPath>
-              <itemPath>../src/config/default/system/time/sys_time_definitions.h</itemPath>
-              <itemPath>../src/config/default/system/time/src/sys_time_local.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/time/src/sys_time_local.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/time/sys_time_definitions.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/time/sys_time.h</itemPath>
             </logicalFolder>
-            <itemPath>../src/config/default/system/system_module.h</itemPath>
-            <itemPath>../src/config/default/system/system_common.h</itemPath>
-            <itemPath>../src/config/default/system/system.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/system.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/system_module.h</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/system_common.h</itemPath>
           </logicalFolder>
-          <itemPath>../src/config/default/device.h</itemPath>
-          <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
-          <itemPath>../src/config/default/device_vectors.h</itemPath>
-          <itemPath>../src/config/default/device_cache.h</itemPath>
-          <itemPath>../src/config/default/interrupts.h</itemPath>
-          <itemPath>../src/config/default/definitions.h</itemPath>
-          <itemPath>../src/config/default/user.h</itemPath>
-          <itemPath>../src/config/default/configuration.h</itemPath>
-          <itemPath>../src/config/default/sys_tasks.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/device_vectors.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/sys_tasks.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/configuration.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/interrupts.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/user.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/device.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/definitions.h</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/device_cache.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
@@ -404,8 +406,10 @@
                    displayName="Linker Files"
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
-          <itemPath>../src/config/default/PIC32CX2051MTG128.ld</itemPath>
+        <logicalFolder name="pic32cx_mtg_ek_pl460"
+                       displayName="pic32cx_mtg_ek_pl460"
+                       projectFiles="true">
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/PIC32CX2051MTG128.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -413,97 +417,99 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
+        <logicalFolder name="pic32cx_mtg_ek_pl460"
+                       displayName="pic32cx_mtg_ek_pl460"
+                       projectFiles="true">
           <logicalFolder name="bsp" displayName="bsp" projectFiles="true">
-            <itemPath>../src/config/default/bsp/bsp.c</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/bsp/bsp.c</itemPath>
           </logicalFolder>
           <logicalFolder name="crypto" displayName="crypto" projectFiles="true">
             <logicalFolder name="common_crypto"
                            displayName="common_crypto"
                            projectFiles="true">
-              <itemPath>../src/config/default/crypto/common_crypto/src/crypto_mac_cipher.c</itemPath>
-              <itemPath>../src/config/default/crypto/common_crypto/src/crypto_sym_cipher.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/crypto_mac_cipher.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/common_crypto/src/crypto_sym_cipher.c</itemPath>
             </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
-              <itemPath>../src/config/default/crypto/wolfcrypt/src/crypto_common_wc_wrapper.c</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/src/crypto_mac_wc_wrapper.c</itemPath>
-              <itemPath>../src/config/default/crypto/wolfcrypt/src/crypto_sym_wc_wrapper.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/src/crypto_sym_wc_wrapper.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/src/crypto_mac_wc_wrapper.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt/src/crypto_common_wc_wrapper.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
             <logicalFolder name="plc" displayName="plc" projectFiles="true">
               <logicalFolder name="common" displayName="common" projectFiles="true">
-                <itemPath>../src/config/default/driver/plc/common/drv_plc_boot.c</itemPath>
-                <itemPath>../src/config/default/driver/plc/common/drv_plc_hal.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/common/drv_plc_hal.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/common/drv_plc_boot.c</itemPath>
               </logicalFolder>
               <logicalFolder name="phy" displayName="phy" projectFiles="true">
                 <logicalFolder name="bin" displayName="bin" projectFiles="true">
-                  <itemPath>../src/config/default/driver/plc/phy/bin/plc_phy_bin.S</itemPath>
+                  <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/bin/plc_phy_bin.S</itemPath>
                 </logicalFolder>
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy.c</itemPath>
-                <itemPath>../src/config/default/driver/plc/phy/drv_plc_phy_comm.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy_comm.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/drv_plc_phy.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="adc" displayName="adc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/adc/plib_adc.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/adc/plib_adc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/clk/plib_clk.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
             <logicalFolder name="cmcc" displayName="cmcc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/cmcc/plib_cmcc.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/cmcc/plib_cmcc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="dwdt" displayName="dwdt" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/dwdt/plib_dwdt.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/dwdt/plib_dwdt.c</itemPath>
             </logicalFolder>
             <logicalFolder name="flexcom" displayName="flexcom" projectFiles="true">
               <logicalFolder name="spi" displayName="spi" projectFiles="true">
                 <logicalFolder name="master" displayName="master" projectFiles="true">
-                  <itemPath>../src/config/default/peripheral/flexcom/spi/master/plib_flexcom5_spi_master.c</itemPath>
+                  <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/flexcom/spi/master/plib_flexcom5_spi_master.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="usart" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/default/peripheral/flexcom/usart/plib_flexcom0_usart.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/flexcom/usart/plib_flexcom0_usart.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="nvic" displayName="nvic" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/nvic/plib_nvic.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
             <logicalFolder name="pio" displayName="pio" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pio/plib_pio.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
             <logicalFolder name="rstc" displayName="rstc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/rstc/plib_rstc.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/rstc/plib_rstc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="sefc" displayName="sefc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/sefc/plib_sefc_common.c</itemPath>
-              <itemPath>../src/config/default/peripheral/sefc/plib_sefc0.c</itemPath>
-              <itemPath>../src/config/default/peripheral/sefc/plib_sefc1.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/sefc/plib_sefc0.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/sefc/plib_sefc_common.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/sefc/plib_sefc1.c</itemPath>
             </logicalFolder>
             <logicalFolder name="supc" displayName="supc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/supc/plib_supc.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/supc/plib_supc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="tc" displayName="tc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/tc/plib_tc0.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/tc/plib_tc0.c</itemPath>
             </logicalFolder>
             <logicalFolder name="trng" displayName="trng" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/trng/plib_trng.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/peripheral/trng/plib_trng.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="service" displayName="service" projectFiles="true">
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
-              <itemPath>../src/config/default/service/pcoup/srv_pcoup.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pcoup/srv_pcoup.c</itemPath>
             </logicalFolder>
             <logicalFolder name="pcrc" displayName="pcrc" projectFiles="true">
-              <itemPath>../src/config/default/service/pcrc/srv_pcrc.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pcrc/srv_pcrc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="pvddmon" displayName="pvddmon" projectFiles="true">
-              <itemPath>../src/config/default/service/pvddmon/srv_pvddmon.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/pvddmon/srv_pvddmon.c</itemPath>
             </logicalFolder>
             <logicalFolder name="random" displayName="random" projectFiles="true">
-              <itemPath>../src/config/default/service/random/srv_random.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/service/random/srv_random.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stack" displayName="stack" projectFiles="true">
@@ -511,40 +517,40 @@
                            displayName="metersandmore"
                            projectFiles="true">
               <logicalFolder name="al" displayName="al" projectFiles="true">
-                <itemPath>../src/config/default/stack/metersandmore/al/al.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/al/al.c</itemPath>
               </logicalFolder>
               <logicalFolder name="pal" displayName="pal" projectFiles="true">
-                <itemPath>../src/config/default/stack/metersandmore/pal/pal.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/pal/pal.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
-            <itemPath>../src/config/default/stdio/xc32_monitor.c</itemPath>
+            <itemPath>../src/config/pic32cx_mtg_ek_pl460/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="system" displayName="system" projectFiles="true">
             <logicalFolder name="cache" displayName="cache" projectFiles="true">
-              <itemPath>../src/config/default/system/cache/sys_cache.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/cache/sys_cache.c</itemPath>
             </logicalFolder>
             <logicalFolder name="console" displayName="console" projectFiles="true">
-              <itemPath>../src/config/default/system/console/src/sys_console.c</itemPath>
-              <itemPath>../src/config/default/system/console/src/sys_console_uart.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/console/src/sys_console_uart.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/console/src/sys_console.c</itemPath>
             </logicalFolder>
             <logicalFolder name="debug" displayName="debug" projectFiles="true">
-              <itemPath>../src/config/default/system/debug/src/sys_debug.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/debug/src/sys_debug.c</itemPath>
             </logicalFolder>
             <logicalFolder name="int" displayName="int" projectFiles="true">
-              <itemPath>../src/config/default/system/int/src/sys_int.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
             <logicalFolder name="time" displayName="time" projectFiles="true">
-              <itemPath>../src/config/default/system/time/src/sys_time.c</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl460/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <itemPath>../src/config/default/initialization.c</itemPath>
-          <itemPath>../src/config/default/interrupts.c</itemPath>
-          <itemPath>../src/config/default/exceptions.c</itemPath>
-          <itemPath>../src/config/default/libc_syscalls.c</itemPath>
-          <itemPath>../src/config/default/startup_xc32.c</itemPath>
-          <itemPath>../src/config/default/tasks.c</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/libc_syscalls.c</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/tasks.c</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/interrupts.c</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/startup_xc32.c</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/exceptions.c</itemPath>
+          <itemPath>../src/config/pic32cx_mtg_ek_pl460/initialization.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="third_party" displayName="third_party" projectFiles="true">
@@ -665,9 +671,9 @@
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/config/default/pin_configurations.csv</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
+      <itemPath>../src/config/pic32cx_mtg_ek_pl460/pin_configurations.csv</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -692,7 +698,7 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/default/stack/metersandmore/dll/metersandmore_lib_dll.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/pic32cx_mtg_ek_pl460/stack/metersandmore/dll/metersandmore_lib_dll.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -718,13 +724,14 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/config/default/crypto/drivers;../src/config/default/crypto/wolfcrypt;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/PIC32CX2051MTG128_DFP;../src/third_party/wolfcrypt;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl/wolfcrypt"/>
+                  value="../src;../src/config/default;../src/config/default/crypto/drivers;../src/config/default/crypto/wolfcrypt;../src/config/pic32cx_mtg_ek_pl460;../src/config/pic32cx_mtg_ek_pl460/crypto/drivers;../src/config/pic32cx_mtg_ek_pl460/crypto/wolfcrypt;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/PIC32CX2051MTG128_DFP;../src/third_party/wolfcrypt;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl/wolfcrypt"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -748,12 +755,13 @@
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
       <C32-AS>
+        <property key="appendMe" value=""/>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="expand-macros" value="false"/>
         <property key="extra-include-directories-for-assembler"
-                  value="../src/config/default/driver/plc/phy/bin"/>
+                  value="../src/config/default/driver/plc/phy/bin;../src/config/pic32cx_mtg_ek_pl460/driver/plc/phy/bin"/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
         <property key="generate-16-bit-code" value="false"/>
@@ -776,6 +784,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -815,6 +824,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -824,7 +834,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/PIC32CX2051MTG128_DFP"/>
+                  value="../src;../src/config/default;../src/config/pic32cx_mtg_ek_pl460;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/PIC32CX2051MTG128_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -843,6 +853,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
+        <property key="appendMe" value=""/>
         <property key="common-include-directories" value=""/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
