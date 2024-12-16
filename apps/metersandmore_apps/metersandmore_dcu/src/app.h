@@ -49,7 +49,7 @@ extern "C" {
 #define LED_PLC_RX_MSG_RATE_MS                    50
 
 /* Timeout to advance App State */
-#define STATE_TIMEOUT_MS                          5000
+#define STATE_TIMEOUT_MS                          10000
 
 /* Routing Table Size */
 #define ROUTING_TABLE_SIZE                        20
@@ -115,17 +115,27 @@ typedef struct
 
     ROUTING_ENTRY routingTable[ROUTING_TABLE_SIZE];
 
+    uint64_t lmonTable[ROUTING_TABLE_SIZE];
+
     AL_IB_VALUE alIB;
 
     uint8_t numTCTSent;
 
     uint8_t numFoundNodes;
 
+    uint8_t numReqAddrSent;
+
+    uint8_t numReadPlainSent;
+
+    uint8_t numReadEncryptedSent;
+
     bool tmrBlinkLedExpired;
 
     bool tmrPlcIndLedExpired;
 
     bool tmrStateTimeoutExpired;
+
+    bool lmonMismatchReceived;
 
     APP_STATES state;
 

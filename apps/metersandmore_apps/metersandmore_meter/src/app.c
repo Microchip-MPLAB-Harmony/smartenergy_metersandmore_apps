@@ -276,6 +276,7 @@ void APP_Tasks ( void )
     {
         case APP_STATE_INIT:
         {
+            SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "Meter Example App Started\r\n");
             if (appData.tmrBlinkLedHandle == SYS_TIME_HANDLE_INVALID)
             {
                 /* Initialize Timer to handle blinking LED */
