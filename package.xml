@@ -2,7 +2,7 @@
 <Package name="smartenergy_metersandmore_apps">
     <Dependencies>
     <Dependencies>
-        <Dependency name="smartenergy_metersandmore" version="dev"/>
-        <Dependency name="shd" version="dev"/>
+        <Dependency name="smartenergy_metersandmore" version="v1.0.0"/>
+        <Dependency name="shd" version="v1.0.0-E1"/>
     </Dependencies>
 </Package>

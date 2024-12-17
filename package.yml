@@ -9,7 +9,7 @@ package:
   dependencies:
     - name: "smartenergy_metersandmore"
       type: "package"
-      version: "dev"
+      version: "v1.0.0"
     - name: "shd"
       type: "package"
-      version: "v01.00.00-rc.1"
+      version: "v1.0.0-E1"
