@@ -396,9 +396,9 @@ void SYS_Initialize ( void* data )
     FLEXCOM1_SPI_Initialize();
 
     QSPI_Initialize();
-	BSP_Initialize();
 	TRNG_Initialize();
 
+    BSP_Initialize();
 
     /* MISRAC 2012 deviation block start */
     /* Following MISRA-C rules deviated in this block  */
