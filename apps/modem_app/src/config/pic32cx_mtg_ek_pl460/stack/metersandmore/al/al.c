@@ -81,7 +81,7 @@ static inline crypto_Sym_OpModes_E lAL_GetAesModeFromEcc(DLL_ECC ecc)
 
 static inline uint32_t lAL_CmacCrc(AL_MSG_ATTR attr, uint8_t *aca, uint8_t *apdu, uint16_t apduLen)
 {
-    uint32_t crc = 0xFFFFFFFF;
+    uint32_t crc = 0xFFFFFFFFUL;
     uint32_t crcRet;
 
     /* CRC(ACA) */
@@ -112,12 +112,12 @@ static inline uint32_t lAL_CmacCrc(AL_MSG_ATTR attr, uint8_t *aca, uint8_t *apdu
             break;
     }
 
-    crc = crc ^ 0xFFFFFFFF;
+    crc = crc ^ 0xFFFFFFFFUL;
 
-    crcRet = ((crc & 0xFF000000) >> 24) +
-            ((crc & 0x00FF0000) >> 8) +
-            ((crc & 0x0000FF00) << 8) +
-            ((crc & 0x000000FF) << 24);
+    crcRet = ((crc & 0xFF000000UL) >> 24) +
+            ((crc & 0x00FF0000UL) >> 8) +
+            ((crc & 0x0000FF00UL) << 8) +
+            ((crc & 0x000000FFUL) << 24);
 
     return crcRet;
 }
@@ -126,8 +126,8 @@ static crypto_Mac_Status_E lAL_CMacDigest(uint8_t *apdu, uint16_t apduLen, uint8
 {
     uint32_t crc;
     crypto_Mac_Status_E cmacStatus;
-    uint8_t cmacOutput[AL_CMAC_OUTPUT_LEN];
-    uint8_t cmacInput[AL_CMAC_INPUT_LEN];
+    uint8_t cmacOutput[AL_CMAC_OUTPUT_LEN] = {0};
+    uint8_t cmacInput[AL_CMAC_INPUT_LEN] = {0};
     uint8_t *aca;
     uint8_t *cmacInputPtr = cmacInput;
 
@@ -320,7 +320,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
     if (false == alData.multiresponse)
     {
         /* Stop Tx Timeout */
-        SYS_TIME_TimerDestroy(alData.txTimeoutHandle);
+        (void) SYS_TIME_TimerDestroy(alData.txTimeoutHandle);
         alData.txTimeoutHandle = SYS_TIME_HANDLE_INVALID;
         alData.state = AL_STATE_IDLE;
     }
@@ -345,7 +345,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
             {
                 /* Compare with last received LSDU */
                 if ((true == alData.responseProtectedValid) && (indParams->lsduLen == alData.lastlRxLsduLen) &&
-                        (memcmp(indParams->lsdu, alDllLastRxBuff, indParams->lsduLen) == 0U))
+                        (memcmp(indParams->lsdu, alDllLastRxBuff, indParams->lsduLen) == 0))
                 {
                     /* This is a repetition. Repeat response without indicating to upper layer */
                     /* Otherwise there would be LMON misalignment in between DCU and Meter */
@@ -363,7 +363,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
 
             /* Store LSDU to detect repetitions */
             (void) memcpy(alDllLastRxBuff, indParams->lsdu, indParams->lsduLen);
-            alData.lastlRxLsduLen = indParams->lsduLen;
+            alData.lastlRxLsduLen = (uint8_t)indParams->lsduLen;
             alData.responseProtectedValid = false;
 
             /* Store address and ECC for Data Confirm (METER ONLY) */
@@ -406,6 +406,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
                 break;
 
             default:
+                decryptLen = apduLen;
                 break;
         }
 
@@ -456,7 +457,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
 
             if (CRYPTO_MAC_CIPHER_SUCCESS == cmacStatus)
             {
-                if (memcmp(tmac, &apdu[apduLen], AL_TMAC_LENGTH) != 0U)
+                if (memcmp(tmac, &apdu[apduLen], AL_TMAC_LENGTH) != 0)
                 {
                     rxStatus = AL_RX_STATUS_ERROR_BAD_TMAC;
                 }
@@ -466,7 +467,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
                     if (false == alData.isMaster)
                     {
                         /* Meter: Update LMON with CMON (LMON + 1) */
-                        alData.lmon += 1U;
+                        alData.lmon += 1ULL;
                     }
                 }
             }
@@ -489,6 +490,8 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
     {
         AL_DATA_REQUEST_PARAMS request;
         uint8_t apduResp[AL_NM_ADDRESS_RESP_LEN];
+
+        (void) memset(&request, 0, sizeof(request));
         request.apduLen = 0;
 
         /* Check if we need to respond or process the message */
@@ -630,6 +633,7 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
                         break;
 
                     default:
+                        request.apduLen = 0;
                         break;
                 }
             }
@@ -694,7 +698,7 @@ static void lAL_DllDataConfirm(DLL_DATA_CONFIRM_PARAMS *cfmParams)
     if (cfmParams->txStatus != DLL_TX_STATUS_SUCCESS)
     {
         /* Tx Error */
-        SYS_TIME_TimerDestroy(alData.txTimeoutHandle);
+        (void) SYS_TIME_TimerDestroy(alData.txTimeoutHandle);
         alData.txTimeoutHandle = SYS_TIME_HANDLE_INVALID;
         if (alData.txRetryCount < alData.txRetryLimit)
         {
@@ -768,11 +772,11 @@ static void lAL_DllDataConfirm(DLL_DATA_CONFIRM_PARAMS *cfmParams)
     }
 }
 
-void lAL_DllEventIndication(DLL_EVENT_IND_PARAMS *evParams)
+static void lAL_DllEventIndication(DLL_EVENT_IND_PARAMS *evParams)
 {
     if (MAC_EVENT_ID_ACA == evParams->eventId)
     {
-        SYS_TIME_TimerDestroy(alData.txTimeoutHandle);
+        (void) SYS_TIME_TimerDestroy(alData.txTimeoutHandle);
         alData.txTimeoutHandle = SYS_TIME_HANDLE_INVALID;
         alData.state = AL_STATE_IDLE;
     }
@@ -846,7 +850,10 @@ void AL_DataRequest( AL_DATA_REQUEST_PARAMS *reqParams )
         }
 
         /* Copy data to DLL Tx Buffer */
-        (void) memcpy(&alDllTxBuf[1], reqParams->apdu, apduLen);
+        if (apduLen > 0U)
+        {
+            (void) memcpy(&alDllTxBuf[1], reqParams->apdu, apduLen);
+        }
 
         /* Get Read or Write key depending on ECC */
         key = lAL_GetKeyFromEcc(reqParams->ecc);
@@ -873,14 +880,7 @@ void AL_DataRequest( AL_DATA_REQUEST_PARAMS *reqParams )
 
                 /* Append DATE-TIME or LMON */
                 datetimeLmonBuff = &alDllTxBuf[lsduLen];
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 56);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 48);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 40);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 32);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 24);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 16);
-                *datetimeLmonBuff++ = (uint8_t) (datetimeLmon >> 8);
-                *datetimeLmonBuff = (uint8_t) datetimeLmon;
+                (void) memcpy(datetimeLmonBuff, (uint8_t*)&datetimeLmon, AL_DATETIME_LENGTH);
                 lsduLen += AL_DATETIME_LENGTH;
                 apduLen += AL_DATETIME_LENGTH;
 
@@ -934,6 +934,7 @@ void AL_DataRequest( AL_DATA_REQUEST_PARAMS *reqParams )
                 break;
 
             default:
+                encryptLen = apduLen;
                 break;
         }
 
@@ -1024,7 +1025,7 @@ void AL_DataRequest( AL_DATA_REQUEST_PARAMS *reqParams )
                     }
 
                     /* DCU: Report final destination address */
-                    alData.dataCfmParamsTasks.dstAddress = reqParams->dstAddress.macAddress[routeSize - 1];
+                    alData.dataCfmParamsTasks.dstAddress = reqParams->dstAddress.macAddress[routeSize - 1U];
                 }
             }
             else
@@ -1081,9 +1082,9 @@ SYS_MODULE_OBJ AL_Initialize ( const SYS_MODULE_INDEX index, const SYS_MODULE_IN
     alData.status = SYS_STATUS_BUSY;
     alData.state = AL_STATE_WAIT_DLL_READY;
 
-    DLL_DataIndicationCallbackRegister( lAL_DllDataIndication );
-    DLL_DataConfirmCallbackRegister( lAL_DllDataConfirm );
-    DLL_EventIndicationCallbackRegister( lAL_DllEventIndication );
+    (void) DLL_DataIndicationCallbackRegister( lAL_DllDataIndication );
+    (void) DLL_DataConfirmCallbackRegister( lAL_DllDataConfirm );
+    (void) DLL_EventIndicationCallbackRegister( lAL_DllEventIndication );
 
     return (SYS_MODULE_OBJ)0;
 }
@@ -1097,7 +1098,7 @@ void AL_Tasks( SYS_MODULE_OBJ object )
     }
 
     // Execute tasks according to defined rate
-    if ((alData.taskRateCount != 0) && (SYS_TIME_Counter64Get() < alData.nextTaskTimeCount))
+    if ((alData.taskRateCount != 0U) && (SYS_TIME_Counter64Get() < alData.nextTaskTimeCount))
     {
         return;
     }
@@ -1166,8 +1167,12 @@ void AL_Tasks( SYS_MODULE_OBJ object )
                 {
                     /* Send REQADDR.RESP */
                     AL_DATA_REQUEST_PARAMS request;
+                    uint16_t reqLen;
+                    (void) memset(&request, 0, sizeof(request));
                     request.apdu = alReqAddrRespBuf;
-                    request.apduLen = 1U + (alReqAddrRespBuf[0] * AL_NM_ADDRESS_RESP_LEN);
+                    reqLen = (uint16_t)alReqAddrRespBuf[0] * (uint16_t)AL_NM_ADDRESS_RESP_LEN;
+                    reqLen += (uint16_t)1U;
+                    request.apduLen = reqLen;
                     request.attr = AL_MSG_REQADDR_RESP;
                     request.dsap = DLL_DSAP_NETWORK_MANAGEMENT;
                     request.ecc = DLL_ECC_DISABLED;
@@ -1178,6 +1183,8 @@ void AL_Tasks( SYS_MODULE_OBJ object )
             break;
 
         default:
+            /* Unkown state, go to idle */
+            alData.state = AL_STATE_IDLE;
             break;
     }
 }
@@ -1232,6 +1239,7 @@ AL_RESULT AL_GetRequest(AL_IB_ATTRIBUTE attribute, uint16_t index, AL_IB_VALUE *
         default:
             /* No AL IB, try with DLL */
             result = (AL_RESULT) DLL_GetRequest((DLL_IB_ATTRIBUTE) attribute, index, (DLL_IB_VALUE *) ibValue);
+            break;
     }
 
     return result;
@@ -1309,13 +1317,14 @@ AL_RESULT AL_SetRequest(AL_IB_ATTRIBUTE attribute, uint16_t index, const AL_IB_V
                 alData.acaOwn.address[3] = ibValue->value[2];
                 alData.acaOwn.address[4] = ibValue->value[1];
                 alData.acaOwn.address[5] = ibValue->value[0];
-                result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (DLL_IB_VALUE *) ibValue);
+                result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (const DLL_IB_VALUE *) ibValue);
             }
             break;
 
         default:
             /* No AL IB, try with DLL */
-            result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (DLL_IB_VALUE *) ibValue);
+            result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (const DLL_IB_VALUE *) ibValue);
+            break;
     }
 
     return result;
@@ -1331,10 +1340,14 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
     uint8_t rpAddrSize;
     uint8_t i, j;
     uint8_t infLsap;
+    uint8_t ecc8;
     uint8_t *pPayload;
+
+    (void) memset(&drParams, 0, sizeof(drParams));
 
     /* Set a pointer to start of payload to walk through it */
     pPayload = reqParams->payload;
+    hdrSize = 0;
 
     /* DSAP comes from upper layer */
     drParams.dsap = (DLL_DSAP) reqParams->dsap;
@@ -1347,10 +1360,12 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
         drParams.lmon = alData.lmon;
         /* LT field not used */
         pPayload++;
+        hdrSize++;
         /* Address field */
         for (i = 0; i < MAC_ADDRESS_SIZE; i++)
         {
             drParams.dstAddress.macAddress[0].address[i] = *pPayload++;
+            hdrSize++;
         }
         /* Check addressing */
         if (drParams.dstAddress.macAddress[0].address[AL_HI_CSL_INDEX] == AL_HI_CSL_VALUE)
@@ -1363,31 +1378,35 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
         }
         /* CTL field */
         ctl = *pPayload++;
+        hdrSize++;
         /* RP field (if any) */
         if ((ctl & AL_HI_NOR_MASK) == AL_HI_NOR_MASK)
         {
             /* NOR1 frame */
-            rpSize = 0;
             drParams.dstAddress.routeSize = 1;
         }
         else
         {
             /* RIP frame */
-            rpSize = ((ctl & AL_HI_RP_MASK) >> 1) + 1;
-            drParams.dstAddress.routeSize = rpSize + 1;
+            rpSize = (uint8_t)((ctl & AL_HI_RP_MASK) >> 1) + 1U;
+            drParams.dstAddress.routeSize = rpSize + 1U;
             for (j = 0; j < (rpSize); j++)
             {
                 for (i = 0; i < rpAddrSize; i++)
                 {
-                    drParams.dstAddress.macAddress[j + 1].address[i] = *pPayload++;
+                    drParams.dstAddress.macAddress[j + 1U].address[i] = *pPayload++;
+                    hdrSize++;
                 }
             }
         }
         /* Reserved field and infControl not used, will be set by lower layers */
         pPayload += 2;
+        hdrSize += 2U;
         /* INF LSAP field */
         infLsap = *pPayload++;
-        drParams.ecc = (DLL_ECC) (infLsap & 0x0FU);
+        hdrSize++;
+        ecc8 = infLsap & 0x0FU;
+        drParams.ecc = (DLL_ECC)ecc8;
         if (drParams.ecc != DLL_ECC_DISABLED)
         {
             /* Set ACA Destination Address for authentiation (reverse Destination Address) */
@@ -1407,31 +1426,31 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
             drParams.maxResponseLen = 0;
             drParams.timeSlotNum = 0;
         }
-        else if (discipline < 0x90)
+        else if (discipline < 0x90U)
         {
             drParams.serviceClass = SERVICE_CLASS_RA;
             drParams.timeSlotNum = 0;
-            if (discipline < 0x30) /* RA1 */
+            if (discipline < 0x30U) /* RA1 */
             {
                 drParams.maxResponseLen = 20;
             }
-            else if (discipline < 0x40) /* RA2 */
+            else if (discipline < 0x40U) /* RA2 */
             {
                 drParams.maxResponseLen = 40;
             }
-            else if (discipline < 0x50) /* RA3 */
+            else if (discipline < 0x50U) /* RA3 */
             {
                 drParams.maxResponseLen = 60;
             }
-            else if (discipline < 0x60) /* RA4 */
+            else if (discipline < 0x60U) /* RA4 */
             {
                 drParams.maxResponseLen = 80;
             }
-            else if (discipline < 0x70) /* RA5 */
+            else if (discipline < 0x70U) /* RA5 */
             {
                 drParams.maxResponseLen = 100;
             }
-            else if (discipline < 0x80) /* RA6 */
+            else if (discipline < 0x80U) /* RA6 */
             {
                 drParams.maxResponseLen = 120;
             }
@@ -1440,15 +1459,15 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
                 drParams.maxResponseLen = 140;
             }
         }
-        else if (discipline < 0xC0)
+        else if (discipline < 0xC0U)
         {
             drParams.serviceClass = SERVICE_CLASS_RB;
             drParams.timeSlotNum = 0;
-            if (discipline < 0xA0) /* RB1 */
+            if (discipline < 0xA0U) /* RB1 */
             {
                 drParams.maxResponseLen = 20;
             }
-            else if (discipline < 0xB0) /* RB2 */
+            else if (discipline < 0xB0U) /* RB2 */
             {
                 drParams.maxResponseLen = 30;
             }
@@ -1461,15 +1480,15 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
         {
             drParams.serviceClass = SERVICE_CLASS_RC;
             drParams.maxResponseLen = 90;
-            if (discipline < 0xD0) /* RC1 */
+            if (discipline < 0xD0U) /* RC1 */
             {
                 drParams.timeSlotNum = 8;
             }
-            else if (discipline < 0xE0) /* RC2 */
+            else if (discipline < 0xE0U) /* RC2 */
             {
                 drParams.timeSlotNum = 16;
             }
-            else if (discipline < 0xF0) /* RC3 */
+            else if (discipline < 0xF0U) /* RC3 */
             {
                 drParams.timeSlotNum = 32;
             }
@@ -1481,17 +1500,10 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
 
         /* Set message ATTR */
         drParams.attr = (AL_MSG_ATTR) *pPayload++;
+        hdrSize++;
 
         /* Set APDU pointer and length according to pending payload buffer */
         drParams.apdu = pPayload;
-        if ((pPayload - &reqParams->payload[0]) > 0)
-        {
-            hdrSize = pPayload - &reqParams->payload[0];
-        }
-        else
-        {
-            hdrSize = 0;
-        }
         drParams.apduLen = reqParams->payloadLen - hdrSize;
     }
     else

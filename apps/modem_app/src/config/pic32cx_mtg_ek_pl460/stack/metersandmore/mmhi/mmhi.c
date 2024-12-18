@@ -73,8 +73,8 @@
 // *****************************************************************************
 // *****************************************************************************
 /* Custom Command Data */
-#define MMHI_INVALID_CUSTOM_COMMAND   0xFF
-#define MMHI_MAX_CUSTOM_COMMANDS      5
+#define MMHI_INVALID_CUSTOM_COMMAND   0xFFU
+#define MMHI_MAX_CUSTOM_COMMANDS      (5U)
 static MMHI_CUSTOM_CMD_DATA sMmhiCustomCmdData[MMHI_MAX_CUSTOM_COMMANDS];
 
 /* MM Host Interface Data */
@@ -94,8 +94,11 @@ static void lMMHI_ClearReceptionState(void);
 // *****************************************************************************
 static void lMMHI_TicTimerCallback ( uintptr_t context )
 {
+    int32_t diff;
+
     mmhiData.ticTimer = SYS_TIME_HANDLE_INVALID;
-    mmhiData.rcvFrameLength = mmhiData.pReceiveData - mmhiRxBuffer;
+    diff = mmhiData.pReceiveData - mmhiRxBuffer;
+    mmhiData.rcvFrameLength = (uint8_t)diff;
     mmhiData.pReceiveData = mmhiRxBuffer;
 }
 
@@ -136,35 +139,38 @@ static void lMMHI_USART_ReadCallback( uintptr_t context )
         if (mmhiData.state == MMHI_STATE_RECEIVING)
         {
             uint16_t totalRcvLength;
+            int32_t rcvLen;
+            uintptr_t ctx = 0;
 
             *mmhiData.pReceiveData++ = mmhiData.rcvByte;
-            mmhiData.uartPLIB->read(&mmhiData.rcvByte, 1U);
+            (void) mmhiData.uartPLIB->read(&mmhiData.rcvByte, 1U);
 
             /* Cancel TSR timer */
             if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
             {
-                SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
+                (void) SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
                 mmhiData.tsrTimer = SYS_TIME_HANDLE_INVALID;
             }
 
             // Transfer completed successfully
             mmhiData.statusMessage.status |= MMHI_STATUS_RX_Msk;
-            totalRcvLength = mmhiData.pReceiveData - mmhiRxBuffer;
+            rcvLen = mmhiData.pReceiveData - mmhiRxBuffer;
+            totalRcvLength = (uint16_t)rcvLen;
 
             if (totalRcvLength == (MMHI_FRAME_MAX_LENGTH - 1U))
             {
-                mmhiData.rcvFrameLength = totalRcvLength;
+                mmhiData.rcvFrameLength = (uint8_t)totalRcvLength;
             }
             else
             {
                 /* Launch TIC timer */
                 if (mmhiData.ticTimer != SYS_TIME_HANDLE_INVALID)
                 {
-                    SYS_TIME_TimerDestroy(mmhiData.ticTimer);
+                    (void) SYS_TIME_TimerDestroy(mmhiData.ticTimer);
                     mmhiData.ticTimer = SYS_TIME_HANDLE_INVALID;
                 }
 
-                mmhiData.ticTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TicTimerCallback, (uintptr_t) NULL,
+                mmhiData.ticTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TicTimerCallback, ctx,
                             MMHI_PROTOCOL_TIMEOUT_TIC_MS, SYS_TIME_SINGLE);
             }
         }
@@ -173,20 +179,24 @@ static void lMMHI_USART_ReadCallback( uintptr_t context )
 
 static void lMMHI_USART_WriteCallback( uintptr_t context )
 {
-    mmhiData.startFrameTxMask &= ~context;
+    uint8_t mask;
+    uintptr_t ctx = 0;
+
+    mask = (uint8_t)context;
+    mmhiData.startFrameTxMask &= ~mask;
     mmhiData.statusMessage.status &= ~MMHI_STATUS_TX_Msk;
 
-    if (context == MMHI_FRAME_START_MASK_STATUS_Msk)
+    if (mask == MMHI_FRAME_START_MASK_STATUS_Msk)
     {
         /* Start reception and launch TSR timer */
         mmhiData.state = MMHI_STATE_RECEIVING;
         mmhiData.pReceiveData = mmhiRxBuffer;
-        mmhiData.uartPLIB->read(&mmhiData.rcvByte, 1U);
+        (void) mmhiData.uartPLIB->read(&mmhiData.rcvByte, 1U);
         if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
         {
-            SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
+            (void) SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
         }
-        mmhiData.tsrTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TsrTimerCallback, (uintptr_t) NULL,
+        mmhiData.tsrTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TsrTimerCallback, ctx,
                 MMHI_PROTOCOL_TIMEOUT_TSR_MS, SYS_TIME_SINGLE);
     }
 }
@@ -199,15 +209,15 @@ static void lMMHI_ExternalInterruptRTSHandler( PIO_PIN pin, uintptr_t context )
     mmhiData.nackCounter = 0;
 }
 
-void lMMHI_WriteIndicationCallback( MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pMibData )
+static void lMMHI_WriteIndicationCallback( MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pMibData )
 {
     uint8_t *pData = mmhiTxBuffer;
 
-    *pData++ = MMHI_FS_COMMAND;
+    *pData++ = (uint8_t)MMHI_FS_COMMAND;
     *pData++ = pMibData->dataLength;
-    *pData++ = MMHI_CMD_MIB_WRITE_IND;
-    *pData++ = mibIndex;
-    memcpy(pData, pMibData->dataValue, pMibData->dataLength);
+    *pData++ = (uint8_t)MMHI_CMD_MIB_WRITE_IND;
+    *pData++ = (uint8_t)mibIndex;
+    (void) memcpy(pData, pMibData->dataValue, pMibData->dataLength);
 
     mmhiData.startFrameTxMask |= MMHI_FRAME_START_MASK_CMD_Msk;
 
@@ -231,17 +241,17 @@ static void lMMHI_ClearReceptionState(void)
 
     if (mmhiData.ticTimer != SYS_TIME_HANDLE_INVALID)
     {
-        SYS_TIME_TimerDestroy(mmhiData.ticTimer);
+        (void) SYS_TIME_TimerDestroy(mmhiData.ticTimer);
         mmhiData.ticTimer = SYS_TIME_HANDLE_INVALID;
     }
     if (mmhiData.tackTimer != SYS_TIME_HANDLE_INVALID)
     {
-        SYS_TIME_TimerDestroy(mmhiData.tackTimer);
+        (void) SYS_TIME_TimerDestroy(mmhiData.tackTimer);
         mmhiData.tackTimer = SYS_TIME_HANDLE_INVALID;
     }
     if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
     {
-        SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
+        (void) SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
         mmhiData.tsrTimer = SYS_TIME_HANDLE_INVALID;
     }
 }
@@ -253,7 +263,7 @@ static uint8_t lMMHI_CheckCustomCommand(MMHI_COMMAND command)
 
     for (index = 0; index < MMHI_MAX_CUSTOM_COMMANDS; index++)
     {
-        if (command == pCmdTable->commandCode)
+        if ((uint8_t)command == pCmdTable->commandCode)
         {
             return index;
         }
@@ -286,7 +296,7 @@ static bool lMMHI_ProcessCustomFrame(void)
 static bool lMMHI_ProcessRcvCommand(void)
 {
     MMHI_CMD_FRAME *pRcvFrameData;
-    bool result = true;
+    bool resultRet = true;
 
     pRcvFrameData = &mmhiData.rcvFrameData;
 
@@ -294,9 +304,9 @@ static bool lMMHI_ProcessRcvCommand(void)
     {
         uint8_t *pData = mmhiTxBuffer;
 
-        *pData++ = MMHI_FS_COMMAND;
+        *pData++ = (uint8_t)MMHI_FS_COMMAND;
         *pData++ = 0;
-        *pData++ = MMHI_CMD_BIO_RESET_CFM;
+        *pData++ = (uint8_t)MMHI_CMD_BIO_RESET_CFM;
         *pData++ = 0;
 
         mmhiData.startFrameTxMask |= MMHI_FRAME_START_MASK_CMD_Msk;
@@ -318,10 +328,10 @@ static bool lMMHI_ProcessRcvCommand(void)
         mibLength = pRcvFrameData->length;
         if (mibLength > MMHI_MIB_MAX_LENGTH_DATA)
         {
-            *pData++ = MMHI_FS_COMMAND;
+            *pData++ = (uint8_t)MMHI_FS_COMMAND;
             *pData++ = 0;
-            *pData++ = MMHI_CMD_MIB_WRITE_NCFM;
-            *pData++ = MMHI_ERROR_WPL;
+            *pData++ = (uint8_t)MMHI_CMD_MIB_WRITE_NCFM;
+            *pData++ = (uint8_t)MMHI_ERROR_WPL;
         }
         else
         {
@@ -333,19 +343,19 @@ static bool lMMHI_ProcessRcvCommand(void)
 
             if (result == MMHI_SUCCESS)
             {
-                *pData++ = MMHI_FS_COMMAND;
+                *pData++ = (uint8_t)MMHI_FS_COMMAND;
                 *pData++ = 0;
-                *pData++ = MMHI_CMD_MIB_WRITE_CFM;
-                *pData++ = mibIndex;
+                *pData++ = (uint8_t)MMHI_CMD_MIB_WRITE_CFM;
+                *pData++ = (uint8_t)mibIndex;
 
                 mmhiData.statusMessage.mibStatusMask = MMHI_MIB_GetStatus();
             }
             else
             {
-                *pData++ = MMHI_FS_COMMAND;
+                *pData++ = (uint8_t)MMHI_FS_COMMAND;
                 *pData++ = 0;
-                *pData++ = MMHI_CMD_MIB_WRITE_NCFM;
-                *pData++ = result;
+                *pData++ = (uint8_t)MMHI_CMD_MIB_WRITE_NCFM;
+                *pData++ = (uint8_t)result;
             }
         }
 
@@ -360,23 +370,23 @@ static bool lMMHI_ProcessRcvCommand(void)
         MMHI_MIB_INDEX mibIndex;
         MMHI_RESULT result;
 
-        mibIndex = pRcvFrameData->pPayload[0];
+        mibIndex = (MMHI_MIB_INDEX)pRcvFrameData->pPayload[0];
 
         result = MMHI_MIB_Get(mibIndex, pMibData);
 
         if (result == MMHI_SUCCESS)
         {
-            *pData++ = MMHI_FS_COMMAND;
-            *pData++ = pMibData->dataLength - 1;
-            *pData++ = MMHI_CMD_MIB_READ_CFM;
+            *pData++ = (uint8_t)MMHI_FS_COMMAND;
+            *pData++ = pMibData->dataLength - 1U;
+            *pData++ = (uint8_t)MMHI_CMD_MIB_READ_CFM;
             (void) memcpy(pData, pMibData->dataValue, pMibData->dataLength);
         }
         else
         {
-            *pData++ = MMHI_FS_COMMAND;
+            *pData++ = (uint8_t)MMHI_FS_COMMAND;
             *pData++ = 0;
-            *pData++ = MMHI_CMD_MIB_READ_NCFM;
-            *pData++ = result;
+            *pData++ = (uint8_t)MMHI_CMD_MIB_READ_NCFM;
+            *pData++ = (uint8_t)result;
         }
 
         mmhiData.startFrameTxMask |= MMHI_FRAME_START_MASK_CMD_Msk;
@@ -394,14 +404,14 @@ static bool lMMHI_ProcessRcvCommand(void)
 
         protocol = *pData++;
         reqId = *pData++;
-        dsap = mmhiDsapByProtocol[(protocol & 0x07)];
+        dsap = mmhiDsapByProtocol[(protocol & 0x07U)];
 
-        if (dsap <= 0x02)
+        if (dsap <= 0x02U)
         {
             if (mmhiData.macDataCallback != NULL)
             {
                 mmhiData.macDataCallback(dsap, reqId, pData,
-                        pRcvFrameData->length - 1);
+                        pRcvFrameData->length - 1U);
             }
 
             SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- SLAVE_DATA_REQ\r\n");
@@ -410,7 +420,7 @@ static bool lMMHI_ProcessRcvCommand(void)
         {
             /* Invalid protocol. Generate negative Confirm */
             SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- Wrong SLAVE_DATA_REQ. Send Negative Confirm\r\n");
-            MMHI_SendCommandFrame(MMHI_CMD_SLAVE_DATA_NCFM, &wpvError, 1);
+            (void) MMHI_SendCommandFrame((uint8_t)MMHI_CMD_SLAVE_DATA_NCFM, &wpvError, 1);
         }
 
     }
@@ -424,14 +434,14 @@ static bool lMMHI_ProcessRcvCommand(void)
 
         protocol = *pData++;
         reqId = *pData++;
-        dsap = mmhiDsapByProtocol[(protocol & 0x07)];
+        dsap = mmhiDsapByProtocol[(protocol & 0x07U)];
 
-        if (dsap <= 0x02)
+        if (dsap <= 0x02U)
         {
             if (mmhiData.macDataCallback != NULL)
             {
                 mmhiData.macDataCallback(dsap, reqId, pData,
-                        pRcvFrameData->length - 1);
+                        pRcvFrameData->length - 1U);
             }
 
             SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- MASTER_DATA_REQ\r\n");
@@ -440,18 +450,20 @@ static bool lMMHI_ProcessRcvCommand(void)
         {
             /* Invalid protocol. Generate negative Confirm */
             SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- Wrong MASTER_DATA_REQ. Send Negative Confirm\r\n");
-            MMHI_SendCommandFrame(MMHI_CMD_MASTER_DATA_NCFM, &wpvError, 1);
+            (void) MMHI_SendCommandFrame((uint8_t)MMHI_CMD_MASTER_DATA_NCFM, &wpvError, 1);
         }
 
     }
     else if (pRcvFrameData->commandCode == MMHI_CMD_HI_PING_REQ)
     {
         uint8_t *pData = mmhiTxBuffer;
+        uint8_t copyLen;
 
-        *pData++ = MMHI_FS_COMMAND;
+        *pData++ = (uint8_t)MMHI_FS_COMMAND;
         *pData++ = pRcvFrameData->length;
-        *pData++ = MMHI_CMD_HI_PING_CFM;
-        (void) memcpy(pData, pRcvFrameData->pPayload, pRcvFrameData->length + 1);
+        *pData++ = (uint8_t)MMHI_CMD_HI_PING_CFM;
+        copyLen = pRcvFrameData->length + 1U;
+        (void) memcpy(pData, pRcvFrameData->pPayload, copyLen);
 
         mmhiData.startFrameTxMask |= MMHI_FRAME_START_MASK_CMD_Msk;
 
@@ -459,15 +471,16 @@ static bool lMMHI_ProcessRcvCommand(void)
     }
     else
     {
-        result = false;
+        resultRet = false;
     }
 
-    return result;
+    return resultRet;
 }
 
 static bool lMMHI_ProcessRcvFrame(void)
 {
     bool result = true;
+    uintptr_t ctx = 0;
 
     /* Check frame type */
     switch ( mmhiData.rcvFrameData.frameStart )
@@ -498,16 +511,16 @@ static bool lMMHI_ProcessRcvFrame(void)
             /* Stop TACK timer */
             if (mmhiData.tackTimer != SYS_TIME_HANDLE_INVALID)
             {
-                SYS_TIME_TimerDestroy(mmhiData.tackTimer);
+                (void) SYS_TIME_TimerDestroy(mmhiData.tackTimer);
             }
 
             /* Start timer to finish reception state */
             if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
             {
-                SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
+                (void) SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
             }
             mmhiData.tsrTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TsrTimerCallback,
-                (uintptr_t) NULL, MMHI_PROTOCOL_TIMEOUT_TSR_MS, SYS_TIME_SINGLE);
+                ctx, MMHI_PROTOCOL_TIMEOUT_TSR_MS, SYS_TIME_SINGLE);
 
             SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- ACK\r\n");
 
@@ -525,10 +538,10 @@ static bool lMMHI_ProcessRcvFrame(void)
             /* Start timer to finish reception state */
             if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
             {
-                SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
+                (void) SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
             }
             mmhiData.tsrTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TsrTimerCallback,
-                (uintptr_t) NULL, MMHI_PROTOCOL_TIMEOUT_TSR_MS, SYS_TIME_SINGLE);
+                ctx, MMHI_PROTOCOL_TIMEOUT_TSR_MS, SYS_TIME_SINGLE);
 
             SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "<- NACK\r\n");
         }
@@ -536,6 +549,7 @@ static bool lMMHI_ProcessRcvFrame(void)
 
         default:
             result = false;
+        break;
     }
 
     return result;
@@ -546,6 +560,7 @@ static MMHI_RESULT lMMHI_CheckRcvFrame(void)
     MMHI_CMD_FRAME *pRcvFrameData;
     uint8_t *pData;
     uint16_t crcCalc;
+    uint8_t crcDataLen;
     MMHI_RESULT result = MMHI_SUCCESS;
 
     pRcvFrameData = &mmhiData.rcvFrameData;
@@ -559,8 +574,9 @@ static MMHI_RESULT lMMHI_CheckRcvFrame(void)
         (pRcvFrameData->frameStart == MMHI_FS_COMMAND_RETRY))
     {
         /* Get CRC16 (Len, Cmd, Payload) */
+        crcDataLen = pRcvFrameData->length + 3U;
         crcCalc = (uint16_t)SRV_PCRC_GetValue(&mmhiRxBuffer[MMHI_CMD_FRAME_LEN_Pos],
-                    pRcvFrameData->length + 3U, PCRC_HT_GENERIC, PCRC_CRC16, 0);
+                    (size_t)crcDataLen, PCRC_HT_GENERIC, PCRC_CRC16, 0);
         pData = pRcvFrameData->pPayload + pRcvFrameData->length + 1;
         pRcvFrameData->checksum = (uint16_t)*pData++;
         pRcvFrameData->checksum += (((uint16_t)*pData) << 8U);
@@ -574,7 +590,7 @@ static MMHI_RESULT lMMHI_CheckRcvFrame(void)
         /* Check Commands integrity */
         if (pRcvFrameData->commandCode == MMHI_CMD_BIO_RESET_REQ)
         {
-            if (pRcvFrameData->length != 0)
+            if (pRcvFrameData->length != 0U)
             {
                 result = MMHI_ERROR_WPL;
             }
@@ -604,7 +620,7 @@ static MMHI_RESULT lMMHI_CheckRcvFrame(void)
             uint8_t cmdIndex;
 
             cmdIndex = lMMHI_CheckCustomCommand(mmhiData.rcvFrameData.commandCode);
-            if (cmdIndex == MMHI_INVALID_CUSTOM_COMMAND)
+            if (cmdIndex == (uint8_t)MMHI_INVALID_CUSTOM_COMMAND)
             {
                 result = MMHI_ERROR_COMMAND;
             }
@@ -618,11 +634,11 @@ static MMHI_RESULT lMMHI_CheckRcvFrame(void)
 static void lMMHI_sendResetIndication(void)
 {
     uint8_t *pData = mmhiTxBuffer;
-    uint8_t rstCause;
+    uint32_t rstCause;
     MMHI_RESET_CAUSE mmhcRstCause;
 
     /* Get reset cause */
-    rstCause = (uint8_t)(RSTC_ResetCauseGet() >> RSTC_SR_RSTTYP_Pos);
+    rstCause = (RSTC_ResetCauseGet() >> RSTC_SR_RSTTYP_Pos);
 
     switch (rstCause)
     {
@@ -647,12 +663,12 @@ static void lMMHI_sendResetIndication(void)
             break;
     }
 
-    *pData++ = MMHI_FS_COMMAND;
+    *pData++ = (uint8_t)MMHI_FS_COMMAND;
     *pData++ = 0;
-    *pData++ = MMHI_CMD_BIO_RESET_IND;
+    *pData++ = (uint8_t)MMHI_CMD_BIO_RESET_IND;
     /* All reconfigurable MIB objects has been reconfigured */
     /* Reconfiguration status (Bit 7) */
-    *pData++ = (1 << 7) | mmhcRstCause;
+    *pData++ = (1U << 7) | (uint8_t)mmhcRstCause;
 
     mmhiData.startFrameTxMask |= MMHI_FRAME_START_MASK_CMD_Msk;
 }
@@ -704,7 +720,7 @@ SYS_MODULE_OBJ MMHI_Initialize(
     /* Init custom commands entries */
     for (cmdTableindex = 0; cmdTableindex < MMHI_MAX_CUSTOM_COMMANDS; cmdTableindex++)
     {
-        pCmdTable->commandCode = MMHI_CMD_INVALID;
+        pCmdTable->commandCode = (uint8_t)MMHI_CMD_INVALID;
         pCmdTable->callback = NULL;
         pCmdTable++;
     }
@@ -730,6 +746,7 @@ MMHI_STATUS MMHI_GetStatus ( SYS_MODULE_OBJ object )
 MMHI_HANDLE MMHI_Open( SYS_MODULE_OBJ object )
 {
     SYS_MODULE_INDEX index = (SYS_MODULE_INDEX)object;
+    uintptr_t ctx = 0;
 
     /* Check instance */
     if (index != MMHI_INDEX)
@@ -744,7 +761,7 @@ MMHI_HANDLE MMHI_Open( SYS_MODULE_OBJ object )
     }
 
     /* Register USART Callbacks */
-    mmhiData.uartPLIB->readCallbackRegister(lMMHI_USART_ReadCallback, (uintptr_t) NULL);
+    mmhiData.uartPLIB->readCallbackRegister(lMMHI_USART_ReadCallback, ctx);
 
     /* Set EUT as configured and running properly */
     mmhiData.statusMessage.status |= MMHI_STATUS_SET_Msk;
@@ -763,7 +780,7 @@ MMHI_HANDLE MMHI_Open( SYS_MODULE_OBJ object )
     /* Enable External RTS pin interrupt and register callback */
     SYS_INT_SourceStatusClear(MMHI_EXT_INT_RTS_SRC);
     (void) PIO_PinInterruptCallbackRegister((PIO_PIN)MMHI_EXT_INT_RTS_PIN,
-            lMMHI_ExternalInterruptRTSHandler, (uintptr_t) NULL);
+            lMMHI_ExternalInterruptRTSHandler, ctx);
     PIO_PinInterruptEnable((PIO_PIN)MMHI_EXT_INT_RTS_PIN);
 
     /* EUT shall issue a reset command each time it exits from reset */
@@ -784,7 +801,7 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
     MMHI_MIB_Tasks();
 
     /* Check received frame */
-    if (mmhiData.rcvFrameLength > 0)
+    if (mmhiData.rcvFrameLength > 0U)
     {
         MMHI_RESULT result;
 
@@ -813,10 +830,10 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
                 uint8_t *pData = mmhiTxBuffer;
 
                 // Send HI Error Command
-                *pData++ = MMHI_FS_COMMAND;
+                *pData++ = (uint8_t)MMHI_FS_COMMAND;
                 *pData++ = 0U;
-                *pData++ = MMHI_CMD_HI_ERROR_IND;
-                *pData++ = mmhiData.rcvFrameData.commandCode;
+                *pData++ = (uint8_t)MMHI_CMD_HI_ERROR_IND;
+                *pData++ = (uint8_t)mmhiData.rcvFrameData.commandCode;
 
                 mmhiData.startFrameTxMask |= MMHI_FRAME_START_MASK_CMD_Msk;
             }
@@ -841,53 +858,55 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
             uint16_t frameLen;
             uint8_t fs;
 
-            if (mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_STATUS_Msk)
+            if ((mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_STATUS_Msk) != 0U)
             {
-                frameLen = sizeof(mmhiData.statusMessage);
+                frameLen = (uint16_t)(sizeof(mmhiData.statusMessage));
                 context = (uintptr_t) MMHI_FRAME_START_MASK_STATUS_Msk;
                 pData = (uint8_t *)&mmhiData.statusMessage;
 
                 SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "-> ST\r\n");
             }
-            else if (mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_ACK_Msk)
+            else if ((mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_ACK_Msk) != 0U)
             {
                 frameLen = 1;
                 context = (uintptr_t) MMHI_FRAME_START_MASK_ACK_Msk;
-                fs = MMHI_FS_ACK;
+                fs = (uint8_t)MMHI_FS_ACK;
                 pData = (uint8_t *)&fs;
 
                 SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "-> ACK\r\n");
             }
-            else if (mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_NACK_Msk)
+            else if ((mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_NACK_Msk) != 0U)
             {
                 frameLen = 1;
                 context = (uintptr_t) MMHI_FRAME_START_MASK_NACK_Msk;
-                fs = MMHI_FS_NACK;
+                fs = (uint8_t)MMHI_FS_NACK;
                 pData = (uint8_t *)&fs;
                 mmhiData.nackCounter++;
-                if (mmhiData.nackCounter >= 2)
+                if (mmhiData.nackCounter >= 2U)
                 {
                     lMMHI_ClearReceptionState();
                 }
 
                 SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "-> NACK\r\n");
             }
-            else if (mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_CMD_Msk)
+            else if ((mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_CMD_Msk) != 0U)
             {
                 uint16_t crcCalc;
+                uint8_t crcDataLen;
                 MMHI_COMMAND command;
 
                 mmhiData.retryCmd = false;
 
                 /* Get command */
-                command = mmhiTxBuffer[MMHI_CMD_FRAME_CMD_Pos];
+                command = (MMHI_COMMAND)mmhiTxBuffer[MMHI_CMD_FRAME_CMD_Pos];
 
                 /* Get payload length */
-                frameLen = mmhiTxBuffer[MMHI_CMD_FRAME_LEN_Pos] + 1;
+                frameLen = (uint16_t)mmhiTxBuffer[MMHI_CMD_FRAME_LEN_Pos] + (uint16_t)1U;
 
                 /* Calculate checksum */
+                crcDataLen = (uint8_t)frameLen + 2U;
                 crcCalc = (uint16_t)SRV_PCRC_GetValue(&mmhiTxBuffer[MMHI_CMD_FRAME_LEN_Pos],
-                            frameLen + 2U, PCRC_HT_GENERIC, PCRC_CRC16, 0);
+                            (size_t)crcDataLen, PCRC_HT_GENERIC, PCRC_CRC16, 0);
                 pData = &mmhiTxBuffer[MMHI_CMD_FRAME_PAYLOAD_Pos] + frameLen;
                 *pData++ = (uint8_t)crcCalc;
                 *pData = (uint8_t)(crcCalc >> 8U);
@@ -900,7 +919,7 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
                 if (command != MMHI_CMD_BIO_RESET_IND)
                 {
                     /* Launch TACK timer */
-                    mmhiData.tackTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TackTimerCallback, (uintptr_t) NULL,
+                    mmhiData.tackTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TackTimerCallback, context,
                             MMHI_PROTOCOL_TIMEOUT_TACK_MS, SYS_TIME_SINGLE);
 
                 }
@@ -914,15 +933,15 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
 
                 SYS_CONSOLE_Message(SYS_CONSOLE_INDEX_0, "-> CMD\r\n");
             }
-            else if (mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_CMDRET_Msk)
+            else if ((mmhiData.startFrameTxMask & MMHI_FRAME_START_MASK_CMDRET_Msk) != 0U)
             {
                 mmhiData.retryCmd = true;
 
-                frameLen = mmhiTxBuffer[MMHI_CMD_FRAME_LEN_Pos] + 6U;
+                frameLen = (uint16_t)mmhiTxBuffer[MMHI_CMD_FRAME_LEN_Pos] + 6U;
                 context = (uintptr_t) MMHI_FRAME_START_MASK_CMDRET_Msk;
                 pData = mmhiTxBuffer;
                 /* Adjust Frame Start */
-                *pData = MMHI_FS_COMMAND_RETRY;
+                *pData = (uint8_t)MMHI_FS_COMMAND_RETRY;
 
                 /* Finish reception state */
                 lMMHI_ClearReceptionState();
@@ -935,7 +954,7 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
                 frameLen = 0;
             }
 
-            if (frameLen > 0)
+            if (frameLen > 0U)
             {
                 mmhiData.statusMessage.status |= MMHI_STATUS_TX_Msk;
                 mmhiData.uartPLIB->writeCallbackRegister(lMMHI_USART_WriteCallback, context);
@@ -943,7 +962,7 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
 
                 /* Launch timer to drive delay between 2 transmissions */
                 mmhiData.txDelayTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TxDelayTimerCallback,
-                    (uintptr_t) NULL, MMHI_PROTOCOL_TIMEOUT_TXD_MS, SYS_TIME_SINGLE);
+                    context, MMHI_PROTOCOL_TIMEOUT_TXD_MS, SYS_TIME_SINGLE);
 
             }
         }
@@ -967,7 +986,7 @@ MMHI_RESULT MMHI_CommandCallbackRegister(uint8_t cmdCode, MMHI_CMD_FRAME_IND_CAL
         {
             if (pCmdTable->commandCode == cmdCode)
             {
-                pCmdTable->commandCode = MMHI_CMD_INVALID;
+                pCmdTable->commandCode = (uint8_t)MMHI_CMD_INVALID;
                 return MMHI_SUCCESS;
             }
 
@@ -981,7 +1000,7 @@ MMHI_RESULT MMHI_CommandCallbackRegister(uint8_t cmdCode, MMHI_CMD_FRAME_IND_CAL
         /* Find free command entry and fill */
         for (index = 0; index < MMHI_MAX_CUSTOM_COMMANDS; index++)
         {
-            if (pCmdTable->commandCode == MMHI_CMD_INVALID)
+            if (pCmdTable->commandCode == (uint8_t)MMHI_CMD_INVALID)
             {
                 pCmdTable->commandCode = cmdCode;
                 pCmdTable->callback = callback;
@@ -999,18 +1018,13 @@ MMHI_RESULT MMHI_SendCommandFrame(uint8_t cmdCode, uint8_t* data, uint8_t length
 {
     uint8_t *pData = mmhiTxBuffer;
 
-    if (length > MMHI_FRAME_MAX_PAYLOAD_LENGTH)
-    {
-        return MMHI_ERROR;
-    }
-
-    if (mmhiData.startFrameTxMask != 0)
+    if (mmhiData.startFrameTxMask != 0U)
     {
         return MMHI_ERROR_BUSY;
     }
 
-    *pData++ = MMHI_FS_COMMAND;
-    *pData++ = length - 1;
+    *pData++ = (uint8_t)MMHI_FS_COMMAND;
+    *pData++ = length - 1U;
     *pData++ = cmdCode;
     (void) memcpy(pData, data, length);
 

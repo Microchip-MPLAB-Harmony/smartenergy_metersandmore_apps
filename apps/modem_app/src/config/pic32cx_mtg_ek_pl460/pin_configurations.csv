@@ -21,7 +21,7 @@ Pin Number,Pin ID,Custom Name,Function,Direction,Latch,Open Drain,PIO Interrupt,
 20,PD16,LED0,GPIO,Out,High,No,Disabled,No,No,Glitch Filter,0x0
 22,PD17,,Available,In,,,,,,,
 23,PD18,,Available,In,,,,,,,
-24,PD19,PL460_ENABLE,GPIO,Out,Low,No,Disabled,No,No,Glitch Filter,0x0
+24,PD19,PL460_ENABLE,GPIO,Out,High,No,Disabled,No,No,Glitch Filter,0x0
 25,PA10,,Available,In,,,,,,,
 26,PA11,,Available,In,,,,,,,
 27,PA2,PL460_EXTINT,GPIO,In,n/a,No,Falling Edge,No,Yes,Glitch Filter,0x0
