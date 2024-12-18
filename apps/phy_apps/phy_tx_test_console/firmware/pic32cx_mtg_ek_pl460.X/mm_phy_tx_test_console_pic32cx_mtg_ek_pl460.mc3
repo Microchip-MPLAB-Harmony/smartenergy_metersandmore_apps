@@ -19062,7 +19062,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
-         <hash>5463ad1dde1724140a690ae99182eaf21ac12afb0a19f9b5da803456459c26c2</hash>
+         <hash>65f132e6cb9a7a5d9dadce64703a8a785e6bd78d8d6b19e4a01d98fda31f13fc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
@@ -19270,7 +19270,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.c</file>
-         <hash>dd50a52e678a858906dd376a5ef92a221c41174320288d1229c855153871bc7f</hash>
+         <hash>0c4c054ce9f2a7641313312622d3737168da91b254fa6a0e0f22a75784b3db07</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.h</file>
@@ -19350,7 +19350,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\pin_configurations.csv</file>
-         <hash>9814fb3d2dbc3e9d4abd5f031a91a0e609f558388659beeb69e499e7e74b9993</hash>
+         <hash>4c5e9cb273cee9881d99f0ef626d91d6c12fc7cb0fc63c3d279060051555fb8f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcoup\srv_pcoup.c</file>

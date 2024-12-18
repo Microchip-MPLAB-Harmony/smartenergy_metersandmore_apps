@@ -4,7 +4,7 @@
 
 
 project: phy_tx_test_console
-creation_date: 2024-12-17T16:30:43.257+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2024-12-18T12:38:32.438+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
@@ -14,10 +14,10 @@ harmony_version: v1.5.4
 compiler: XC32 4.45
 
 modules:
-    - {name: "csp", version: "master"}
-    - {name: "core", version: "master"}
-    - {name: "CMSIS_5", version: "master"}
-    - {name: "smartenergy", version: "dev"}
+    - {name: "csp", version: "Branch_v3.20.0"}
+    - {name: "core", version: "Branch_v3.14.1"}
+    - {name: "CMSIS_5", version: "Branch_5.9.0"}
+    - {name: "smartenergy", version: "Branch_v1.3.0"}
     - {name: "shd", version: "dev"}
 
 packs:
