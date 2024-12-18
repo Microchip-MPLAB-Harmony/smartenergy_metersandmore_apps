@@ -70,7 +70,7 @@ extern "C" {
 #define AL_HI_RP_MASK                0x0EU
 #define AL_HI_SCA_SIZE               2U
 #define AL_HI_CSL_INDEX              5U
-#define AL_HI_CSL_VALUE              0x03
+#define AL_HI_CSL_VALUE              0x03U
 
 /* AES-CMAC lengths */
 #define AL_CMAC_INPUT_LEN            (AL_LMON_LENGTH + 8U) /* 16 bytes */

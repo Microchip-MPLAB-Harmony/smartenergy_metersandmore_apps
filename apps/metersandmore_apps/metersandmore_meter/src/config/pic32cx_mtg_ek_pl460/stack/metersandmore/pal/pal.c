@@ -156,6 +156,9 @@ static void lPAL_DataCfmCb(DRV_PLC_PHY_TRANSMISSION_CFM_OBJ *cfmObj, uintptr_t c
         case DRV_PLC_PHY_TX_RESULT_NO_TX:
             result = PAL_RESULT_ERROR;
             break;
+        default:
+            result = PAL_RESULT_ERROR;
+            break;
     }
 
     /* Send Confirm to upper layer */
@@ -175,7 +178,7 @@ static void lPAL_DataIndCb(DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t context)
     /* Avoid warning */
     (void)context;
 
-    if (indObj->crcOk == 1)
+    if (indObj->crcOk == 1U)
     {
         /* Correct CRC */
         rxParams.frameDuration = indObj->frameDuration;
@@ -198,11 +201,11 @@ static void lPAL_DataIndCb(DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t context)
         }
 
     }
-    else if (indObj->crcOk == 0xFE)
+    else if (indObj->crcOk == 0xFEU)
     {
         /* Timeout Error */
     }
-    else if (indObj->crcOk == 0xFF)
+    else if (indObj->crcOk == 0xFFU)
     {
         /* CRC Capability Disabled */
         /* Enable it */
@@ -210,7 +213,7 @@ static void lPAL_DataIndCb(DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t context)
         pibObj.length = 1;
         pibObj.pData = &enable;
 
-        DRV_PLC_PHY_PIBSet(palData.drvHandle, &pibObj);
+        (void) DRV_PLC_PHY_PIBSet(palData.drvHandle, &pibObj);
     }
     else
     {
@@ -421,6 +424,13 @@ void PAL_Tasks(void)
         {
             /* Reset PAL to reinitialize Driver */
             PAL_Reset();
+            break;
+        }
+
+        default:
+        {
+            /* Unknown state, go to Idle */
+            palData.state = PAL_STATE_IDLE;
             break;
         }
     }
