@@ -260,45 +260,45 @@
 #define PL460_TXEN_Get()               ((PIOA_REGS->PIO_PDSR >> 17U) & 0x1U)
 #define PL460_TXEN_PIN                  PIO_PIN_PA17
 
-/*** Macros for SCROLL_UP_BUTTON pin ***/
-#define SCROLL_UP_BUTTON_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<14U))
-#define SCROLL_UP_BUTTON_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<14U))
-#define SCROLL_UP_BUTTON_Toggle()            do {\
+/*** Macros for SCRL_UP_BTN pin ***/
+#define SCRL_UP_BTN_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<14U))
+#define SCRL_UP_BTN_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<14U))
+#define SCRL_UP_BTN_Toggle()            do {\
                                             PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<14U); \
                                             PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<14U);\
                                         } while (0)
-#define SCROLL_UP_BUTTON_OutputEnable()      do {\
+#define SCRL_UP_BTN_OutputEnable()      do {\
                                             PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<14U); \
                                             PIOA_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
                                         }while(0)
-#define SCROLL_UP_BUTTON_InputEnable()       do { \
+#define SCRL_UP_BTN_InputEnable()       do { \
                                             PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<14U); \
                                             PIOA_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
                                         } while (0)
-#define SCROLL_UP_BUTTON_Get()               ((PIOA_REGS->PIO_PDSR >> 14U) & 0x1U)
-#define SCROLL_UP_BUTTON_PIN                  PIO_PIN_PA14
-#define SCROLL_UP_BUTTON_InterruptEnable()   (PIOA_REGS->PIO_IER = (1<<14))
-#define SCROLL_UP_BUTTON_InterruptDisable()  (PIOA_REGS->PIO_IDR = (1<<14))
+#define SCRL_UP_BTN_Get()               ((PIOA_REGS->PIO_PDSR >> 14U) & 0x1U)
+#define SCRL_UP_BTN_PIN                  PIO_PIN_PA14
+#define SCRL_UP_BTN_InterruptEnable()   (PIOA_REGS->PIO_IER = (1<<14))
+#define SCRL_UP_BTN_InterruptDisable()  (PIOA_REGS->PIO_IDR = (1<<14))
 
-/*** Macros for SCROLL_DOWN_BUTTON pin ***/
-#define SCROLL_DOWN_BUTTON_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<15U))
-#define SCROLL_DOWN_BUTTON_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<15U))
-#define SCROLL_DOWN_BUTTON_Toggle()            do {\
+/*** Macros for SCRL_DOWN_BTN pin ***/
+#define SCRL_DOWN_BTN_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<15U))
+#define SCRL_DOWN_BTN_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<15U))
+#define SCRL_DOWN_BTN_Toggle()            do {\
                                             PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
                                             PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<15U);\
                                         } while (0)
-#define SCROLL_DOWN_BUTTON_OutputEnable()      do {\
+#define SCRL_DOWN_BTN_OutputEnable()      do {\
                                             PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
                                             PIOA_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
                                         }while(0)
-#define SCROLL_DOWN_BUTTON_InputEnable()       do { \
+#define SCRL_DOWN_BTN_InputEnable()       do { \
                                             PIOA_REGS->PIO_MSKR = ((uint32_t)1U<<15U); \
                                             PIOA_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
                                         } while (0)
-#define SCROLL_DOWN_BUTTON_Get()               ((PIOA_REGS->PIO_PDSR >> 15U) & 0x1U)
-#define SCROLL_DOWN_BUTTON_PIN                  PIO_PIN_PA15
-#define SCROLL_DOWN_BUTTON_InterruptEnable()   (PIOA_REGS->PIO_IER = (1<<15))
-#define SCROLL_DOWN_BUTTON_InterruptDisable()  (PIOA_REGS->PIO_IDR = (1<<15))
+#define SCRL_DOWN_BTN_Get()               ((PIOA_REGS->PIO_PDSR >> 15U) & 0x1U)
+#define SCRL_DOWN_BTN_PIN                  PIO_PIN_PA15
+#define SCRL_DOWN_BTN_InterruptEnable()   (PIOA_REGS->PIO_IER = (1<<15))
+#define SCRL_DOWN_BTN_InterruptDisable()  (PIOA_REGS->PIO_IDR = (1<<15))
 
 /*** Macros for LCD_COM1 pin ***/
 #define LCD_COM1_Get()               ((PIOA_REGS->PIO_PDSR >> 21U) & 0x1U)

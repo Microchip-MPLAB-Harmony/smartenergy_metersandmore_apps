@@ -206,8 +206,8 @@ typedef struct
 
   Description:
     This data type defines the required function signature for the Meters And More HI
-    Mac Data Indication function. A client must register a pointer using the callback register 
-    function whose function signature (parameter and return value types) match the types 
+    Mac Data Indication function. A client must register a pointer using the callback register
+    function whose function signature (parameter and return value types) match the types
     specified by this function pointer in order to receive related event callbacks
     from the module.
 
@@ -216,7 +216,7 @@ typedef struct
 
   Parameters:
     dsap - Destination LSAP
-    reqId - Unique Request ID for each request 
+    reqId - Unique Request ID for each request
     lsdu - Pointer to the LLC data
     lsduLen - Length of the LLC data
 
@@ -225,10 +225,10 @@ typedef struct
 
   Example:
     <code>
-    void APP_MyCommandFrameHandler( uint8_t dsap, uint8_t reqId, 
+    void APP_MyCommandFrameHandler( uint8_t dsap, uint8_t reqId,
         uint8_t* lsdu, uint8_t lsduLen )
     {
-        if (lsduLen > 0) 
+        if (lsduLen > 0)
         {
 
         }
@@ -238,7 +238,7 @@ typedef struct
   Remarks:
     None.
 */
-typedef void ( *MMHI_MAC_DATA_IND_CALLBACK )( uint8_t dsap, uint8_t reqId, 
+typedef void ( *MMHI_MAC_DATA_IND_CALLBACK )( uint8_t dsap, uint8_t reqId,
     uint8_t* lsdu, uint8_t lsduLen );
 
 // *****************************************************************************
@@ -249,8 +249,8 @@ typedef void ( *MMHI_MAC_DATA_IND_CALLBACK )( uint8_t dsap, uint8_t reqId,
 
   Description:
     This data type defines the required function signature for the Meters And More HI
-    command frame function. A client must register a pointer using the callback register 
-    function whose function signature (parameter and return value types) match the types 
+    command frame function. A client must register a pointer using the callback register
+    function whose function signature (parameter and return value types) match the types
     specified by this function pointer in order to receive related event callbacks
     from the module.
 
@@ -269,7 +269,7 @@ typedef void ( *MMHI_MAC_DATA_IND_CALLBACK )( uint8_t dsap, uint8_t reqId,
     <code>
     void APP_MyCommandFrameHandler( uint8_t* data, uint8_t length )
     {
-        if (length > 0) 
+        if (length > 0)
         {
 
         }
@@ -277,7 +277,7 @@ typedef void ( *MMHI_MAC_DATA_IND_CALLBACK )( uint8_t dsap, uint8_t reqId,
     </code>
 
   Remarks:
-    This Callback is only generated if a custom command has been previously 
+    This Callback is only generated if a custom command has been previously
     registered by MMHI_CommandCallbackRegister function.
 */
 typedef void ( *MMHI_CMD_FRAME_IND_CALLBACK )( uint8_t* data, uint8_t length );
@@ -327,7 +327,7 @@ typedef void ( *MMHI_CMD_FRAME_IND_CALLBACK )( uint8_t* data, uint8_t length );
     static const MMHI_PLIB_INTERFACE mmhiUARTPlibAPI =
 {
     .readCallbackRegister = (MMHI_PLIB_READCALLBACKREGISTER)FLEXCOM7_USART_ReadCallbackRegister,
-    .write = (MMHI_PLIB_WRITE)FLEXCOM7_USART_Write,
+    .writeFn = (MMHI_PLIB_WRITE)FLEXCOM7_USART_Write,
     .writeCountGet = (MMHI_PLIB_WRITE_COUNT_GET)FLEXCOM7_USART_WriteCountGet,
     .writeIsBusy = (MMHI_PLIB_WRITE_IS_BUSY)FLEXCOM7_USART_WriteIsBusy,
 };
@@ -360,7 +360,7 @@ SYS_MODULE_OBJ MMHI_Initialize(const SYS_MODULE_INDEX index,
     Opens the specified MM host interface and returns a handle to it.
 
   Description:
-    This routine opens the MMHI and provides a handle that must be provided 
+    This routine opens the MMHI and provides a handle that must be provided
     to all other MMHI operations to identify the caller.
 
     This MMHI is a single client interface, so MMHI_Open API should be
@@ -491,11 +491,11 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object );
     );
 
   Summary:
-    Allows a client to register a callback function to be called when a mac data 
+    Allows a client to register a callback function to be called when a mac data
     command is received.
 
   Description:
-    This function allows a client to register a handling function for the MMHI to 
+    This function allows a client to register a handling function for the MMHI to
     call back when the MAC_DATA_REQ command code has been detected.
 
   Parameters:
@@ -506,7 +506,7 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object );
 
   Example:
     <code>
-    void APP_MyMacDataCallback(uint8_t dsap, uint8_t reqId, 
+    void APP_MyMacDataCallback(uint8_t dsap, uint8_t reqId,
         uint8_t* lsdu, uint8_t lsduLen)
     {
         if (length > 0)
@@ -568,8 +568,8 @@ MMHI_RESULT MMHI_CommandCallbackRegister(uint8_t cmdCode, MMHI_CMD_FRAME_IND_CAL
 // *****************************************************************************
 /* Function:
     void MMHI_SendCommandFrame (
-        uint8_t cmdCode, 
-        uint8_t* data, 
+        uint8_t cmdCode,
+        uint8_t* data,
         uint8_t length
     );
 
@@ -605,7 +605,7 @@ MMHI_RESULT MMHI_CommandCallbackRegister(uint8_t cmdCode, MMHI_CMD_FRAME_IND_CAL
     cmdData[2] = DAT2;
     cmdData[3] = DAT3;
     cmdData[4] = DAT4;
-    
+
     MMHI_SendCommandFrame(cmdCode, &cmdData, sizeof(cmdData));
     </code>
 

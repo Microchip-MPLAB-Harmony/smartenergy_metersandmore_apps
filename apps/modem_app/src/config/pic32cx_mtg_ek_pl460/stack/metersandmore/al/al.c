@@ -1056,6 +1056,9 @@ AL_RESULT AL_EventIndicationCallbackRegister( AL_EVENT_IND_CALLBACK callback )
     return AL_SUCCESS;
 }
 
+/* MISRA C-2012 deviation block start */
+/* MISRA C-2012 Rule 11.3 deviated twice. Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
+
 SYS_MODULE_OBJ AL_Initialize ( const SYS_MODULE_INDEX index, const SYS_MODULE_INIT * const init )
 {
     const AL_INIT * const alInit = (const AL_INIT * const)init;
@@ -1329,6 +1332,8 @@ AL_RESULT AL_SetRequest(AL_IB_ATTRIBUTE attribute, uint16_t index, const AL_IB_V
 
     return result;
 }
+
+/* MISRA C-2012 deviation block end */
 
 void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
 {

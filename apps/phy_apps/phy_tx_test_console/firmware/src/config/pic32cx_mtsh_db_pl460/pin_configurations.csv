@@ -24,8 +24,8 @@ Pin Number,Pin ID,Custom Name,Function,Direction,Latch,Open Drain,PIO Interrupt,
 36,PA19,,Available,In,,,,,,,
 37,PA12,,Available,In,,,,,,,
 38,PA13,,Available,In,,,,,,,
-39,PA14,SCROLL_UP_BUTTON,GPIO,In,n/a,No,Raising Edge,Yes,No,Glitch Filter,0x0
-40,PA15,SCROLL_DOWN_BUTTON,GPIO,In,n/a,No,Raising Edge,Yes,No,Glitch Filter,0x0
+39,PA14,SCRL_UP_BTN,GPIO,In,n/a,No,Raising Edge,Yes,No,Glitch Filter,0x0
+40,PA15,SCRL_DOWN_BTN,GPIO,In,n/a,No,Raising Edge,Yes,No,Glitch Filter,0x0
 42,PD1,,Available,In,,,,,,,
 43,PD2,,Available,In,,,,,,,
 44,PD12,,Available,In,,,,,,,

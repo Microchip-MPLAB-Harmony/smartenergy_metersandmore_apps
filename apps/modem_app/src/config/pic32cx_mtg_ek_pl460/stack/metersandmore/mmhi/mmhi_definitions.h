@@ -72,20 +72,20 @@ typedef uint32_t (*MMHI_PLIB_ERROR_GET)( void );
 
 typedef struct
 {
-	MMHI_PLIB_READ                          read;
+    MMHI_PLIB_READ                          readFn;
     MMHI_PLIB_READCALLBACKREGISTER          readCallbackRegister;
 
-	MMHI_PLIB_WRITE                         write;
+    MMHI_PLIB_WRITE                         writeFn;
     MMHI_PLIB_WRITECALLBACKREGISTER         writeCallbackRegister;
 
     MMHI_PLIB_ERROR_GET                     errorGet;
-    
+
 } MMHI_PLIB_INTERFACE;
 
 typedef struct
 {
     const MMHI_PLIB_INTERFACE*              uartPLIB;
-	
+
 } MMHI_INIT_DATA;
 
 // *****************************************************************************
@@ -138,7 +138,7 @@ typedef uintptr_t MMHI_HANDLE;
     All command codes available for EUT
 
   Description:
-    Each command frame exchanged between the host controller and the EUT carries 
+    Each command frame exchanged between the host controller and the EUT carries
     a command, which is identified by a unique command code
 */
 typedef enum

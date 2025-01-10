@@ -55,7 +55,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include <stdarg.h>
 #include "mmhi.h"
 #include "mmhi_mib.h"
 
@@ -290,6 +289,8 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
     uint8_t reqLength;
     AL_RESULT alResult;
     AL_IB_VALUE alValue;
+    uint8_t *currentVal;
+    uint8_t *defaultVal;
 
     reqLength = pData->dataLength;
 
@@ -309,8 +310,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                 {
                     /* Update Status flags */
                     (void)memcpy((uint8_t *)&mmhiMibData.macConfig, pData->dataValue, reqLength);
-                    if (memcmp(&mmhiMibData.macConfig, &mmhiMibDefaultData.macConfig,
-                            sizeof(MMHI_MIB_MAC_CONFIG)) == 0)
+                    currentVal = (uint8_t *)&mmhiMibData.macConfig;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.macConfig;
+                    if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_MAC_CONFIG)) == 0)
                     {
                         mmhiMibStatus |= HI_SMSK_MAC_CFG_MIB_Msk;
                     }
@@ -352,8 +354,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                 if (alResult == AL_SUCCESS)
                 {
                     (void)memcpy((uint8_t *)&mmhiMibData.manufacturer, pData->dataValue, reqLength);
-                    if (memcmp(&mmhiMibData.manufacturer, &mmhiMibDefaultData.manufacturer,
-                            sizeof(MMHI_MIB_MANUFACTURER_DATA)) == 0)
+                    currentVal = (uint8_t *)&mmhiMibData.manufacturer;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.manufacturer;
+                    if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_MANUFACTURER_DATA)) == 0)
                     {
                         mmhiMibStatus |= HI_SMSK_MNF_DATA_MIB_Msk;
                     }
@@ -393,8 +396,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                 if (alResult == AL_SUCCESS)
                 {
                     (void)memcpy((uint8_t *)&mmhiMibData.address, pData->dataValue, reqLength);
-                    if (memcmp(&mmhiMibData.address, &mmhiMibDefaultData.address,
-                            sizeof(MMHI_MIB_LOGICAL_ADDRESS)) == 0)
+                    currentVal = (uint8_t *)&mmhiMibData.address;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.address;
+                    if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_LOGICAL_ADDRESS)) == 0)
                     {
                         mmhiMibStatus |= HI_SMSK_SCA_MIB_Msk;
                     }
@@ -430,8 +434,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                 if (setEncryptionKeys(pData->dataValue) == MMHI_SUCCESS)
                 {
                     (void)memcpy((uint8_t *)&mmhiMibData.securityKeys, pData->dataValue, reqLength);
-                    if (memcmp(&mmhiMibData.securityKeys, &mmhiMibDefaultData.securityKeys,
-                            sizeof(MMHI_MIB_ENCRYPTION_KEYS)) == 0)
+                    currentVal = (uint8_t *)&mmhiMibData.securityKeys;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.securityKeys;
+                    if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_ENCRYPTION_KEYS)) == 0)
                     {
                         mmhiMibStatus |= HI_SMSK_ENCRYPTION_KEYS_MIB_Msk;
                     }
@@ -464,8 +469,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
             {
                 /* Set value */
                 (void)memcpy((uint8_t *)&mmhiMibData.securityFlags, pData->dataValue, reqLength);
-                if (memcmp(&mmhiMibData.securityFlags, &mmhiMibDefaultData.securityFlags,
-                        sizeof(MMHI_MIB_SECURITY_FLAGS)) == 0)
+                currentVal = (uint8_t *)&mmhiMibData.securityFlags;
+                defaultVal = (uint8_t *)&mmhiMibDefaultData.securityFlags;
+                if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_SECURITY_FLAGS)) == 0)
                 {
                     mmhiMibStatus |= HI_SMSK_SECURITY_FLAGS_MIB_Msk;
                 }
@@ -496,8 +502,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                 if (setLmon(pData->dataValue) == MMHI_SUCCESS)
                 {
                     (void)memcpy((uint8_t *)&mmhiMibData.securityLmon, pData->dataValue, reqLength);
-                    if (memcmp(&mmhiMibData.securityLmon, &mmhiMibDefaultData.securityLmon,
-                            sizeof(MMHI_MIB_LMON)) == 0)
+                    currentVal = (uint8_t *)&mmhiMibData.securityLmon;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.securityLmon;
+                    if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_LMON)) == 0)
                     {
                         mmhiMibStatus |= HI_SMSK_LMON_MIB_Msk;
                     }
@@ -533,8 +540,9 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
                 if (setTimingParams(pData->dataValue) == MMHI_SUCCESS)
                 {
                     (void)memcpy((uint8_t *)&mmhiMibData.timing, pData->dataValue, reqLength);
-                    if (memcmp(&mmhiMibData.timing, &mmhiMibDefaultData.timing,
-                            sizeof(MMHI_MIB_TIMING_PARAMETERS)) == 0)
+                    currentVal = (uint8_t *)&mmhiMibData.timing;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.timing;
+                    if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_TIMING_PARAMETERS)) == 0)
                     {
                         mmhiMibStatus |= HI_SMSK_TIMING_PARAMS_MIB_Msk;
                     }

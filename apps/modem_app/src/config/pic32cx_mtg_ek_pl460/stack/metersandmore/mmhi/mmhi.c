@@ -63,7 +63,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include <stdarg.h>
 
 #include "definitions.h"
 
@@ -143,7 +142,7 @@ static void lMMHI_USART_ReadCallback( uintptr_t context )
             uintptr_t ctx = 0;
 
             *mmhiData.pReceiveData++ = mmhiData.rcvByte;
-            (void) mmhiData.uartPLIB->read(&mmhiData.rcvByte, 1U);
+            (void) mmhiData.uartPLIB->readFn(&mmhiData.rcvByte, 1U);
 
             /* Cancel TSR timer */
             if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
@@ -191,7 +190,7 @@ static void lMMHI_USART_WriteCallback( uintptr_t context )
         /* Start reception and launch TSR timer */
         mmhiData.state = MMHI_STATE_RECEIVING;
         mmhiData.pReceiveData = mmhiRxBuffer;
-        (void) mmhiData.uartPLIB->read(&mmhiData.rcvByte, 1U);
+        (void) mmhiData.uartPLIB->readFn(&mmhiData.rcvByte, 1U);
         if (mmhiData.tsrTimer != SYS_TIME_HANDLE_INVALID)
         {
             (void) SYS_TIME_TimerDestroy(mmhiData.tsrTimer);
@@ -680,6 +679,7 @@ static void lMMHI_sendResetIndication(void)
 // *****************************************************************************
 
 /* MISRA C-2012 Rule 11.3 deviated:1 Deviation record ID -  H3_MISRAC_2012_R_11_3_DR_1 */
+/* MISRA C-2012 Rule 11.8 deviated:1 Deviation record ID -  H3_MISRAC_2012_R_11_8_DR_1 */
 
 SYS_MODULE_OBJ MMHI_Initialize(
     const SYS_MODULE_INDEX index,
@@ -958,7 +958,7 @@ void MMHI_Tasks ( SYS_MODULE_OBJ object )
             {
                 mmhiData.statusMessage.status |= MMHI_STATUS_TX_Msk;
                 mmhiData.uartPLIB->writeCallbackRegister(lMMHI_USART_WriteCallback, context);
-                (void) mmhiData.uartPLIB->write(pData, frameLen);
+                (void) mmhiData.uartPLIB->writeFn(pData, frameLen);
 
                 /* Launch timer to drive delay between 2 transmissions */
                 mmhiData.txDelayTimer = SYS_TIME_CallbackRegisterMS(lMMHI_TxDelayTimerCallback,

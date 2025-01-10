@@ -243,9 +243,9 @@ SYSTEM_OBJECTS sysObj;
 // <editor-fold defaultstate="collapsed" desc="Meters And More Host Interface Initialization Data">
 static const MMHI_PLIB_INTERFACE mmhiUARTPlibAPI =
 {
-    .read = (MMHI_PLIB_READ)FLEXCOM7_USART_Read,
+    .readFn = (MMHI_PLIB_READ)FLEXCOM7_USART_Read,
     .readCallbackRegister = (MMHI_PLIB_READCALLBACKREGISTER)FLEXCOM7_USART_ReadCallbackRegister,
-    .write = (MMHI_PLIB_WRITE)FLEXCOM7_USART_Write,
+    .writeFn = (MMHI_PLIB_WRITE)FLEXCOM7_USART_Write,
     .writeCallbackRegister = (MMHI_PLIB_WRITECALLBACKREGISTER)FLEXCOM7_USART_WriteCallbackRegister,
     .errorGet = (MMHI_PLIB_ERROR_GET)FLEXCOM7_USART_ErrorGet,
 };

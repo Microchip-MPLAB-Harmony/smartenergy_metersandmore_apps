@@ -143,21 +143,21 @@
 #define BSP_PL460_NTHW0_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<2))
 #define BSP_PL460_NTHW0_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<2))
 
-/*** INPUT PIO Macros for SCROLL_UP_BUTTON ***/
-#define BSP_SCROLL_UP_BUTTON_PIN                    PIO_PIN_PA14
-#define BSP_SCROLL_UP_BUTTON_Get()                  ((PIOA_REGS->PIO_PDSR >> 14) & 0x1)
-#define BSP_SCROLL_UP_BUTTON_STATE_PRESSED          0
-#define BSP_SCROLL_UP_BUTTON_STATE_RELEASED         1
-#define BSP_SCROLL_UP_BUTTON_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<14))
-#define BSP_SCROLL_UP_BUTTON_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<14))
+/*** INPUT PIO Macros for SCRL_UP_BTN ***/
+#define BSP_SCRL_UP_BTN_PIN                    PIO_PIN_PA14
+#define BSP_SCRL_UP_BTN_Get()                  ((PIOA_REGS->PIO_PDSR >> 14) & 0x1)
+#define BSP_SCRL_UP_BTN_STATE_PRESSED          0
+#define BSP_SCRL_UP_BTN_STATE_RELEASED         1
+#define BSP_SCRL_UP_BTN_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<14))
+#define BSP_SCRL_UP_BTN_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<14))
 
-/*** INPUT PIO Macros for SCROLL_DOWN_BUTTON ***/
-#define BSP_SCROLL_DOWN_BUTTON_PIN                    PIO_PIN_PA15
-#define BSP_SCROLL_DOWN_BUTTON_Get()                  ((PIOA_REGS->PIO_PDSR >> 15) & 0x1)
-#define BSP_SCROLL_DOWN_BUTTON_STATE_PRESSED          0
-#define BSP_SCROLL_DOWN_BUTTON_STATE_RELEASED         1
-#define BSP_SCROLL_DOWN_BUTTON_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<15))
-#define BSP_SCROLL_DOWN_BUTTON_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<15))
+/*** INPUT PIO Macros for SCRL_DOWN_BTN ***/
+#define BSP_SCRL_DOWN_BTN_PIN                    PIO_PIN_PA15
+#define BSP_SCRL_DOWN_BTN_Get()                  ((PIOA_REGS->PIO_PDSR >> 15) & 0x1)
+#define BSP_SCRL_DOWN_BTN_STATE_PRESSED          0
+#define BSP_SCRL_DOWN_BTN_STATE_RELEASED         1
+#define BSP_SCRL_DOWN_BTN_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<15))
+#define BSP_SCRL_DOWN_BTN_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<15))
 
 
 

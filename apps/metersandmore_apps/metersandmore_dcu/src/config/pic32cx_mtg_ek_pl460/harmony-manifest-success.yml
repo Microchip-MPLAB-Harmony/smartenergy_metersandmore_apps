@@ -4,7 +4,7 @@
 
 
 project: metersandmore_dcu
-creation_date: 2024-12-18T12:18:43.527+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-01-10T07:58:02.981+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
@@ -14,14 +14,14 @@ harmony_version: v1.5.4
 compiler: XC32 4.45
 
 modules:
-    - {name: "csp", version: "Branch_v3.20.0"}
-    - {name: "core", version: "Branch_v3.14.1"}
-    - {name: "CMSIS_5", version: "Branch_5.9.0"}
-    - {name: "crypto_v4", version: "Branch_v4.0.0-E3"}
-    - {name: "wolfssl", version: "Branch_v5.7.0"}
-    - {name: "smartenergy", version: "Branch_v1.3.0"}
-    - {name: "shd", version: "dev"}
-    - {name: "smartenergy_metersandmore", version: "dev"}
+    - {name: "csp", version: "v3.20.0"}
+    - {name: "core", version: "v3.14.1"}
+    - {name: "CMSIS_5", version: "5.9.0"}
+    - {name: "crypto_v4", version: "v4.0.0-E3"}
+    - {name: "wolfssl", version: "v5.7.0"}
+    - {name: "smartenergy", version: "v1.3.0"}
+    - {name: "shd", version: "v1.0.0-E1"}
+    - {name: "smartenergy_metersandmore", version: "v1.0.0"}
 
 packs:
     - {name: "PIC32CX-MT_DFP", version: "1.3.132"}
