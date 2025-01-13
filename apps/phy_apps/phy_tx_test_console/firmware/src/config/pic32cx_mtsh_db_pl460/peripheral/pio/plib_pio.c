@@ -81,7 +81,7 @@ void PIO_Initialize ( void )
 
  /* Port A Pin 3 configuration */
    PIOA_REGS->PIO_MSKR = 0x8U;
-   PIOA_REGS->PIO_CFGR = (PIOA_REGS->PIO_CFGR & (PIO_CFGR_FUNC_Msk)) | 0x3001500U;
+   PIOA_REGS->PIO_CFGR = (PIOA_REGS->PIO_CFGR & (PIO_CFGR_FUNC_Msk)) | 0x1400U;
 
  /* Port A Pin 14 configuration */
    PIOA_REGS->PIO_MSKR = 0x4000U;

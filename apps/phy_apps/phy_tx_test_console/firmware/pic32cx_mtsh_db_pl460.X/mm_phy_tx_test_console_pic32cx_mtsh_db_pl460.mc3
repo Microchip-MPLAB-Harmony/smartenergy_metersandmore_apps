@@ -4061,7 +4061,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_24_0_PRIORITY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;6&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;7&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -4105,7 +4105,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_31_0_PRIORITY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;8&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;7&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -4215,7 +4215,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_9_0_PRIORITY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;7&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;9&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -4723,7 +4723,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_22_PERIPHERAL_FUNCTION&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;GPIO&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;LED_AH&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;GPIO&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -4799,7 +4799,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_23_PERIPHERAL_FUNCTION&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;GPIO&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;LED_AH&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;GPIO&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -5426,7 +5426,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_39_PERIPHERAL_FUNCTION&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;GPIO&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;SWITCH_AL&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;GPIO&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -5518,7 +5518,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_40_PERIPHERAL_FUNCTION&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;GPIO&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;SWITCH_AL&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;GPIO&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -23881,7 +23881,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\definitions.h</file>
-         <hash>3135e70f10b19ab69afddef48e33970d6778e33e1b29b5aea5219009b71bf816</hash>
+         <hash>b4c20ecd618aa9611ee1626d7043f369c2a7565d3cb05767e32890b44ce7c460</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\device.h</file>
@@ -24105,7 +24105,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\nvic\plib_nvic.c</file>
-         <hash>e521e9b9fc6129245672529b412b4ffa5b3927ea11066d765f97175a8e6299e0</hash>
+         <hash>46098198e0d6ec452a9e2acfc5c8a6ce0bbd79cca2c04e85460e484774ac26d5</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\nvic\plib_nvic.h</file>
@@ -24113,7 +24113,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\pio\plib_pio.c</file>
-         <hash>8ff1661ec605c34df89343709151908eb1da07abe4fbb36f8acddaea058e9283</hash>
+         <hash>917806b4ce6bb2169bd2335e0b49b48a720d1ebde3975562d72fd3959e2a64ac</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\peripheral\pio\plib_pio.h</file>
@@ -24193,7 +24193,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\pin_configurations.csv</file>
-         <hash>e35347b990e35b78a78319564c09d2901d9f7e8c16cbdecf824881df7aa0dfd9</hash>
+         <hash>1f19587bd30cb5921ff4bb7c1f722613dc33b87beb37da9f9a7aecd38c53ab17</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\service\pcoup\srv_pcoup.c</file>

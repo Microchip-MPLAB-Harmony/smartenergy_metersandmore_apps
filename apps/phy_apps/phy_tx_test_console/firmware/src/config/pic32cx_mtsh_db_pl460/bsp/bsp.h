@@ -104,16 +104,6 @@
                                     PIOD_REGS->PIO_ODSR ^= (1<<18);\
                                 } while (0)
 
-/*** OUTPUT PIO Macros for PL460_EXTINT ***/
-#define BSP_PL460_EXTINT_PIN        PIO_PIN_PA3
-#define BSP_PL460_EXTINT_Get()      ((PIOA_REGS->PIO_PDSR >> 3) & 0x1)
-#define BSP_PL460_EXTINT_On()       (PIOA_REGS->PIO_CODR = (1UL<<3))
-#define BSP_PL460_EXTINT_Off()      (PIOA_REGS->PIO_SODR = (1UL<<3))
-#define BSP_PL460_EXTINT_Toggle()   do {\
-                                    PIOA_REGS->PIO_MSKR = (1<<3); \
-                                    PIOA_REGS->PIO_ODSR ^= (1<<3);\
-                                } while (0)
-
 /*** OUTPUT PIO Macros for PL460_STBY ***/
 #define BSP_PL460_STBY_PIN        PIO_PIN_PA16
 #define BSP_PL460_STBY_Get()      ((PIOA_REGS->PIO_PDSR >> 16) & 0x1)
@@ -142,6 +132,14 @@
 #define BSP_PL460_NTHW0_STATE_RELEASED         1
 #define BSP_PL460_NTHW0_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<2))
 #define BSP_PL460_NTHW0_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<2))
+
+/*** INPUT PIO Macros for PL460_EXTINT ***/
+#define BSP_PL460_EXTINT_PIN                    PIO_PIN_PA3
+#define BSP_PL460_EXTINT_Get()                  ((PIOA_REGS->PIO_PDSR >> 3) & 0x1)
+#define BSP_PL460_EXTINT_STATE_PRESSED          1
+#define BSP_PL460_EXTINT_STATE_RELEASED         0
+#define BSP_PL460_EXTINT_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<3))
+#define BSP_PL460_EXTINT_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<3))
 
 /*** INPUT PIO Macros for SCRL_UP_BTN ***/
 #define BSP_SCRL_UP_BTN_PIN                    PIO_PIN_PA14
