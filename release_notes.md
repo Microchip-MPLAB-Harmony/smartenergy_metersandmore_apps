@@ -39,7 +39,6 @@ In order to regenerate source code for any of the applications, you will also ne
 
 - Harmony core repository, v3.14.1
 - Harmony csp repository, v3.20.0
-- Harmony bsp repository, v3.21.1
 - Harmony shd repository, v1.0.0-E1
 - Harmony smartenergy repository, v1.3.0
 - Harmony smartenergy_metersandmore repository, v1.0.0
