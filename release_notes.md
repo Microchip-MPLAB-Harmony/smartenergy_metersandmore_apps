@@ -35,14 +35,14 @@ The following table provides a list of available applications, supported platfor
 - MPLAB® X IDE plug-ins:
   - MPLAB® Code Configurator 5.5.1 or higher
 
-In order to regenerate source code for any of the applications, you will also need to use the following versions of the dependent modules (see smartenergy_g3_apps/package.yml):
+In order to regenerate source code for any of the applications, you will also need to use the following versions of the dependent modules (see smartenergy_metersandmore_apps/package.yml):
 
 - Harmony core repository, v3.14.1
 - Harmony csp repository, v3.20.0
 - Harmony bsp repository, v3.21.1
 - Harmony shd repository, v1.0.0-E1
 - Harmony smartenergy repository, v1.3.0
-- Harmony smartenergy\_metersandmore repository, v1.0.0
+- Harmony smartenergy_metersandmore repository, v1.0.0
 - Harmony crypto_v4 repository, v4.0.0-E3
 - Harmony wolfssl repository, v5.7.0
 - Harmony gfx repository, v3.15.3
