@@ -58,6 +58,10 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
+         <string>srvRandom</string>
+         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
+      </entry>
+      <entry>
          <string>srv_pcoup</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -89,6 +93,510 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="#&amp;__MCC_Group_Parrent_id"/>
          <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_BOARD_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_BOARD_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_CN0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_CN0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_CN1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_CN1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_CN2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_CN2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_CN3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_CN3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_CN4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_CN4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_CN5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_CN5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_DIR0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_DIR0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_DIR1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_DIR1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_DIR2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_DIR2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_DIR3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_DIR3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_DIR4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_DIR4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_DIR5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_DIR5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_LAT0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_LAT0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_LAT1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_LAT1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_LAT2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_LAT2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_LAT3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_LAT3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_LAT4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_LAT4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_LAT5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_LAT5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_MODE0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_MODE0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_MODE1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_MODE1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_MODE2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_MODE2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_MODE3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_MODE3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_MODE4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_MODE4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_MODE5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_MODE5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_OD0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_OD0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_OD1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_OD1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_OD2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_OD2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_OD3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_OD3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_OD4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_OD4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_OD5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_OD5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PD0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PD0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PD1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PD1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PD2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PD2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PD3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PD3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PD4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PD4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PD5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PD5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PIO_INTERRUPT0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PIO_INTERRUPT0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PIO_INTERRUPT1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PIO_INTERRUPT1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PIO_INTERRUPT2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PIO_INTERRUPT2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PIO_INTERRUPT3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PIO_INTERRUPT3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PIO_INTERRUPT4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PIO_INTERRUPT4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PIO_INTERRUPT5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PIO_INTERRUPT5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PU0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PU0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PU1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PU1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PU2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PU2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PU3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PU3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PU4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PU4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_PU5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_PU5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_TYPE0"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_TYPE0&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_TYPE1"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_TYPE1&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_TYPE2"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_TYPE2&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_TYPE3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_TYPE3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_TYPE4"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_TYPE4&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_CUSTOM_TYPE5"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_CUSTOM_TYPE5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BSP_PIC32CXMTG_Evaluation_Kit" name="BSP_TYPE_SIZE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;BSP_PIC32CXMTG_Evaluation_Kit&gt;
+  &lt;BSP_PIC32CXMTG_Evaluation_Kit dnOrder=&quot;0&quot; id=&quot;BSP_TYPE_SIZE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+&lt;/BSP_PIC32CXMTG_Evaluation_Kit&gt;
+</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="!@#harmonyAttachmentState"/>
@@ -689,7 +1197,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;526&quot; canvasWidth=&quot;713&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;509&quot; canvasWidth=&quot;713&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -708,11 +1216,12 @@
         &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;qspi&quot; x=&quot;298&quot; y=&quot;364&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;sefc0&quot; x=&quot;301&quot; y=&quot;8&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sefc1&quot; x=&quot;432&quot; y=&quot;9&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;srv_pcoup&quot; x=&quot;0&quot; y=&quot;312&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_console&quot; x=&quot;512&quot; y=&quot;114&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_time&quot; x=&quot;159&quot; y=&quot;161&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;tc0&quot; x=&quot;0&quot; y=&quot;207&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;trng&quot; x=&quot;166&quot; y=&quot;90&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;srvRandom&quot; x=&quot;339&quot; y=&quot;83&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;srv_pcoup&quot; x=&quot;0&quot; y=&quot;312&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_console&quot; x=&quot;512&quot; y=&quot;114&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_time&quot; x=&quot;159&quot; y=&quot;161&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;tc0&quot; x=&quot;0&quot; y=&quot;207&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;trng&quot; x=&quot;166&quot; y=&quot;90&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -1469,6 +1978,44 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_20_DIR"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_20_DIR&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_20_FUNCTION_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_20_FUNCTION_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_20_FUNCTION_TYPE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_20_FUNCTION_TYPE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_20_LAT"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_20_LAT&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_20_PERIPHERAL_FUNCTION"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_20_PERIPHERAL_FUNCTION&quot;&gt;
@@ -1645,12 +2192,50 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_32_DIR"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_32_DIR&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_32_FUNCTION_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_32_FUNCTION_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_32_FUNCTION_TYPE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_32_FUNCTION_TYPE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_32_PERIPHERAL_FUNCTION"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_32_PERIPHERAL_FUNCTION&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;SWITCH_AL&quot;/&gt;
     &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_32_PU"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_32_PU&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -1788,6 +2373,44 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_7_DIR"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_7_DIR&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_7_FUNCTION_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_7_FUNCTION_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_7_FUNCTION_TYPE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_7_FUNCTION_TYPE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_7_LAT"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_7_LAT&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PIN_7_PERIPHERAL_FUNCTION"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PIN_7_PERIPHERAL_FUNCTION&quot;&gt;
@@ -1870,6 +2493,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_A_CFGR_Value3&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x100&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PORT_A_CFGR_Value7"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_A_CFGR_Value7&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x200&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -2079,6 +2713,39 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_C_MSKR_ValueGPIO&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x0&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PORT_D_CFGR_Value16"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_D_CFGR_Value16&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x100&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PORT_D_CFGR_Value3"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_D_CFGR_Value3&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x100&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="PORT_D_LATCH"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_D_LATCH&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x10008&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -3099,6 +3766,10 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sefc1" name="#&amp;__MCC_Group_Parrent_id"/>
+         <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="srvRandom" name="#&amp;__MCC_Group_Parrent_id"/>
          <value>__ROOTVIEW</value>
       </entry>
       <entry>
@@ -12962,11 +13633,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\bsp\bsp.c</file>
-         <hash>9174d1bbbcc81cfbca3d4eb259f1c88b820595cfbe3b13a4d4bc0a7624f443fc</hash>
+         <hash>c67b6294cff9844db10dc4cc9424374c1b21be88bcaef1fd4318c02e08946c17</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\bsp\bsp.h</file>
-         <hash>4f124497ee0b86184954581d4578c11aa47dd9ccba83465e08f5a2c934741bb8</hash>
+         <hash>0dce7ba35fc3bd9ee62d9ab25e0000da03627e063037e94651857d0fdf788050</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\configuration.h</file>
@@ -12974,7 +13645,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\definitions.h</file>
-         <hash>b3334499f6b331caa72e2d16172302af44a077a6f235c950f0f380ec618d7f54</hash>
+         <hash>ff82db7df8802f9d2e250a1ad95e250c2b655353de405c4dcfbdc025144bafec</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\device.h</file>
@@ -13022,7 +13693,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\common\drv_plc_hal.c</file>
-         <hash>a840f4a0cb680d2c7849efbb8d2a084180b1a404d74994204222c99377b746b6</hash>
+         <hash>aa11bae93c38020eea3633adbc816796700833a61a2bfb3e77f117371f99c670</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\common\drv_plc_hal.h</file>
@@ -13038,15 +13709,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\phy\drv_plc_phy.c</file>
-         <hash>21e75dadf945ff401d6c896c7b6376770323ad0e3deeb3dcc27b7ab1955560f4</hash>
+         <hash>aaf13475919d081d53183ab982c42a5791e4344f9db14d93eb8c5e0017061cf3</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\phy\drv_plc_phy.h</file>
-         <hash>904fc2cc2a7de58308ead9f4cf5e0077a30fec67114749e71c34dbf178e25619</hash>
+         <hash>dd8a168ec0188ed677ba24c685c1b7db7db59c3b7629051b69db68b3adaa8f9a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\phy\drv_plc_phy_comm.c</file>
-         <hash>ab1a712cd8876c5812f2f45efc1c0fcd88a2a8122779e5698a264e1cbe859fe0</hash>
+         <hash>b6076ae34c56748f5cc4d764c9bd2f2c877545fbbfdf9492d548058f2347b417</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\phy\drv_plc_phy_comm.h</file>
@@ -13058,7 +13729,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\phy\drv_plc_phy_local.h</file>
-         <hash>d2ec08f8d251cdd081cef7650f6311a405751cb56a835e0b6de212d09bad5a2b</hash>
+         <hash>a6b1fec5de197505a47854146aba264e29380c19a2c9df9b0f03cc8f20e1b68f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\driver\plc\phy\drv_plc_phy_local_comm.h</file>
@@ -13250,7 +13921,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\pin_configurations.csv</file>
-         <hash>f6a4268b117879114ed7540487ce0455d6780da60186d0316c424a3a068dff97</hash>
+         <hash>4402612440e9eb4dad80371316dd41b922c7199d1a5e56a0523493547e5f25be</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\service\pcoup\srv_pcoup.c</file>
@@ -13259,6 +13930,14 @@
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\service\pcoup\srv_pcoup.h</file>
          <hash>c120bd4cadef944e3fad5cf540a52d149ef2eb9f6cbd6a91c0745fed755c9746</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl360amb\service\random\srv_random.c</file>
+         <hash>3b9c2c67678d842013e990ca379c2dc50f132e5811765c995ab6ce4ad93b07d5</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl360amb\service\random\srv_random.h</file>
+         <hash>74409dadccb1a152f9717e596b31af36c8cac01d1a33a4a40a15c5fbdcd52a78</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl360amb\startup_xc32.c</file>

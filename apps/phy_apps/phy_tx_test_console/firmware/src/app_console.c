@@ -54,6 +54,7 @@ Microchip or any third party.
 #include <stdarg.h>
 #include <math.h>
 #include "definitions.h"
+#include "service/random/srv_random.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -293,7 +294,7 @@ static bool APP_CONSOLE_SetDataMode(char *mode)
             {
                 if ((numBytesRnd % 4) == 0)
                 {
-                    dataValue = TRNG_ReadData();
+                    dataValue = SRV_RANDOM_Get32bits();
                 }
 
                 *pData++ = (uint8_t)dataValue;

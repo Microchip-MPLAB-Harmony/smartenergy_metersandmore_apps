@@ -13,7 +13,7 @@ Pin Number,Pin ID,Custom Name,Function,Direction,Latch,Open Drain,PIO Interrupt,
 25,PA10,PL460_SCK,FLEXCOM1_IO2,n/a,n/a,No,Disabled,No,No,Glitch Filter,0x0
 26,PA11,PL460_CS,FLEXCOM1_IO3,n/a,n/a,No,Disabled,No,No,Glitch Filter,0x0
 27,PA2,PL460_NTHW0,GPIO,In,n/a,No,Disabled,Yes,No,Glitch Filter,0x0
-28,PA3,PL460_EXTINT,GPIO,In,n/a,No,Falling Edge,No,Yes,Disabled,0x0
+28,PA3,PL460_EXTINT,GPIO,In,n/a,No,Low Level,No,Yes,Disabled,0x0
 29,PA4,DBG_UART_TX,FLEXCOM0_IO0,n/a,n/a,No,Disabled,No,No,Glitch Filter,0x0
 30,PA5,DBG_UART_RX,FLEXCOM0_IO1,n/a,n/a,No,Disabled,No,No,Glitch Filter,0x0
 31,PA6,,Available,In,,,,,,,

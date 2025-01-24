@@ -62,6 +62,10 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
+         <string>srvRandom</string>
+         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
+      </entry>
+      <entry>
          <string>srv_pcoup</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -1251,7 +1255,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;544&quot; canvasWidth=&quot;695&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;544&quot; canvasWidth=&quot;777&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -1271,12 +1275,13 @@
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;qspi&quot; x=&quot;13&quot; y=&quot;333&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sefc0&quot; x=&quot;301&quot; y=&quot;8&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sefc1&quot; x=&quot;432&quot; y=&quot;9&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;srv_pcoup&quot; x=&quot;7&quot; y=&quot;432&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;srv_pvddmon&quot; x=&quot;512&quot; y=&quot;455&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_console&quot; x=&quot;453&quot; y=&quot;93&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_time&quot; x=&quot;159&quot; y=&quot;161&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;tc0&quot; x=&quot;0&quot; y=&quot;207&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;trng&quot; x=&quot;166&quot; y=&quot;90&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;srvRandom&quot; x=&quot;170&quot; y=&quot;440&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;srv_pcoup&quot; x=&quot;7&quot; y=&quot;432&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;srv_pvddmon&quot; x=&quot;512&quot; y=&quot;455&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_console&quot; x=&quot;453&quot; y=&quot;93&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;sys_time&quot; x=&quot;159&quot; y=&quot;161&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;tc0&quot; x=&quot;0&quot; y=&quot;207&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;trng&quot; x=&quot;166&quot; y=&quot;90&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -8742,6 +8747,10 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sefc1" name="#&amp;__MCC_Group_Parrent_id"/>
+         <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="srvRandom" name="#&amp;__MCC_Group_Parrent_id"/>
          <value>__ROOTVIEW</value>
       </entry>
       <entry>
@@ -19097,7 +19106,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
-         <hash>2789be57b0fd85f0157feeb2178e248692f86b8b592a4f1a5d72fd768cdfd394</hash>
+         <hash>a320c28b5f1537b3c97a63ed92c909e8e8d2dfe7443d3cb31f36b8f68510485d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
@@ -19145,7 +19154,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_hal.c</file>
-         <hash>42a6425c512e20ff8512b92b2aec198dcb9885eb542181030295da56bcf9b8ae</hash>
+         <hash>726d8b91f5a7aba178947c0b5fcff9fd0a991d7c7fec1bdfcd79e85637e216f6</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_hal.h</file>
@@ -19161,15 +19170,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy.c</file>
-         <hash>2aa6afae877b81bbef91850416d15e0448358f020dc80a80697a38e69625ff7e</hash>
+         <hash>55459cc8784bb50e124293a4df60ff465720cdb52d07152a8d17feb39df644d6</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy.h</file>
-         <hash>67c3a9b5d2675bbc96a4c7d62fda6adf02ca652817e181c4775fda7c750ec40d</hash>
+         <hash>1d0b47f4ffd6b01eb025095513d4e0e4b3ff74e15c3c0ca50718f817718de2d1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_comm.c</file>
-         <hash>772951b20c9050883b36ec920a5e076a9398d415afe323b676bccea25254a255</hash>
+         <hash>978d33518374fc22b5924459bb0491bff15f88f73e2c228a1bd506926fe20ae2</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_comm.h</file>
@@ -19181,7 +19190,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_local.h</file>
-         <hash>d2ec08f8d251cdd081cef7650f6311a405751cb56a835e0b6de212d09bad5a2b</hash>
+         <hash>a6b1fec5de197505a47854146aba264e29380c19a2c9df9b0f03cc8f20e1b68f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_local_comm.h</file>
@@ -19305,7 +19314,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.c</file>
-         <hash>0c4c054ce9f2a7641313312622d3737168da91b254fa6a0e0f22a75784b3db07</hash>
+         <hash>dd50a52e678a858906dd376a5ef92a221c41174320288d1229c855153871bc7f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.h</file>
@@ -19385,7 +19394,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\pin_configurations.csv</file>
-         <hash>4c5e9cb273cee9881d99f0ef626d91d6c12fc7cb0fc63c3d279060051555fb8f</hash>
+         <hash>9814fb3d2dbc3e9d4abd5f031a91a0e609f558388659beeb69e499e7e74b9993</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcoup\srv_pcoup.c</file>
@@ -19402,6 +19411,14 @@
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\service\pvddmon\srv_pvddmon.h</file>
          <hash>8f59e8f63fce90d5898a5a978df8d8c9a942158769145d3f2678a98a25aca394</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\random\srv_random.c</file>
+         <hash>3b9c2c67678d842013e990ca379c2dc50f132e5811765c995ab6ce4ad93b07d5</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\service\random\srv_random.h</file>
+         <hash>74409dadccb1a152f9717e596b31af36c8cac01d1a33a4a40a15c5fbdcd52a78</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\startup_xc32.c</file>

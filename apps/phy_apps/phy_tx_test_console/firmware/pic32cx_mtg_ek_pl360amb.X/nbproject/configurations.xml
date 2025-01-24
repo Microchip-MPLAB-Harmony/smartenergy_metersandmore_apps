@@ -98,6 +98,9 @@
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/pcoup/srv_pcoup.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="random" displayName="random" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/random/srv_random.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="system" displayName="system" projectFiles="true">
             <logicalFolder name="cache" displayName="cache" projectFiles="true">
@@ -359,6 +362,9 @@
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/pcoup/srv_pcoup.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="random" displayName="random" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/random/srv_random.c</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/stdio/xc32_monitor.c</itemPath>
@@ -401,14 +407,14 @@
         <targetDevice>PIC32CX2051MTG128</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>jlink</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.45</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
         <pack name="PIC32CX-MT_DFP" vendor="Microchip" version="1.3.132"/>
+        <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
