@@ -10100,6 +10100,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="NVIC_10_0_PRIORITY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_10_0_PRIORITY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="NVIC_13_0_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_13_0_ENABLE&quot;&gt;
@@ -10133,6 +10144,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="NVIC_13_0_PRIORITY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_13_0_PRIORITY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="NVIC_21_0_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_21_0_ENABLE&quot;&gt;
@@ -10160,6 +10182,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_21_0_HANDLER_LOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="NVIC_21_0_PRIORITY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_21_0_PRIORITY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -10226,6 +10259,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_7_0_HANDLER_LOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="NVIC_7_0_PRIORITY"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;NVIC_7_0_PRIORITY&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -28779,7 +28823,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>c05ba035a8018bc6e66c4a42bb23238b970b57b2e52c8f456dedd96b4278fe60</hash>
+         <hash>d19fd10b199dd1a9095507274332af27fc2f8e63748ebf3dae8aecaf9efc69d3</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -28859,7 +28903,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\initialization.c</file>
-         <hash>a77f524c6d738334d337e3bc8d3b4232c4a4cdd69c1983eabdcf906969e67275</hash>
+         <hash>9760818b234fd75c85f11169fc11679c47a66bc2607f1d41bc5cf61a87335336</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\interrupts.c</file>
@@ -28923,7 +28967,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\nvic\plib_nvic.c</file>
-         <hash>937e7fa491dda2beff34a420a657048ad872b24f1ff4ae2c227e0cc77cf5c345</hash>
+         <hash>17514c43c9a3af9c4ae4c804d79e646ec235137ec3bfab9484c164450c901e4b</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\nvic\plib_nvic.h</file>
