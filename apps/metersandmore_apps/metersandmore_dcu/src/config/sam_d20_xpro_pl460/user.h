@@ -39,12 +39,12 @@ extern "C" {
 #define BLINK_LED_Toggle()       BSP_LED0_Toggle()
 
 /* Macros for PLC Indication LED */
-#define PLC_IND_LED_On()         BSP_LED1_On()
-#define PLC_IND_LED_Off()        BSP_LED1_Off()
-#define PLC_IND_LED_Toggle()     BSP_LED1_Toggle()
+#define PLC_IND_LED_On()
+#define PLC_IND_LED_Off()
+#define PLC_IND_LED_Toggle()
 
 /* Macro to clear watchdog */
-#define CLEAR_WATCHDOG()         DWDT_WDT0_Clear()
+#define CLEAR_WATCHDOG()         WDT_Clear()
 
 /* Macros to configure AL encryption keys */
 #define CONFIG_AL_KEY_K1         {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f}
