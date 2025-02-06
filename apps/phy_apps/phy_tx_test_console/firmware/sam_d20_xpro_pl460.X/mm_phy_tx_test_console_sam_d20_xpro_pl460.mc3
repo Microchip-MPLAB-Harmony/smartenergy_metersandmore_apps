@@ -10433,7 +10433,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;PL460_CS&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;EXT1_SPI_CS&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -28011,7 +28011,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>0ff1cc09143f73e54578e1652c4d6936da04ae92c5dfd61571647298dd7ce288</hash>
+         <hash>313ae9c87ccb2cabc2a04300fae55b5f1b1effe5bbe8beb65874a53be64764e6</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -28195,11 +28195,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\port\plib_port.c</file>
-         <hash>bb62b3b9677855b79c5af22c4118155db6e45eefb79c5a392b8c97baceb3ac92</hash>
+         <hash>1a67b7145a79f819a80e9fc116ac71c7b6aa99b087180a4e0860bf96c3fcd63a</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\port\plib_port.h</file>
-         <hash>b54955f0416722d7d9858696f93d8960bf109bb03faa0b43d83651f59cc698fe</hash>
+         <hash>1f8fb91386fbbe359b3b7a8b0e2832d71561c7251a5be3f030bab80b95a341eb</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\spi_master\plib_sercom0_spi_master.c</file>
@@ -28247,7 +28247,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\pin_configurations.csv</file>
-         <hash>e6308436167abbc554d01a961b133f3ecb84446ccf529635bc2319b6ed3df0ea</hash>
+         <hash>9a6013050c65c818ca96ba68bdfecb8452510ff26fa6f34cc183e6adf9cad57d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\pcoup\srv_pcoup.c</file>
