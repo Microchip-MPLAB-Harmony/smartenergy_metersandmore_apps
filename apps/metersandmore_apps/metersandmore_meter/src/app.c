@@ -211,6 +211,27 @@ static void lAPP_GetACA(uint8_t* aca)
 }
 #endif
 
+#ifdef CONFIG_ACA_AUTO_SAMD20
+static void lAPP_GetACA(uint8_t* aca)
+{
+    uint32_t serialNumber[4];
+    uint8_t *pSerialNumber = (uint8_t *)&serialNumber[0];
+    
+    /* Read Serial Number to set extended address (EUI64) */
+    serialNumber[0] = *(uint32_t *)0x0080A00C;
+    serialNumber[1] = *(uint32_t *)0x0080A040;
+    serialNumber[2] = *(uint32_t *)0x0080A044;
+    serialNumber[3] = *(uint32_t *)0x0080A048;
+
+    aca[5] = pSerialNumber[6];
+    aca[4] = pSerialNumber[7];
+    aca[3] = (pSerialNumber[8] << 4) | (pSerialNumber[9] & 0x0F);
+    aca[2] = (pSerialNumber[10] << 4) | (pSerialNumber[11] & 0x0F);
+    aca[1] = (pSerialNumber[12] << 4) | (pSerialNumber[13] & 0x0F);
+    aca[0] = (pSerialNumber[14] << 4) | (pSerialNumber[15] & 0x0F);
+}
+#endif
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -292,7 +313,7 @@ void APP_Tasks ( void )
             appData.alIB.length = MAC_ADDRESS_SIZE;
 #ifdef CONFIG_ACA_FIXED
             memcpy(appData.alIB.value, acaFixed, MAC_ADDRESS_SIZE);
-#elif defined(CONFIG_ACA_AUTO_PIC32CXMT)
+#else
             lAPP_GetACA(appData.alIB.value);
 #endif
             AL_SetRequest(AL_MAC_ACA_ADDRESS_IB, 0, &appData.alIB);
