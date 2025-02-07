@@ -754,7 +754,6 @@ MMHI_HANDLE MMHI_Open( SYS_MODULE_OBJ object )
 
     /* Enable External RTS pin interrupt and register callback */
     SYS_INT_SourceStatusClear(MMHI_EXT_INT_RTS_SRC);
-    
     EIC_CallbackRegister(MMHI_EXT_INT_RTS_PIN, lMMHI_ExternalInterruptRTSHandler, ctx);
     EIC_InterruptEnable(MMHI_EXT_INT_RTS_PIN);
 

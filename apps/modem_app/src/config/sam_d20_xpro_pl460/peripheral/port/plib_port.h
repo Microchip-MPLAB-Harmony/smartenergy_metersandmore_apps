@@ -112,17 +112,17 @@
 #define PL460_TXEN_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 9U)) & 0x01U)
 #define PL460_TXEN_PIN                  PORT_PIN_PA09
 
-/*** Macros for EXT_2_UART_TX pin ***/
-#define EXT_2_UART_TX_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 12U)) & 0x01U)
-#define EXT_2_UART_TX_PIN                  PORT_PIN_PB12
+/*** Macros for EXT2_USART_TX pin ***/
+#define EXT2_USART_TX_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 12U)) & 0x01U)
+#define EXT2_USART_TX_PIN                  PORT_PIN_PB12
 
-/*** Macros for EXT_2_UART_RX pin ***/
-#define EXT_2_UART_RX_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 13U)) & 0x01U)
-#define EXT_2_UART_RX_PIN                  PORT_PIN_PB13
+/*** Macros for EXT2_USART_RX pin ***/
+#define EXT2_USART_RX_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 13U)) & 0x01U)
+#define EXT2_USART_RX_PIN                  PORT_PIN_PB13
 
-/*** Macros for EXT_2_INT pin ***/
-#define EXT_2_INT_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 14U)) & 0x01U)
-#define EXT_2_INT_PIN                  PORT_PIN_PB14
+/*** Macros for EXT2_IRQ pin ***/
+#define EXT2_IRQ_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 14U)) & 0x01U)
+#define EXT2_IRQ_PIN                  PORT_PIN_PB14
 
 /*** Macros for LED0 pin ***/
 #define LED0_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 14U))

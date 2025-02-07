@@ -19,9 +19,9 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 20,PA11,,Available,,,,,,NORMAL
 23,PB10,,Available,,,,,,NORMAL
 24,PB11,,Available,,,,,,NORMAL
-25,PB12,EXT_2_UART_TX,SERCOM4_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
-26,PB13,EXT_2_UART_RX,SERCOM4_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
-27,PB14,EXT_2_INT,EIC_EXTINT14,Digital,High Impedance,n/a,No,No,NORMAL
+25,PB12,EXT2_USART_TX,SERCOM4_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
+26,PB13,EXT2_USART_RX,SERCOM4_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
+27,PB14,EXT2_IRQ,EIC_EXTINT14,Digital,High Impedance,n/a,No,Yes,NORMAL
 28,PB15,,Available,,,,,,NORMAL
 29,PA12,,Available,,,,,,NORMAL
 30,PA13,,Available,,,,,,NORMAL
