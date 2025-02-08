@@ -386,8 +386,8 @@ void SYS_Initialize ( void* data )
 
     SERCOM3_USART_Initialize();
 
-
     SERCOM0_SPI_Initialize();
+
 
     SERCOM4_USART_Initialize();
 
@@ -437,7 +437,7 @@ void SYS_Initialize ( void* data )
 
 
     /* MISRAC 2012 deviation block end */
-    APP_Initialize();
+    MODEM_APP_Initialize();
 
 
     NVIC_Initialize();

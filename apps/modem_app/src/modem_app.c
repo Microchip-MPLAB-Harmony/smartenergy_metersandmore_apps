@@ -70,7 +70,7 @@ MODEM_APP_DATA modem_appData;
 
 static void lMODEM_APP_TimerCallback ( uintptr_t context )
 {
-    BSP_LED0_Toggle();
+    USER_LED_Toogle();
 }
 
 static void lMODEM_APP_MacDataReqCallback ( uint8_t dsap, uint8_t reqId,

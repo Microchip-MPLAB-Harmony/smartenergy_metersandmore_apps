@@ -4,7 +4,7 @@
 
 
 project: modem_app
-creation_date: 2025-02-07T09:30:16.952+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-02-08T07:38:58.859+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
@@ -20,7 +20,7 @@ modules:
     - {name: "crypto_v4", version: "v4.0.0-E3"}
     - {name: "wolfssl", version: "v5.7.0"}
     - {name: "smartenergy", version: "SMS-4128-support-pl460-multiband-single-branch-coupling-in-h3"}
-    - {name: "smartenergy_metersandmore", version: "MH3-110105-extend-meters-and-more-projects-for-samd20-xpro"}
+    - {name: "smartenergy_metersandmore", version: "MH3-110109-add-meters-and-more-projects-with-freertos"}
     - {name: "shd", version: "dev"}
 
 packs:

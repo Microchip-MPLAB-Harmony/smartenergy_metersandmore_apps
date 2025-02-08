@@ -133,6 +133,9 @@
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
+      &lt;String dnOrder=&quot;1&quot; id=&quot;name&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;modem_app.c&lt;/Value&gt;
+      &lt;/String&gt;
     &lt;/Attributes&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -146,6 +149,9 @@
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
+      &lt;String dnOrder=&quot;1&quot; id=&quot;name&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;modem_app.h&lt;/Value&gt;
+      &lt;/String&gt;
     &lt;/Attributes&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -8192,7 +8198,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_TASK_NAME_0"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_TASK_NAME_0&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;modem_app&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -31344,14 +31352,6 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.TreeMap">
       <entry>
-         <file>..\src\app.c</file>
-         <hash/>
-      </entry>
-      <entry>
-         <file>..\src\app.h</file>
-         <hash/>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\PIC32CX2051MTSH128.ld</file>
          <hash>c6dfa1c9f647c6c3ee86f24233ad844d2f688ba6b57d5eea4b70975e99529edc</hash>
       </entry>
@@ -31429,7 +31429,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\definitions.h</file>
-         <hash>3f101c87052e45ac2afa7041c27cb2f1d83e7b32165747d421adfe0f184e7006</hash>
+         <hash>328ad021758a2bc2de1f775ad848d2e5ed84484c4ae009f8595acf0fc2bb9ed0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\device.h</file>
@@ -31497,7 +31497,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy_local.h</file>
-         <hash>91e10d1c8a3de340f29f5bf0e8948fa092c9c6710a63463d8324b42efa4e84a9</hash>
+         <hash>3fd3dddd9946550741bdf7a010abbfc1c50dcca6c5f4dce8c2676592eaf7cf9e</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\driver\plc\phy\drv_plc_phy_local_comm.h</file>
@@ -31509,7 +31509,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\initialization.c</file>
-         <hash>c1500216aa82405effd3b57efa6e35dbdf0029b9f2c839eceaced52d2da436a2</hash>
+         <hash>bdf99fd70180cc5efe4f7d7760bf8a6b9c67aa075c5114c9a9346381559e51ed</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\interrupts.c</file>
@@ -31877,7 +31877,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\tasks.c</file>
-         <hash>21495e9567515fdc3f5e2bf627933d132cbc144c15b12449b2e6be41f15fbf77</hash>
+         <hash>0590147b3d504100746aa11bfec27228ba113d50ecc36afb7abe1017525320f6</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\toolchain_specifics.h</file>
@@ -31889,6 +31889,14 @@
       </entry>
       <entry>
          <file>..\src\main.c</file>
+         <hash/>
+      </entry>
+      <entry>
+         <file>..\src\modem_app.c</file>
+         <hash/>
+      </entry>
+      <entry>
+         <file>..\src\modem_app.h</file>
          <hash/>
       </entry>
       <entry>

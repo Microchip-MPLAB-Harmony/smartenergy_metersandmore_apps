@@ -87,7 +87,8 @@ void SYS_Tasks ( void )
     
     /* Maintain Meters And More Host Interface */
     MMHI_Tasks(sysObj.metersandmoreHostInterface);
-    
+
+
 
     /* Maintain Meters And More DLL */
     DLL_Tasks(sysObj.metersandmoreDll);
@@ -99,8 +100,8 @@ void SYS_Tasks ( void )
 
 
     /* Maintain the application's state machine. */
-        /* Call Application task APP. */
-    APP_Tasks();
+        /* Call Application task MODEM_APP. */
+    MODEM_APP_Tasks();
 
 
 
