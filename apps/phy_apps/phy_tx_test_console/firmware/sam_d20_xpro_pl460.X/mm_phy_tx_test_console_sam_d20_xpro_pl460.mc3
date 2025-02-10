@@ -17027,7 +17027,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sercom3" name="USART_TX_RING_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sercom3&gt;
   &lt;sercom3 dnOrder=&quot;0&quot; id=&quot;USART_TX_RING_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1024&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sercom3&gt;
 &lt;/sercom3&gt;
 </value>
@@ -26973,7 +26980,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_console" name="SYS_CONSOLE_PRINT_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console&gt;
   &lt;sys_console dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_PRINT_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1024&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_console&gt;
 &lt;/sys_console&gt;
 </value>
@@ -28007,11 +28016,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\configuration.h</file>
-         <hash>ef016b4489c13e478285154d0c36eca4e05d3790c325d1caaf30da820097452f</hash>
+         <hash>5f5245ee7bfb74534e56f06b5ec43f108f5644c0ee3c2604f22fce6e52d27a0e</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>313ae9c87ccb2cabc2a04300fae55b5f1b1effe5bbe8beb65874a53be64764e6</hash>
+         <hash>1e218208b381714c86d6c8b665e3e888c0e3fec15a170c77fb457fe077155f80</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -28103,7 +28112,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\driver\plc\phy\drv_plc_phy_local.h</file>
-         <hash>91e10d1c8a3de340f29f5bf0e8948fa092c9c6710a63463d8324b42efa4e84a9</hash>
+         <hash>3fd3dddd9946550741bdf7a010abbfc1c50dcca6c5f4dce8c2676592eaf7cf9e</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\driver\plc\phy\drv_plc_phy_local_comm.h</file>
@@ -28215,7 +28224,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\usart\plib_sercom3_usart.c</file>
-         <hash>78251c199b215c044c9161c83f58a5ce78b429ea99d7c6b45805daba928d7894</hash>
+         <hash>a67d4077c84277a48ec726638d9fdffc2787ecd08f2f1f2ea9636a5c993c1b90</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\usart\plib_sercom3_usart.h</file>

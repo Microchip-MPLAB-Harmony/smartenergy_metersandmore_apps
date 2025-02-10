@@ -273,11 +273,6 @@ static void APP_PLC_DataIndCb( DRV_PLC_PHY_RECEPTION_OBJ *indObj, uintptr_t cont
 static void APP_PLC_PVDDMonitorCb( SRV_PVDDMON_CMP_MODE cmpMode, uintptr_t context )
 {
     (void)context;
-    
-    if (!appPlc.pvddMonInitialized)
-    {
-        appPlc.pvddMonInitialized = true;
-    }
 
     if (cmpMode == SRV_PVDDMON_CMP_MODE_OUT)
     {
@@ -514,7 +509,6 @@ void APP_PLC_PL460_Tasks ( void )
 #ifndef APP_PLC_DISABLE_PVDDMON
                 /* Disable TX Enable at the beginning */
                 DRV_PLC_PHY_EnableTX(appPlc.drvPlcHandle, false);
-                appPlc.pvddMonInitialized = false;
                 appPlc.pvddMonTxEnable = false;
                 /* Enable PLC PVDD Monitor Service */
                 SRV_PVDDMON_CallbackRegister(APP_PLC_PVDDMonitorCb, 0);
@@ -581,26 +575,23 @@ void APP_PLC_PL460_Tasks ( void )
             {
                 if (appPlc.plcTxState == APP_PLC_TX_STATE_IDLE)
                 {
-                    if (appPlc.pvddMonInitialized)
+                    if (appPlc.pvddMonTxEnable)
                     {
-                        if (appPlc.pvddMonTxEnable)
-                        {
-                            /* Update the sequence number */
-                            appPlcTx.txNumSequence++;
+                        /* Update the sequence number */
+                        appPlcTx.txNumSequence++;
 
-                            appPlc.plcTxState = APP_PLC_TX_STATE_WAIT_TX_CFM;
-                            /* Send PLC message */
-                            DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
-                        }
-                        else
-                        {
-                            DRV_PLC_PHY_TRANSMISSION_CFM_OBJ cfmData;
+                        appPlc.plcTxState = APP_PLC_TX_STATE_WAIT_TX_CFM;
+                        /* Send PLC message */
+                        DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
+                    }
+                    else
+                    {
+                        DRV_PLC_PHY_TRANSMISSION_CFM_OBJ cfmData;
 
-                            cfmData.timeEnd = 0;
-                            cfmData.rmsCalc = 0;
-                            cfmData.result = DRV_PLC_PHY_TX_RESULT_NO_TX;
-                            APP_PLC_DataCfmCb(&cfmData, 0);
-                        }
+                        cfmData.timeEnd = 0;
+                        cfmData.rmsCalc = 0;
+                        cfmData.result = DRV_PLC_PHY_TX_RESULT_NO_TX;
+                        APP_PLC_DataCfmCb(&cfmData, 0);
                     }
                 }
             }

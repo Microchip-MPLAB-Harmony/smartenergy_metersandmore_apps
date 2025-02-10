@@ -48,8 +48,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "service/pcoup/srv_pcoup.h"
 #include "peripheral/sercom/usart/plib_sercom3_usart.h"
+#include "service/pcoup/srv_pcoup.h"
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
 #include "peripheral/evsys/plib_evsys.h"
 #include "peripheral/sercom/spi_master/plib_sercom0_spi_master.h"
@@ -67,9 +67,9 @@
 #include "system/time/sys_time.h"
 #include "driver/memory/drv_memory_nvmctrl.h"
 #include "service/pvddmon/srv_pvddmon.h"
+#include "bsp/bsp.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
-#include "bsp/bsp.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
 #include "osal/osal.h"
