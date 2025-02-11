@@ -659,15 +659,6 @@ static void lAL_DllDataIndication(DLL_DATA_IND_PARAMS *indParams)
             AL_DataRequest(&request);
         }
     }
-    else {
-        /* Master Node */
-        /* If waiting multiresponse, any response cancels the Event Indication to upper layer */
-        if (alData.multiresponse == true)
-        {
-            /* Swith to Waiting Timeout instead of Waiting RX */
-            alData.state = AL_STATE_WAITING_TIMEOUT;
-        }
-    }
 
     if (dataIndCallback != NULL)
     {
@@ -726,15 +717,7 @@ static void lAL_DllDataConfirm(DLL_DATA_CONFIRM_PARAMS *cfmParams)
         confirm.txStatus = AL_TX_STATUS_SUCCESS;
         if (alData.txTimeoutHandle != SYS_TIME_HANDLE_INVALID)
         {
-            /* If frame expects response, go to wait RX. Otherwise, wait timeout ends */
-            if (alData.dllDataReqParams.serviceClass != SERVICE_CLASS_S)
-            {
-                alData.state = AL_STATE_WAITING_RX;
-            }
-            else
-            {
-                alData.state = AL_STATE_WAITING_TIMEOUT;
-            }
+            alData.state = AL_STATE_WAITING_RX;
         }
         else
         {
@@ -1137,15 +1120,6 @@ void AL_Tasks( SYS_MODULE_OBJ object )
 
         case AL_STATE_WAITING_TX_CFM:
             /* Nothing to do, wait for DL_DATA.CONFIRM */
-            break;
-
-        case AL_STATE_WAITING_TIMEOUT:
-            /* Wait until Timeout expires */
-            if (true == alData.txTimeoutExpired)
-            {
-                alData.state = AL_STATE_IDLE;
-                alData.txTimeoutHandle = SYS_TIME_HANDLE_INVALID;
-            }
             break;
 
         case AL_STATE_WAITING_RX:

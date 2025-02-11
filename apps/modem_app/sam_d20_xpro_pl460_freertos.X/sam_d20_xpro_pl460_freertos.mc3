@@ -11789,7 +11789,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;PL460_CS&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;EXT1_SPI_CS&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -11853,8 +11853,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;D&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;D&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;GPIO&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -13150,7 +13149,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_GROUP_0_PINCFG5&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x1&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -13315,7 +13314,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PORT_GROUP_0_PMUX2&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x33&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0x3&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -32484,11 +32483,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\port\plib_port.c</file>
-         <hash>c6f03cac1afb8bef26a19fa1d81687d21dcb080f7aee849ace8171a7128bf6c2</hash>
+         <hash>1ca60419c2461be337662fabd8cbdfb7b6c7a54db7152307f6fdd8cb6804a89c</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\port\plib_port.h</file>
-         <hash>36631265b486faeb5f372dedfcfd3ae68edd2d4bbad34623f2c2e5ad1b5f8a94</hash>
+         <hash>bc27f0a1f1c79a6645fb275efb632d1a0f9c17eac5230025c994db7e4eb9e00d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\spi_master\plib_sercom0_spi_master.c</file>
@@ -32544,7 +32543,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\pin_configurations.csv</file>
-         <hash>709b156fc1b999d40a4d7fb14f748f8d480509cc2d1d7966f135cfccb9cf9ad5</hash>
+         <hash>a92152ce2f599e87ea60f6185d3032aa5c4e1baa69618e42d6fcb9986e07013c</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\pcoup\srv_pcoup.c</file>
@@ -32580,7 +32579,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.c</file>
-         <hash>b19d20a1b26d1ec4a3387a43bc4843b505e398e9cb6fd384836e2b830332cc7f</hash>
+         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.h</file>
@@ -32588,7 +32587,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_local.h</file>
-         <hash>95b81ce6b8596f7c906b7648637702558620b30a09e2e31958cdd60468f16341</hash>
+         <hash>ae4deca9fe8407f4d31b9cbf426ff046788cb4741dace05451521d2bb2c93645</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\dll.h</file>
@@ -32596,7 +32595,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll_cm0.a</file>
-         <hash>b259350d052d6cc129c9f447b05ef2891d2724623163ecda5eff3098d0d4dce6</hash>
+         <hash>515a3c6290413cacb5b83710ddf2d836aa419ed972ad9dfe7d14eee37a1c5e27</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\mmhi\mmhi.c</file>

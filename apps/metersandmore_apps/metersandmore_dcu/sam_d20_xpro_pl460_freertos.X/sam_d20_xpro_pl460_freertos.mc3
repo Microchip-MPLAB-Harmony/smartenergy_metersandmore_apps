@@ -11649,7 +11649,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;PL460_CS&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;EXT1_SPI_CS&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -30343,7 +30343,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>2ab9920adfacbfe23b29a8ca1775b2ac2180f291217c12d3154074884a74d3f1</hash>
+         <hash>590ee72833bbe98d8f3f88ca21cb7500eceace6b26d5b5641ff5b9782e622b91</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -30427,7 +30427,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\initialization.c</file>
-         <hash>204658c460e120a005ed863f92d3405fa146f11bdad212d21ca5ff6f2bff021a</hash>
+         <hash>8a00a958c14121a3abcb649b9d938cde25dad6e0d06caff0d6a14bf913eeb319</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\interrupts.c</file>
@@ -30511,11 +30511,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\port\plib_port.c</file>
-         <hash>bb62b3b9677855b79c5af22c4118155db6e45eefb79c5a392b8c97baceb3ac92</hash>
+         <hash>1a67b7145a79f819a80e9fc116ac71c7b6aa99b087180a4e0860bf96c3fcd63a</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\port\plib_port.h</file>
-         <hash>b54955f0416722d7d9858696f93d8960bf109bb03faa0b43d83651f59cc698fe</hash>
+         <hash>1f8fb91386fbbe359b3b7a8b0e2832d71561c7251a5be3f030bab80b95a341eb</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\spi_master\plib_sercom0_spi_master.c</file>
@@ -30563,7 +30563,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\pin_configurations.csv</file>
-         <hash>e6308436167abbc554d01a961b133f3ecb84446ccf529635bc2319b6ed3df0ea</hash>
+         <hash>9a6013050c65c818ca96ba68bdfecb8452510ff26fa6f34cc183e6adf9cad57d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\pcoup\srv_pcoup.c</file>
@@ -30599,7 +30599,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.c</file>
-         <hash>b19d20a1b26d1ec4a3387a43bc4843b505e398e9cb6fd384836e2b830332cc7f</hash>
+         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.h</file>
@@ -30607,7 +30607,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_local.h</file>
-         <hash>95b81ce6b8596f7c906b7648637702558620b30a09e2e31958cdd60468f16341</hash>
+         <hash>ae4deca9fe8407f4d31b9cbf426ff046788cb4741dace05451521d2bb2c93645</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\dll.h</file>
@@ -30615,7 +30615,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll_cm0.a</file>
-         <hash>b259350d052d6cc129c9f447b05ef2891d2724623163ecda5eff3098d0d4dce6</hash>
+         <hash>515a3c6290413cacb5b83710ddf2d836aa419ed972ad9dfe7d14eee37a1c5e27</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\pal\pal.c</file>
