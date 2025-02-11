@@ -4512,33 +4512,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_COUP_G3_HIGH_ATTENUATION"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_COUP_G3_HIGH_ATTENUATION&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_COUP_G3_INTERNAL"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_COUP_G3_INTERNAL&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_COUP_G3_MULTIBAND"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_COUP_G3_MULTIBAND&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_EXT_INT_PIN"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
   &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_EXT_INT_PIN&quot;&gt;
@@ -4572,48 +4545,12 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_G3_BAND"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_G3_BAND&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_G3_BAND_AUX"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_G3_BAND_AUX&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_G3_BAND_AUX_ACTIVE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_G3_BAND_AUX_ACTIVE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_LDO_EN_PIN"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
   &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_LDO_EN_PIN&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPlcPhy&quot; value=&quot;101&quot;/&gt;
     &lt;/Values&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_MM_BAND"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_MM_BAND&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/drvPlcPhy&gt;
 &lt;/drvPlcPhy&gt;
 </value>
@@ -4729,15 +4666,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_PRIME_BAND_AUX"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_PRIME_BAND_AUX&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_PRIME_CH1"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
   &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_PRIME_CH1&quot;&gt;
@@ -4822,15 +4750,6 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_PRIME_DEF_CHN"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
   &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_PRIME_DEF_CHN&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_PRIME_HIGH_ATTENUATION"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_PRIME_HIGH_ATTENUATION&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/drvPlcPhy&gt;
 &lt;/drvPlcPhy&gt;
@@ -5072,15 +4991,6 @@
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPlcPhy&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
-  &lt;/drvPlcPhy&gt;
-&lt;/drvPlcPhy&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPlcPhy" name="DRV_PLC_UPD_BIN_FILES"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPlcPhy&gt;
-  &lt;drvPlcPhy dnOrder=&quot;0&quot; id=&quot;DRV_PLC_UPD_BIN_FILES&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/drvPlcPhy&gt;
 &lt;/drvPlcPhy&gt;
 </value>
@@ -9895,7 +9805,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
-         <hash>1a2aa0a88e5589d29ef210b98488f6c5be20396c86ac673b6f4db969ac81b169</hash>
+         <hash>aa3c4fbd7e3f9225d4c49f2f1ce80688409bac7826015047bdc35c626a7cc4ca</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
@@ -9927,7 +9837,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_hal.c</file>
-         <hash>42a6425c512e20ff8512b92b2aec198dcb9885eb542181030295da56bcf9b8ae</hash>
+         <hash>726d8b91f5a7aba178947c0b5fcff9fd0a991d7c7fec1bdfcd79e85637e216f6</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\common\drv_plc_hal.h</file>
@@ -9939,19 +9849,19 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\bin\plc_phy_bin.S</file>
-         <hash>0f2c103daa179a80fca4f64cfde6fc29fb736075797c581a3fe3c0ef4bb56809</hash>
+         <hash>5dd4cc98818086cb86a5de9cecc3675ac97c6c0ffb2849e444d2927144016463</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy.c</file>
-         <hash>2aa6afae877b81bbef91850416d15e0448358f020dc80a80697a38e69625ff7e</hash>
+         <hash>75003485eced321213d051a7002f9717d9dbecc9c54f912730482d908ee6b6c7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy.h</file>
-         <hash>67c3a9b5d2675bbc96a4c7d62fda6adf02ca652817e181c4775fda7c750ec40d</hash>
+         <hash>2692b96aaaecd83b1d4c0ece010e1016f0a2d4a6514aeeae3c64aa4964e4480b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_comm.c</file>
-         <hash>772951b20c9050883b36ec920a5e076a9398d415afe323b676bccea25254a255</hash>
+         <hash>978d33518374fc22b5924459bb0491bff15f88f73e2c228a1bd506926fe20ae2</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_comm.h</file>
@@ -9959,11 +9869,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_definitions.h</file>
-         <hash>97bc7e4ab4509638c4fdd93092a496b95d5fbebd1d47c8958d9fbd40578dc182</hash>
+         <hash>2b30947ea00e0e8babc2df79acc018fcac95b9f31e9796fbe050fefbd9259914</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_local.h</file>
-         <hash>d2ec08f8d251cdd081cef7650f6311a405751cb56a835e0b6de212d09bad5a2b</hash>
+         <hash>3fd3dddd9946550741bdf7a010abbfc1c50dcca6c5f4dce8c2676592eaf7cf9e</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\driver\plc\phy\drv_plc_phy_local_comm.h</file>
@@ -9975,7 +9885,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\initialization.c</file>
-         <hash>7aa5e28d8a2a14dd28ae4767007f0def722c299773a442697f15cbfbae627c03</hash>
+         <hash>a34623fe217bf0b6e3587c1006de89dff7ceb6db10dd8bbc7a6cf2161f457af4</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\interrupts.c</file>
@@ -10079,7 +9989,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.c</file>
-         <hash>9587eb67f5926eb23651d8e80b118416398d339f9d178b49ab5fcee0410e9bda</hash>
+         <hash>c4c2376b7cc821fc0c7d07c563db59f467809aa7ed667cafdd6a0c960fc27e70</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\pio\plib_pio.h</file>
@@ -10147,7 +10057,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\pin_configurations.csv</file>
-         <hash>1d1dbc516984feb7a40a9227037e9fd911ca3deaf92628d8a434397470e9763b</hash>
+         <hash>c0d4c87aa8e19084a2dccc5617f271a32cf310858cf46d66fed16800ed79f5ed</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\service\pcoup\srv_pcoup.c</file>
@@ -10183,7 +10093,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.c</file>
-         <hash>b19d20a1b26d1ec4a3387a43bc4843b505e398e9cb6fd384836e2b830332cc7f</hash>
+         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.h</file>
@@ -10191,7 +10101,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al_local.h</file>
-         <hash>95b81ce6b8596f7c906b7648637702558620b30a09e2e31958cdd60468f16341</hash>
+         <hash>ae4deca9fe8407f4d31b9cbf426ff046788cb4741dace05451521d2bb2c93645</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\dll\dll.h</file>
@@ -10199,11 +10109,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
-         <hash>276ac7b2f58a8b179a518c1fa26c4de97880cc3ce1ebce57b408065bb49be78e</hash>
+         <hash>07a00a3273ef65aad347be67e535d7a4ab12d3c1a97dc7c9affeab68fe9e3d90</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi.c</file>
-         <hash>bf7766a8d5e965cb9f19a819847cbafa8e2c8e069ff9f3975289304d3fb9d282</hash>
+         <hash>b2756debf0b0ce11c95cfcb6c2549cd4f6b22050a707d721bc174e276e05bfcc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi.h</file>
@@ -10219,7 +10129,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi_mib.c</file>
-         <hash>2e75904e649b83000d9899d28fe75a9a11b90680e37b53a950dcc31163d6d53b</hash>
+         <hash>a6fe0876168187a809334220afcaa309d896d1dc3138283ccf09ef6b8f9c5d1c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\mmhi\mmhi_mib.h</file>
@@ -10347,7 +10257,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\tasks.c</file>
-         <hash>38f3515844587d690fd2beb8a216ed8d7adc92e1c6abb3d59a64124ff4c36b64</hash>
+         <hash>0590147b3d504100746aa11bfec27228ba113d50ecc36afb7abe1017525320f6</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\toolchain_specifics.h</file>

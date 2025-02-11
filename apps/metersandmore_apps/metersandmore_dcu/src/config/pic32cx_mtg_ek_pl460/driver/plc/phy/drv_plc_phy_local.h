@@ -121,7 +121,7 @@ typedef struct
     /* Flag to indicate this object is in use  */
     bool                            inUse;
 
-    DRV_PLC_PHY_STATE               state[2];
+    DRV_PLC_PHY_STATE               state[1];
 
     /* Keep track of the number of clients that have opened this driver */
     size_t                          nClients;
@@ -135,8 +135,8 @@ typedef struct
     /* HAL API list that will be used by the driver to access the hardware */
     DRV_PLC_HAL_INTERFACE           *plcHal;
 
-    /* PLC Profile */
-    uint8_t                         plcProfile;
+    /* Number of consecutive SPI errors */
+    uint8_t                         consecutiveSpiErrors;
 
     /* Size (in Bytes) of the PLC binary file */
     uint32_t                        binSize;
@@ -172,7 +172,7 @@ typedef struct
     uintptr_t                       contextBoot;
 
     /* Event detection flag: confirmation of the previous transmission */
-    volatile bool                   evTxCfm[2];
+    volatile bool                   evTxCfm[1];
 
     /* Event detection flag: parameters of new reception */
     volatile bool                   evRxPar;

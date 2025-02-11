@@ -169,15 +169,15 @@ static MMHI_RESULT setTimingParams(uint8_t *paramsBuf)
 
     /* Set IBs */
     alValue.length = 4U;
-    (void)memcpy(alValue.value, (uint8_t *)&tEl32, MAC_ADDRESS_SIZE);
+    (void)memcpy(alValue.value, (uint8_t *)&tEl32, 4);
     alResult = AL_SetRequest(AL_MAC_TIME_ELABORATION_US_IB, 0, (const AL_IB_VALUE *)&alValue);
     if (alResult == AL_SUCCESS)
     {
-        (void)memcpy(alValue.value, (uint8_t *)&tDelay32, MAC_ADDRESS_SIZE);
+        (void)memcpy(alValue.value, (uint8_t *)&tDelay32, 4);
         alResult = AL_SetRequest(AL_MAC_ADDITIONAL_DELAY_US_IB, 0, (const AL_IB_VALUE *)&alValue);
         if (alResult == AL_SUCCESS)
         {
-            (void)memcpy(alValue.value, (uint8_t *)&tSlot32, MAC_ADDRESS_SIZE);
+            (void)memcpy(alValue.value, (uint8_t *)&tSlot32, 4);
             alResult = AL_SetRequest(AL_MAC_TIME_SLOT_US_IB, 0, (const AL_IB_VALUE *)&alValue);
         }
         if (alResult == AL_SUCCESS)
@@ -469,8 +469,8 @@ MMHI_RESULT MMHI_MIB_Set(MMHI_MIB_INDEX mibIndex, MMHI_MIB_DATA* pData, bool ind
             {
                 /* Set value */
                 (void)memcpy((uint8_t *)&mmhiMibData.securityFlags, pData->dataValue, reqLength);
-                currentVal = (uint8_t *)&mmhiMibData.securityFlags;
-                defaultVal = (uint8_t *)&mmhiMibDefaultData.securityFlags;
+                    currentVal = (uint8_t *)&mmhiMibData.securityFlags;
+                    defaultVal = (uint8_t *)&mmhiMibDefaultData.securityFlags;
                 if (memcmp(currentVal, defaultVal, sizeof(MMHI_MIB_SECURITY_FLAGS)) == 0)
                 {
                     mmhiMibStatus |= HI_SMSK_SECURITY_FLAGS_MIB_Msk;

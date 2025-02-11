@@ -779,8 +779,7 @@ MMHI_HANDLE MMHI_Open( SYS_MODULE_OBJ object )
 
     /* Enable External RTS pin interrupt and register callback */
     SYS_INT_SourceStatusClear(MMHI_EXT_INT_RTS_SRC);
-    (void) PIO_PinInterruptCallbackRegister((PIO_PIN)MMHI_EXT_INT_RTS_PIN,
-            lMMHI_ExternalInterruptRTSHandler, ctx);
+    (void) PIO_PinInterruptCallbackRegister((PIO_PIN)MMHI_EXT_INT_RTS_PIN, lMMHI_ExternalInterruptRTSHandler, ctx);
     PIO_PinInterruptEnable((PIO_PIN)MMHI_EXT_INT_RTS_PIN);
 
     /* EUT shall issue a reset command each time it exits from reset */
