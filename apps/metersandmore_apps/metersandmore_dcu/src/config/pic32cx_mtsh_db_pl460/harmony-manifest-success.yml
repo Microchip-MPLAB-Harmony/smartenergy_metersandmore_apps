@@ -4,14 +4,14 @@
 
 
 project: metersandmore_dcu
-creation_date: 2025-02-07T08:20:49.098+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-02-11T14:05:36.128+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
 mcc_core_version: v5.7.1
 mplabx_version: v6.20        # if MPLAB X plugin only
 harmony_version: v1.5.5-a
-compiler: XC32 4.45
+compiler: XC32 4.50
 
 modules:
     - {name: "csp", version: "v3.20.0"}
@@ -20,7 +20,7 @@ modules:
     - {name: "crypto_v4", version: "v4.0.0-E3"}
     - {name: "wolfssl", version: "v5.7.0"}
     - {name: "smartenergy", version: "SMS-4128-support-pl460-multiband-single-branch-coupling-in-h3"}
-    - {name: "smartenergy_metersandmore", version: "MH3-110105-extend-meters-and-more-projects-for-samd20-xpro"}
+    - {name: "smartenergy_metersandmore", version: "MH3-110109-add-meters-and-more-projects-with-freertos"}
     - {name: "shd", version: "dev"}
 
 packs:
