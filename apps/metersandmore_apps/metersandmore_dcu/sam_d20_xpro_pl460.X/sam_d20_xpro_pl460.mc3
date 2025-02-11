@@ -9800,7 +9800,7 @@
         &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;evsys&quot; x=&quot;10&quot; y=&quot;89&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;lib_crypto&quot; x=&quot;0&quot; y=&quot;491&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;170&quot; y=&quot;491&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;mainBoard_SAMD20_XPLAINED_PRO&quot; x=&quot;513&quot; y=&quot;19&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;mainBoard_SAMD20_XPLAINED_PRO&quot; x=&quot;512&quot; y=&quot;19&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;mmPal&quot; x=&quot;477&quot; y=&quot;164&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;mmStack&quot; x=&quot;335&quot; y=&quot;415&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;nvmctrl&quot; x=&quot;11&quot; y=&quot;12&quot;/&gt;
@@ -10339,7 +10339,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;PL460_CS&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;EXT1_SPI_CS&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -28871,7 +28871,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>b80dab75c6024948d03cdd1b1043d6b5fc64639df7ae491bd5a660f1cb99df96</hash>
+         <hash>0311f20d99a8a903130596f9df0cbf5c4b731bc24648d01d97b9497713659316</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -28939,7 +28939,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\driver\plc\phy\drv_plc_phy_local.h</file>
-         <hash>91e10d1c8a3de340f29f5bf0e8948fa092c9c6710a63463d8324b42efa4e84a9</hash>
+         <hash>3fd3dddd9946550741bdf7a010abbfc1c50dcca6c5f4dce8c2676592eaf7cf9e</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\driver\plc\phy\drv_plc_phy_local_comm.h</file>
@@ -29035,7 +29035,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\port\plib_port.h</file>
-         <hash>1a995c03ef7160a67ffc33928eb8fc36cc5a57b463ad5881f5a629bcbb193529</hash>
+         <hash>1f8fb91386fbbe359b3b7a8b0e2832d71561c7251a5be3f030bab80b95a341eb</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\spi_master\plib_sercom0_spi_master.c</file>
@@ -29083,7 +29083,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\pin_configurations.csv</file>
-         <hash>1daa02c4dcccce43788d1f15dfbc7948055b0fc3acbf14e5b78648923a68bb9d</hash>
+         <hash>9a6013050c65c818ca96ba68bdfecb8452510ff26fa6f34cc183e6adf9cad57d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\pcoup\srv_pcoup.c</file>
@@ -29119,7 +29119,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.c</file>
-         <hash>b19d20a1b26d1ec4a3387a43bc4843b505e398e9cb6fd384836e2b830332cc7f</hash>
+         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.h</file>
@@ -29127,7 +29127,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al_local.h</file>
-         <hash>95b81ce6b8596f7c906b7648637702558620b30a09e2e31958cdd60468f16341</hash>
+         <hash>ae4deca9fe8407f4d31b9cbf426ff046788cb4741dace05451521d2bb2c93645</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\dll\dll.h</file>
@@ -29135,7 +29135,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\dll\metersandmore_lib_dll_cm0.a</file>
-         <hash>b259350d052d6cc129c9f447b05ef2891d2724623163ecda5eff3098d0d4dce6</hash>
+         <hash>515a3c6290413cacb5b83710ddf2d836aa419ed972ad9dfe7d14eee37a1c5e27</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\pal\pal.c</file>
