@@ -58,7 +58,7 @@ APP_DATA appData;
 
 static uint8_t txBuffer[16];
 
-static const uint8_t broadcastAddress[MAC_ADDRESS_SIZE] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x03};
+static const MAC_ADDRESS broadcastAddress = {{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x03}};
 
 // *****************************************************************************
 // *****************************************************************************
@@ -231,18 +231,19 @@ static void lAPP_AL_DataIndicationCallback(AL_DATA_IND_PARAMS *indParams)
                 for (uint8_t i = 0; i < numReportedNodes; i++)
                 {
                     rEntry = &appData.routingTable[appData.numFoundNodes];
-                    /* First hop in route is the node that discovered new Nodes */
-                    (void) memcpy(rEntry->macAddress[0].address, indParams->srcAddress.address, MAC_ADDRESS_SIZE);
-                    /* ACA of Discovered Nodes, Store them in Routing table, but reversed to be used for addressing */
+                    /* First hops in route is the route node that discovered new Nodes */
+                    (void) memcpy(rEntry->macAddress[0].address,
+                        appData.routingTable[appData.numReqAddrSent].macAddress[0].address,
+                        MAC_ADDRESS_SIZE * appData.routingTable[appData.numReqAddrSent].routeSize);
+                    /* Last hop: ACA of Discovered Nodes, Store them in Routing table, but reversed to be used for addressing */
                     idx = (i * ADDR_RESP_INFO_LEN) + 1;
-                    rEntry->macAddress[1].address[5] = indParams->apdu[idx + 0];
-                    rEntry->macAddress[1].address[4] = indParams->apdu[idx + 1];
-                    rEntry->macAddress[1].address[3] = indParams->apdu[idx + 2];
-                    rEntry->macAddress[1].address[2] = indParams->apdu[idx + 3];
-                    rEntry->macAddress[1].address[1] = indParams->apdu[idx + 4];
-                    rEntry->macAddress[1].address[0] = indParams->apdu[idx + 5];
-                    rEntry->routeSize = 2;
-                    appData.numFoundNodes++;
+                    rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[5] = indParams->apdu[idx + 0];
+                    rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[4] = indParams->apdu[idx + 1];
+                    rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[3] = indParams->apdu[idx + 2];
+                    rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[2] = indParams->apdu[idx + 3];
+                    rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[1] = indParams->apdu[idx + 4];
+                    rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[0] = indParams->apdu[idx + 5];
+                    rEntry->routeSize = appData.routingTable[appData.numReqAddrSent].routeSize + 1;
                     /* Print Info */
                     SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "ACA=0x%02X%02X%02X%02X%02X%02X, Av_SIG=%hhu Av_SNR=%hhu, Av_TX=%hhu\r\n",
                             indParams->apdu[idx + 0], indParams->apdu[idx + 1], indParams->apdu[idx + 2],
@@ -321,7 +322,7 @@ static void lSendTCTBroadcast(uint8_t tctValue)
     reqParams.dsap = DLL_DSAP_NETWORK_MANAGEMENT;
     reqParams.ecc = DLL_ECC_DISABLED;
     /* Destination address: broadcast, no repeaters */
-    (void) memcpy(reqParams.dstAddress.macAddress[0].address, broadcastAddress, MAC_ADDRESS_SIZE);
+    reqParams.dstAddress.macAddress[0] = broadcastAddress;
     reqParams.dstAddress.routeSize = 1;
     /* Payload for TCT */
     txBuffer[0] = tctValue;
@@ -357,7 +358,7 @@ static void lSendAddressReq()
     reqParams.dsap = DLL_DSAP_NETWORK_MANAGEMENT;
     reqParams.ecc = DLL_ECC_DISABLED;
     /* Destination address: broadcast, no repeaters */
-    (void) memcpy(reqParams.dstAddress.macAddress[0].address, broadcastAddress, MAC_ADDRESS_SIZE);
+    reqParams.dstAddress.macAddress[0] = broadcastAddress;
     reqParams.dstAddress.routeSize = 1;
     /* Payload for Address Req */
     txBuffer[0] = 0x02; /* Respond in any Phase */
@@ -398,10 +399,10 @@ static void lSendReqAddressReq()
     /* Destination address: Node in the routing table */
     (void) memcpy(reqParams.dstAddress.macAddress[0].address,
         appData.routingTable[appData.numReqAddrSent].macAddress[0].address,
-        MAC_ADDRESS_SIZE);
-    /* Next hop: broadcast address */
-    (void) memcpy(reqParams.dstAddress.macAddress[1].address, broadcastAddress, MAC_ADDRESS_SIZE);
-    reqParams.dstAddress.routeSize = 2;
+        MAC_ADDRESS_SIZE * appData.routingTable[appData.numReqAddrSent].routeSize);
+    /* Last hop: broadcast address */
+    reqParams.dstAddress.macAddress[appData.routingTable[appData.numReqAddrSent].routeSize] = broadcastAddress;
+    reqParams.dstAddress.routeSize = appData.routingTable[appData.numReqAddrSent].routeSize + 1;
     /* Payload for Address Req */
     txBuffer[0] = 0x02; /* Respond in any Phase */
     txBuffer[1] = 0x55; /* TCR */

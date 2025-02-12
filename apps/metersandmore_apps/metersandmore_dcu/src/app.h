@@ -49,7 +49,7 @@ extern "C" {
 #define LED_PLC_RX_MSG_RATE_MS                    50
 
 /* Timeout to advance App State */
-#define STATE_TIMEOUT_MS                          10000
+#define STATE_TIMEOUT_MS                          5000
 
 /* Routing Table Size */
 #define ROUTING_TABLE_SIZE                        20
