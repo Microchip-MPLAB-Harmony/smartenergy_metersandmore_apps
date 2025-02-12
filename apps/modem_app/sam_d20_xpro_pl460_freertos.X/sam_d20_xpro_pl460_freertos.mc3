@@ -17502,6 +17502,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mmHi" name="MMHI_EIC_SIGNAL"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
+  &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_EIC_SIGNAL&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;EIC_PIN_14&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/mmHi&gt;
+&lt;/mmHi&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mmHi" name="MMHI_EXT_INT_SRC"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
   &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_EXT_INT_SRC&quot;&gt;
@@ -32244,7 +32255,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\configuration.h</file>
-         <hash>cbf7faf16f6d509b803676f3e9e6eca07a1e31a254ea37b49404b0a9865a6b6f</hash>
+         <hash>74d65668e1afa59ce611d42ab853934f16b3d6ea8ef9c0a661f255140eead0ec</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\crypto\common_crypto\crypto_common.h</file>
@@ -32324,7 +32335,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>f333bd260214b4163a519ce631641f459d93b9c3f4344f9f992ae626b78e4811</hash>
+         <hash>774b06ea2e485e18f8b54470e92179bb8aed78a1684a14155fcd52476619b626</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -32408,7 +32419,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\initialization.c</file>
-         <hash>94bb5d2acd76a0913afdd28d13513b396a0c64eefcbf77306e2c87db92861eee</hash>
+         <hash>a2009dad2f8969b8e4e1956ec3f2a7c8a9504da537187d3dba9ec2dc2e68ff2d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\interrupts.c</file>

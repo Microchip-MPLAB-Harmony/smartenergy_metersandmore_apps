@@ -152,7 +152,7 @@ extern "C" {
 // *****************************************************************************
 /* Meters and More Host Interface Configuration Options */
 #define MMHI_INDEX                     (0U)
-#define MMHI_EXT_INT_RTS_PIN           SYS_PORT_PIN_PB14
+#define MMHI_EXT_INT_RTS_PIN           EIC_PIN_14
 #define MMHI_EXT_INT_RTS_SRC           EIC_IRQn
 
 /* Meters And More Host Interface RTOS configuration */

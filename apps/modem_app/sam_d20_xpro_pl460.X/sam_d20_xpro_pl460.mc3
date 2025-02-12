@@ -16045,6 +16045,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mmHi" name="MMHI_EIC_SIGNAL"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
+  &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_EIC_SIGNAL&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;EIC_PIN_14&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/mmHi&gt;
+&lt;/mmHi&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mmHi" name="MMHI_EXT_INT_SRC"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
   &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_EXT_INT_SRC&quot;&gt;
@@ -30757,7 +30768,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\configuration.h</file>
-         <hash>d35b63f4c19b829a9319a5bb696a46a3c3be206defd00c8aab86755477c9df5e</hash>
+         <hash>53fe7c7f86ee35fb4e829236acbbc08f6a7a6a90bf3bef01d51e4824e562d3ab</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\crypto\common_crypto\crypto_common.h</file>
@@ -30837,7 +30848,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>ac15583ed97122a432d9fbe81d60f53fa1410b40731853f44c1c45bd0164a5be</hash>
+         <hash>11bc9ef17c34787a4721f241a6c024c3c6506de2ac1ebfd5e3e039916e27c74c</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -30917,7 +30928,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\initialization.c</file>
-         <hash>b30cc566227757fa2154b9592bf8968af19b0b27452da597013f550fb4d010c4</hash>
+         <hash>994c4e3f0e87ad07c5810e5225b9d628aa6b713f555c11bb25adbe1ff282c97c</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\interrupts.c</file>
