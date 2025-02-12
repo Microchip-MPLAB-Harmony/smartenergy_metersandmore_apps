@@ -772,7 +772,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FreeRTOS" name="FREERTOS_TOTAL_HEAP_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TOTAL_HEAP_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;11264&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
 </value>
@@ -10977,7 +10979,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;584&quot; canvasWidth=&quot;893&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;584&quot; canvasWidth=&quot;744&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -32223,7 +32225,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\FreeRTOSConfig.h</file>
-         <hash>d326bc2790d98a558832a8062edb535ec06104aee2a024866418c62abd2410dc</hash>
+         <hash>fc5442a83936419dc1c2e45606db434f3b3a54687aafb22c776c06a3c5998fc7</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\bsp\bsp.c</file>
@@ -32315,7 +32317,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>154a55d6f30fef3dbdaa242746d7d41ccca014f09522029da968a8a6f50aa4a7</hash>
+         <hash>f333bd260214b4163a519ce631641f459d93b9c3f4344f9f992ae626b78e4811</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>

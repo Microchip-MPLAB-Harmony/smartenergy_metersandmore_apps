@@ -764,7 +764,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FreeRTOS" name="FREERTOS_TOTAL_HEAP_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TOTAL_HEAP_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;7168&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
 </value>
@@ -10961,7 +10963,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;585&quot; canvasWidth=&quot;722&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;585&quot; canvasWidth=&quot;744&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -30251,7 +30253,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\FreeRTOSConfig.h</file>
-         <hash>d326bc2790d98a558832a8062edb535ec06104aee2a024866418c62abd2410dc</hash>
+         <hash>66e33c52be5843416dde17273fbf06aac5fdafce58fc7c65d55915be712e00f1</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\bsp\bsp.c</file>
@@ -30343,7 +30345,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>590ee72833bbe98d8f3f88ca21cb7500eceace6b26d5b5641ff5b9782e622b91</hash>
+         <hash>84e88916430c31b9ebc0fb96d500d4c03c593907494651682fe016cf60ee912d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -30427,7 +30429,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\initialization.c</file>
-         <hash>8a00a958c14121a3abcb649b9d938cde25dad6e0d06caff0d6a14bf913eeb319</hash>
+         <hash>204658c460e120a005ed863f92d3405fa146f11bdad212d21ca5ff6f2bff021a</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\interrupts.c</file>
