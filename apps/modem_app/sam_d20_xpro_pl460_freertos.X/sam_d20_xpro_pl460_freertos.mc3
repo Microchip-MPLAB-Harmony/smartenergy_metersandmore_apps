@@ -773,7 +773,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TOTAL_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;11264&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;13312&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -1316,7 +1316,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_0_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_0_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2048&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -32243,7 +32245,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\FreeRTOSConfig.h</file>
-         <hash>fc5442a83936419dc1c2e45606db434f3b3a54687aafb22c776c06a3c5998fc7</hash>
+         <hash>2cd124db648c7aec9a6d84bd5ff68afe34b23ed122a3a307bcf6556fd67c06b4</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\bsp\bsp.c</file>
@@ -32335,7 +32337,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>774b06ea2e485e18f8b54470e92179bb8aed78a1684a14155fcd52476619b626</hash>
+         <hash>d8cc0d6470ff53d97d7bafd94fbab387432a96230b15de453a22bcdedec4d9cd</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -32419,7 +32421,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\initialization.c</file>
-         <hash>a2009dad2f8969b8e4e1956ec3f2a7c8a9504da537187d3dba9ec2dc2e68ff2d</hash>
+         <hash>94bb5d2acd76a0913afdd28d13513b396a0c64eefcbf77306e2c87db92861eee</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\interrupts.c</file>
@@ -32751,7 +32753,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\tasks.c</file>
-         <hash>888f85eb694bd53a2405a7cb0c127dd3b1ae1f089029a14143a2ebdaf91fb512</hash>
+         <hash>f9c7a5998a5bc6f7e057a89b99c5a6a596a0d01c21bb5c36d10fee03ecfd1fe6</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\toolchain_specifics.h</file>

@@ -170,7 +170,7 @@ void SYS_Tasks ( void )
     (void) xTaskCreate(
            (TaskFunction_t) lMODEM_APP_Tasks,
            "MODEM_APP_Tasks",
-           128,
+           512,
            NULL,
            1U ,
            &xMODEM_APP_Tasks);
