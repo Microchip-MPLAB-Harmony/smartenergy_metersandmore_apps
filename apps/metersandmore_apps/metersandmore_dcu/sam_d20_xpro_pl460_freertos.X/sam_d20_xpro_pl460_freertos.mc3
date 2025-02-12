@@ -765,7 +765,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TOTAL_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;7168&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -1302,7 +1302,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_0_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_0_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1536&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -19083,7 +19085,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sercom3" name="USART_TX_RING_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sercom3&gt;
   &lt;sercom3 dnOrder=&quot;0&quot; id=&quot;USART_TX_RING_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1024&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sercom3&gt;
 &lt;/sercom3&gt;
 </value>
@@ -30253,7 +30262,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\FreeRTOSConfig.h</file>
-         <hash>66e33c52be5843416dde17273fbf06aac5fdafce58fc7c65d55915be712e00f1</hash>
+         <hash>e99a8769a7f5cc7a13c052ada993ea95d48d069baed719f0a675a8171bbcf21b</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\bsp\bsp.c</file>
@@ -30345,7 +30354,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>84e88916430c31b9ebc0fb96d500d4c03c593907494651682fe016cf60ee912d</hash>
+         <hash>44833ffad43d0f49698265aa912a9deb575fdddbef0c2e51cc7aff39001c789b</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -30533,7 +30542,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\usart\plib_sercom3_usart.c</file>
-         <hash>78251c199b215c044c9161c83f58a5ce78b429ea99d7c6b45805daba928d7894</hash>
+         <hash>a67d4077c84277a48ec726638d9fdffc2787ecd08f2f1f2ea9636a5c993c1b90</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\usart\plib_sercom3_usart.h</file>
@@ -30729,7 +30738,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\tasks.c</file>
-         <hash>d0dcc3e1b2dde5b08e8e4c5988ecfc08604ce678e640442ebd6f00fc469b88e1</hash>
+         <hash>125613153dfeed39009ad8d4840ecb60e95532fa29e028ec726728fb133dc4cc</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\toolchain_specifics.h</file>
