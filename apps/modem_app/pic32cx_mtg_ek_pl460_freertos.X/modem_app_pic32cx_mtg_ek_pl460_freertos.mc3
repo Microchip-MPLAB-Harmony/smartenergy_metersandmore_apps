@@ -6945,6 +6945,22 @@
          <value>__ROOTVIEW</value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="flexcom0" name="USART_TX_RING_BUFFER_SIZE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;flexcom0&gt;
+  &lt;flexcom0 dnOrder=&quot;0&quot; id=&quot;USART_TX_RING_BUFFER_SIZE&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1024&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/flexcom0&gt;
+&lt;/flexcom0&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="flexcom5" name="!@#harmonyAttachmentState"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;flexcom5&gt;
   &lt;flexcom5 dnOrder=&quot;0&quot;&gt;
@@ -11684,7 +11700,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\definitions.h</file>
-         <hash>2c4866b2e036443e76b29e0d3a27afbbafc1a8b212a588a1ffff6845ed512810</hash>
+         <hash>95e4382872e9347401b528842600e3e98b79448f2bf9c2883553d37aa30f314b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\device.h</file>
@@ -11848,7 +11864,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\peripheral\flexcom\usart\plib_flexcom0_usart.c</file>
-         <hash>63c238a9ec83219678361f13ac9357b423d2c9d9eab3530f64b810c89b62ebf9</hash>
+         <hash>7e21669847189b49e23ce51e57edddec7f7f5c12f1e2e94259a9a27a5aa8d2ad</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\peripheral\flexcom\usart\plib_flexcom0_usart.h</file>
