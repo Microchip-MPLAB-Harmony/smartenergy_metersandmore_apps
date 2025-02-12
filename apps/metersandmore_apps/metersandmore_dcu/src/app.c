@@ -290,6 +290,15 @@ static void lAPP_AL_EventIndicationCallback(AL_EVENT_IND_PARAMS *indParams)
     }
 
     SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\n");
+
+    if ((indParams->eventId == AL_EVENT_ID_MAC_ACA) || (indParams->eventId == AL_EVENT_ID_MASTER_TX_TIMEOUT))
+    {
+        if ((appData.state == APP_STATE_WAIT_ADDR_RESP) || (appData.state == APP_STATE_WAIT_REQADDR_RESP))
+        {
+            /* Master timeout expired. No more responses can be received. */
+            appData.tmrStateTimeoutExpired = true;
+        }
+    }
 }
 
 // *****************************************************************************
@@ -659,9 +668,6 @@ void APP_Tasks ( void )
         {
             lSendAddressReq();
             appData.state = APP_STATE_WAIT_ADDR_RESP;
-            /* Start Timer to wait for next state */
-            SYS_TIME_TimerDestroy(appData.tmrStateTimeoutHandle);
-            appData.tmrStateTimeoutHandle = SYS_TIME_CallbackRegisterMS(lAPP_StateTimerCallback, 0, STATE_TIMEOUT_MS, SYS_TIME_SINGLE);
             break;
         }
 
@@ -689,9 +695,6 @@ void APP_Tasks ( void )
         {
             lSendReqAddressReq();
             appData.state = APP_STATE_WAIT_REQADDR_RESP;
-            /* Start Timer to wait for next state */
-            SYS_TIME_TimerDestroy(appData.tmrStateTimeoutHandle);
-            appData.tmrStateTimeoutHandle = SYS_TIME_CallbackRegisterMS(lAPP_StateTimerCallback, 0, STATE_TIMEOUT_MS, SYS_TIME_SINGLE);
             break;
         }
 
