@@ -60,6 +60,9 @@
 /* Declaration of  APP_Tasks task handle */
 extern TaskHandle_t xAPP_Tasks;
 
+/* Declaration of  APP_DISPLAY_Tasks task handle */
+extern TaskHandle_t xAPP_DISPLAY_Tasks;
+
 
 
 

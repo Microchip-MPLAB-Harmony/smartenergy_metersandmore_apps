@@ -34,6 +34,14 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
+         <string>gfx_disp_slcd1-PIC32CXMT</string>
+         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
+      </entry>
+      <entry>
+         <string>le_gfx_slcdc</string>
+         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
+      </entry>
+      <entry>
          <string>lib_crypto</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -138,6 +146,38 @@
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP1_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP1_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+      &lt;String dnOrder=&quot;1&quot; id=&quot;name&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;app_display.c&lt;/Value&gt;
+      &lt;/String&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP1_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP1_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+      &lt;String dnOrder=&quot;1&quot; id=&quot;name&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;app_display.h&lt;/Value&gt;
+      &lt;/String&gt;
     &lt;/Attributes&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -7365,7 +7405,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_TASK_COUNT"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_TASK_COUNT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -8193,7 +8235,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_TASK_NAME_1"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_TASK_NAME_1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;app_display&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -9573,7 +9617,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;626&quot; canvasWidth=&quot;612&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;705&quot; canvasWidth=&quot;786&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -9587,22 +9631,24 @@
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;drvPlcPhy&quot; x=&quot;144&quot; y=&quot;332&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;flexcom0&quot; x=&quot;0&quot; y=&quot;158&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;flexcom1&quot; x=&quot;1&quot; y=&quot;400&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;lib_crypto&quot; x=&quot;289&quot; y=&quot;539&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;460&quot; y=&quot;539&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;mainBoard_PIC32CXMTSH_DB&quot; x=&quot;0&quot; y=&quot;73&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;mmPal&quot; x=&quot;334&quot; y=&quot;255&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;mmStack&quot; x=&quot;332&quot; y=&quot;373&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sefc0&quot; x=&quot;187&quot; y=&quot;13&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sefc1&quot; x=&quot;319&quot; y=&quot;13&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;srvRandom&quot; x=&quot;449&quot; y=&quot;182&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;srv_pcoup&quot; x=&quot;0&quot; y=&quot;330&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;srv_pcrc&quot; x=&quot;450&quot; y=&quot;109&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;srv_pvddmon&quot; x=&quot;140&quot; y=&quot;260&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;sys_console&quot; x=&quot;147&quot; y=&quot;94&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;sys_debug&quot; x=&quot;300&quot; y=&quot;132&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;sys_time&quot; x=&quot;143&quot; y=&quot;468&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;tc0&quot; x=&quot;0&quot; y=&quot;514&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;trng&quot; x=&quot;305&quot; y=&quot;83&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;gfx_disp_slcd1-PIC32CXMT&quot; x=&quot;4&quot; y=&quot;593&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;le_gfx_slcdc&quot; x=&quot;193&quot; y=&quot;593&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;lib_crypto&quot; x=&quot;289&quot; y=&quot;539&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;460&quot; y=&quot;539&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;mainBoard_PIC32CXMTSH_DB&quot; x=&quot;0&quot; y=&quot;73&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;mmPal&quot; x=&quot;334&quot; y=&quot;255&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;mmStack&quot; x=&quot;332&quot; y=&quot;373&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sefc0&quot; x=&quot;187&quot; y=&quot;13&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sefc1&quot; x=&quot;319&quot; y=&quot;13&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;srvRandom&quot; x=&quot;449&quot; y=&quot;182&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;srv_pcoup&quot; x=&quot;0&quot; y=&quot;330&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;srv_pcrc&quot; x=&quot;450&quot; y=&quot;109&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;srv_pvddmon&quot; x=&quot;140&quot; y=&quot;260&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;sys_console&quot; x=&quot;147&quot; y=&quot;94&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;sys_debug&quot; x=&quot;300&quot; y=&quot;132&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;sys_time&quot; x=&quot;143&quot; y=&quot;468&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;24&quot; id=&quot;tc0&quot; x=&quot;0&quot; y=&quot;514&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;25&quot; id=&quot;trng&quot; x=&quot;305&quot; y=&quot;83&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -15066,6 +15112,378 @@
     &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/flexcom1&gt;
 &lt;/flexcom1&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="!@#harmonyAttachmentState"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot;&gt;
+    &lt;Attachments dnOrder=&quot;0&quot;&gt;
+      &lt;DirectCapability dnOrder=&quot;0&quot; id=&quot;slcd_display&quot;&gt;
+        &lt;Attributes dnOrder=&quot;0&quot;&gt;
+          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;le_gfx_slcdc&lt;/Value&gt;
+          &lt;/String&gt;
+          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;Segmented&amp;amp;#160;Display&lt;/Value&gt;
+          &lt;/String&gt;
+        &lt;/Attributes&gt;
+      &lt;/DirectCapability&gt;
+    &lt;/Attachments&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="#&amp;__MCC_Group_Parrent_id"/>
+         <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="BacklightDisable"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;BacklightDisable&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="BacklightEnable"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;BacklightEnable&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="ChipSelectPolarity"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;ChipSelectPolarity&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="DataEnable"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;DataEnable&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="DataEnablePolarity"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;DataEnablePolarity&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="DataWidth"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;DataWidth&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="DisplayHeight"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;DisplayHeight&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="DisplayWidth"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;DisplayWidth&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="HSYNCNegative"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;HSYNCNegative&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="HorzBackPorch"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;HorzBackPorch&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="HorzFrontPorch"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;HorzFrontPorch&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="HorzPulseWidth"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;HorzPulseWidth&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="InvLeftShift"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;InvLeftShift&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="Name"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;Name&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="ResetPolarity"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;ResetPolarity&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="UseChipSelect"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;UseChipSelect&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="UseReset"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;UseReset&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="VSYNCNegative"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;VSYNCNegative&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="VertBackPorch"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;VertBackPorch&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="VertFrontPorch"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;VertFrontPorch&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="gfx_disp_slcd1-PIC32CXMT" name="VertPulseWidth"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;gfx_disp_slcd1-PIC32CXMT&gt;
+  &lt;gfx_disp_slcd1-PIC32CXMT dnOrder=&quot;0&quot; id=&quot;VertPulseWidth&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+&lt;/gfx_disp_slcd1-PIC32CXMT&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="!@#harmonyAttachmentState"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot;&gt;
+    &lt;Attachments dnOrder=&quot;0&quot;&gt;
+      &lt;DirectDependency dnOrder=&quot;0&quot; id=&quot;Segmented Display&quot;&gt;
+        &lt;Attributes dnOrder=&quot;0&quot;&gt;
+          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;gfx_disp_slcd1-PIC32CXMT&lt;/Value&gt;
+          &lt;/String&gt;
+          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;slcd_display&lt;/Value&gt;
+          &lt;/String&gt;
+        &lt;/Attributes&gt;
+      &lt;/DirectDependency&gt;
+    &lt;/Attachments&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="#&amp;__MCC_Group_Parrent_id"/>
+         <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="BoardSelect"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;BoardSelect&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="BufferTimeSelect"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;BufferTimeSelect&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="CommonSelect"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;CommonSelect&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="DislayMode"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;DislayMode&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="DriverInitName"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;DriverInitName&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="FrameDivider"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;FrameDivider&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="FramePrescaler"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;FramePrescaler&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="LcdcPowerMode"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;LcdcPowerMode&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="SLCDC_Bias"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;SLCDC_Bias&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="SegmentSelect"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;SegmentSelect&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="WaveFormMode"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;WaveFormMode&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="rtosEnableTaskDelay"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;rtosEnableTaskDelay&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="rtosTaskDelay"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;rtosTaskDelay&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="rtosTaskPriority"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;rtosTaskPriority&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="le_gfx_slcdc" name="rtosTaskSize"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;le_gfx_slcdc&gt;
+  &lt;le_gfx_slcdc dnOrder=&quot;0&quot; id=&quot;rtosTaskSize&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/le_gfx_slcdc&gt;
+&lt;/le_gfx_slcdc&gt;
 </value>
       </entry>
       <entry>
@@ -29383,6 +29801,14 @@
          <hash/>
       </entry>
       <entry>
+         <file>..\src\app_display.c</file>
+         <hash>8c45e2fb7ae2f90d55dee2ed0499e72e75d061dca724dc3dbc6a57fed729fe3d</hash>
+      </entry>
+      <entry>
+         <file>..\src\app_display.h</file>
+         <hash>3be34262e5bceb19857c6cc902d9800fcb9ab532b87e1bfa57f17313193c3f6c</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\PIC32CX2051MTSH128.ld</file>
          <hash>c6dfa1c9f647c6c3ee86f24233ad844d2f688ba6b57d5eea4b70975e99529edc</hash>
       </entry>
@@ -29460,7 +29886,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\definitions.h</file>
-         <hash>5dc657af8e05fa9146d215e0777fbd630a8ff2df6dcfbfe753c1cf9cbf9e0100</hash>
+         <hash>0e7569717d47d708545e76c4d2508dadeaead3dd48fb650a08d2f75499d99aef</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\device.h</file>
@@ -29539,8 +29965,32 @@
          <hash>a565e8d25d218b3e1069267ae9cc317161d062683a27c64e3cb454757bb82fd9</hash>
       </entry>
       <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\cl010.h</file>
+         <hash>cfea3251bdc3f54949590e5c65f227b03f6136484139d73306a40c1893dc4c0a</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\cl010_font.h</file>
+         <hash>fa78d1db0b0c18e95964c52e04f70692993b17d902626e3f4961975ea0e8aafb</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\cl010_segmap.h</file>
+         <hash>dd65858e15d02ead2dd482373a0cd15e548bcfc58ffa55c5659d473ed338d3c3</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\cl010_slcdc.c</file>
+         <hash>b2fe12ca02afb5185f665ab3158150a616a978df3e084ee27a4e557cb7126321</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\drv_gfx_slcdc.c</file>
+         <hash>e5031d82e4cac700540eaf01a0b94c85b574de3fca8ad90c87d18f72a15b6f76</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460\gfx\driver\controller\slcdc\drv_gfx_slcdc.h</file>
+         <hash>746b04dda4eadc6e185f4b8c8a4df8e01d8a373d3d51440dd4b02e6566a3758a</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\initialization.c</file>
-         <hash>280a47af81bf28c8a315b0753e4029228d26f27caca5c5d6a7869f417498150a</hash>
+         <hash>6a8c72253fa3a232c9d834d5e6dc8389617ca7ef6650e289a6c22e0d303750b9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\interrupts.c</file>
@@ -29876,7 +30326,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\tasks.c</file>
-         <hash>204ad21d33cc868d7ad9bfe93f2ecd6c867ed13dac86838317f175ce1f74b29a</hash>
+         <hash>1b656717d03ceda95c50d5e2ca5d67715877346e3433c3c610651d8738e53d21</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460\toolchain_specifics.h</file>

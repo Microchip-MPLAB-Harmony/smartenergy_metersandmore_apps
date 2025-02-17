@@ -73,16 +73,18 @@
 #include "service/pcrc/srv_pcrc.h"
 #include "peripheral/sefc/plib_sefc0.h"
 #include "peripheral/sefc/plib_sefc1.h"
-#include "stack/metersandmore/pal/pal.h"
 #include "service/pvddmon/srv_pvddmon.h"
+#include "stack/metersandmore/pal/pal.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
+#include "gfx/driver/controller/slcdc/cl010.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "stack/metersandmore/dll/dll.h"
 #include "stack/metersandmore/al/al.h"
 #include "bsp/bsp.h"
 #include "app.h"
+#include "app_display.h"
 
 
 

@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: modem_app_pic32cx_mtsh_db_pl460
-creation_date: 2025-02-12T10:33:59.386+01:00[Europe/Paris]
+creation_date: 2025-02-17T09:49:01.530+01:00[Europe/Paris]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
@@ -21,8 +21,9 @@ modules:
 - {name: csp, type: HARMONY, version: v3.20.0}
 - {name: core, type: HARMONY, version: v3.14.1}
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
+- {name: gfx, type: HARMONY, version: v3.15.3}
 - {name: crypto_v4, type: HARMONY, version: v4.0.0-E3}
 - {name: wolfssl, type: HARMONY, version: v5.7.0}
 - {name: smartenergy, type: HARMONY, version: SMS-4128-support-pl460-multiband-single-branch-coupling-in-h3}
-- {name: smartenergy_metersandmore, type: HARMONY, version: MH3-110109-add-meters-and-more-projects-with-freertos}
+- {name: smartenergy_metersandmore, type: HARMONY, version: MH3-110105-extend-meters-and-more-projects-for-samd20-xpro}
 - {name: shd, type: HARMONY, version: dev}

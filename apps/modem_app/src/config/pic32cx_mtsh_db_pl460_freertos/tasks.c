@@ -96,6 +96,29 @@ static void lMODEM_APP_Tasks(  void *pvParameters  )
     }
 }
 
+/* Handle for the APP_DISPLAY_Tasks. */
+TaskHandle_t xAPP_DISPLAY_Tasks;
+
+
+
+static void lAPP_DISPLAY_Tasks(  void *pvParameters  )
+{   
+    while(true)
+    {
+        APP_DISPLAY_Tasks();
+        vTaskDelay(50U / portTICK_PERIOD_MS);
+    }
+}
+
+void _SLCDC_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        DRV_SLCDC_Update();
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
 
 static void lMM_STACK_Tasks(  void *pvParameters  )
 {
@@ -141,6 +164,14 @@ void SYS_Tasks ( void )
         (TaskHandle_t*)NULL
     );
 
+    xTaskCreate( _SLCDC_Tasks,
+        "SLCDC_Tasks",
+        2048,
+        (void*)NULL,
+        1,
+        (TaskHandle_t*)NULL
+    );
+
 
 
     /* Maintain Middleware & Other Libraries */
@@ -174,6 +205,15 @@ void SYS_Tasks ( void )
            NULL,
            1U ,
            &xMODEM_APP_Tasks);
+
+    /* Create OS Thread for APP_DISPLAY_Tasks. */
+    (void) xTaskCreate(
+           (TaskFunction_t) lAPP_DISPLAY_Tasks,
+           "APP_DISPLAY_Tasks",
+           512,
+           NULL,
+           1U ,
+           &xAPP_DISPLAY_Tasks);
 
 
 

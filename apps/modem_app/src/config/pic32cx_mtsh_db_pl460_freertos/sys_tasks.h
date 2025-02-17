@@ -60,6 +60,9 @@
 /* Declaration of  MODEM_APP_Tasks task handle */
 extern TaskHandle_t xMODEM_APP_Tasks;
 
+/* Declaration of  APP_DISPLAY_Tasks task handle */
+extern TaskHandle_t xAPP_DISPLAY_Tasks;
+
 
 
 

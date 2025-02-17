@@ -46,6 +46,16 @@
             <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/driver/driver.h</itemPath>
             <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/driver/driver_common.h</itemPath>
           </logicalFolder>
+          <logicalFolder name="gfx" displayName="gfx" projectFiles="true">
+            <logicalFolder name="driver" displayName="driver" projectFiles="true">
+              <logicalFolder name="slcdc" displayName="slcdc" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/gfx/driver/controller/slcdc/cl010.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/gfx/driver/controller/slcdc/drv_gfx_slcdc.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/gfx/driver/controller/slcdc/cl010_font.h</itemPath>
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/gfx/driver/controller/slcdc/cl010_segmap.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
           <logicalFolder name="osal" displayName="osal" projectFiles="true">
             <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/osal/osal_freertos.h</itemPath>
             <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/osal/osal.h</itemPath>
@@ -433,6 +443,7 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/app_display.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -486,6 +497,14 @@
                 </logicalFolder>
                 <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/driver/plc/phy/drv_plc_phy_comm.c</itemPath>
                 <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/driver/plc/phy/drv_plc_phy.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="gfx" displayName="gfx" projectFiles="true">
+            <logicalFolder name="driver" displayName="driver" projectFiles="true">
+              <logicalFolder name="slcdc" displayName="slcdc" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/gfx/driver/controller/slcdc/drv_gfx_slcdc.c</itemPath>
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/gfx/driver/controller/slcdc/cl010_slcdc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -739,6 +758,7 @@
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
       <itemPath>../src/config/pic32cx_mtsh_db_pl460_freertos/pin_configurations.csv</itemPath>
+      <itemPath>../src/app_display.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

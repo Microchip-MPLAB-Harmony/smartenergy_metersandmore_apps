@@ -50,8 +50,8 @@
 #include <stdbool.h>
 #include "service/pcoup/srv_pcoup.h"
 #include "peripheral/adc/plib_adc.h"
-#include "peripheral/flexcom/usart/plib_flexcom6_usart.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "peripheral/flexcom/usart/plib_flexcom6_usart.h"
 #include "peripheral/flexcom/usart/plib_flexcom0_usart.h"
 #include "peripheral/flexcom/spi/master/plib_flexcom1_spi_master.h"
 #include "system/time/sys_time.h"
@@ -77,16 +77,18 @@
 #include "service/pcrc/srv_pcrc.h"
 #include "peripheral/sefc/plib_sefc0.h"
 #include "peripheral/sefc/plib_sefc1.h"
-#include "service/pvddmon/srv_pvddmon.h"
 #include "stack/metersandmore/pal/pal.h"
+#include "service/pvddmon/srv_pvddmon.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
+#include "gfx/driver/controller/slcdc/cl010.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "stack/metersandmore/dll/dll.h"
 #include "stack/metersandmore/al/al.h"
 #include "bsp/bsp.h"
 #include "modem_app.h"
+#include "app_display.h"
 
 
 

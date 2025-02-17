@@ -81,6 +81,8 @@ void SYS_Tasks ( void )
     /* Maintain PLC PHY Driver */
     DRV_PLC_PHY_Tasks(sysObj.drvPlcPhy);
 
+DRV_SLCDC_Update();
+
 
 
     /* Maintain Middleware & Other Libraries */
@@ -102,6 +104,9 @@ void SYS_Tasks ( void )
     /* Maintain the application's state machine. */
         /* Call Application task MODEM_APP. */
     MODEM_APP_Tasks();
+
+    /* Call Application task APP_DISPLAY. */
+    APP_DISPLAY_Tasks();
 
 
 
