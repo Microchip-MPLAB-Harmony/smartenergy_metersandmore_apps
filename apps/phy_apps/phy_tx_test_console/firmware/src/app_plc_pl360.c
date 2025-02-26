@@ -472,7 +472,7 @@ void APP_PLC_PL360_Tasks ( void )
                 DRV_PLC_PHY_DataIndCallbackRegister(appPlc.drvPlcHandle, APP_PLC_DataIndCb, DRV_PLC_PHY_INDEX_0);
 
                 /* Apply PLC coupling configuration */
-                SRV_PCOUP_Set_Config(appPlc.drvPlcHandle, SRV_PLC_PCOUP_MAIN_BRANCH);
+                SRV_PCOUP_Set_Config(appPlc.drvPlcHandle);
                 
                 /* Apply TX configuration */
                 APP_PLC_SetImpedanceState(appPlcTx.txAuto, appPlcTx.txImpedance);

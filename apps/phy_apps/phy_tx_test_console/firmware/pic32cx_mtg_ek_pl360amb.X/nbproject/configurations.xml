@@ -44,6 +44,10 @@
             <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/osal/osal_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="adc" displayName="adc" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/peripheral/adc/plib_adc.h</itemPath>
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/peripheral/adc/plib_adc_common.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
@@ -97,6 +101,9 @@
           <logicalFolder name="service" displayName="service" projectFiles="true">
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/pcoup/srv_pcoup.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="pvddmon" displayName="pvddmon" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/pvddmon/srv_pvddmon.h</itemPath>
             </logicalFolder>
             <logicalFolder name="random" displayName="random" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/random/srv_random.h</itemPath>
@@ -312,6 +319,9 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="adc" displayName="adc" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/peripheral/adc/plib_adc.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
@@ -362,6 +372,9 @@
             <logicalFolder name="pcoup" displayName="pcoup" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/pcoup/srv_pcoup.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="pvddmon" displayName="pvddmon" projectFiles="true">
+              <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/pvddmon/srv_pvddmon.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="random" displayName="random" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl360amb/service/random/srv_random.c</itemPath>
             </logicalFolder>
@@ -409,7 +422,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.45</languageToolchainVersion>
+        <languageToolchainVersion>4.50</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>

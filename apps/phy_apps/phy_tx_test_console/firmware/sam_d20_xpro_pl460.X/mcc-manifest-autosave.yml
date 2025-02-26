@@ -2,12 +2,12 @@
 
 manifest_file_version: 1.0.0
 project: mm_phy_tx_test_console_sam_d20_xpro_pl460
-creation_date: 2025-02-10T09:55:26.931+01:00[Europe/Paris]
+creation_date: 2025-02-26T16:09:37.843+01:00[Europe/Paris]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
 device_name: ATSAMD20J18
-compiler: XC32 4.45
+compiler: XC32 4.50
 mcc_version: 5.5.1
 mcc_core_version: 5.7.1
 content_manager_version: 5.0.1
@@ -21,5 +21,5 @@ modules:
 - {name: csp, type: HARMONY, version: v3.20.0}
 - {name: core, type: HARMONY, version: v3.14.1}
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
-- {name: smartenergy, type: HARMONY, version: SMS-4128-support-pl460-multiband-single-branch-coupling-in-h3}
+- {name: smartenergy, type: HARMONY, version: SMS-4137-set-single-channels-visible-by-default}
 - {name: shd, type: HARMONY, version: dev}

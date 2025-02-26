@@ -17,7 +17,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2023 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -54,26 +54,64 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "device.h"
+#include "peripheral/pio/plib_pio.h"
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: BSP Macros
 // *****************************************************************************
 // *****************************************************************************
-#define pic32cxmtg_ek
-#define BSP_NAME             "pic32cxmtg_ek"
+#define PIC32CXMTG_EK
+#define BOARD_NAME    "PIC32CXMTG-EK"
 
-/*PIOA base address */
-#define PIOA_REGS   ((pio_group_registers_t*)(&(PIO0_REGS->PIO_GROUP[0])))
-/*PIOB base address */
-#define PIOB_REGS   ((pio_group_registers_t*)(&(PIO0_REGS->PIO_GROUP[1])))
-/*PIOC base address */
-#define PIOC_REGS   ((pio_group_registers_t*)(&(PIO0_REGS->PIO_GROUP[2])))
-/*PIOD base address */
-#define PIOD_REGS   ((pio_group_registers_t*)(&(PIO1_REGS->PIO_GROUP[0])))
+/*** OUTPUT PIO Macros for LED1 ***/
+#define BSP_LED1_PIN        PIO_PIN_PD3
+#define BSP_LED1_Get()      ((PIOD_REGS->PIO_PDSR >> 3) & 0x1)
+#define BSP_LED1_On()       (PIOD_REGS->PIO_CODR = (1UL<<3))
+#define BSP_LED1_Off()      (PIOD_REGS->PIO_SODR = (1UL<<3))
+#define BSP_LED1_Toggle()   do {\
+                                    PIOD_REGS->PIO_MSKR = (1<<3); \
+                                    PIOD_REGS->PIO_ODSR ^= (1<<3);\
+                                } while (0)
+
+/*** OUTPUT PIO Macros for LED0 ***/
+#define BSP_LED0_PIN        PIO_PIN_PD16
+#define BSP_LED0_Get()      ((PIOD_REGS->PIO_PDSR >> 16) & 0x1)
+#define BSP_LED0_On()       (PIOD_REGS->PIO_CODR = (1UL<<16))
+#define BSP_LED0_Off()      (PIOD_REGS->PIO_SODR = (1UL<<16))
+#define BSP_LED0_Toggle()   do {\
+                                    PIOD_REGS->PIO_MSKR = (1<<16); \
+                                    PIOD_REGS->PIO_ODSR ^= (1<<16);\
+                                } while (0)
+
+/*** OUTPUT PIO Macros for PLC_NRST ***/
+#define BSP_PLC_NRST_PIN        PIO_PIN_PA3
+#define BSP_PLC_NRST_Get()      ((PIOA_REGS->PIO_PDSR >> 3) & 0x1)
+#define BSP_PLC_NRST_On()       (PIOA_REGS->PIO_SODR = (1UL<<3))
+#define BSP_PLC_NRST_Off()      (PIOA_REGS->PIO_CODR = (1UL<<3))
+#define BSP_PLC_NRST_Toggle()   do {\
+                                    PIOA_REGS->PIO_MSKR = (1<<3); \
+                                    PIOA_REGS->PIO_ODSR ^= (1<<3);\
+                                } while (0)
+
+/*** OUTPUT PIO Macros for PLC_LDO_EN ***/
+#define BSP_PLC_LDO_EN_PIN        PIO_PIN_PA28
+#define BSP_PLC_LDO_EN_Get()      ((PIOA_REGS->PIO_PDSR >> 28) & 0x1)
+#define BSP_PLC_LDO_EN_On()       (PIOA_REGS->PIO_SODR = (1UL<<28))
+#define BSP_PLC_LDO_EN_Off()      (PIOA_REGS->PIO_CODR = (1UL<<28))
+#define BSP_PLC_LDO_EN_Toggle()   do {\
+                                    PIOA_REGS->PIO_MSKR = (1<<28); \
+                                    PIOA_REGS->PIO_ODSR ^= (1<<28);\
+                                } while (0)
 
 
-
+/*** INPUT PIO Macros for PLC_EXT_INT ***/
+#define BSP_PLC_EXT_INT_PIN                    PIO_PIN_PA2
+#define BSP_PLC_EXT_INT_Get()                  ((PIOA_REGS->PIO_PDSR >> 2) & 0x1)
+#define BSP_PLC_EXT_INT_STATE_PRESSED          1
+#define BSP_PLC_EXT_INT_STATE_RELEASED         0
+#define BSP_PLC_EXT_INT_InterruptEnable()      (PIOA_REGS->PIO_IER = (1UL<<2))
+#define BSP_PLC_EXT_INT_InterruptDisable()     (PIOA_REGS->PIO_IDR = (1UL<<2))
 
 
 

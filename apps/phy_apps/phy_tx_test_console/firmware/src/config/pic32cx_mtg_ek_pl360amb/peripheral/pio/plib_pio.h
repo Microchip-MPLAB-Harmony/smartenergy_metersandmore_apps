@@ -90,6 +90,42 @@
 #define PIO_PORT_MAX    4U
 
 
+/*** Macros for LED1 pin ***/
+#define LED1_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<3U))
+#define LED1_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<3U))
+#define LED1_Toggle()            do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<3U); \
+                                            PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<3U);\
+                                        } while (0)
+#define LED1_OutputEnable()      do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<3U); \
+                                            PIOD_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        }while(0)
+#define LED1_InputEnable()       do { \
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<3U); \
+                                            PIOD_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        } while (0)
+#define LED1_Get()               ((PIOD_REGS->PIO_PDSR >> 3U) & 0x1U)
+#define LED1_PIN                  PIO_PIN_PD3
+
+/*** Macros for LED0 pin ***/
+#define LED0_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<16U))
+#define LED0_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<16U))
+#define LED0_Toggle()            do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<16U); \
+                                            PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<16U);\
+                                        } while (0)
+#define LED0_OutputEnable()      do {\
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<16U); \
+                                            PIOD_REGS->PIO_CFGR |=((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        }while(0)
+#define LED0_InputEnable()       do { \
+                                            PIOD_REGS->PIO_MSKR = ((uint32_t)1U<<16U); \
+                                            PIOD_REGS->PIO_CFGR &= ~((uint32_t)1U << PIO_CFGR_DIR_Pos);\
+                                        } while (0)
+#define LED0_Get()               ((PIOD_REGS->PIO_PDSR >> 16U) & 0x1U)
+#define LED0_PIN                  PIO_PIN_PD16
+
 /*** Macros for PLC_EXT_INT pin ***/
 #define PLC_EXT_INT_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<2U))
 #define PLC_EXT_INT_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<2U))
@@ -127,6 +163,14 @@
                                         } while (0)
 #define PLC_NRST_Get()               ((PIOA_REGS->PIO_PDSR >> 3U) & 0x1U)
 #define PLC_NRST_PIN                  PIO_PIN_PA3
+
+/*** Macros for VIRTUAL_COM_TX pin ***/
+#define VIRTUAL_COM_TX_Get()               ((PIOA_REGS->PIO_PDSR >> 4U) & 0x1U)
+#define VIRTUAL_COM_TX_PIN                  PIO_PIN_PA4
+
+/*** Macros for VIRTUAL_COM_RX pin ***/
+#define VIRTUAL_COM_RX_Get()               ((PIOA_REGS->PIO_PDSR >> 5U) & 0x1U)
+#define VIRTUAL_COM_RX_PIN                  PIO_PIN_PA5
 
 /*** Macros for PLC_LDO_EN pin ***/
 #define PLC_LDO_EN_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<28U))

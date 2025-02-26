@@ -211,9 +211,6 @@ DRV_PLC_PHY_INIT drvPlcPhyInitData = {
     /* PLC PHY Number of clients */
     .numClients = DRV_PLC_PHY_CLIENTS_NUMBER_IDX,  
 
-    /* PLC PHY profile */
-    .plcProfile = DRV_PLC_PHY_PROFILE,
- 
     /* PLC Binary start address */
     .binStartAddress = (uint32_t)&plc_phy_bin_start,
     
@@ -374,7 +371,6 @@ void SYS_Initialize ( void* data )
 
 
 
-	BSP_Initialize();
     FLEXCOM5_SPI_Initialize();
 
  
@@ -386,6 +382,7 @@ void SYS_Initialize ( void* data )
     QSPI_Initialize();
 	TRNG_Initialize();
 
+    BSP_Initialize();
 
     /* MISRAC 2012 deviation block start */
     /* Following MISRA-C rules deviated in this block  */
