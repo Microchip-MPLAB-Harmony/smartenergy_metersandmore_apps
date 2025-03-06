@@ -52,6 +52,7 @@
 */
 
 #define MAX_TCT_VALUE        0xFF
+#define MIN_TCT_VALUE        0x00
 #define ADDR_RESP_INFO_LEN   12
 
 APP_DATA appData;
@@ -209,6 +210,7 @@ static void lAPP_AL_DataIndicationCallback(AL_DATA_IND_PARAMS *indParams)
                 rEntry->macAddress[0].address[0] = indParams->apdu[5];
                 rEntry->routeSize = 1;
                 appData.numFoundNodes++;
+                appData.numFoundNodesNew++;
                 /* Print Info */
                 SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "ADDRESS RESPONSE Received\r\n");
                 SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "ACA=0x%02X%02X%02X%02X%02X%02X, Av_SIG=%hhu Av_SNR=%hhu, Av_TX=%hhu\r\n",
@@ -244,6 +246,8 @@ static void lAPP_AL_DataIndicationCallback(AL_DATA_IND_PARAMS *indParams)
                     rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[1] = indParams->apdu[idx + 4];
                     rEntry->macAddress[appData.routingTable[appData.numReqAddrSent].routeSize].address[0] = indParams->apdu[idx + 5];
                     rEntry->routeSize = appData.routingTable[appData.numReqAddrSent].routeSize + 1;
+                    appData.numFoundNodes++;
+                    appData.numFoundNodesNew++;
                     /* Print Info */
                     SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "ACA=0x%02X%02X%02X%02X%02X%02X, Av_SIG=%hhu Av_SNR=%hhu, Av_TX=%hhu\r\n",
                             indParams->apdu[idx + 0], indParams->apdu[idx + 1], indParams->apdu[idx + 2],
@@ -294,7 +298,8 @@ static void lAPP_AL_EventIndicationCallback(AL_EVENT_IND_PARAMS *indParams)
 
     if ((indParams->eventId == AL_EVENT_ID_MAC_ACA) || (indParams->eventId == AL_EVENT_ID_MASTER_TX_TIMEOUT))
     {
-        if ((appData.state == APP_STATE_WAIT_ADDR_RESP) || (appData.state == APP_STATE_WAIT_REQADDR_RESP))
+        if ((appData.state == APP_STATE_WAIT_ADDR_RESP) || (appData.state == APP_STATE_WAIT_REQADDR_RESP) ||
+                (appData.state == APP_STATE_WAIT_TCT_SILENCE_NODES_SENT))
         {
             /* Master timeout expired. No more responses can be received. */
             appData.tmrStateTimeoutExpired = true;
@@ -324,6 +329,86 @@ static void lSendTCTBroadcast(uint8_t tctValue)
     /* Destination address: broadcast, no repeaters */
     reqParams.dstAddress.macAddress[0] = broadcastAddress;
     reqParams.dstAddress.routeSize = 1;
+    /* Payload for TCT */
+    txBuffer[0] = tctValue;
+    reqParams.apdu = txBuffer;
+    reqParams.apduLen = 1;
+
+    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "SEND TCT BCAST: DSAP=0x%02X, ECC=0x%02X, ATTR=0x%02X, DestAddr=0x%02X%02X%02X%02X%02X%02X",
+            reqParams.dsap, reqParams.ecc, reqParams.attr,
+            reqParams.dstAddress.macAddress[0].address[0], reqParams.dstAddress.macAddress[0].address[1], reqParams.dstAddress.macAddress[0].address[2],
+            reqParams.dstAddress.macAddress[0].address[3], reqParams.dstAddress.macAddress[0].address[4], reqParams.dstAddress.macAddress[0].address[5]);
+    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, " APDU=0x");
+    for (uint8_t i = 0; i < reqParams.apduLen; i++)
+    {
+        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "%02X", reqParams.apdu[i]);
+    }
+    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\n");
+
+    /* Send Data Request to AL */
+    AL_DataRequest(&reqParams);
+}
+
+static void lSendTCTSilence(uint8_t tctValue)
+{
+    AL_DATA_REQUEST_PARAMS reqParams;
+    MAC_ADDRESS dstAddress;
+
+    /* Parameters related to TCT Set */
+    reqParams.datetime = 0;
+    reqParams.lmon = 0; /* Not used in TCT Set */
+    reqParams.maxResponseLen = 20;
+    reqParams.timeSlotNum = 0; /* Not used in TCT Set */
+    reqParams.serviceClass = SERVICE_CLASS_S;
+    reqParams.attr = AL_MSG_TCT_SET_REQ;
+    reqParams.dsap = DLL_DSAP_NETWORK_MANAGEMENT;
+    reqParams.ecc = DLL_ECC_DISABLED;
+    /* Destination address: Node in the routing table */
+    (void) memcpy(reqParams.dstAddress.macAddress[0].address,
+        appData.routingTable[appData.numTCTSilenceSent].macAddress[0].address,
+        MAC_ADDRESS_SIZE * appData.routingTable[appData.numTCTSilenceSent].routeSize);
+    reqParams.dstAddress.routeSize = appData.routingTable[appData.numTCTSilenceSent].routeSize;
+    /* Payload for TCT */
+    txBuffer[0] = tctValue;
+    reqParams.apdu = txBuffer;
+    reqParams.apduLen = 1;
+
+    dstAddress = reqParams.dstAddress.macAddress[reqParams.dstAddress.routeSize];
+    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "SEND TCT SILENCE: DSAP=0x%02X, ECC=0x%02X, ATTR=0x%02X, DestAddr=0x%02X%02X%02X%02X%02X%02X",
+            reqParams.dsap, reqParams.ecc, reqParams.attr,
+            dstAddress.address[0], dstAddress.address[1], dstAddress.address[2],
+            dstAddress.address[3], dstAddress.address[4], dstAddress.address[5]);
+    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, " APDU=0x");
+    for (uint8_t i = 0; i < reqParams.apduLen; i++)
+    {
+        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "%02X", reqParams.apdu[i]);
+    }
+    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\n");
+
+    /* Send Data Request to AL */
+    AL_DataRequest(&reqParams);
+}
+
+static void lSendTCTBroadcastRepeater(uint8_t tctValue)
+{
+    AL_DATA_REQUEST_PARAMS reqParams;
+
+    /* Parameters related to TCT Set */
+    reqParams.datetime = 0;
+    reqParams.lmon = 0; /* Not used in TCT Set */
+    reqParams.maxResponseLen = 20;
+    reqParams.timeSlotNum = 0; /* Not used in TCT Set */
+    reqParams.serviceClass = SERVICE_CLASS_S;
+    reqParams.attr = AL_MSG_TCT_SET_REQ;
+    reqParams.dsap = DLL_DSAP_NETWORK_MANAGEMENT;
+    reqParams.ecc = DLL_ECC_DISABLED;
+    /* Destination address: Node in the routing table */
+    (void) memcpy(reqParams.dstAddress.macAddress[0].address,
+        appData.routingTable[appData.numTCTBroadcastRepeaterSent].macAddress[0].address,
+        MAC_ADDRESS_SIZE * appData.routingTable[appData.numTCTBroadcastRepeaterSent].routeSize);
+    /* Last hop: broadcast address */
+    reqParams.dstAddress.macAddress[appData.routingTable[appData.numTCTBroadcastRepeaterSent].routeSize] = broadcastAddress;
+    reqParams.dstAddress.routeSize = appData.routingTable[appData.numTCTBroadcastRepeaterSent].routeSize + 1;
     /* Payload for TCT */
     txBuffer[0] = tctValue;
     reqParams.apdu = txBuffer;
@@ -621,11 +706,14 @@ void APP_Tasks ( void )
             /* Clear LMON Table */
             (void) memset(&appData.lmonTable, 0, sizeof(appData.lmonTable));
             /* Clear control variables */
-            appData.numTCTSent = 0;
+            appData.numTCTBroadcastSent = 0;
+            appData.numTCTSilenceSent = 0;
+            appData.numTCTBroadcastRepeaterSent = 0;
             appData.numFoundNodes = 0;
             appData.numReqAddrSent = 0;
             appData.numReadPlainSent = 0;
             appData.numReadEncryptedSent = 0;
+            appData.addressReqFinished = false;
             appData.lmonMismatchReceived = false;
             /* Set next State */
             appData.state = APP_STATE_SEND_TCT_BROADCAST;
@@ -649,11 +737,12 @@ void APP_Tasks ( void )
             if (appData.tmrStateTimeoutExpired)
             {
                 appData.tmrStateTimeoutExpired = false;
-                appData.numTCTSent++;
-                if (appData.numTCTSent >= 2)
+                appData.numTCTBroadcastSent++;
+                if (appData.numTCTBroadcastSent >= 2)
                 {
                     /* Start looking for Nodes */
                     appData.state = APP_STATE_SEND_ADDR_REQ;
+                    appData.numTCTBroadcastSent = 0;
                     SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: DISCOVER NODES AT FIRST LEVEL\r\n");
                 }
                 else
@@ -667,6 +756,7 @@ void APP_Tasks ( void )
 
         case APP_STATE_SEND_ADDR_REQ:
         {
+            appData.numFoundNodesNew = 0;
             lSendAddressReq();
             appData.state = APP_STATE_WAIT_ADDR_RESP;
             break;
@@ -679,9 +769,19 @@ void APP_Tasks ( void )
                 appData.tmrStateTimeoutExpired = false;
                 if (appData.numFoundNodes > 0)
                 {
-                    /* Look for Nodes through discovered Nodes */
-                    appData.state = APP_STATE_SEND_REQADDR_REQ;
-                    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: DISCOVER NODES SEEN TROUGH OTHER NODES\r\n");
+                    if (appData.numFoundNodesNew > 0)
+                    {
+                        /* Send TCT_SET to silence found nodes */
+                        appData.state = APP_STATE_SEND_TCT_SILENCE_NODES;
+                        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: SEND TCT SILENCE DISCOVERED NODES\r\n");
+                    }
+                    else
+                    {
+                        /* Send TCT set broadcast through repeaters */
+                        appData.state = APP_STATE_SEND_TCT_BROADCAST_REPEATER;
+                        appData.addressReqFinished = true;
+                        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: SEND TCT BROADCAST TROUGH OTHER NODES\r\n");
+                    }
                 }
                 else
                 {
@@ -692,8 +792,79 @@ void APP_Tasks ( void )
             break;
         }
 
+        case APP_STATE_SEND_TCT_SILENCE_NODES:
+            lSendTCTSilence(MIN_TCT_VALUE);
+            appData.state = APP_STATE_WAIT_TCT_SILENCE_NODES_SENT;
+            break;
+
+        case APP_STATE_WAIT_TCT_SILENCE_NODES_SENT:
+            if (appData.tmrStateTimeoutExpired)
+            {
+                appData.tmrStateTimeoutExpired = false;
+                appData.numTCTSilenceSent++;
+                if (appData.numFoundNodes >= appData.numTCTSilenceSent)
+                {
+                    if (appData.addressReqFinished == false)
+                    {
+                        /* Look for nodes again */
+                        appData.state = APP_STATE_SEND_ADDR_REQ;
+                        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: DISCOVER NODES AT FIRST LEVEL\r\n");
+                    }
+                    else
+                    {
+                        /* Look for Nodes through discovered Nodes */
+                        appData.state = APP_STATE_SEND_REQADDR_REQ;
+                        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: DISCOVER NODES SEEN TROUGH OTHER NODES\r\n");
+                    }
+                }
+                else
+                {
+                    /* Send new TCT to silence next node */
+                    appData.state = APP_STATE_SEND_TCT_SILENCE_NODES;
+                }
+            }
+            break;
+
+        case APP_STATE_SEND_TCT_BROADCAST_REPEATER:
+            lSendTCTBroadcastRepeater(MAX_TCT_VALUE);
+            appData.state = APP_STATE_WAIT_TCT_SENT_REPEATER;
+            /* Start Timer to wait for next state */
+            SYS_TIME_TimerDestroy(appData.tmrStateTimeoutHandle);
+            appData.tmrStateTimeoutHandle = SYS_TIME_CallbackRegisterMS(lAPP_StateTimerCallback, 0, STATE_TIMEOUT_MS, SYS_TIME_SINGLE);            
+            break;
+
+        case APP_STATE_WAIT_TCT_SENT_REPEATER:
+            if (appData.tmrStateTimeoutExpired)
+            {
+                appData.tmrStateTimeoutExpired = false;
+                appData.numTCTBroadcastSent++;
+                if (appData.numTCTBroadcastSent >= 2)
+                {
+                    appData.numTCTBroadcastSent = 0;
+                    if (appData.numFoundNodes >= appData.numTCTBroadcastRepeaterSent)
+                    {
+                        /* Silence discovered Nodes again */
+                        appData.state = APP_STATE_SEND_TCT_SILENCE_NODES;
+                        appData.numTCTSilenceSent = 0;
+                        SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: SEND TCT SILENCE DISCOVERED NODES\r\n");
+                    }
+                    else
+                    {
+                        /* Send TCT Set through next repeater */
+                        appData.state = APP_STATE_SEND_TCT_BROADCAST_REPEATER;
+                    }
+                }
+                else
+                {
+                    /* Send TCT Set again */
+                    appData.state = APP_STATE_SEND_TCT_BROADCAST_REPEATER;
+                }
+            }
+            break;
+            
         case APP_STATE_SEND_REQADDR_REQ:
         {
+            appData.numFoundNodesNew = 0;
             lSendReqAddressReq();
             appData.state = APP_STATE_WAIT_REQADDR_RESP;
             break;
@@ -705,7 +876,13 @@ void APP_Tasks ( void )
             {
                 appData.tmrStateTimeoutExpired = false;
                 appData.numReqAddrSent++;
-                if (appData.numFoundNodes >= appData.numReqAddrSent)
+                if (appData.numFoundNodesNew > 0)
+                {
+                    /* Send TCT set broadcast through repeaters */
+                    appData.state = APP_STATE_SEND_TCT_BROADCAST_REPEATER;
+                    SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "\r\nNext App State: SEND TCT BROADCAST TROUGH OTHER NODES\r\n");
+                }
+                else if (appData.numFoundNodes >= appData.numReqAddrSent)
                 {
                     /* Start Reading Data from Nodes */
                     appData.state = APP_STATE_SEND_PLAIN_READ_REQ;

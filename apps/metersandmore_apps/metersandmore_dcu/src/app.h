@@ -81,6 +81,10 @@ typedef enum
     APP_STATE_WAIT_TCT_SENT,
     APP_STATE_SEND_ADDR_REQ,
     APP_STATE_WAIT_ADDR_RESP,
+    APP_STATE_SEND_TCT_SILENCE_NODES,
+    APP_STATE_WAIT_TCT_SILENCE_NODES_SENT,
+    APP_STATE_SEND_TCT_BROADCAST_REPEATER,
+    APP_STATE_WAIT_TCT_SENT_REPEATER,
     APP_STATE_SEND_REQADDR_REQ,
     APP_STATE_WAIT_REQADDR_RESP,
     APP_STATE_SEND_PLAIN_READ_REQ,
@@ -119,15 +123,23 @@ typedef struct
 
     AL_IB_VALUE alIB;
 
-    uint8_t numTCTSent;
+    uint8_t numTCTBroadcastSent;
+    
+    uint8_t numTCTSilenceSent;
+    
+    uint8_t numTCTBroadcastRepeaterSent;
 
     uint8_t numFoundNodes;
+    
+    uint8_t numFoundNodesNew;
 
     uint8_t numReqAddrSent;
 
     uint8_t numReadPlainSent;
 
     uint8_t numReadEncryptedSent;
+    
+    bool addressReqFinished;
 
     bool tmrBlinkLedExpired;
 
