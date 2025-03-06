@@ -29364,7 +29364,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
-         <hash>dd519757f174692f33d2150a73244a9c731174c7a92a16866bc92b539be62759</hash>
+         <hash>58232da17c978905ca964bfe89b91153288be350c279f75b2d8a62ab0c9e648a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
@@ -29672,7 +29672,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.h</file>
-         <hash>f9ea47d71ea0c7f8abc0631b24ff627d2cad489c381bc9f86c094fe0e3ab73c2</hash>
+         <hash>7fa1ec60f1c1fe038d88dd4165bbb55c2a2f4a802ccdd1d1f6b00b71862ba820</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al_local.h</file>
@@ -29680,7 +29680,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al_serial.c</file>
-         <hash>e5852f5a92ab998fb842d90145e32dbb4851d811ae0ea15548ed3de916475d87</hash>
+         <hash>1ed9ea48969f59f103d361620e2f555c70e42e50a14a12756ff5198ce187ecfd</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al_serial.h</file>
@@ -29688,11 +29688,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\dll\dll.h</file>
-         <hash>bcd8c5cdadbd8513f1d00313db92324b99ba441cc2ce6c056508d1b8467529c1</hash>
+         <hash>0f02d63f64eb5873d428c821849bea3d912480175ca57fe452dda709bcd69c88</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
-         <hash>07a00a3273ef65aad347be67e535d7a4ab12d3c1a97dc7c9affeab68fe9e3d90</hash>
+         <hash>b6531b1f72e665586a43a173d3262464eb2f094ddac9ebba5db91fe3a6aade39</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\pal\pal.c</file>

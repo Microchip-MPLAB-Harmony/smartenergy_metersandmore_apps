@@ -30286,7 +30286,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>c5a2e6691e89502b5f5f1fcbd3d5a12fdc2bb3b797d53edbf9fcbfe8c06ae560</hash>
+         <hash>9d98e2134c0676401a483f3e48dd41b8cdc5e4dddd8ced4e02021fc4549a5619</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -30570,7 +30570,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.h</file>
-         <hash>f9ea47d71ea0c7f8abc0631b24ff627d2cad489c381bc9f86c094fe0e3ab73c2</hash>
+         <hash>7fa1ec60f1c1fe038d88dd4165bbb55c2a2f4a802ccdd1d1f6b00b71862ba820</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_local.h</file>
@@ -30578,7 +30578,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_serial.c</file>
-         <hash>e5852f5a92ab998fb842d90145e32dbb4851d811ae0ea15548ed3de916475d87</hash>
+         <hash>1ed9ea48969f59f103d361620e2f555c70e42e50a14a12756ff5198ce187ecfd</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_serial.h</file>
@@ -30586,11 +30586,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\dll.h</file>
-         <hash>bcd8c5cdadbd8513f1d00313db92324b99ba441cc2ce6c056508d1b8467529c1</hash>
+         <hash>0f02d63f64eb5873d428c821849bea3d912480175ca57fe452dda709bcd69c88</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll_cm0.a</file>
-         <hash>515a3c6290413cacb5b83710ddf2d836aa419ed972ad9dfe7d14eee37a1c5e27</hash>
+         <hash>528a5040390088f9e42908072587a304b1d69740290b362c2ff2f0dcd048d5a6</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\pal\pal.c</file>

@@ -297,65 +297,37 @@ static void lAL_SER_StringifyGetConfirm(uint32_t attributeId, uint16_t attribute
 
     if (result == AL_SUCCESS)
     {
-        switch ((AL_IB_ATTRIBUTE) attributeId)
+        switch (attributeValue->length)
         {
             /* 8-bit IBs */
-            case AL_NM_TCT_IB:
-            case AL_TX_RETRY_LIMIT:
-            case AL_MAC_LAST_RX_IN_PHASE_IB:
-            case AL_MAC_LAST_RX_NB_FRAME_IB:
-            case AL_MAC_LAST_RX_SIGNAL_LEVEL_IB:
-            case AL_MAC_LAST_RX_SNR_IB:
-            case AL_MAC_ESTIMATED_IMPDEDANCE_IB:
-                alSeriallRspBuffer[serialRspLen++] = attributeValue->value[0];
+            case 1:
+                alSeriallRspBuffer[serialRspLen] = attributeValue->value[0];
                 break;
 
             /* 16-bit IBs */
-            case AL_MAC_BAUDRATE_IB:
+            case 2:
                 lMemcpyToUsiEndianessUint16(&alSeriallRspBuffer[serialRspLen], attributeValue->value);
-                serialRspLen += 2U;
                 break;
 
             /* 32-bit IBs */
-            case AL_MAC_TIME_SLOT_US_IB:
-            case AL_MAC_TIME_ELABORATION_US_IB:
-            case AL_MAC_ADDITIONAL_DELAY_US_IB:
+            case 4:
                 lMemcpyToUsiEndianessUint32(&alSeriallRspBuffer[serialRspLen], attributeValue->value);
-                serialRspLen += 4U;
                 break;
 
             /* 64-bit IBs */
-            case AL_AUTH_LMON_IB:
+            case 8:
                 lMemcpyToUsiEndianessUint64(&alSeriallRspBuffer[serialRspLen], attributeValue->value);
-                serialRspLen += 8U;
                 break;
 
-            /* MAC_ADDRESS_SIZE */
-            case AL_AUTH_DESTINATION_NODE_ACA_IB:
-            case AL_MAC_ACA_ADDRESS_IB:
-            case AL_MAC_SCA_ADDRESS_IB:
-                (void) memcpy(&alSeriallRspBuffer[serialRspLen], attributeValue->value, MAC_ADDRESS_SIZE);
-                serialRspLen += MAC_ADDRESS_SIZE;
-                break;
-
-            /* AL_KEY_LENGTH */
-            case AL_AUTH_WRITE_KEY_K1_IB:
-            case AL_AUTH_READ_KEY_K2_IB:
-                (void) memcpy(&alSeriallRspBuffer[serialRspLen], attributeValue->value, AL_KEY_LENGTH);
-                serialRspLen += AL_KEY_LENGTH;
-                break;
-
-            /* MISRA C-2012 deviation block start */
-            /* MISRA C-2012 Rule 16.4 deviated once. Deviation record ID - H3_MISRAC_2012_R_16_4_DR_1 */
-
+            /* Array IBs */
             default:
+                (void) memcpy(&alSeriallRspBuffer[serialRspLen], attributeValue->value, attributeValue->length);
                 break;
-
-            /* MISRA C-2012 deviation block end */
         }
     }
 
     /* Send through USI */
+    serialRspLen += attributeValue->length;
     SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
@@ -450,46 +422,31 @@ static AL_SERIAL_STATUS lAL_SER_ParseSetRequest(uint8_t* pData)
     attributeIndex += (uint16_t) *pData++;
     attributeValue.length = *pData++;
 
-    switch (attributeId)
+    switch (attributeValue.length)
     {
         /* 8-bit IBs */
-        case AL_NM_TCT_IB:
-        case AL_TX_RETRY_LIMIT:
+        case 1:
             attributeValue.value[0] = *pData;
             break;
 
         /* 16-bit IBs */
-        case AL_MAC_BAUDRATE_IB:
+        case 2:
             lMemcpyFromUsiEndianessUint16(attributeValue.value, pData);
             break;
 
         /* 32-bit IBs */
-        case AL_MAC_TIME_SLOT_US_IB:
-        case AL_MAC_TIME_ELABORATION_US_IB:
-        case AL_MAC_ADDITIONAL_DELAY_US_IB:
+        case 4:
             lMemcpyFromUsiEndianessUint32(attributeValue.value, pData);
             break;
 
         /* 64-bit IBs */
-        case AL_AUTH_LMON_IB:
+        case 8:
             lMemcpyFromUsiEndianessUint64(attributeValue.value, pData);
             break;
 
-        /* MAC_ADDRESS_SIZE */
-        case AL_AUTH_DESTINATION_NODE_ACA_IB:
-        case AL_MAC_ACA_ADDRESS_IB:
-        case AL_MAC_SCA_ADDRESS_IB:
-            (void) memcpy(attributeValue.value, pData, MAC_ADDRESS_SIZE);
-            break;
-
-        /* AL_KEY_LENGTH */
-        case AL_AUTH_WRITE_KEY_K1_IB:
-        case AL_AUTH_READ_KEY_K2_IB:
-            (void) memcpy(attributeValue.value, pData, AL_KEY_LENGTH);
-            break;
-
+        /* Array IBs */
         default:
-            /* Read-Only or unknown */
+            (void) memcpy(attributeValue.value, pData, attributeValue.length);
             break;
     }
 

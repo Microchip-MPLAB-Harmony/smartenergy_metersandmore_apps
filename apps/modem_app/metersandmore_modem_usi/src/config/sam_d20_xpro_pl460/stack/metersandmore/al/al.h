@@ -161,6 +161,7 @@ typedef enum
     AL_MAC_LAST_RX_SIGNAL_LEVEL_IB = 0x209,
     AL_MAC_LAST_RX_SNR_IB = 0x20A,
     AL_MAC_ESTIMATED_IMPDEDANCE_IB = 0x20B,
+    AL_LLC_IS_DCU_IB = 0x401,
 } AL_IB_ATTRIBUTE;
 
 // *****************************************************************************

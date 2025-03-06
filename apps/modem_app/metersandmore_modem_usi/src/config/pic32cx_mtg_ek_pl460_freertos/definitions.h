@@ -55,10 +55,10 @@
 #include "service/usi/srv_usi.h"
 #include "service/usi/srv_usi_usart.h"
 #include "peripheral/flexcom/usart/plib_flexcom0_usart.h"
-#include "system/time/sys_time.h"
 #include "driver/plc/phy/drv_plc_phy_definitions.h"
 #include "driver/plc/phy/drv_plc_phy.h"
 #include "driver/plc/phy/drv_plc_phy_comm.h"
+#include "system/time/sys_time.h"
 #include "peripheral/trng/plib_trng.h"
 #include "bsp/bsp.h"
 #include "system/int/sys_int.h"
@@ -76,8 +76,8 @@
 #include "service/pcrc/srv_pcrc.h"
 #include "peripheral/sefc/plib_sefc0.h"
 #include "peripheral/sefc/plib_sefc1.h"
-#include "stack/metersandmore/pal/pal.h"
 #include "service/pvddmon/srv_pvddmon.h"
+#include "stack/metersandmore/pal/pal.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "stack/metersandmore/dll/dll.h"
@@ -214,9 +214,9 @@ Remarks:
 
 typedef struct
 {
-    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ drvPlcPhy;
+    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ srvUSI0;
     SYS_MODULE_OBJ metersandmoreDll;
