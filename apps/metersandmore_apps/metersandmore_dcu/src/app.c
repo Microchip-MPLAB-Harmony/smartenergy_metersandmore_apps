@@ -52,7 +52,7 @@
 */
 
 #define MAX_TCT_VALUE        0xFF
-#define MIN_TCT_VALUE        0x00
+#define MIN_TCT_VALUE        0x01
 #define ADDR_RESP_INFO_LEN   12
 
 APP_DATA appData;
@@ -373,7 +373,7 @@ static void lSendTCTSilence(uint8_t tctValue)
     reqParams.apdu = txBuffer;
     reqParams.apduLen = 1;
 
-    dstAddress = reqParams.dstAddress.macAddress[reqParams.dstAddress.routeSize];
+    dstAddress = reqParams.dstAddress.macAddress[reqParams.dstAddress.routeSize - 1];
     SYS_DEBUG_PRINT(SYS_ERROR_DEBUG, "SEND TCT SILENCE: DSAP=0x%02X, ECC=0x%02X, ATTR=0x%02X, DestAddr=0x%02X%02X%02X%02X%02X%02X",
             reqParams.dsap, reqParams.ecc, reqParams.attr,
             dstAddress.address[0], dstAddress.address[1], dstAddress.address[2],
@@ -552,6 +552,7 @@ static void lSendReadPlainReq()
 static void lSendReadEncryptedReq()
 {
     AL_DATA_REQUEST_PARAMS reqParams;
+    uint8_t routeSize;
 
     /* Set Auth Destination Node IB for Encryption */
     AL_IB_VALUE valueDestACA = {
@@ -559,12 +560,13 @@ static void lSendReadEncryptedReq()
         .value = {0x00}
     };
     /* Reverse ACA for Auth IB */
-    valueDestACA.value[0] = appData.routingTable[appData.numReadEncryptedSent].macAddress[0].address[5];
-    valueDestACA.value[1] = appData.routingTable[appData.numReadEncryptedSent].macAddress[0].address[4];
-    valueDestACA.value[2] = appData.routingTable[appData.numReadEncryptedSent].macAddress[0].address[3];
-    valueDestACA.value[3] = appData.routingTable[appData.numReadEncryptedSent].macAddress[0].address[2];
-    valueDestACA.value[4] = appData.routingTable[appData.numReadEncryptedSent].macAddress[0].address[1];
-    valueDestACA.value[5] = appData.routingTable[appData.numReadEncryptedSent].macAddress[0].address[0];
+    routeSize = appData.routingTable[appData.numReadEncryptedSent].routeSize;
+    valueDestACA.value[0] = appData.routingTable[appData.numReadEncryptedSent].macAddress[routeSize - 1].address[5];
+    valueDestACA.value[1] = appData.routingTable[appData.numReadEncryptedSent].macAddress[routeSize - 1].address[4];
+    valueDestACA.value[2] = appData.routingTable[appData.numReadEncryptedSent].macAddress[routeSize - 1].address[3];
+    valueDestACA.value[3] = appData.routingTable[appData.numReadEncryptedSent].macAddress[routeSize - 1].address[2];
+    valueDestACA.value[4] = appData.routingTable[appData.numReadEncryptedSent].macAddress[routeSize - 1].address[1];
+    valueDestACA.value[5] = appData.routingTable[appData.numReadEncryptedSent].macAddress[routeSize - 1].address[0];
     AL_SetRequest(AL_AUTH_DESTINATION_NODE_ACA_IB, 0, &valueDestACA);
 
     /* Parameters related to Address Req */
