@@ -1298,6 +1298,15 @@ AL_RESULT AL_SetRequest(AL_IB_ATTRIBUTE attribute, uint16_t index, const AL_IB_V
             }
             break;
 
+        case AL_LLC_IS_DCU_IB:
+            /* Set Master/Slave mode */
+            if (1U == ibValue->length)
+            {
+                alData.isMaster = (bool) ibValue->value[0];
+                result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (const DLL_IB_VALUE *) ibValue);
+            }
+            break;
+
         default:
             /* No AL IB, try with DLL */
             result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (const DLL_IB_VALUE *) ibValue);

@@ -359,20 +359,20 @@ static AL_SERIAL_STATUS lAL_SER_ParseDataRequest(uint8_t* pData)
 
     /* Parse data request message */
     dataReqParams.datetime = ((uint64_t) *pData++) << 56;
-    dataReqParams.datetime = ((uint64_t) *pData++) << 48;
-    dataReqParams.datetime = ((uint64_t) *pData++) << 40;
-    dataReqParams.datetime = ((uint64_t) *pData++) << 32;
-    dataReqParams.datetime = ((uint64_t) *pData++) << 24;
-    dataReqParams.datetime = ((uint64_t) *pData++) << 16;
-    dataReqParams.datetime = ((uint64_t) *pData++) << 8;
+    dataReqParams.datetime += ((uint64_t) *pData++) << 48;
+    dataReqParams.datetime += ((uint64_t) *pData++) << 40;
+    dataReqParams.datetime += ((uint64_t) *pData++) << 32;
+    dataReqParams.datetime += ((uint64_t) *pData++) << 24;
+    dataReqParams.datetime += ((uint64_t) *pData++) << 16;
+    dataReqParams.datetime += ((uint64_t) *pData++) << 8;
     dataReqParams.datetime += (uint64_t) *pData++;
     dataReqParams.lmon = ((uint64_t) *pData++) << 56;
-    dataReqParams.lmon = ((uint64_t) *pData++) << 48;
-    dataReqParams.lmon = ((uint64_t) *pData++) << 40;
-    dataReqParams.lmon = ((uint64_t) *pData++) << 32;
-    dataReqParams.lmon = ((uint64_t) *pData++) << 24;
-    dataReqParams.lmon = ((uint64_t) *pData++) << 16;
-    dataReqParams.lmon = ((uint64_t) *pData++) << 8;
+    dataReqParams.lmon += ((uint64_t) *pData++) << 48;
+    dataReqParams.lmon += ((uint64_t) *pData++) << 40;
+    dataReqParams.lmon += ((uint64_t) *pData++) << 32;
+    dataReqParams.lmon += ((uint64_t) *pData++) << 24;
+    dataReqParams.lmon += ((uint64_t) *pData++) << 16;
+    dataReqParams.lmon += ((uint64_t) *pData++) << 8;
     dataReqParams.lmon += (uint64_t) *pData++;
     dataReqParams.maxResponseLen = ((uint16_t) *pData++) << 8;
     dataReqParams.maxResponseLen += (uint16_t) *pData++;
@@ -384,10 +384,10 @@ static AL_SERIAL_STATUS lAL_SER_ParseDataRequest(uint8_t* pData)
         (void) memcpy(dataReqParams.dstAddress.macAddress[i].address, pData, MAC_ADDRESS_SIZE);
         pData += MAC_ADDRESS_SIZE;
     }
-    dataReqParams.serviceClass += (SERVICE_CLASS) *pData++;
-    dataReqParams.attr += (AL_MSG_ATTR) *pData++;
-    dataReqParams.dsap += (DLL_DSAP) *pData++;
-    dataReqParams.ecc += (DLL_ECC) *pData++;
+    dataReqParams.serviceClass = (SERVICE_CLASS) *pData++;
+    dataReqParams.attr = (AL_MSG_ATTR) *pData++;
+    dataReqParams.dsap = (DLL_DSAP) *pData++;
+    dataReqParams.ecc = (DLL_ECC) *pData++;
     dataReqParams.apduLen = ((uint16_t) *pData++) << 8;
     dataReqParams.apduLen += (uint16_t) *pData++;
     dataReqParams.apdu = pData;
@@ -548,6 +548,7 @@ static void lAL_SER_CallbackUsiAlProtocol(uint8_t* pData, size_t length)
     {
         case AL_SERIAL_MSG_AL_DATA_REQUEST:
             status = lAL_SER_ParseDataRequest(pData);
+            break;
 
         case AL_SERIAL_MSG_AL_SET_REQUEST:
             status = lAL_SER_ParseSetRequest(pData);

@@ -92,6 +92,7 @@ void SYS_Tasks ( void )
 
     /* Maintain Meters And More AL */
     AL_Tasks(sysObj.metersandmoreAl);
+    AL_SERIAL_Tasks(sysObj.metersandmoreAlSerial);
 
 
 

@@ -30908,7 +30908,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\definitions.h</file>
-         <hash>32ca8a19315de140d407875019565518ca8e78d961ac6714ba08f2c6e2cfc5b9</hash>
+         <hash>1cb56603a9424909215b417a4be09d1fbcb58035a6001caf2c86cb6b62737807</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\device.h</file>
@@ -31220,7 +31220,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\al\al.c</file>
-         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
+         <hash>8b694bd00ba89bf500ee4ba90407be3d5987468c7ba2f7d10b8488902085c9da</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\al\al.h</file>
@@ -31232,7 +31232,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\al\al_serial.c</file>
-         <hash>1ed9ea48969f59f103d361620e2f555c70e42e50a14a12756ff5198ce187ecfd</hash>
+         <hash>45116afb359d031856df844f1e0eee4e7fb5522403b8fdc63bc5d126b7a6dd27</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\al\al_serial.h</file>
@@ -31244,7 +31244,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
-         <hash>b6531b1f72e665586a43a173d3262464eb2f094ddac9ebba5db91fe3a6aade39</hash>
+         <hash>ba7fbe236a3f2b9dcd76afb3e3d086557bd06d77333a19c865b75f8e8ea0fcaf</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\pal\pal.c</file>
@@ -31332,7 +31332,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\tasks.c</file>
-         <hash>4c281bbb1b9ef7e67534aa6e1ba260082a8b6068ead1f39291078bb5179f4ca0</hash>
+         <hash>60a660130acfe586ba8909d243087800aada9df91ddd6bd21f57102aa64a1c18</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\toolchain_specifics.h</file>

@@ -103,6 +103,7 @@ static void lMM_STACK_Tasks(  void *pvParameters  )
         DLL_Tasks(sysObj.metersandmoreDll);
         /* Maintain Meters And More AL */
         AL_Tasks(sysObj.metersandmoreAl);
+        AL_SERIAL_Tasks(sysObj.metersandmoreAlSerial);
         vTaskDelay(MM_STACK_RTOS_TASK_DELAY_MS / portTICK_PERIOD_MS);
     }
 }

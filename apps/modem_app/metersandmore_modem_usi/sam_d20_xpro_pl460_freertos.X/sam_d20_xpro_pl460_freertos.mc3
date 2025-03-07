@@ -30286,7 +30286,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>9d98e2134c0676401a483f3e48dd41b8cdc5e4dddd8ced4e02021fc4549a5619</hash>
+         <hash>c5a2e6691e89502b5f5f1fcbd3d5a12fdc2bb3b797d53edbf9fcbfe8c06ae560</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -30566,7 +30566,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.c</file>
-         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
+         <hash>8b694bd00ba89bf500ee4ba90407be3d5987468c7ba2f7d10b8488902085c9da</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.h</file>
@@ -30578,7 +30578,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_serial.c</file>
-         <hash>1ed9ea48969f59f103d361620e2f555c70e42e50a14a12756ff5198ce187ecfd</hash>
+         <hash>45116afb359d031856df844f1e0eee4e7fb5522403b8fdc63bc5d126b7a6dd27</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_serial.h</file>
@@ -30590,7 +30590,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll_cm0.a</file>
-         <hash>528a5040390088f9e42908072587a304b1d69740290b362c2ff2f0dcd048d5a6</hash>
+         <hash>465e16daa4f584c2deedfe992f5743be3891e77ca88c7f99481a6a30346035e7</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\pal\pal.c</file>
@@ -30670,7 +30670,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\tasks.c</file>
-         <hash>6aeb37b17413cae0990a3bd5175ed342e2e150f16df24c023bf731aaefbe6e59</hash>
+         <hash>939fdf6f45e381a62a7d45cd2214b9d1ded1be0033744581508a1271e82409e9</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\toolchain_specifics.h</file>
