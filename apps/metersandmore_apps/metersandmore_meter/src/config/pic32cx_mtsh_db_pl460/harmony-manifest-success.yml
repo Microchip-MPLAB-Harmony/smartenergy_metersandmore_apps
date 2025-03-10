@@ -4,7 +4,7 @@
 
 
 project: metersandmore_meter
-creation_date: 2025-02-17T09:34:40.961+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-03-10T11:31:05.503+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
@@ -20,8 +20,8 @@ modules:
     - {name: "gfx", version: "v3.15.3"}
     - {name: "crypto_v4", version: "v4.0.0-E3"}
     - {name: "wolfssl", version: "v5.7.0"}
-    - {name: "smartenergy", version: "SMS-4128-support-pl460-multiband-single-branch-coupling-in-h3"}
-    - {name: "smartenergy_metersandmore", version: "MH3-110105-extend-meters-and-more-projects-for-samd20-xpro"}
+    - {name: "smartenergy", version: "SMS-4141-calibrate-pl460-cen-b-coupling"}
+    - {name: "smartenergy_metersandmore", version: "MH3-111012-use-crypto-by-hardware-in-pic32cxmt"}
     - {name: "shd", version: "dev"}
 
 packs:

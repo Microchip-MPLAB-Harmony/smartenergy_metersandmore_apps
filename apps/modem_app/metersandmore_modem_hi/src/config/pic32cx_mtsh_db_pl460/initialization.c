@@ -391,12 +391,12 @@ void SYS_Initialize ( void* data )
 
 
     ADC_Initialize();
-    FLEXCOM6_USART_Initialize();
-
  
     TC0_CH0_TimerInitialize(); 
      
     
+    FLEXCOM6_USART_Initialize();
+
     FLEXCOM0_USART_Initialize();
 
     FLEXCOM1_SPI_Initialize();

@@ -19,12 +19,19 @@
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/common_crypto/crypto_mac_cipher.h</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/common_crypto/crypto_sym_cipher.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+              <logicalFolder name="driver" displayName="driver" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/drivers/driver/drv_crypto_aes_hw_6149.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="wrapper" displayName="wrapper" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/drivers/wrapper/crypto_sym_aes6149_wrapper.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/crypto_mac_wc_wrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/crypto_common_wc_wrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/user_settings.h</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/wolfcrypt_config.h</itemPath>
-              <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/crypto_sym_wc_wrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/config.h</itemPath>
             </logicalFolder>
             <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/crypto_config.h</itemPath>
@@ -453,9 +460,16 @@
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/common_crypto/src/crypto_mac_cipher.c</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/common_crypto/src/crypto_sym_cipher.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+              <logicalFolder name="driver" displayName="driver" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/drivers/driver/src/drv_crypto_aes_hw_6149.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="wrapper" displayName="wrapper" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/drivers/wrapper/src/crypto_sym_aes6149_wrapper.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/src/crypto_mac_wc_wrapper.c</itemPath>
-              <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/src/crypto_sym_wc_wrapper.c</itemPath>
               <itemPath>../src/config/pic32cx_mtsh_db_pl460/crypto/wolfcrypt/src/crypto_common_wc_wrapper.c</itemPath>
             </logicalFolder>
           </logicalFolder>

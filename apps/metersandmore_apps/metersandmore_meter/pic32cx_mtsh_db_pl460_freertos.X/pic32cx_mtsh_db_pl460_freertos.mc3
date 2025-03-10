@@ -10879,7 +10879,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;705&quot; canvasWidth=&quot;786&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;705&quot; canvasWidth=&quot;596&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -10972,6 +10972,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;ADC_INTERRUPT_HANDLER_LOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adc&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="AES_CLOCK_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;AES_CLOCK_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -17108,7 +17119,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="CRYPTO_HW_AES_CTR"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;CRYPTO_HW_AES_CTR&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
 </value>
@@ -17117,7 +17130,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="CRYPTO_HW_AES_ECB"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;CRYPTO_HW_AES_ECB&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
 </value>
@@ -17980,12 +17995,38 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="crypto_sym_aes6149_wrapper_c_ftl"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
+  &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_c_ftl&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/lib_crypto&gt;
+&lt;/lib_crypto&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="crypto_sym_aes6149_wrapper_c_ftl_flag"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_c_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
+  &lt;/lib_crypto&gt;
+&lt;/lib_crypto&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="crypto_sym_aes6149_wrapper_h_ftl"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
+  &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_h_ftl&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
 </value>
@@ -17995,7 +18036,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_h_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
@@ -18059,12 +18100,38 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="drv_crypto_aes_hw_6149_c_ftl"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
+  &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_c_ftl&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/lib_crypto&gt;
+&lt;/lib_crypto&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="drv_crypto_aes_hw_6149_c_ftl_flag"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_c_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
+  &lt;/lib_crypto&gt;
+&lt;/lib_crypto&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="drv_crypto_aes_hw_6149_h_ftl"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
+  &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_h_ftl&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
 </value>
@@ -18074,7 +18141,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_h_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
@@ -18274,9 +18341,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_wolfcrypt" name="CRYPTO_WC_AES_CTR"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;CRYPTO_WC_AES_CTR&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
 </value>
@@ -18294,9 +18359,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_wolfcrypt" name="CRYPTO_WC_AES_ECB"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;CRYPTO_WC_AES_ECB&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
 </value>
@@ -18818,7 +18881,7 @@
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_c_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_wolfcrypt&gt;
@@ -18830,7 +18893,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_c_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
@@ -18842,7 +18905,7 @@
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_h_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_wolfcrypt&gt;
@@ -18854,7 +18917,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_h_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
@@ -18889,92 +18952,6 @@
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;mainBoard_PIC32CXMTSH_DB&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_AN"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_AN&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_I2C"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_I2C&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_INT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_INT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_PWM"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_PWM&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;readOnly&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-    &lt;/Attributes&gt;
-    &lt;Values dnOrder=&quot;1&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_RST"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_RST&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_SPI"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_SPI&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_SPI_PC6_CSASGPIO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_SPI_PC6_CSASGPIO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_PIC32CXMTSH_DB&gt;
-&lt;/mainBoard_PIC32CXMTSH_DB&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_PIC32CXMTSH_DB" name="SHD_MAINBOARD_CONNECTOR_MikroBUS_UART"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_PIC32CXMTSH_DB&gt;
-  &lt;mainBoard_PIC32CXMTSH_DB dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_MikroBUS_UART&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/mainBoard_PIC32CXMTSH_DB&gt;
 &lt;/mainBoard_PIC32CXMTSH_DB&gt;
 </value>
@@ -31399,11 +31376,27 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\common_crypto\src\crypto_sym_cipher.c</file>
-         <hash>462c719f87ddc1feb6dd5d1bebc4ec829dab583dae3398cda4af15a87459fdf2</hash>
+         <hash>c59c682e2a635d26faa3ad0e0a76cd6d241201dd0a66d109524fdf9d010f6f34</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\crypto_config.h</file>
          <hash>20aa84229b9697bc8f5100cdb96a2b73222682ca7827888ea11afe1733d92656</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\drivers\driver\drv_crypto_aes_hw_6149.h</file>
+         <hash>6cd6583858f6add534abc5f50b0c2ad808626fdeeed4987079e5d0762bec6a6a</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\drivers\driver\src\drv_crypto_aes_hw_6149.c</file>
+         <hash>5ffc7480961efcc5113f4654e8a71e6ec76f79e329e76dc83465f1839f1e8c49</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\drivers\wrapper\crypto_sym_aes6149_wrapper.h</file>
+         <hash>84102bb9a6547eb1d920aa720291dcf9e3af3fe6fb9b36e6065dc09c58281bdc</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\drivers\wrapper\src\crypto_sym_aes6149_wrapper.c</file>
+         <hash>03b56905264036ac3d34e13f2ba0732950ec0b116e664678558c0bc68d356093</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\wolfcrypt\config.h</file>
@@ -31418,20 +31411,12 @@
          <hash>5b7d2f2e9b79da67b04d1b59ac93a4e08ac87d7912e97538b89bf78b92614121</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\wolfcrypt\crypto_sym_wc_wrapper.h</file>
-         <hash>d7942eaebf7b72c5bb49cb504de2a518cafd5f1fb754fcfe20ab864e3d69f6af</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\wolfcrypt\src\crypto_common_wc_wrapper.c</file>
          <hash>c5fe661c9ae709d5d069faab8588be972b6296b925010f28e0fa2b4a2bb98c73</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\wolfcrypt\src\crypto_mac_wc_wrapper.c</file>
          <hash>ad39acb4112ff5fde4bf0800a716ed5862dc69a6559e50cc49eecb1855585c92</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\wolfcrypt\src\crypto_sym_wc_wrapper.c</file>
-         <hash>266228a1392dde83d668e4368c1297a6df2df93084417f05b86361cde7e37fda</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\crypto\wolfcrypt\user_settings.h</file>
@@ -31443,7 +31428,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\definitions.h</file>
-         <hash>6ba22eef2f350f01bcb9c360ad0f5dd8de4b33c5616ccc24a969fe7a9a000a34</hash>
+         <hash>651aa1b186b62eac7271eae90930e0591f79ba265f5047e120a53a3943df5112</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\device.h</file>
@@ -31595,7 +31580,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\peripheral\clk\plib_clk.c</file>
-         <hash>122d83298a9f97fde87e1da82fe08005dbfca08fc8d3744a0b7eeb9f6e7d6a5b</hash>
+         <hash>c66026058aa6b158bedc9688ecaae673f501c3c3e0d73f95218605278398eb76</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\peripheral\clk\plib_clk.h</file>
@@ -31723,11 +31708,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\service\pcoup\srv_pcoup.c</file>
-         <hash>c5fdf15d1fa7f33ecae792e3b262ab2b3a7c96a6bf29838048d5088c1bbe96e4</hash>
+         <hash>370e8c0ea49719bf7d6abf6715f1b43538d646fbf022dab7e6b2b982da9f831f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\service\pcoup\srv_pcoup.h</file>
-         <hash>c50a0ba4a2f90f37b8d76c836ede6ba0dbc6879be6741ba42a7dc773c2059d1e</hash>
+         <hash>4aafbf3b98121bfa81a1b7f13feebf04c15cdbf0d35db6aab75922f9ba4a3621</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\service\pcrc\srv_pcrc.c</file>
@@ -31755,11 +31740,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\al\al.c</file>
-         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
+         <hash>69fcc67760d748d8094c2955ffc1ea0e425d7c299b67ec8caf53a9a87fc89ccf</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\al\al.h</file>
-         <hash>af4698a3f8502dd5a4155caeb8f46bc6ce384d6c250cccb997f024899c2977e0</hash>
+         <hash>7fa1ec60f1c1fe038d88dd4165bbb55c2a2f4a802ccdd1d1f6b00b71862ba820</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\al\al_local.h</file>
@@ -31767,15 +31752,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\dll\dll.h</file>
-         <hash>bcd8c5cdadbd8513f1d00313db92324b99ba441cc2ce6c056508d1b8467529c1</hash>
+         <hash>0f02d63f64eb5873d428c821849bea3d912480175ca57fe452dda709bcd69c88</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll.a</file>
-         <hash>07a00a3273ef65aad347be67e535d7a4ab12d3c1a97dc7c9affeab68fe9e3d90</hash>
+         <hash>ba7fbe236a3f2b9dcd76afb3e3d086557bd06d77333a19c865b75f8e8ea0fcaf</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\pal\pal.c</file>
-         <hash>6304eb07293484561330092cc0407522ab84311b3ecd81803c668d20ad41f70a</hash>
+         <hash>e8c813e1dabebe6bd4379a25e6569ad938c8b300df3a7cbd2ecf55ba63735723</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\pal\pal.h</file>
@@ -31783,7 +31768,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\stack\metersandmore\pal\pal_local.h</file>
-         <hash>84f0d17a57d2f8111d908a57bfc773c7435c572f5fb28178b9fa072cc103cd66</hash>
+         <hash>525a1d77b56dd57aae541982aa356b56c225312fe0bd0631979475dff2774b0a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtsh_db_pl460_freertos\startup_xc32.c</file>

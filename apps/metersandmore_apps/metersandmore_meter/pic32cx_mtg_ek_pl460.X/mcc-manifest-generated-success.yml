@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: meter_app_pic32cx_mtg_ek_pl460
-creation_date: 2025-02-11T11:33:15.370+01:00[Europe/Paris]
+creation_date: 2025-03-10T09:50:58.929+01:00[Europe/Paris]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
@@ -23,6 +23,6 @@ modules:
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
 - {name: crypto_v4, type: HARMONY, version: v4.0.0-E3}
 - {name: wolfssl, type: HARMONY, version: v5.7.0}
-- {name: smartenergy, type: HARMONY, version: SMS-4128-support-pl460-multiband-single-branch-coupling-in-h3}
+- {name: smartenergy, type: HARMONY, version: SMS-4141-calibrate-pl460-cen-b-coupling}
 - {name: shd, type: HARMONY, version: dev}
-- {name: smartenergy_metersandmore, type: HARMONY, version: MH3-110109-add-meters-and-more-projects-with-freertos}
+- {name: smartenergy_metersandmore, type: HARMONY, version: MH3-111012-use-crypto-by-hardware-in-pic32cxmt}

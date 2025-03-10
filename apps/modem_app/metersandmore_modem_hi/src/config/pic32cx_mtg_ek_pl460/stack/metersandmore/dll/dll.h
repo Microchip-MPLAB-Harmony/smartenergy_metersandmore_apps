@@ -262,6 +262,7 @@ typedef enum
     MAC_LAST_RX_SIGNAL_LEVEL_IB = 0x209,
     MAC_LAST_RX_SNR_IB = 0x20A,
     MAC_ESTIMATED_IMPDEDANCE_IB = 0x20B,
+    LLC_IS_DCU_IB = 0x401,
 } DLL_IB_ATTRIBUTE;
 
 /* Masks to distinguish between layer attributes */

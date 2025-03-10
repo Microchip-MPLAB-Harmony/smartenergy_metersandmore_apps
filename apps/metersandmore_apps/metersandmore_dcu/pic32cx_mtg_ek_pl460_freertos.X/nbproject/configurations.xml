@@ -19,8 +19,15 @@
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/common_crypto/crypto_common.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/common_crypto/crypto_mac_cipher.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+              <logicalFolder name="driver" displayName="driver" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/drivers/driver/drv_crypto_aes_hw_6149.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="wrapper" displayName="wrapper" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/drivers/wrapper/crypto_sym_aes6149_wrapper.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
-              <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/crypto_sym_wc_wrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/user_settings.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/crypto_mac_wc_wrapper.h</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/crypto_common_wc_wrapper.h</itemPath>
@@ -463,9 +470,16 @@
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/common_crypto/src/crypto_mac_cipher.c</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/common_crypto/src/crypto_sym_cipher.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+              <logicalFolder name="driver" displayName="driver" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/drivers/driver/src/drv_crypto_aes_hw_6149.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="wrapper" displayName="wrapper" projectFiles="true">
+                <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/drivers/wrapper/src/crypto_sym_aes6149_wrapper.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/src/crypto_mac_wc_wrapper.c</itemPath>
-              <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/src/crypto_sym_wc_wrapper.c</itemPath>
               <itemPath>../src/config/pic32cx_mtg_ek_pl460_freertos/crypto/wolfcrypt/src/crypto_common_wc_wrapper.c</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -926,6 +940,42 @@
         <property key="stack-smashing" value=""/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
+      <Tool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="arm.use_vtor" value="false"/>
+        <property key="arm.vtor_adr" value="exception_table"/>
+        <property key="communication.adaptivespeed" value="false"/>
+        <property key="communication.autoselectspeed" value="true"/>
+        <property key="communication.interface" value="swd"/>
+        <property key="communication.speed" value="4"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="jlink.override" value=""/>
+        <property key="lastid" value=""/>
+        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges.default}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0x1000000-0x2007ffff"/>
+        <property key="programoptions.eraseb4program" value="false"/>
+        <property key="programoptions.preservebootflash" value="false"/>
+        <property key="programoptions.preserveprogrammemory" value="false"/>
+        <property key="programoptions.preserveprogrammemory.ranges"
+                  value="0x1000000-0x2007ffff"/>
+        <property key="programoptions.resetafterprogram" value="true"/>
+        <property key="script.has_reset" value="true"/>
+        <property key="script.log_level" value="1"/>
+        <property key="script.reset_delay" value="0"/>
+        <property key="script.show_output" value="false"/>
+      </Tool>
       <jlink>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="arm.use_vtor" value="false"/>

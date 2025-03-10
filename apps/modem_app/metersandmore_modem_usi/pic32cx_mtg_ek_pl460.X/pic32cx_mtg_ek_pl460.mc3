@@ -9613,7 +9613,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;527&quot; canvasWidth=&quot;581&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;577&quot; canvasWidth=&quot;493&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -9702,6 +9702,17 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;ADC_INTERRUPT_HANDLER_LOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;adc&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="AES_CLOCK_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;AES_CLOCK_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -15273,7 +15284,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="CRYPTO_HW_AES_CTR"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;CRYPTO_HW_AES_CTR&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
 </value>
@@ -15282,7 +15295,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_crypto" name="CRYPTO_HW_AES_ECB"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;CRYPTO_HW_AES_ECB&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
 </value>
@@ -16124,7 +16139,7 @@
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_c_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_crypto&gt;
@@ -16136,7 +16151,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_c_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
@@ -16148,7 +16163,7 @@
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_h_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_crypto&gt;
@@ -16160,7 +16175,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;crypto_sym_aes6149_wrapper_h_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
@@ -16229,7 +16244,7 @@
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_c_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_crypto&gt;
@@ -16241,7 +16256,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_c_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
@@ -16253,7 +16268,7 @@
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_h_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_crypto&gt;
@@ -16265,7 +16280,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_crypto&gt;
   &lt;lib_crypto dnOrder=&quot;0&quot; id=&quot;drv_crypto_aes_hw_6149_h_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_crypto&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_crypto&gt;
 &lt;/lib_crypto&gt;
@@ -16465,9 +16480,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_wolfcrypt" name="CRYPTO_WC_AES_CTR"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;CRYPTO_WC_AES_CTR&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
 </value>
@@ -16485,9 +16498,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_wolfcrypt" name="CRYPTO_WC_AES_ECB"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;CRYPTO_WC_AES_ECB&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
 </value>
@@ -16983,7 +16994,7 @@
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_c_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_wolfcrypt&gt;
@@ -16995,7 +17006,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_c_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
@@ -17007,7 +17018,7 @@
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_h_ftl&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/lib_wolfcrypt&gt;
@@ -17019,7 +17030,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;crypto_sym_wc_wrapper_h_ftl_flag&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;lib_wolfcrypt&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
@@ -29320,11 +29331,27 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\common_crypto\src\crypto_sym_cipher.c</file>
-         <hash>462c719f87ddc1feb6dd5d1bebc4ec829dab583dae3398cda4af15a87459fdf2</hash>
+         <hash>c59c682e2a635d26faa3ad0e0a76cd6d241201dd0a66d109524fdf9d010f6f34</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\crypto_config.h</file>
          <hash>20aa84229b9697bc8f5100cdb96a2b73222682ca7827888ea11afe1733d92656</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\drivers\driver\drv_crypto_aes_hw_6149.h</file>
+         <hash>6cd6583858f6add534abc5f50b0c2ad808626fdeeed4987079e5d0762bec6a6a</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\drivers\driver\src\drv_crypto_aes_hw_6149.c</file>
+         <hash>5ffc7480961efcc5113f4654e8a71e6ec76f79e329e76dc83465f1839f1e8c49</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\drivers\wrapper\crypto_sym_aes6149_wrapper.h</file>
+         <hash>84102bb9a6547eb1d920aa720291dcf9e3af3fe6fb9b36e6065dc09c58281bdc</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\drivers\wrapper\src\crypto_sym_aes6149_wrapper.c</file>
+         <hash>03b56905264036ac3d34e13f2ba0732950ec0b116e664678558c0bc68d356093</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\config.h</file>
@@ -29339,20 +29366,12 @@
          <hash>5b7d2f2e9b79da67b04d1b59ac93a4e08ac87d7912e97538b89bf78b92614121</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\crypto_sym_wc_wrapper.h</file>
-         <hash>d7942eaebf7b72c5bb49cb504de2a518cafd5f1fb754fcfe20ab864e3d69f6af</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\src\crypto_common_wc_wrapper.c</file>
          <hash>c5fe661c9ae709d5d069faab8588be972b6296b925010f28e0fa2b4a2bb98c73</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\src\crypto_mac_wc_wrapper.c</file>
          <hash>ad39acb4112ff5fde4bf0800a716ed5862dc69a6559e50cc49eecb1855585c92</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\src\crypto_sym_wc_wrapper.c</file>
-         <hash>266228a1392dde83d668e4368c1297a6df2df93084417f05b86361cde7e37fda</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\crypto\wolfcrypt\user_settings.h</file>
@@ -29364,7 +29383,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\definitions.h</file>
-         <hash>58232da17c978905ca964bfe89b91153288be350c279f75b2d8a62ab0c9e648a</hash>
+         <hash>c0344816a1535b308992d02b5b397a03c3fe1d90b39d10ab0755949143ecad96</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\device.h</file>
@@ -29484,7 +29503,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\clk\plib_clk.c</file>
-         <hash>af533ad663169c5a3ee2f505dafbe192906103fa1e7fae8d2b5225355e895182</hash>
+         <hash>ecbf9693bc568a5fbaf8b50042a7fcf55f08acf6a91da0c4c06460ee5b86c294</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\peripheral\clk\plib_clk.h</file>
@@ -29668,7 +29687,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.c</file>
-         <hash>8b694bd00ba89bf500ee4ba90407be3d5987468c7ba2f7d10b8488902085c9da</hash>
+         <hash>69fcc67760d748d8094c2955ffc1ea0e425d7c299b67ec8caf53a9a87fc89ccf</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460\stack\metersandmore\al\al.h</file>

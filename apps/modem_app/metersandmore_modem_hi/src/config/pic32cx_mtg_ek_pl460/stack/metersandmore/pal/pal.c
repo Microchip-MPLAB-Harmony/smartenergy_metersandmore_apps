@@ -222,9 +222,6 @@ void PAL_Init(PAL_INIT *init)
     /* Set Status and State */
     palData.status = PAL_STATUS_BUSY;
     palData.state = PAL_STATE_INIT;
-
-    /* PLC branch */
-    palData.plcBranch = SRV_PLC_PCOUP_MAIN_BRANCH;
 }
 
 /* MISRA C-2012 deviation block end */
@@ -366,7 +363,7 @@ void PAL_Tasks(void)
                 DRV_PLC_PHY_DataIndCallbackRegister(palData.drvHandle, lPAL_DataIndCb, DRV_PLC_PHY_INDEX);
 
                 /* Apply coupling configuration */
-                (void) SRV_PCOUP_Set_Config(palData.drvHandle, palData.plcBranch);
+                (void) SRV_PCOUP_Set_Config(palData.drvHandle);
 
                 /* Enable TX Enable at the beginning */
                 DRV_PLC_PHY_EnableTX(palData.drvHandle, true);
