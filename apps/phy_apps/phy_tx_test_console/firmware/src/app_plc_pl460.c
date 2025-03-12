@@ -59,7 +59,7 @@ Microchip or any third party.
 // *****************************************************************************
 // *****************************************************************************
 #define DRV_PLC_PHY_INDEX_0   0
-#define APP_PLC_CONFIG_KEY  0xA55A
+#define APP_PLC_CONFIG_KEY  0xA5A5
 
 /* PLC Driver Initialization Data (initialization.c) */
 extern DRV_PLC_PHY_INIT drvPlcPhyInitData;
