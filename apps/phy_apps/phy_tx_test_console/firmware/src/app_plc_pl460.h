@@ -104,6 +104,7 @@ typedef enum
     APP_PLC_STATE_WAIT_CONFIG,
     APP_PLC_STATE_WAITING,
     APP_PLC_STATE_TX,
+    APP_PLC_STATE_TX_CONTINUOUS,
     APP_PLC_STATE_STOP_TX,
     APP_PLC_STATE_TX_CALIBRATION,
     APP_PLC_STATE_ERROR,
@@ -187,6 +188,8 @@ typedef struct
     uint8_t txImpedance;
 
     bool inTx;
+    
+    bool inTxContinuous;
     
     uint32_t txNumSequence;
 
@@ -331,6 +334,7 @@ void APP_PLC_SetImpedanceState(bool txAuto, uint8_t impedance);
 void APP_PLC_GetCalibrationValues(uint8_t type, uint8_t impedance);
 bool APP_PLC_CalibrationValuesAreReady(uint32_t **pValues);
 void APP_PLC_StartTramission(void);
+void APP_PLC_StartTramissionContinuous(void);
 
 #endif /* _APP_PLC_PL460_H */
 

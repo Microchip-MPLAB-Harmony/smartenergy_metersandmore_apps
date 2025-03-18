@@ -197,6 +197,7 @@ extern APP_CONSOLE_DATA appConsole;
 	"5: Phy Tx Calibration. Get Target RMS values for High Impedance\n\r" \
 	"6: Phy Tx Calibration. Get Target RMS values for Low Impedance\n\r" \
 	"7: Phy Tx Calibration. Get Threshold values\n\r" \
+	"8: Continuous transmission\n\r" \
 	"v: View TX configuration values\n\r" \
 	"e: Execute transmission application\n\r" \
 	"c: Enable/Disable ECHO console\n\r" \

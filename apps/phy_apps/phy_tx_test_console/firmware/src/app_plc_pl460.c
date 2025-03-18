@@ -421,6 +421,7 @@ void APP_PLC_PL460_Tasks ( void )
                     
                     /* Clear Transmission flag */
                     appPlcTx.inTx = false;
+                    appPlcTx.inTxContinuous = false;
                 }
                 
                 /* Initialize data buffer data */
@@ -462,6 +463,10 @@ void APP_PLC_PL460_Tasks ( void )
                 if (appPlcTx.inTx)
                 {
                     appPlc.state = APP_PLC_STATE_TX;
+                }
+                else if (appPlcTx.inTxContinuous)
+                {
+                    appPlc.state = APP_PLC_STATE_TX_CONTINUOUS;
                 }
                 else
                 {
@@ -535,6 +540,11 @@ void APP_PLC_PL460_Tasks ( void )
                         /* Previous Transmission state */
                         appPlc.state = APP_PLC_STATE_TX;
                     }
+                    else if (appPlcTx.inTxContinuous)
+                    {
+                        /* Previous Transmission state */
+                        appPlc.state = APP_PLC_STATE_TX_CONTINUOUS;
+                    }
                     else
                     {
                         /* Nothing To Do */
@@ -597,11 +607,50 @@ void APP_PLC_PL460_Tasks ( void )
             }
             break;
         }
+        
+        case APP_PLC_STATE_TX_CONTINUOUS:
+        {
+            if (!appPlcTx.inTxContinuous)
+            {
+                /* Set Transmission Mode */
+                appPlcTx.plcPhyTx.mode = TX_MODE_RELATIVE | TX_MODE_CONSTANT_CONTINUOUS;
+                appPlcTx.plcPhyTx.timeIni = 0;
+
+                /* Set Transmission flag */
+                appPlcTx.inTxContinuous = true;
+
+                /* Store TX configuration */
+                appPlc.state = APP_PLC_STATE_WRITE_CONFIG;
+            }
+            else
+            {
+                if (appPlc.plcTxState == APP_PLC_TX_STATE_IDLE)
+                {
+                    if (appPlc.pvddMonTxEnable)
+                    {
+                        appPlc.plcTxState = APP_PLC_TX_STATE_WAIT_TX_CFM;
+                        /* Send PLC message */
+                        DRV_PLC_PHY_TxRequest(appPlc.drvPlcHandle, &appPlcTx.plcPhyTx);
+                    }
+                    else
+                    {
+                        DRV_PLC_PHY_TRANSMISSION_CFM_OBJ cfmData;
+
+                        cfmData.timeEnd = 0;
+                        cfmData.rmsCalc = 0;
+                        cfmData.result = DRV_PLC_PHY_TX_RESULT_NO_TX;
+                        APP_PLC_DataCfmCb(&cfmData, 0);
+                    }
+                }
+            }
+            break;
+        }
 
         case APP_PLC_STATE_STOP_TX:
         {
             /* Clear Transmission flag */
             appPlcTx.inTx = false;
+            appPlcTx.inTxContinuous = false;
 
             /* Store TX configuration */
             appPlc.state = APP_PLC_STATE_WRITE_CONFIG;
@@ -820,6 +869,12 @@ void APP_PLC_StartTramission(void)
 {
     appPlcTx.txNumSequence = 0;
     appPlc.state = APP_PLC_STATE_TX;
+}
+
+void APP_PLC_StartTramissionContinuous(void)
+{
+    appPlcTx.txNumSequence = 0;
+    appPlc.state = APP_PLC_STATE_TX_CONTINUOUS;
 }
 
 /*******************************************************************************

@@ -728,10 +728,11 @@ void APP_CONSOLE_Tasks ( void )
                 /* Show Console menu */
                 appConsole.state = APP_CONSOLE_STATE_SHOW_MENU;
             }
-            else if (appPlc.state == APP_PLC_STATE_TX)
+            else if ((appPlc.state == APP_PLC_STATE_TX) || (appPlc.state == APP_PLC_STATE_TX_CONTINUOUS))
             {
                 /* Set TX state */
                 appConsole.state = APP_CONSOLE_STATE_TX;
+                APP_CONSOLE_ReadRestart(1);
             }
             break;
         }
@@ -804,6 +805,13 @@ void APP_CONSOLE_Tasks ( void )
                         appConsole.state = APP_CONSOLE_STATE_PLC_CALIBRATION_THRESHOLD;
                         break;
 
+                    case '8':
+                        APP_CONSOLE_Print("\r\nStart continuous transmission, type 'x' to cancel.\r\n");
+                        APP_PLC_StartTramissionContinuous();
+                        appConsole.state = APP_CONSOLE_STATE_TX;
+                        APP_CONSOLE_ReadRestart(1);
+                        break;
+                        
                     case 'v':
                     case 'V':
                         appConsole.state = APP_CONSOLE_STATE_VIEW_CONFIG;
