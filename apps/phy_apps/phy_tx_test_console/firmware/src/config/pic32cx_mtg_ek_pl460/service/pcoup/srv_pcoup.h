@@ -97,13 +97,10 @@ Microchip or any third party.
 
   Description:
     This structure contains all the data required to set the PLC PHY Coupling
-    parameters, for a specific transmission branch (associated to a G3-PLC
-    PHY band).
+    parameters.
 
   Remarks:
-    Equalization coefficients are not stored in the structure, just pointers to
-    arrays were they are actually stored. This allows to use the same type for
-    different G3-PLC PHY bands.
+    None.
 */
 
 typedef struct
