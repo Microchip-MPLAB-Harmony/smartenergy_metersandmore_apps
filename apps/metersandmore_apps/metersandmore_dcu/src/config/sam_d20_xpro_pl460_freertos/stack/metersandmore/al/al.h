@@ -161,6 +161,7 @@ typedef enum
     AL_MAC_LAST_RX_SIGNAL_LEVEL_IB = 0x209,
     AL_MAC_LAST_RX_SNR_IB = 0x20A,
     AL_MAC_ESTIMATED_IMPDEDANCE_IB = 0x20B,
+    AL_LLC_IS_DCU_IB = 0x401,
 } AL_IB_ATTRIBUTE;
 
 // *****************************************************************************
@@ -1092,10 +1093,10 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams);
 
   Example:
     <code>
-    bool result;
-    uint8 rawData[64];
-    uint8 encryptedData[64];
-    uint8 aesKey[16];
+    AL_RESULT result;
+    uint8_t rawData[64];
+    uint8_t encryptedData[64];
+    uint8_t aesKey[16];
 
     memcpy(rawData, appData, sizeof(rawData));
     memcpy(aesKey, appKey, sizeof(aesKey));
