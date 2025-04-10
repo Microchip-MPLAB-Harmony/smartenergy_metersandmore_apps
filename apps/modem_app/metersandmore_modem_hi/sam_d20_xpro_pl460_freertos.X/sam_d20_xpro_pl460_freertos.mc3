@@ -17093,17 +17093,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_SAMD20_XPLAINED_PRO" name="SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT1_SPI_PA05_CSASGPIO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_SAMD20_XPLAINED_PRO&gt;
-  &lt;mainBoard_SAMD20_XPLAINED_PRO dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT1_SPI_PA05_CSASGPIO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
-&lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_SAMD20_XPLAINED_PRO" name="SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT1_UART"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_SAMD20_XPLAINED_PRO&gt;
   &lt;mainBoard_SAMD20_XPLAINED_PRO dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT1_UART&quot;&gt;
@@ -17219,15 +17208,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_SAMD20_XPLAINED_PRO" name="SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT2_SPI_PA17_CSASGPIO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_SAMD20_XPLAINED_PRO&gt;
-  &lt;mainBoard_SAMD20_XPLAINED_PRO dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT2_SPI_PA17_CSASGPIO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
-&lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_SAMD20_XPLAINED_PRO" name="SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT2_UART"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_SAMD20_XPLAINED_PRO&gt;
   &lt;mainBoard_SAMD20_XPLAINED_PRO dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT2_UART&quot;&gt;
@@ -17337,15 +17317,6 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_SAMD20_XPLAINED_PRO" name="SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT3_SPI"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_SAMD20_XPLAINED_PRO&gt;
   &lt;mainBoard_SAMD20_XPLAINED_PRO dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT3_SPI&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
-&lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mainBoard_SAMD20_XPLAINED_PRO" name="SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT3_SPI_PB17_CSASGPIO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mainBoard_SAMD20_XPLAINED_PRO&gt;
-  &lt;mainBoard_SAMD20_XPLAINED_PRO dnOrder=&quot;0&quot; id=&quot;SHD_MAINBOARD_CONNECTOR_Extension-Header-EXT3_SPI_PB17_CSASGPIO&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
 &lt;/mainBoard_SAMD20_XPLAINED_PRO&gt;
@@ -17498,17 +17469,6 @@
   &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_CUSTOM_COMMANDS&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;5&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/mmHi&gt;
-&lt;/mmHi&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mmHi" name="MMHI_EIC_SIGNAL"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
-  &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_EIC_SIGNAL&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;EIC_PIN_14&quot;/&gt;
     &lt;/Values&gt;
   &lt;/mmHi&gt;
 &lt;/mmHi&gt;
@@ -32341,7 +32301,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
-         <hash>befedb7992f5343119e04dcf150c9fb7fa9bc60ccb392cc9421855a5275de6f6</hash>
+         <hash>5847311f7358c9120549b11e53650ee68db8c2d886fa1aa8659af1ca42789dac</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device_cache.h</file>
@@ -32453,7 +32413,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\adc\plib_adc.c</file>
-         <hash>415854098cbe4a8e123c7072e3417dd90d6280bc60ca2d5ea64e40fdf8d7bc22</hash>
+         <hash>3d5a9faee0465b32dd7d5937ddbc427b96759d6080b6964ef1eb0ea20aee6bbe</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\adc\plib_adc.h</file>
@@ -32473,7 +32433,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\eic\plib_eic.c</file>
-         <hash>2be3b07b36ce57651893d2af6f893a7fcf30a2623a4d6975f200bd0ca9c00518</hash>
+         <hash>64de0d959d29b61bcb695ce2501dd34d29c8807bdc8e6a87299573178fac9e8f</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\eic\plib_eic.h</file>
@@ -32513,7 +32473,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\spi_master\plib_sercom0_spi_master.c</file>
-         <hash>7b59ee62b0fde5e1c207da5714623ad1d48c929fe63a21d0aafe866172579102</hash>
+         <hash>16c03125702513f044d6672933c29038ebac7ed1170174ef2c68cc7d7a301734</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\spi_master\plib_sercom0_spi_master.h</file>
@@ -32525,7 +32485,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\usart\plib_sercom3_usart.c</file>
-         <hash>a67d4077c84277a48ec726638d9fdffc2787ecd08f2f1f2ea9636a5c993c1b90</hash>
+         <hash>7392512d033f564115c60d06db8df8f53ba962ad0e9df01e0e0bfa76aff0df14</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\usart\plib_sercom3_usart.h</file>
@@ -32545,7 +32505,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\tc\plib_tc0.c</file>
-         <hash>7b739673b2cacaa96d0e1b9957232c8462e777466ed94ba27f586dca48ecba15</hash>
+         <hash>670501769be8666de51ef3c51d18ee6e373f48e44dde1befea112c9155dc1278</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\peripheral\tc\plib_tc0.h</file>
@@ -32565,15 +32525,15 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\pin_configurations.csv</file>
-         <hash>a92152ce2f599e87ea60f6185d3032aa5c4e1baa69618e42d6fcb9986e07013c</hash>
+         <hash>c374500137196586b43a6432276ac660c66b5a1ce3480e498f5ab66cd2bc0236</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\pcoup\srv_pcoup.c</file>
-         <hash>c5fdf15d1fa7f33ecae792e3b262ab2b3a7c96a6bf29838048d5088c1bbe96e4</hash>
+         <hash>370e8c0ea49719bf7d6abf6715f1b43538d646fbf022dab7e6b2b982da9f831f</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\pcoup\srv_pcoup.h</file>
-         <hash>c50a0ba4a2f90f37b8d76c836ede6ba0dbc6879be6741ba42a7dc773c2059d1e</hash>
+         <hash>4aafbf3b98121bfa81a1b7f13feebf04c15cdbf0d35db6aab75922f9ba4a3621</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\pcrc\srv_pcrc.c</file>
@@ -32601,11 +32561,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.c</file>
-         <hash>c7b8e6b936ea8dd0ce1c2f4eaea30c9e95ec9e5a0ed3f9ba235c98d958afec47</hash>
+         <hash>aededbf36ffadf4e15333a61feac5f50da62377a10e9ada5c764498e68317c2e</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.h</file>
-         <hash>af4698a3f8502dd5a4155caeb8f46bc6ce384d6c250cccb997f024899c2977e0</hash>
+         <hash>7fa1ec60f1c1fe038d88dd4165bbb55c2a2f4a802ccdd1d1f6b00b71862ba820</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al_local.h</file>
@@ -32613,11 +32573,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\dll.h</file>
-         <hash>bcd8c5cdadbd8513f1d00313db92324b99ba441cc2ce6c056508d1b8467529c1</hash>
+         <hash>0f02d63f64eb5873d428c821849bea3d912480175ca57fe452dda709bcd69c88</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\dll\metersandmore_lib_dll_cm0.a</file>
-         <hash>515a3c6290413cacb5b83710ddf2d836aa419ed972ad9dfe7d14eee37a1c5e27</hash>
+         <hash>465e16daa4f584c2deedfe992f5743be3891e77ca88c7f99481a6a30346035e7</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\mmhi\mmhi.c</file>
@@ -32645,7 +32605,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\pal\pal.c</file>
-         <hash>ef46bf21a0a906d83accbbf216c914dd5beb73f83cd489aaf71fb2d4cda0bddf</hash>
+         <hash>f505acea770bfd7bf0afc88dd7b91241c5b2889d96c2d9cb10244382f24e70a6</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\pal\pal.h</file>
@@ -32653,7 +32613,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\pal\pal_local.h</file>
-         <hash>84f0d17a57d2f8111d908a57bfc773c7435c572f5fb28178b9fa072cc103cd66</hash>
+         <hash>525a1d77b56dd57aae541982aa356b56c225312fe0bd0631979475dff2774b0a</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\startup_xc32.c</file>

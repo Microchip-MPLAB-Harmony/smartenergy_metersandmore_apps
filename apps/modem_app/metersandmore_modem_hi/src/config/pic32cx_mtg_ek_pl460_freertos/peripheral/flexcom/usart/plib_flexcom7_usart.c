@@ -66,9 +66,9 @@
 // Section: FLEXCOM7 USART Implementation
 // *****************************************************************************
 // *****************************************************************************
-volatile static FLEXCOM_USART_OBJECT flexcom7UsartObj;
+static volatile FLEXCOM_USART_OBJECT flexcom7UsartObj;
 
-void static FLEXCOM7_USART_ErrorClear( void )
+static void FLEXCOM7_USART_ErrorClear( void )
 {
     if ((FLEXCOM7_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk)) != 0U)
     {
@@ -91,7 +91,7 @@ void static FLEXCOM7_USART_ErrorClear( void )
 }
 
 
-void static __attribute__((used)) FLEXCOM7_USART_ISR_RX_Handler( void )
+static void __attribute__((used)) FLEXCOM7_USART_ISR_RX_Handler( void )
 {
     uint32_t rxPending = 0;
     uint32_t rxThreshold = 0;
@@ -197,7 +197,7 @@ void __attribute__((used)) FLEXCOM7_InterruptHandler( void )
     /* Clear the FIFO related interrupt flags */
     FLEXCOM7_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk;
 
-    if ((FLEXCOM7_REGS->FLEX_PTSR & FLEX_PTSR_TXTEN_Msk) && (channelStatus & FLEX_US_CSR_ENDTX_Msk))
+    if (((FLEXCOM7_REGS->FLEX_PTSR & FLEX_PTSR_TXTEN_Msk) != 0U) && ((channelStatus & FLEX_US_CSR_ENDTX_Msk) != 0U))
     {
         if(flexcom7UsartObj.txBusyStatus == true)
         {
@@ -412,7 +412,7 @@ bool FLEXCOM7_USART_Write( void *buffer, const size_t size )
             flexcom7UsartObj.txBusyStatus = true;
             status = true;
 
-            FLEXCOM7_REGS->FLEX_TPR = (uint32_t) buffer;
+            FLEXCOM7_REGS->FLEX_TPR = (uint32_t)(uint8_t*)buffer;
             FLEXCOM7_REGS->FLEX_TCR = (uint32_t) size;
             FLEXCOM7_REGS->FLEX_PTCR = FLEX_PTCR_TXTEN_Msk;
             FLEXCOM7_REGS->FLEX_US_IER = FLEX_US_IER_ENDTX_Msk;
