@@ -331,15 +331,14 @@ static void lAL_SER_StringifyGetConfirm(uint32_t attributeId, uint16_t attribute
     SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
-static void lAL_SER_StringifyPerformECBConfirm(AL_RESULT result, uint8_t *encryptedData, uint16_t dataLen)
+static void lAL_SER_StringifyPerformECBConfirm(AL_RESULT result, uint8_t *encryptedData, uint8_t dataLen)
 {
     uint8_t serialRspLen = 0U;
 
     /* Fill serial response buffer */
     alSeriallRspBuffer[serialRspLen++] = (uint8_t) AL_SERIAL_MSG_AL_PERFORM_ECB_CONFIRM;
     alSeriallRspBuffer[serialRspLen++] = (uint8_t) result;
-    alSeriallRspBuffer[serialRspLen++] = (uint8_t) (dataLen >> 8);
-    alSeriallRspBuffer[serialRspLen++] = (uint8_t) dataLen;
+    alSeriallRspBuffer[serialRspLen++] = dataLen;
     (void) memcpy(&alSeriallRspBuffer[serialRspLen], encryptedData, dataLen);
     serialRspLen += dataLen;
 

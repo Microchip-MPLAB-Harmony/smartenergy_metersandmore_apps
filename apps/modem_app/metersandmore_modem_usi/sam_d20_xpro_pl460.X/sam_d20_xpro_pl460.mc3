@@ -28810,11 +28810,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>fee48d13ff723ab6b4e152a81c7ce5b46e3cb411c50330e2dcedfcad8228efd5</hash>
+         <hash>1d2a922de4a902af313da0b621e1ee829cc7c25ff338499acc136a8c06924eed</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
-         <hash>befedb7992f5343119e04dcf150c9fb7fa9bc60ccb392cc9421855a5275de6f6</hash>
+         <hash>5847311f7358c9120549b11e53650ee68db8c2d886fa1aa8659af1ca42789dac</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device_cache.h</file>
@@ -28890,15 +28890,15 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\initialization.c</file>
-         <hash>f402462d1f4c2a5b305e57b135cc63ae3ad3ffb520466f52731680aa9e1d35f5</hash>
+         <hash>870a8a2c9941e37c9c94a37a43e60ba92cfa1660b456a10c8519d3c7c698d02f</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\interrupts.c</file>
-         <hash>f1e756eec8cb918c7c7314c1ada1796930d8fe37470bb84ed99e6959a499094f</hash>
+         <hash>a75a43fc89e037263bee02bdfc22e0080c767d086ebaf4f9fe10c6f623c599e8</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\interrupts.h</file>
-         <hash>ff7eb3b02b8a30c160f94ed0f3b7917083ea8a6b7cfe4caa3b910368c8a8f160</hash>
+         <hash>6d1f93cdc938012de1831ac47e5d3f43ca2e43160ebe3bd220819a7a24e89957</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\libc_syscalls.c</file>
@@ -28918,7 +28918,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\adc\plib_adc.c</file>
-         <hash>415854098cbe4a8e123c7072e3417dd90d6280bc60ca2d5ea64e40fdf8d7bc22</hash>
+         <hash>3d5a9faee0465b32dd7d5937ddbc427b96759d6080b6964ef1eb0ea20aee6bbe</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\adc\plib_adc.h</file>
@@ -28930,7 +28930,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\clock\plib_clock.c</file>
-         <hash>b09b61f526f881891d95dc207694019390f606918e359a69a137e6cc448065fd</hash>
+         <hash>1834c0eb26d69c0f62e80609e0b34c413d35fd3d8143179a4279a67f0930c40e</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\clock\plib_clock.h</file>
@@ -28938,7 +28938,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\eic\plib_eic.c</file>
-         <hash>cfe415d73876d1a8986972819614c45892e193060a4ec4f3abf378f2ccf53bf1</hash>
+         <hash>eee148adce20477895f28796847de401d7e3942c595443c111bc1d0bcaf496c9</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\eic\plib_eic.h</file>
@@ -28978,7 +28978,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\spi_master\plib_sercom0_spi_master.c</file>
-         <hash>7b59ee62b0fde5e1c207da5714623ad1d48c929fe63a21d0aafe866172579102</hash>
+         <hash>16c03125702513f044d6672933c29038ebac7ed1170174ef2c68cc7d7a301734</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\spi_master\plib_sercom0_spi_master.h</file>
@@ -28990,7 +28990,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\usart\plib_sercom3_usart.c</file>
-         <hash>a67d4077c84277a48ec726638d9fdffc2787ecd08f2f1f2ea9636a5c993c1b90</hash>
+         <hash>7392512d033f564115c60d06db8df8f53ba962ad0e9df01e0e0bfa76aff0df14</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\sercom\usart\plib_sercom3_usart.h</file>
@@ -29002,7 +29002,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\tc\plib_tc0.c</file>
-         <hash>7b739673b2cacaa96d0e1b9957232c8462e777466ed94ba27f586dca48ecba15</hash>
+         <hash>670501769be8666de51ef3c51d18ee6e373f48e44dde1befea112c9155dc1278</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\peripheral\tc\plib_tc0.h</file>
@@ -29082,7 +29082,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.c</file>
-         <hash>8b694bd00ba89bf500ee4ba90407be3d5987468c7ba2f7d10b8488902085c9da</hash>
+         <hash>aededbf36ffadf4e15333a61feac5f50da62377a10e9ada5c764498e68317c2e</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.h</file>
@@ -29094,7 +29094,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al_serial.c</file>
-         <hash>45116afb359d031856df844f1e0eee4e7fb5522403b8fdc63bc5d126b7a6dd27</hash>
+         <hash>8316c8061b34b0c9e11abd6b56b7d90bfcee251c123af7bd5645e2b927e23a0d</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al_serial.h</file>

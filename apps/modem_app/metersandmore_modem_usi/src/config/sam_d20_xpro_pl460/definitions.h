@@ -14,7 +14,7 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -48,11 +48,11 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "peripheral/sercom/usart/plib_sercom3_usart.h"
 #include "service/pcoup/srv_pcoup.h"
+#include "peripheral/sercom/usart/plib_sercom3_usart.h"
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
-#include "peripheral/sercom/spi_master/plib_sercom0_spi_master.h"
 #include "peripheral/evsys/plib_evsys.h"
+#include "peripheral/sercom/spi_master/plib_sercom0_spi_master.h"
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"
 #include "peripheral/nvic/plib_nvic.h"
@@ -63,10 +63,10 @@
 #include "service/usi/srv_usi.h"
 #include "service/usi/srv_usi_usart.h"
 #include "service/pcrc/srv_pcrc.h"
+#include "system/time/sys_time.h"
 #include "driver/plc/phy/drv_plc_phy_definitions.h"
 #include "driver/plc/phy/drv_plc_phy.h"
 #include "driver/plc/phy/drv_plc_phy_comm.h"
-#include "system/time/sys_time.h"
 #include "service/pvddmon/srv_pvddmon.h"
 #include "stack/metersandmore/pal/pal.h"
 #include "bsp/bsp.h"
@@ -208,9 +208,9 @@ Remarks:
 
 typedef struct
 {
+    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ drvPlcPhy;
-    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ srvUSI0;
     SYS_MODULE_OBJ metersandmoreDll;
