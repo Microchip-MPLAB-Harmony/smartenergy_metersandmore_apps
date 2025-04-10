@@ -213,6 +213,8 @@ static inline AL_TX_STATUS lAL_Encrypt(uint8_t *inputOutput, uint16_t len, uint8
     crypto_Sym_OpModes_E aesMode;
     crypto_Sym_Status_E aesResult;
     uint8_t *ivPtr = iv;
+    uint16_t lenAdjusted = (len + 15) >> 4;
+    lenAdjusted <<= 4;
 
     /* Get AES Mode depending on ECC and fill Initialization Vector (IV) for AES-CTR */
     aesMode = lAL_EncryptDecrypt(ecc, mon, &ivPtr);
@@ -228,7 +230,7 @@ static inline AL_TX_STATUS lAL_Encrypt(uint8_t *inputOutput, uint16_t len, uint8
         return AL_TX_STATUS_ERROR_AES_NO_KEY;
     }
 
-    aesResult = Crypto_Sym_Aes_EncryptDirect(CRYPTO_HANDLER_SW_WOLFCRYPT, aesMode, inputOutput, len, inputOutput, key, AL_KEY_LENGTH, ivPtr, 1);
+    aesResult = Crypto_Sym_Aes_EncryptDirect(CRYPTO_HANDLER_SW_WOLFCRYPT, aesMode, inputOutput, lenAdjusted, inputOutput, key, AL_KEY_LENGTH, ivPtr, 1);
     if (aesResult != CRYPTO_SYM_CIPHER_SUCCESS)
     {
         return AL_TX_STATUS_ERROR_AES_ENCRYPT;
@@ -243,6 +245,8 @@ static inline AL_RX_STATUS lAL_Decrypt(uint8_t *inputOutput, uint16_t len, uint8
     crypto_Sym_OpModes_E aesMode;
     crypto_Sym_Status_E aesResult;
     uint8_t *ivPtr = iv;
+    uint16_t lenAdjusted = (len + 15) >> 4;
+    lenAdjusted <<= 4;
 
     /* Get AES Mode depending on ECC and fill Initialization Vector (IV) for AES-CTR */
     aesMode = lAL_EncryptDecrypt(ecc, mon, &ivPtr);
@@ -257,7 +261,7 @@ static inline AL_RX_STATUS lAL_Decrypt(uint8_t *inputOutput, uint16_t len, uint8
         return AL_RX_STATUS_ERROR_AES_NO_KEY;
     }
 
-    aesResult = Crypto_Sym_Aes_DecryptDirect(CRYPTO_HANDLER_SW_WOLFCRYPT, aesMode, inputOutput, len, inputOutput, key, AL_KEY_LENGTH, ivPtr, 1);
+    aesResult = Crypto_Sym_Aes_DecryptDirect(CRYPTO_HANDLER_SW_WOLFCRYPT, aesMode, inputOutput, lenAdjusted, inputOutput, key, AL_KEY_LENGTH, ivPtr, 1);
     if (aesResult != CRYPTO_SYM_CIPHER_SUCCESS)
     {
         return AL_RX_STATUS_ERROR_AES_DECRYPT;
@@ -1298,6 +1302,15 @@ AL_RESULT AL_SetRequest(AL_IB_ATTRIBUTE attribute, uint16_t index, const AL_IB_V
             }
             break;
 
+        case AL_LLC_IS_DCU_IB:
+            /* Set Master/Slave mode */
+            if (1U == ibValue->length)
+            {
+                alData.isMaster = (bool) ibValue->value[0];
+                result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (const DLL_IB_VALUE *) ibValue);
+            }
+            break;
+
         default:
             /* No AL IB, try with DLL */
             result = (AL_RESULT) DLL_SetRequest((DLL_IB_ATTRIBUTE) attribute, index, (const DLL_IB_VALUE *) ibValue);
@@ -1502,8 +1515,11 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
 
 AL_RESULT AL_PerformECB(uint8_t *dataIn, uint8_t dataLen, uint8_t *dataOut, uint8_t *key, uint8_t keyLen)
 {
+    uint8_t dataLenAdjusted = (dataLen + 15) >> 4;
+    dataLenAdjusted <<= 4;
+
     crypto_Sym_Status_E aesResult = Crypto_Sym_Aes_EncryptDirect(CRYPTO_HANDLER_SW_WOLFCRYPT,
-            CRYPTO_SYM_OPMODE_ECB, dataIn, dataLen, dataOut, key, keyLen, NULL, 1);
+            CRYPTO_SYM_OPMODE_ECB, dataIn, dataLenAdjusted, dataOut, key, keyLen, NULL, 1);
 
     if (CRYPTO_SYM_CIPHER_SUCCESS == aesResult)
     {

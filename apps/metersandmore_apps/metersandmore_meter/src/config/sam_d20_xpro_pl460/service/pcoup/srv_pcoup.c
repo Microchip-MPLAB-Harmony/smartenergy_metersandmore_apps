@@ -79,37 +79,24 @@ static const SRV_PLC_PCOUP_DATA srvPlcCoup = {
 // *****************************************************************************
 // *****************************************************************************
 
-SRV_PLC_PCOUP_DATA * SRV_PCOUP_Get_Config(SRV_PLC_PCOUP_BRANCH branch)
+SRV_PLC_PCOUP_DATA * SRV_PCOUP_Get_Config(void)
 {
     /* MISRA C-2012 deviation block start */
     /* MISRA C-2012 Rule 11.8 deviated once. Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
 
-    if (branch == SRV_PLC_PCOUP_MAIN_BRANCH)
-    {
-        /* PLC PHY Coupling parameters for Main transmission branch */
-        return (SRV_PLC_PCOUP_DATA *)&srvPlcCoup;
-    }
+    return (SRV_PLC_PCOUP_DATA *)&srvPlcCoup;
 
     /* MISRA C-2012 deviation block end */
-
-    /* Transmission branch not recognized */
-    return NULL;
 }
 
-bool SRV_PCOUP_Set_Config(DRV_HANDLE handle, SRV_PLC_PCOUP_BRANCH branch)
+bool SRV_PCOUP_Set_Config(DRV_HANDLE handle)
 {
     SRV_PLC_PCOUP_DATA *pCoupValues;
     bool result, resultOut;
     DRV_PLC_PHY_PIB_OBJ pibObj;
 
-    /* Get PLC PHY Coupling parameters for the desired transmission branch */
-    pCoupValues = SRV_PCOUP_Get_Config(branch);
-
-    if (pCoupValues == NULL)
-    {
-        /* Transmission branch not recognized */
-        return false;
-    }
+    /* Get PLC PHY Coupling parameters */
+    pCoupValues = SRV_PCOUP_Get_Config();
 
     /* Set PLC PHY Coupling parameters */
     pibObj.id = PLC_ID_IC_DRIVER_CFG;
@@ -167,21 +154,4 @@ bool SRV_PCOUP_Set_Config(DRV_HANDLE handle, SRV_PLC_PCOUP_BRANCH branch)
     /* MISRA C-2012 deviation block end */
 
     return result;
-}
-
-SRV_PLC_PCOUP_BRANCH SRV_PCOUP_Get_Default_Branch( void )
-{
-    return SRV_PCOUP_DEFAULT_BRANCH;
-}
-
-uint8_t SRV_PCOUP_Get_Phy_Band(SRV_PLC_PCOUP_BRANCH branch)
-{
-    if (branch == SRV_PLC_PCOUP_MAIN_BRANCH)
-    {
-        /* PHY band for Main transmission branch */
-       return (uint8_t)MM_CEN_A;
-    }
-
-    /* Transmission branch not recognized */
-    return (uint8_t)MM_INVALID;
 }

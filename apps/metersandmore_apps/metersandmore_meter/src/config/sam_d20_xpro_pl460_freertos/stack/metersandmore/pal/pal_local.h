@@ -103,8 +103,6 @@ typedef struct
 
     PAL_STATE state;
 
-    SRV_PLC_PCOUP_BRANCH plcBranch;
-
     uint8_t statsErrorUnexpectedKey;
 
     uint8_t statsErrorReset;
