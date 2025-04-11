@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: meter_app_pic32cx_mtsh_db_pl460_freertos
-creation_date: 2025-04-10T09:39:16.345+02:00[Europe/Paris]
+creation_date: 2025-04-11T15:35:37.104+02:00[Europe/Paris]
 operating_system: Windows 11
 mcc_mode: IDE
 mcc_mode_version: v6.25
@@ -22,7 +22,7 @@ modules:
 - {name: core, type: HARMONY, version: v3.15.1}
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
 - {name: FreeRTOS-Kernel, type: HARMONY, version: V11.1.0}
-- {name: gfx, type: HARMONY, version: v3.15.3}
+- {name: gfx, type: HARMONY, version: v3.16.0}
 - {name: crypto_v4, type: HARMONY, version: v4.0.0-E3}
 - {name: wolfssl, type: HARMONY, version: v5.7.0}
 - {name: smartenergy, type: HARMONY, version: v1.4.0}

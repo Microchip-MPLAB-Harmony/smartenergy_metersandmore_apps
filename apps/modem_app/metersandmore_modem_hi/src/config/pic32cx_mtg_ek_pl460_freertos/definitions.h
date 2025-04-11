@@ -54,10 +54,10 @@
 #include "peripheral/flexcom/spi/master/plib_flexcom5_spi_master.h"
 #include "peripheral/tc/plib_tc0.h"
 #include "peripheral/flexcom/usart/plib_flexcom0_usart.h"
-#include "system/time/sys_time.h"
 #include "driver/plc/phy/drv_plc_phy_definitions.h"
 #include "driver/plc/phy/drv_plc_phy.h"
 #include "driver/plc/phy/drv_plc_phy_comm.h"
+#include "system/time/sys_time.h"
 #include "peripheral/trng/plib_trng.h"
 #include "bsp/bsp.h"
 #include "stack/metersandmore/mmhi/mmhi.h"
@@ -217,9 +217,9 @@ Remarks:
 
 typedef struct
 {
-    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ drvPlcPhy;
+    SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ metersandmoreHostInterface;
 
     SYS_MODULE_OBJ  sysConsole0;

@@ -4,14 +4,14 @@
 
 
 project: metersandmore_modem_hi
-creation_date: 2025-04-10T10:27:05.459+02:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-04-11T15:44:49.055+02:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.2
 mcc_core_version: v5.7.1
 mplabx_version: v6.25        # if MPLAB X plugin only
 harmony_version: v1.5.5
-compiler: XC32 4.50
+compiler: XC32 4.60
 
 modules:
     - {name: "csp", version: "v3.22.2"}

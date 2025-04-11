@@ -28810,7 +28810,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>1d2a922de4a902af313da0b621e1ee829cc7c25ff338499acc136a8c06924eed</hash>
+         <hash>9f349ca3087879c333d13953861b6028ee8f96d2a949d66605304fc01b4026e4</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -28890,7 +28890,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\initialization.c</file>
-         <hash>870a8a2c9941e37c9c94a37a43e60ba92cfa1660b456a10c8519d3c7c698d02f</hash>
+         <hash>83b1034889593b35f15757b6e68d7b67ca9a485e9d988112debfeec276346502</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\interrupts.c</file>
@@ -29050,7 +29050,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\random\srv_random.c</file>
-         <hash>1bb6ab5598f7eb742e0e7b363d945c16c1da6d282116d0ef9d9c70b240f87485</hash>
+         <hash>19ae6cec5992e07f1d406db586d0268435bf89f25cdece8bf82f74b08d67b893</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\random\srv_random.h</file>
@@ -29082,7 +29082,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.c</file>
-         <hash>aededbf36ffadf4e15333a61feac5f50da62377a10e9ada5c764498e68317c2e</hash>
+         <hash>d32a9f21cde0f888418c940d9b0f6efe4f97b9753eae186e0958bcd3fa019228</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.h</file>
@@ -29094,7 +29094,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al_serial.c</file>
-         <hash>8316c8061b34b0c9e11abd6b56b7d90bfcee251c123af7bd5645e2b927e23a0d</hash>
+         <hash>6b271d00b97b6bd0d2e5ab6ddad0ffbc9ec3d188dc3fba89ec6cdf974f11ebe7</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al_serial.h</file>

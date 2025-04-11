@@ -16020,7 +16020,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mmHi&gt;
   &lt;mmHi dnOrder=&quot;0&quot; id=&quot;MMHI_EIC_SIGNAL&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;EIC_PIN_14&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;mmHi&quot; value=&quot;EIC_PIN_14&quot;/&gt;
     &lt;/Values&gt;
   &lt;/mmHi&gt;
 &lt;/mmHi&gt;
@@ -30819,7 +30819,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>97090ccf3dd8f2923c8257e6108262958b2a7ba04755fac73d65c94030a53343</hash>
+         <hash>874b0a4054ce280f6f0a13d21635df9c87961419869597868375e496cc7a04d6</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -31067,7 +31067,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\random\srv_random.c</file>
-         <hash>1bb6ab5598f7eb742e0e7b363d945c16c1da6d282116d0ef9d9c70b240f87485</hash>
+         <hash>19ae6cec5992e07f1d406db586d0268435bf89f25cdece8bf82f74b08d67b893</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\random\srv_random.h</file>
@@ -31075,7 +31075,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.c</file>
-         <hash>aededbf36ffadf4e15333a61feac5f50da62377a10e9ada5c764498e68317c2e</hash>
+         <hash>d32a9f21cde0f888418c940d9b0f6efe4f97b9753eae186e0958bcd3fa019228</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\stack\metersandmore\al\al.h</file>

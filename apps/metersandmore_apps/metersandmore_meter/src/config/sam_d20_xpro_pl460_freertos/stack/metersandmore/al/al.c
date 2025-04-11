@@ -213,7 +213,7 @@ static inline AL_TX_STATUS lAL_Encrypt(uint8_t *inputOutput, uint16_t len, uint8
     crypto_Sym_OpModes_E aesMode;
     crypto_Sym_Status_E aesResult;
     uint8_t *ivPtr = iv;
-    uint16_t lenAdjusted = (len + 15) >> 4;
+    uint16_t lenAdjusted = (len + 15U) >> 4;
     lenAdjusted <<= 4;
 
     /* Get AES Mode depending on ECC and fill Initialization Vector (IV) for AES-CTR */
@@ -245,7 +245,7 @@ static inline AL_RX_STATUS lAL_Decrypt(uint8_t *inputOutput, uint16_t len, uint8
     crypto_Sym_OpModes_E aesMode;
     crypto_Sym_Status_E aesResult;
     uint8_t *ivPtr = iv;
-    uint16_t lenAdjusted = (len + 15) >> 4;
+    uint16_t lenAdjusted = (len + 15U) >> 4;
     lenAdjusted <<= 4;
 
     /* Get AES Mode depending on ECC and fill Initialization Vector (IV) for AES-CTR */
@@ -1515,7 +1515,7 @@ void AL_DataRequestHI(AL_DATA_REQUEST_PARAMS_HI *reqParams)
 
 AL_RESULT AL_PerformECB(uint8_t *dataIn, uint8_t dataLen, uint8_t *dataOut, uint8_t *key, uint8_t keyLen)
 {
-    uint8_t dataLenAdjusted = (dataLen + 15) >> 4;
+    uint8_t dataLenAdjusted = (dataLen + 15U) >> 4;
     dataLenAdjusted <<= 4;
 
     crypto_Sym_Status_E aesResult = Crypto_Sym_Aes_EncryptDirect(CRYPTO_HANDLER_SW_WOLFCRYPT,

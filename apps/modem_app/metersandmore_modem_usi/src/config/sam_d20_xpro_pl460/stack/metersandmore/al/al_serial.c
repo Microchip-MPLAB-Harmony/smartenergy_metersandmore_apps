@@ -191,7 +191,7 @@ static void lAL_SER_StringifyMsgStatus(AL_SERIAL_STATUS status, AL_SERIAL_MSG_ID
     alSeriallRspBuffer[serialRspLen++] = (uint8_t) command;
 
     /* Send through USI */
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static void lAL_SER_StringifyDataConfirm(AL_DATA_CONFIRM_PARAMS* cfmParams)
@@ -207,7 +207,7 @@ static void lAL_SER_StringifyDataConfirm(AL_DATA_CONFIRM_PARAMS* cfmParams)
     alSeriallRspBuffer[serialRspLen++] = (uint8_t) cfmParams->txStatus;
 
     /* Send through USI */
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static void lAL_SER_StringifyDataIndication(AL_DATA_IND_PARAMS *indParams)
@@ -244,7 +244,7 @@ static void lAL_SER_StringifyDataIndication(AL_DATA_IND_PARAMS *indParams)
     serialRspLen += indParams->apduLen;
 
     /* Send through USI */
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static void lAL_SER_StringifyEventIndication(AL_EVENT_IND_PARAMS *eventParams)
@@ -259,7 +259,7 @@ static void lAL_SER_StringifyEventIndication(AL_EVENT_IND_PARAMS *eventParams)
     serialRspLen += eventParams->eventValue.length;
 
     /* Send through USI */
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static void lAL_SER_StringifySetConfirm(AL_RESULT setResult, uint32_t attributeId, uint16_t attributeIndex)
@@ -277,7 +277,7 @@ static void lAL_SER_StringifySetConfirm(AL_RESULT setResult, uint32_t attributeI
     alSeriallRspBuffer[serialRspLen++] = (uint8_t) attributeIndex;
 
     /* Send through USI */
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static void lAL_SER_StringifyGetConfirm(uint32_t attributeId, uint16_t attributeIndex, AL_IB_VALUE* attributeValue, AL_RESULT result)
@@ -328,7 +328,7 @@ static void lAL_SER_StringifyGetConfirm(uint32_t attributeId, uint16_t attribute
 
     /* Send through USI */
     serialRspLen += attributeValue->length;
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static void lAL_SER_StringifyPerformECBConfirm(AL_RESULT result, uint8_t *encryptedData, uint8_t dataLen)
@@ -343,7 +343,7 @@ static void lAL_SER_StringifyPerformECBConfirm(AL_RESULT result, uint8_t *encryp
     serialRspLen += dataLen;
 
     /* Send through USI */
-    SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
+    (void) SRV_USI_Send_Message(alSeriallUsiHandle, SRV_USI_PROT_ID_MM_AL_API, alSeriallRspBuffer, serialRspLen);
 }
 
 static AL_SERIAL_STATUS lAL_SER_ParseDataRequest(uint8_t* pData)
@@ -492,7 +492,7 @@ static AL_SERIAL_STATUS lAL_SER_ParseGetRequest(uint8_t* pData)
 static AL_SERIAL_STATUS lAL_SER_ParsePerformEcbRequest(uint8_t* pData)
 {
     uint8_t rawData[64];
-    uint8_t encryptedData[64];
+    uint8_t encryptedData[64] = {0};
     uint8_t aesKey[16];
     uint8_t dataLen, keyLen;
     AL_RESULT result;
@@ -505,14 +505,14 @@ static AL_SERIAL_STATUS lAL_SER_ParsePerformEcbRequest(uint8_t* pData)
 
     /* Parse AL Perform ECB request */
     dataLen = *pData++;
-    if (dataLen > 64)
+    if (dataLen > 64U)
     {
         return AL_SERIAL_STATUS_INVALID_PARAMETER;
     }
     (void) memcpy(rawData, pData, dataLen);
     pData += dataLen;
     keyLen = *pData++;
-    if (keyLen > 16)
+    if (keyLen > 16U)
     {
         return AL_SERIAL_STATUS_INVALID_PARAMETER;
     }
@@ -591,9 +591,9 @@ SYS_MODULE_OBJ AL_SERIAL_Initialize(const SYS_MODULE_INDEX index)
     alSeriallUsiHandle = SRV_USI_HANDLE_INVALID;
 
     /* Set AL callbacks */
-    AL_DataIndicationCallbackRegister(lAL_SER_StringifyDataIndication);
-    AL_DataConfirmCallbackRegister(lAL_SER_StringifyDataConfirm);
-    AL_EventIndicationCallbackRegister(lAL_SER_StringifyEventIndication);
+    (void) AL_DataIndicationCallbackRegister(lAL_SER_StringifyDataIndication);
+    (void) AL_DataConfirmCallbackRegister(lAL_SER_StringifyDataConfirm);
+    (void) AL_EventIndicationCallbackRegister(lAL_SER_StringifyEventIndication);
 
     return (SYS_MODULE_OBJ) MM_AL_SERIAL_INDEX_0;
 }

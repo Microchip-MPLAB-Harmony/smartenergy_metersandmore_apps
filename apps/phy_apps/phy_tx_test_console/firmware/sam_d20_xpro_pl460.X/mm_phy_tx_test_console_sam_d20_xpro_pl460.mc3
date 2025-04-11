@@ -27991,7 +27991,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\definitions.h</file>
-         <hash>927bbf8176f9762fdaef6aa523a5b413d2108b2bf70a3cea592cb2000a4e5a0e</hash>
+         <hash>b851f0b9a199163634fa1335192694a29bdf1451783ca5b2b0dae474d44fdc7f</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\device.h</file>
@@ -28095,7 +28095,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\initialization.c</file>
-         <hash>bd9ba77750f2f92414215ee02cc9e84c29785eefa78ba9450d45a52586446620</hash>
+         <hash>b5537a00f70d40a66a4d787f7c0cccfadb1bd7f72a867735044201a2e666ea27</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\interrupts.c</file>
@@ -28247,7 +28247,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\random\srv_random.c</file>
-         <hash>6f9f3df93792ef7cdeffbd19d4fcc06280b6d37846efa686cfd564e0511ed84e</hash>
+         <hash>7c870857a4b52d1f04d39d431e6187fc174c5f2d9e97e80c4d9061410b0833e8</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460\service\random\srv_random.h</file>

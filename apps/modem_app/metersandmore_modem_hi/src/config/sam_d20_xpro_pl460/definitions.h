@@ -52,10 +52,10 @@
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
 #include "peripheral/adc/plib_adc.h"
 #include "peripheral/tc/plib_tc0.h"
-#include "system/time/sys_time.h"
 #include "driver/plc/phy/drv_plc_phy_definitions.h"
 #include "driver/plc/phy/drv_plc_phy.h"
 #include "driver/plc/phy/drv_plc_phy_comm.h"
+#include "system/time/sys_time.h"
 #include "stack/metersandmore/mmhi/mmhi.h"
 #include "stack/metersandmore/mmhi/mmhi_definitions.h"
 #include "stack/metersandmore/mmhi/mmhi_mib.h"
@@ -211,9 +211,9 @@ Remarks:
 
 typedef struct
 {
-    SYS_MODULE_OBJ  sysTime;
 
     SYS_MODULE_OBJ drvPlcPhy;
+    SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ metersandmoreHostInterface;
 
     SYS_MODULE_OBJ  sysConsole0;

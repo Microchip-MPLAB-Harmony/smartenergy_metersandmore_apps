@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: mm_phy_tx_test_console_pic32cx_mtsh_db_pl460
-creation_date: 2025-04-09T16:25:09.947+02:00[Europe/Paris]
+creation_date: 2025-04-11T15:07:23.302+02:00[Europe/Paris]
 operating_system: Windows 11
 mcc_mode: IDE
 mcc_mode_version: v6.25
@@ -21,6 +21,6 @@ modules:
 - {name: core, type: HARMONY, version: v3.15.1}
 - {name: csp, type: HARMONY, version: v3.22.2}
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
-- {name: gfx, type: HARMONY, version: v3.15.3}
+- {name: gfx, type: HARMONY, version: v3.16.0}
 - {name: smartenergy, type: HARMONY, version: v1.4.0}
 - {name: shd, type: HARMONY, version: v1.1.0}
