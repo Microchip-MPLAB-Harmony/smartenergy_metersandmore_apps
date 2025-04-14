@@ -29175,7 +29175,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="srv_usi_0" name="SRV_USI_RTOS_STACK_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;srv_usi_0&gt;
   &lt;srv_usi_0 dnOrder=&quot;0&quot; id=&quot;SRV_USI_RTOS_STACK_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2048&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/srv_usi_0&gt;
 &lt;/srv_usi_0&gt;
 </value>
@@ -30855,7 +30857,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\configuration.h</file>
-         <hash>c324fae6cbb19daa46892a6393e2f745f7ba93bd28e97d98355ea0d2905e88ac</hash>
+         <hash>607c3c822d10a82bb36202efb8395ceab0bbec75ee083930ddc1e5a3ef42a38d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\crypto\common_crypto\crypto_common.h</file>
@@ -30927,7 +30929,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\definitions.h</file>
-         <hash>6e184f940a6a0bb2dc36773e72792477d8c175802bf793514420c99d0c42c428</hash>
+         <hash>bf57023da1bebf377ec4fdbc2a5cd260a7ef3b05022049f8061c162df39b6903</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\device.h</file>
@@ -31231,11 +31233,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\service\usi\srv_usi_usart.c</file>
-         <hash>b2b69e0f406a783b3cf568d3ff876e6ea3dac56b18881a0403a81a6f7c3384a0</hash>
+         <hash>638670a3d13b444b4cb77005cf93a44506b2aeec4f96c189796cbc1d90142087</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\service\usi\srv_usi_usart.h</file>
-         <hash>42e8a39c149e077389fdf47e4c6ddc679e4b10086571be7911bb8dc5f1e3be64</hash>
+         <hash>64bd8712565dd33e1b5af0b8e8956e03164e375b09b55f092942ecfe2e21b211</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\stack\metersandmore\al\al.c</file>
@@ -31351,7 +31353,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\tasks.c</file>
-         <hash>60a660130acfe586ba8909d243087800aada9df91ddd6bd21f57102aa64a1c18</hash>
+         <hash>ff38e8077d1a057b764f66e80d8dfedbe505f92839721112e4311f7df02a384b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32cx_mtg_ek_pl460_freertos\toolchain_specifics.h</file>

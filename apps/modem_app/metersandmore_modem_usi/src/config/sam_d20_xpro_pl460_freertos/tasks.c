@@ -91,6 +91,7 @@ static void lSRV_USI0_Tasks(  void *pvParameters  )
     while(true)
     {
         SRV_USI_Tasks(sysObj.srvUSI0);
+        vTaskDelay(SRV_USI0_RTOS_TASK_DELAY_MS / portTICK_PERIOD_MS);
     }
 }
 

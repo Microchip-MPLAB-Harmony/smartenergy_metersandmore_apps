@@ -761,7 +761,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_TOTAL_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;10240&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -10961,7 +10961,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;585&quot; canvasWidth=&quot;744&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;585&quot; canvasWidth=&quot;722&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -29379,7 +29379,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="srv_usi_0" name="SRV_USI_RTOS_STACK_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;srv_usi_0&gt;
   &lt;srv_usi_0 dnOrder=&quot;0&quot; id=&quot;SRV_USI_RTOS_STACK_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2048&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/srv_usi_0&gt;
 &lt;/srv_usi_0&gt;
 </value>
@@ -30194,7 +30196,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\FreeRTOSConfig.h</file>
-         <hash>e99a8769a7f5cc7a13c052ada993ea95d48d069baed719f0a675a8171bbcf21b</hash>
+         <hash>8f0132c158c0aa7e1108b6ea3d25778a9f2d14282cc1d3ad5d31684d24adeb02</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\bsp\bsp.c</file>
@@ -30206,7 +30208,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\configuration.h</file>
-         <hash>5a5b9f788d6711161c4aba008a4b4e429e694588e6f9d39b76b135feb4d0ceef</hash>
+         <hash>ce0ac671a22c5473d8d33c5e8a7696e3210c420a53e668a08e4eddc375adb48c</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\crypto\common_crypto\crypto_common.h</file>
@@ -30286,7 +30288,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\definitions.h</file>
-         <hash>db714a6fb4199c1bffd7648766948d025ef67c980da4e4d84ac7f47136194013</hash>
+         <hash>507b4923c6fd0b7996eccd4397d47ec5bec0c7789da673b3aadf26df0a97f9e2</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\device.h</file>
@@ -30370,7 +30372,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\initialization.c</file>
-         <hash>95dff591c8ab6ccadcd1bb649e58262320dc31a388360f0df385fc80e2b79d4e</hash>
+         <hash>d1b3e9a2dc298b7fbba31ea6e0d2f03d0b075589972b97b24f3c9cc3646b9191</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\interrupts.c</file>
@@ -30558,11 +30560,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\usi\srv_usi_usart.c</file>
-         <hash>b2b69e0f406a783b3cf568d3ff876e6ea3dac56b18881a0403a81a6f7c3384a0</hash>
+         <hash>638670a3d13b444b4cb77005cf93a44506b2aeec4f96c189796cbc1d90142087</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\service\usi\srv_usi_usart.h</file>
-         <hash>42e8a39c149e077389fdf47e4c6ddc679e4b10086571be7911bb8dc5f1e3be64</hash>
+         <hash>64bd8712565dd33e1b5af0b8e8956e03164e375b09b55f092942ecfe2e21b211</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\stack\metersandmore\al\al.c</file>
@@ -30670,7 +30672,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\tasks.c</file>
-         <hash>939fdf6f45e381a62a7d45cd2214b9d1ded1be0033744581508a1271e82409e9</hash>
+         <hash>d400f5538a699a98e08600db2486f8bc93922a200600e3a4f30e097e50ebc2a1</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_d20_xpro_pl460_freertos\toolchain_specifics.h</file>

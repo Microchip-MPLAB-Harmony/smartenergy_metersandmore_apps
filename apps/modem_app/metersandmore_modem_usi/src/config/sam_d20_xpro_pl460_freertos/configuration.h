@@ -136,8 +136,9 @@ extern "C" {
 #define SRV_USI_INDEX_0                       0
 #define SRV_USI0_RD_BUF_SIZE                  1024
 #define SRV_USI0_WR_BUF_SIZE                  1024
-#define SRV_USI0_RTOS_STACK_SIZE               256
-#define SRV_USI0_RTOS_TASK_PRIORITY            1
+#define SRV_USI0_RTOS_STACK_SIZE              512
+#define SRV_USI0_RTOS_TASK_DELAY_MS           1U
+#define SRV_USI0_RTOS_TASK_PRIORITY           1
 
 
 

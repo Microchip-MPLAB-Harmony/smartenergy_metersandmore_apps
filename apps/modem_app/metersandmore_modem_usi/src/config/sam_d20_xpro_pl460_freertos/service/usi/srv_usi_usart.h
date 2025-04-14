@@ -117,7 +117,6 @@ typedef struct
     
     size_t                                   usartBufferSize;
     uint8_t*                                 usartReadBuffer;
-    OSAL_SEM_DECLARE(semaphoreID);
 } USI_USART_OBJ;
 
 // *****************************************************************************
