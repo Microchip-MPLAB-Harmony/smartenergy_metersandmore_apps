@@ -329,7 +329,7 @@ bool FLEXCOM7_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
         else
         {
             /* Requested baud can be generated with either with 8x oversampling or with 16x oversampling. Select valid one. */
-            if ((cd1 > 0U )&& (cd1 <= 65535U))
+            if ((cd1 > 0U) && (cd1 <= 65535U))
             {
                 cd0 = cd1;
                 fp0 = fp1;
@@ -476,4 +476,6 @@ bool FLEXCOM7_USART_TransmitComplete( void )
 {
     return ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) != 0U);
 }
+
+
 

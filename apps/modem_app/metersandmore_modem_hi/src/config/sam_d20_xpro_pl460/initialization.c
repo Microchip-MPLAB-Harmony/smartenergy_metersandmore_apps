@@ -94,15 +94,15 @@
 /* pull up resistors are configured by default */
 void _on_reset(void)
 {
-    /* Disable STBY Pin */
-    SYS_PORT_PinOutputEnable(SYS_PORT_PIN_PA08);
-    SYS_PORT_PinClear(SYS_PORT_PIN_PA08);
-    /* Enable Reset Pin */
-    SYS_PORT_PinOutputEnable(DRV_PLC_RESET_PIN);
-    SYS_PORT_PinClear(DRV_PLC_RESET_PIN);
     /* Enable LDO Pin */
     SYS_PORT_PinOutputEnable(DRV_PLC_LDO_EN_PIN);
     SYS_PORT_PinSet(DRV_PLC_LDO_EN_PIN);
+    /* Enable Reset Pin */
+    SYS_PORT_PinOutputEnable(DRV_PLC_RESET_PIN);
+    SYS_PORT_PinClear(DRV_PLC_RESET_PIN);
+    /* Disable STBY Pin */
+    SYS_PORT_PinOutputEnable(SYS_PORT_PIN_PA08);
+    SYS_PORT_PinClear(SYS_PORT_PIN_PA08);
 }
 
 /* MISRA C-2012 deviation block end */
@@ -386,8 +386,8 @@ void SYS_Initialize ( void* data )
 
     SERCOM3_USART_Initialize();
 
-
     SERCOM0_SPI_Initialize();
+
 
     SERCOM4_USART_Initialize();
 
