@@ -358,8 +358,8 @@ void SYS_Initialize ( void* data )
 
     NVMCTRL_Initialize( );
 
-    SERCOM0_SPI_Initialize();
 
+    SERCOM0_SPI_Initialize();
 
     ADC_Initialize();
     EIC_Initialize();

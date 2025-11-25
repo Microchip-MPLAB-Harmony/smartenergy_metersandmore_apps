@@ -1,0 +1,136 @@
+configVersion: 1.0.0
+componentName: mmHi
+coreVersion: 5.8.3
+device: ATSAMD20J18
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: mmHi
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: CMSIS_5
+  type: package
+  version: 5.9.1-dev
+- dependencyPackage: ''
+  name: core
+  type: package
+  version: v3.15.5
+- dependencyPackage: ''
+  name: crypto_v4
+  type: package
+  version: v4.0.0-E3
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+- dependencyPackage: ''
+  name: shd
+  type: package
+  version: v1.2.1
+- dependencyPackage: ''
+  devMode: true
+  name: smartenergy
+  type: package
+  version: v1.5.0
+- dependencyPackage: ''
+  devMode: true
+  name: smartenergy_metersandmore
+  type: package
+  version: v1.2.0
+- dependencyPackage: ''
+  name: wolfssl
+  type: package
+  version: v5.7.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: mmHi_console_dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: sercom4
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: SERCOM4_UART
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: mmHi
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: mmHi
+          x: '677'
+          y: '428'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    MMHI_CUSTOM_COMMANDS:
+      attributes:
+        id: MMHI_CUSTOM_COMMANDS
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: Integer
+    MMHI_EIC_SIGNAL:
+      attributes:
+        id: MMHI_EIC_SIGNAL
+      children:
+      - children:
+        - attributes:
+            id: mmHi
+            value: EIC_PIN_14
+          type: Dynamic
+        type: Values
+      type: String
+    MMHI_EXT_INT_SRC:
+      attributes:
+        id: MMHI_EXT_INT_SRC
+      children:
+      - children:
+        - attributes:
+            id: mmHi
+            value: PIOB_IRQn
+          type: Dynamic
+        type: Values
+      type: String
+    MMHI_RTS_PIN:
+      attributes:
+        id: MMHI_RTS_PIN
+      children:
+      - children:
+        - attributes:
+            value: '44'
+          type: User
+        type: Values
+      type: KeyValueSet
+    MMHI_UART_DEVICE:
+      attributes:
+        id: MMHI_UART_DEVICE
+      children:
+      - children:
+        - attributes:
+            id: mmHi
+            value: SERCOM4
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}
