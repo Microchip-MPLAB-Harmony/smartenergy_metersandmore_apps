@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>meter_app_pic32cx_mtsh_db_pl460</name>
+            <name>meter_app</name>
             <creation-uuid>be1177f8-8b7c-497b-bf2b-21f26d75a284</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
