@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Package name="smartenergy_metersandmore_apps">
-    <Dependencies>
-    <Dependencies>
-        <Dependency name="smartenergy_metersandmore" version="v1.1.0"/>
-        <Dependency name="shd" version="v1.1.0"/>
-    </Dependencies>
-</Package>
