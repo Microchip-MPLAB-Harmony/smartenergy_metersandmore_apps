@@ -266,8 +266,39 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb"
+                     displayName="mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/srvRandom.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/sys_console.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/cmsis.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/core.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/drv_sst26.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/sefc1.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/sys_console_0.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/drv_memory_0.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/qspi.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/trng.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/mainBoard_PIC32CXMTG_EK.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/drv_memory.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/tc0.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/flexcom0.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/sefc0.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/sys_time.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/flexcom5.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/srv_pcoup.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/drvPlcPhy.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/HarmonyCore.yml</itemPath>
+          <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/components/dfp.yml</itemPath>
+        </logicalFolder>
+        <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>mm_phy_tx_test_console_pic32cx_mtg_ek_pl360amb.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

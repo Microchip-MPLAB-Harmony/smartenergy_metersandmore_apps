@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>mm_phy_tx_test_console_sam_d20_xpro_pl460</name>
+            <name>mm_phy_tx_test_console</name>
             <creation-uuid>83636ff4-e9b6-41a1-bc19-6d523133fbb5</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
