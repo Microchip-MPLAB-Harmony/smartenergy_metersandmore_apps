@@ -118,28 +118,10 @@ void ADC_Initialize( void )
         /* Wait for Synchronization */
     }
 
-    /* Window mode configurations */
-    ADC_REGS->ADC_WINCTRL = ADC_WINCTRL_WINMODE_MODE3;
-    while((ADC_REGS->ADC_STATUS & ADC_STATUS_SYNCBUSY_Msk) != 0U)
-    {
-        /* Wait for Synchronization */
-    }
-    /* Upper threshold for window mode  */
-    ADC_REGS->ADC_WINUT = 1024;
-    while((ADC_REGS->ADC_STATUS & ADC_STATUS_SYNCBUSY_Msk) != 0U)
-    {
-        /* Wait for Synchronization */
-    }
-    /* Lower threshold for window mode  */
-    ADC_REGS->ADC_WINLT = 512;
-    while((ADC_REGS->ADC_STATUS & ADC_STATUS_SYNCBUSY_Msk) != 0U)
-    {
-        /* Wait for Synchronization */
-    }
     /* Clear all interrupt flags */
     ADC_REGS->ADC_INTFLAG = ADC_INTFLAG_Msk;
     /* Enable interrupts */
-    ADC_REGS->ADC_INTENSET = ADC_INTENSET_WINMON_Msk;
+    ADC_REGS->ADC_INTENSET = ADC_INTENSET_RESRDY_Msk;
 
     while((ADC_REGS->ADC_STATUS & ADC_STATUS_SYNCBUSY_Msk) != 0U)
     {
@@ -255,7 +237,7 @@ void __attribute__((used)) ADC_InterruptHandler( void )
     ADC_STATUS status;
     status = (ADC_STATUS) (ADC_REGS->ADC_INTFLAG);
     /* Clear interrupt flag */
-    ADC_REGS->ADC_INTFLAG =  ADC_INTENSET_WINMON_Msk;
+    ADC_REGS->ADC_INTFLAG =  ADC_INTENSET_RESRDY_Msk;
     if (ADC_CallbackObject.callback != NULL)
     {
         uintptr_t context = ADC_CallbackObject.context;
@@ -263,14 +245,3 @@ void __attribute__((used)) ADC_InterruptHandler( void )
     }
 }
 
-/* Check whether result is ready */
-bool ADC_ConversionStatusGet( void )
-{
-    bool status;
-    status =  (((ADC_REGS->ADC_INTFLAG & ADC_INTFLAG_RESRDY_Msk) >> ADC_INTFLAG_RESRDY_Pos)!= 0U);
-    if (status == true)
-    {
-        ADC_REGS->ADC_INTFLAG = ADC_INTFLAG_RESRDY_Msk;
-    }
-    return status;
-}

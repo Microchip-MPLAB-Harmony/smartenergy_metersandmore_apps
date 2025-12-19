@@ -9,47 +9,10 @@ dependency:
   type: module
   version: ''
 - dependencyPackage: ''
-  name: CMSIS_5
-  type: package
-  version: 5.9.1-dev
-- dependencyPackage: ''
-  name: FreeRTOS-Kernel
-  type: package
-  version: V11.1.0
-- dependencyPackage: ''
-  name: core
-  type: package
-  version: v3.15.5
-- dependencyPackage: ''
-  name: crypto_v4
-  type: package
-  version: v4.0.0-E3
-- dependencyPackage: ''
-  name: csp
-  type: package
-  version: v3.23.0
-- dependencyPackage: ''
-  name: gfx
-  type: package
-  version: v3.16.2
-- dependencyPackage: ''
+  devMode: true
   name: shd
   type: package
-  version: v1.2.1
-- dependencyPackage: ''
-  devMode: true
-  name: smartenergy
-  type: package
-  version: v1.5.0
-- dependencyPackage: ''
-  devMode: true
-  name: smartenergy_metersandmore
-  type: package
-  version: v1.2.0
-- dependencyPackage: ''
-  name: wolfssl
-  type: package
-  version: v5.7.0
+  version: v1.3.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -72,58 +35,12 @@ data:
       children:
       - children:
         - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
-            value: 'true'
-          type: Dynamic
-        type: Values
-      type: Boolean
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro
-      children:
-      - children:
-        - attributes:
-            value: PL460 Evaluation Kit (PLC PHY)
-          type: User
-        type: Values
-      type: Combo
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC PLUS:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC PLUS
-      children:
-      - children:
-        - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
-            value: 'true'
-          type: Dynamic
-        type: Values
-      type: Boolean
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_GPIO SS:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_GPIO SS
-      children:
-      - children:
-        - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
-            value: 'true'
-          type: Dynamic
-        type: Values
-      type: Boolean
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_I2C:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_I2C
-      children:
-      - children:
-        - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
-            value: 'true'
-          type: Dynamic
-        type: Values
-      type: Boolean
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_IRQ:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_IRQ
-      children:
+            id: label
+          children:
+          - type: Value
+            value: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC MINUS
+          type: String
+        type: Attributes
       - children:
         - attributes:
             id: mainBoard_PIC32CXMTSH_DB
@@ -137,32 +54,12 @@ data:
       children:
       - children:
         - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
+            id: readOnly
+          children:
+          - type: Value
             value: 'true'
-          type: Dynamic
-        type: Values
-      type: Boolean
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_PWM PLUS:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_PWM PLUS
-      children:
-      - children:
-        - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
-            value: 'true'
-          type: Dynamic
-        type: Values
-      type: Boolean
-    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_SPI:
-      attributes:
-        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_SPI
-      children:
-      - children:
-        - attributes:
-            id: mainBoard_PIC32CXMTSH_DB
-            value: 'true'
-          type: Dynamic
-        type: Values
+          type: Boolean
+        type: Attributes
       type: Boolean
     SHD_MAINBOARD_INTERFACE_0_OPT_2:
       attributes:
@@ -194,4 +91,80 @@ data:
           type: User
         type: Values
       type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_SPI:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_SPI
+      children:
+      - children:
+        - attributes:
+            id: mainBoard_PIC32CXMTSH_DB
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_IRQ:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_IRQ
+      children:
+      - children:
+        - attributes:
+            id: mainBoard_PIC32CXMTSH_DB
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_GPIO1:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_GPIO1
+      children:
+      - children:
+        - attributes:
+            id: mainBoard_PIC32CXMTSH_DB
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_GPIO SS:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_GPIO SS
+      children:
+      - children:
+        - attributes:
+            id: mainBoard_PIC32CXMTSH_DB
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC PLUS:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC PLUS
+      children:
+      - children:
+        - attributes:
+            id: mainBoard_PIC32CXMTSH_DB
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC MINUS:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro_ADC MINUS
+      children:
+      - children:
+        - attributes:
+            id: mainBoard_PIC32CXMTSH_DB
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SHD_MAINBOARD_CONNECTOR_Xplained-Pro:
+      attributes:
+        id: SHD_MAINBOARD_CONNECTOR_Xplained-Pro
+      children:
+      - children:
+        - attributes:
+            value: PL460 EK v5 (PLC PHY)
+          type: User
+        type: Values
+      type: Combo
   userData: {}

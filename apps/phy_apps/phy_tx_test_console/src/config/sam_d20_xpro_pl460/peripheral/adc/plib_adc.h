@@ -113,7 +113,6 @@ void ADC_InterruptsDisable(ADC_STATUS interruptMask);
 
 void ADC_CallbackRegister( ADC_CALLBACK callback, uintptr_t context );
 
-bool ADC_ConversionStatusGet( void );
 
 
 

@@ -44,7 +44,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\bsp\bsp.h
   hash: 52bed4d270950cf0771c78c247dd43b4e913652e6d0cd569a37e8f3f97813915
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\configuration.h
-  hash: 74d65668e1afa59ce611d42ab853934f16b3d6ea8ef9c0a661f255140eead0ec
+  hash: 0fba57c978bf1953a969425a650cab4dced068374d6634740d0f558707bca8ca
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\crypto\common_crypto\crypto_common.h
   hash: 7e546042b673a902f890a382797efaee0ba1fcb7b47f4c3dac7c4b45a9a710b1
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\crypto\common_crypto\crypto_mac_cipher.h
@@ -100,9 +100,9 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\driver\plc\common\drv_plc_boot.h
   hash: 4f91187cb22a27ddf0400d5b14f63c248a3b0327929268b67da78e884004df54
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\driver\plc\common\drv_plc_hal.c
-  hash: 6fbec9b6afbd1a2d2c50dce5fd5f21bcf6aebe6da869e1f9bb6e56dd6e0b8657
+  hash: c517263ea7f83826e264c3bd70089e8ec3e3657408ab385c5705ba5e51509904
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\driver\plc\common\drv_plc_hal.h
-  hash: 7f852a158245cbbd099ed52365ac9e6f3bafb122b54a276060eaec236efd6f16
+  hash: baf23ecb3dad370f9832321cc89f8a0112e200c136ef702189ab34fb9a87c46c
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\driver\plc\phy\bin\PLC_PHY_MM.bin
   hash: 124a38cd58c22e3c9da27434165f0aad8c5bba324f86ca57c7dd636d14df84dc
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\driver\plc\phy\bin\plc_phy_bin.S
@@ -126,7 +126,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\freertos_hooks.c
   hash: c97b8f92ad60ff513a27ac7a27b3c6824b75005eb8f7b85fe5ae18deaf568c4e
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\initialization.c
-  hash: d8e5597e3853a46c064da62e3fb3f755f34b41fd492b2cdf49a169e84030b20f
+  hash: d63547e837f31a4cbffe8919c90127223d927efd4fc8ced05b8b6d50ea1738b7
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\interrupts.c
   hash: 62913e69ae8581df96943744140c79c002b51d0162ab084629c8f0b8319dc6c8
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\interrupts.h
@@ -142,7 +142,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\osal\osal_freertos.h
   hash: f9d8c97ce37bbb7516242ec37c4b0db387090cfed54580af683bc0ce126094e0
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\adc\plib_adc.c
-  hash: 3d5a9faee0465b32dd7d5937ddbc427b96759d6080b6964ef1eb0ea20aee6bbe
+  hash: a3b0f4de0764af76786033ac0c0107e2014911aa3b736788ca1bfdcac133ca52
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\adc\plib_adc.h
   hash: 38ee6770472919f8afe498df639b961c8a72d38fcf8664dba5fefdc279d2cd79
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\adc\plib_adc_common.h
@@ -168,9 +168,9 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\nvmctrl\plib_nvmctrl.h
   hash: 5ed5f5c5b0892544d57303872afa61c7a560577850ce23de1af5f8113193f2dd
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\port\plib_port.c
-  hash: 087e36d8d4e0143b662891f79433bc92cb0a1b8f52e2a399dd9cfbc1462a581b
+  hash: b81dd452703c269139666b94304a28c7cb4f0bc609bfbf2534795ae08cbf4622
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\port\plib_port.h
-  hash: eeac707609cd642cc9c0f8e41acc526c4df6bcb6d5cadc578adb1ffc9f8b4e2e
+  hash: fdf2f06b139b1180b3dc7761b094d1dc67cab0b3dd06e1310eaa1a55d45dd498
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\spi_master\plib_sercom0_spi_master.c
   hash: 16c03125702513f044d6672933c29038ebac7ed1170174ef2c68cc7d7a301734
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\sercom\spi_master\plib_sercom0_spi_master.h
@@ -198,7 +198,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\peripheral\wdt\plib_wdt.h
   hash: f33c3f55c623ed3aab671265f066ebde54e95e3fde5afbeec01dfdc085023eb5
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\pin_configurations.csv
-  hash: eda736efed670e73cc2b306c01b0b0d32fd75c6690f62cce0a26d03fb0723372
+  hash: 26fbc274a4f920eb996b41ad1a001258ecc4acf7adf2756c8565995b8a5f3f44
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\service\pcoup\srv_pcoup.c
   hash: 370e8c0ea49719bf7d6abf6715f1b43538d646fbf022dab7e6b2b982da9f831f
 - file: ..\src\config\sam_d20_xpro_pl460_freertos\service\pcoup\srv_pcoup.h

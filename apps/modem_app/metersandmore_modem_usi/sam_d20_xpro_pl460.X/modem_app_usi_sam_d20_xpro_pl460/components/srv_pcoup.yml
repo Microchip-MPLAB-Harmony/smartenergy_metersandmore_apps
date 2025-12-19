@@ -9,39 +9,10 @@ dependency:
   type: module
   version: ''
 - dependencyPackage: ''
-  name: CMSIS_5
-  type: package
-  version: 5.9.1-dev
-- dependencyPackage: ''
-  name: core
-  type: package
-  version: v3.15.5
-- dependencyPackage: ''
-  name: crypto_v4
-  type: package
-  version: v4.0.0-E3
-- dependencyPackage: ''
-  name: csp
-  type: package
-  version: v3.23.0
-- dependencyPackage: ''
-  name: shd
-  type: package
-  version: v1.2.1
-- dependencyPackage: ''
   devMode: true
   name: smartenergy
   type: package
   version: v1.5.0
-- dependencyPackage: ''
-  devMode: true
-  name: smartenergy_metersandmore
-  type: package
-  version: v1.2.0
-- dependencyPackage: ''
-  name: wolfssl
-  type: package
-  version: v5.7.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -1728,4 +1699,56 @@ data:
           type: Dynamic
         type: Values
       type: Integer
+    SRV_PCOUP_G3_SOURCE:
+      attributes:
+        id: SRV_PCOUP_G3_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    SRV_PCOUP_G3_HEADER:
+      attributes:
+        id: SRV_PCOUP_G3_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    SRV_PCOUP_MM_SOURCE:
+      attributes:
+        id: SRV_PCOUP_MM_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SRV_PCOUP_MM_HEADER:
+      attributes:
+        id: SRV_PCOUP_MM_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
   userData: {}

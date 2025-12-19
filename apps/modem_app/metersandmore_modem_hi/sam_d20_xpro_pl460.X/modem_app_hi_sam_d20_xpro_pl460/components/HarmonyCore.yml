@@ -9,39 +9,9 @@ dependency:
   type: module
   version: ''
 - dependencyPackage: ''
-  name: CMSIS_5
-  type: package
-  version: 5.9.1-dev
-- dependencyPackage: ''
   name: core
   type: package
   version: v3.15.5
-- dependencyPackage: ''
-  name: crypto_v4
-  type: package
-  version: v4.0.0-E3
-- dependencyPackage: ''
-  name: csp
-  type: package
-  version: v3.23.0
-- dependencyPackage: ''
-  name: shd
-  type: package
-  version: v1.2.1
-- dependencyPackage: ''
-  devMode: true
-  name: smartenergy
-  type: package
-  version: v1.5.0
-- dependencyPackage: ''
-  devMode: true
-  name: smartenergy_metersandmore
-  type: package
-  version: v1.2.0
-- dependencyPackage: ''
-  name: wolfssl
-  type: package
-  version: v5.7.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -169,4 +139,313 @@ data:
           type: User
         type: Values
       type: String
+    APP0_C:
+      attributes:
+        id: APP0_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        - attributes:
+            id: name
+          children:
+          - type: Value
+            value: modem_app.c
+          type: String
+        type: Attributes
+      type: File
+    APP0_H:
+      attributes:
+        id: APP0_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        - attributes:
+            id: name
+          children:
+          - type: Value
+            value: modem_app.h
+          type: String
+        type: Attributes
+      type: File
+    OSAL_TIMEOUT_PERIPHERAL:
+      attributes:
+        id: OSAL_TIMEOUT_PERIPHERAL
+      children:
+      - children:
+        - attributes:
+            id: HarmonyCore
+            value: ''
+          type: Dynamic
+        type: Values
+      type: String
+    CONFIGURATION_H:
+      attributes:
+        id: CONFIGURATION_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    DRIVER_ROOT:
+      attributes:
+        id: DRIVER_ROOT
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    GEN_APP_TASKS:
+      attributes:
+        id: GEN_APP_TASKS
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    USER_H:
+      attributes:
+        id: USER_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYS_TASKS_H:
+      attributes:
+        id: SYS_TASKS_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    TASKS_C:
+      attributes:
+        id: TASKS_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    INT_MAPPING:
+      attributes:
+        id: INT_MAPPING
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    INT_HEADER:
+      attributes:
+        id: INT_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    INT_DEF:
+      attributes:
+        id: INT_DEF
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    INT_SOURCE:
+      attributes:
+        id: INT_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    OSAL_H:
+      attributes:
+        id: OSAL_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    OSAL_DEFINITIONS_H:
+      attributes:
+        id: OSAL_DEFINITIONS_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    OSAL_SYSDEF_H:
+      attributes:
+        id: OSAL_SYSDEF_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    OSAL_IMPL_BASIC_H:
+      attributes:
+        id: OSAL_IMPL_BASIC_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    DRIVER_COMMON:
+      attributes:
+        id: DRIVER_COMMON
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYSTEM_COMMON:
+      attributes:
+        id: SYSTEM_COMMON
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYS_DEBUG_DEF_HEADER:
+      attributes:
+        id: SYS_DEBUG_DEF_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYSTEM_ROOT:
+      attributes:
+        id: SYSTEM_ROOT
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYSTEM_MODULE:
+      attributes:
+        id: SYSTEM_MODULE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYS_DEBUG_HEADER:
+      attributes:
+        id: SYS_DEBUG_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
   userData: {}
