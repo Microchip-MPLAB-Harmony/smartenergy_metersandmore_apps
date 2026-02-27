@@ -4,7 +4,7 @@
 
 
 project: pic32cx_mtg_ek_pl360amb
-creation_date: 2026-02-11T11:46:48.049+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2026-02-27T10:36:04.158+01:00[Europe/Paris]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.6.3

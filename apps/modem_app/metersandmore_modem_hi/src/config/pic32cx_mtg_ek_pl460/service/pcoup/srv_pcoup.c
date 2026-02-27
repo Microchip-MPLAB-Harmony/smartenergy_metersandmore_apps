@@ -81,12 +81,12 @@ static const SRV_PLC_PCOUP_DATA srvPlcCoup = {
 
 SRV_PLC_PCOUP_DATA * SRV_PCOUP_Get_Config(void)
 {
-    /* MISRA C-2012 deviation block start */
-    /* MISRA C-2012 Rule 11.8 deviated once. Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
+    /* MISRA C-2023 deviation block start */
+    /* MISRA C-2023 Rule 11.8 deviated once. Deviation record ID - H3_MISRAC_2023_R_11_8_DR_1 */
 
     return (SRV_PLC_PCOUP_DATA *)&srvPlcCoup;
 
-    /* MISRA C-2012 deviation block end */
+    /* MISRA C-2023 deviation block end */
 }
 
 bool SRV_PCOUP_Set_Config(DRV_HANDLE handle)
@@ -148,10 +148,10 @@ bool SRV_PCOUP_Set_Config(DRV_HANDLE handle)
     resultOut = DRV_PLC_PHY_PIBSet(handle, &pibObj);
     result = result && resultOut;
 
-    /* MISRA C-2012 deviation block start */
-    /* MISRA C-2012 Rule 11.8 deviated twice. Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
+    /* MISRA C-2023 deviation block start */
+    /* MISRA C-2023 Rule 11.8 deviated twice. Deviation record ID - H3_MISRAC_2023_R_11_8_DR_1 */
 
-    /* MISRA C-2012 deviation block end */
+    /* MISRA C-2023 deviation block end */
 
     return result;
 }
