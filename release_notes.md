@@ -3,6 +3,52 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Harmony 3 Smart Energy Meters And More application examples v1.2.0
+
+### Development kit and demo application support
+
+The following development kits are used on provided Meters And More Demo Applications:
+
+- [PIC32CXMTG-EK Evaluation Kit](https://www.microchip.com/en-us/development-tool/EV11K09A)
+- [PIC32CXMTSH-DB Evaluation Kit](https://www.microchip.com/en-us/development-tool/EV84M21A)
+- [SAM D20 XPLAINED PRO EVALUATION KIT](https://www.microchip.com/en-us/development-tool/ATSAMD20-XPRO)
+- [PL460 Evaluation Kit](https://www.microchip.com/en-us/development-tool/EV13L63A)
+
+The following table provides a list of available applications, supported platforms and a brief description of functionalities:
+
+| Application | Platform | Description |
+| ----------- | -------- | ----------- |
+| PHY Tx Test Console | [PIC32CX-MTG, PIC32CX-MTSH, SAMD20] + PL460-EK | PLC PHY demo application to manage PLC transmissions via serial console, including Sniffer functionality to monitor data traffic on the Network |
+| Modem App HI | [PIC32CX-MTG, SAMD20] + PL460-EK | Meters And More Node serialized on top of AL and DLL Layers, which can be initialized as Master or Slave Node, and further controlled via serialization |
+| Modem App USI | [PIC32CX-MTG, SAMD20] + PL460-EK | Meters And More Node serialized on top of AL Layer, which can be initialized as Master or Slave Node, and further controlled via serialization by means of Smart Energy USI (Unified Serial Interface) Service |
+| Meter App | [PIC32CX-MTG, PIC32CX-MTSH, SAMD20] + PL460-EK | Meters And More Slave Node provided as example of an implementation which would be part of a Meter |
+| DCU App | [PIC32CX-MTG, SAMD20] + PL460-EK | Meters And More Master Node provided as example of an implementation which would be part of a Data Concentrator Unit (DCU) |
+
+### New Features
+
+- **Applications**
+  - All projects updated to use XC32 v5.0 and MCC v5.6.3.
+  - All projects regenerated with latest repository dependencies.
+  - All applications updated to work with PL460-EK rev5.
+
+### Bug fixes
+
+- None.
+
+### Known Issues
+
+- None.
+
+### Development Tools
+
+- [MPLAB® X IDE v6.25](https://www.microchip.com/mplab/mplab-x-ide)
+- [MPLAB® XC32 C/C++ Compiler v5.00](https://www.microchip.com/mplab/compilers)
+- MPLAB® X IDE plug-ins:
+  - MPLAB® Code Configurator 5.6.3 or higher
+- Device Family Packs (DFPs):
+  - PIC32CX-MT DFP 1.4.152 or higher
+  - SAMD20 DFP 3.6.112 or higher
+
 ## Harmony 3 Smart Energy Meters And More application examples v1.1.0
 
 ### Development kit and demo application support

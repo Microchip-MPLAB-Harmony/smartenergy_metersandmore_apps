@@ -14,7 +14,7 @@ MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating embedded
 This repository contains the MPLAB® Harmony 3 Smart Energy Meters And More application examples.
 
 - [Release Notes](./release_notes.md)
-- [Microchip SLA](Microchip_SLA001.md)
+- [License](License.md)
 
 # Documentation
 
@@ -45,7 +45,7 @@ The following applications are provided to demonstrate the typical use cases of 
 
 ____
 
-[![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/smartenergy_metersandmore_apps/blob/master/Microchip_SLA001.md)
+[![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/smartenergy_metersandmore_apps/blob/master/License.md)
 [![Commit activity](https://img.shields.io/github/commit-activity/y/Microchip-MPLAB-Harmony/smartenergy_metersandmore_apps.svg)](https://github.com/Microchip-MPLAB-Harmony/smartenergy_metersandmore_apps/graphs/commit-activity)
 [![Contributors](https://img.shields.io/github/contributors-anon/Microchip-MPLAB-Harmony/smartenergy_metersandmore_apps.svg)]()
 
